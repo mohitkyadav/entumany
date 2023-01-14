@@ -69,6 +69,10 @@ $title-width: 480px;
   }
 
   &__left-content-container {
+    .Button {
+      margin-top: 1rem;
+    }
+
     @media (max-width: 1200px) {
       align-items: center;
       display: flex;

@@ -1,8 +1,9 @@
 import React, {FC, useEffect, useState} from 'react';
 import clsx from 'clsx';
 import shuffle from 'lodash/shuffle';
+import {useHistory} from 'react-router-dom';
 
-import {A} from '../../../components';
+import {A, Button} from '../../../components';
 import HelloWorld, {HelloWorldKeys, defaultHelloWorld} from './hello-world';
 import Hero from './Hero.png';
 import './HomeHero.scss';
@@ -17,6 +18,7 @@ enum HelloFadeClass {
 const HomeHero: FC = () => {
   const [helloFadeClass, setHelloFadeClass] = useState<HelloFadeClass>(HelloFadeClass.fadeIn);
   const [helloText, setHelloText] = useState<string>(defaultHelloWorld);
+  const history = useHistory();
 
   useEffect(() => {
     let i = 0;
@@ -46,12 +48,15 @@ const HomeHero: FC = () => {
         <div className="HomeHero__left">
           <div className="HomeHero__left-content-container">
             <span className={clsx('HomeHero__hello-world', helloFadeClass)}>{helloText}</span>
-            <h1 className="HomeHero__title">react typescript sass boilerpate</h1>
-            <h2 className="HomeHero__subtitle">100% copied from</h2>
-            <A href="https://github.com/thenewboston-developers/Website">
-              https://github.com/thenewboston-developers/Website
-            </A>
-            <h2 className="HomeHero__subtitle">Removed all the pages, components, containers, fonts and style.</h2>
+            <h1 className="HomeHero__title">The entumany project</h1>
+            <h2 className="HomeHero__subtitle">Need help?</h2>
+            <A href="https://www.deepl.com/en/translator">Try DeepL</A>
+            <h2 className="HomeHero__subtitle">
+              Learn words, archive here and create randomized quiz and test yourslef.
+            </h2>
+            <Button type="button" onClick={() => history.push('/dashboard')}>
+              Dashboard
+            </Button>
           </div>
         </div>
         <div className="HomeHero__right">
