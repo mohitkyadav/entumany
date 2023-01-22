@@ -1,7 +1,7 @@
 import React, {FC, useEffect, useState} from 'react';
 import clsx from 'clsx';
 import shuffle from 'lodash/shuffle';
-import {useHistory} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 import {A, Button} from '../../../components';
 import HelloWorld, {HelloWorldKeys, defaultHelloWorld} from './hello-world';
@@ -18,7 +18,7 @@ enum HelloFadeClass {
 const HomeHero: FC = () => {
   const [helloFadeClass, setHelloFadeClass] = useState<HelloFadeClass>(HelloFadeClass.fadeIn);
   const [helloText, setHelloText] = useState<string>(defaultHelloWorld);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     let i = 0;
@@ -47,14 +47,16 @@ const HomeHero: FC = () => {
       <div className="HomeHero__wrapper">
         <div className="HomeHero__left">
           <div className="HomeHero__left-content-container">
-            <span className={clsx('HomeHero__hello-world', helloFadeClass)}>{helloText}</span>
+            <span className={clsx('HomeHero__hello-world', 'fs-12', helloFadeClass)}>{helloText}</span>
             <h1 className="HomeHero__title">The entumany project</h1>
             <h2 className="HomeHero__subtitle">Need help?</h2>
-            <A href="https://www.deepl.com/en/translator">Try DeepL</A>
+            <A className="fs-12" href="https://www.deepl.com/en/translator">
+              Try DeepL
+            </A>
             <h2 className="HomeHero__subtitle">
               Learn words, archive here and create randomized quiz and test yourslef.
             </h2>
-            <Button type="button" onClick={() => history.push('/dashboard')}>
+            <Button className="fs-14 ls-50" type="button" onClick={() => navigate('/dashboard')}>
               Dashboard
             </Button>
           </div>

@@ -3,8 +3,58 @@
 :root {
   --font-family-default: 'Roboto Mono', monospace;
   --font-family-mono-roboto: 'Roboto Mono', monospace;
-  --font-size-large: 2.4rem;
-  --font-size-medium: 2rem;
-  --font-size-regular: 1.6rem;
-  --font-size-small: 1rem;
+
+  --font-size-xlarge: 2rem;
+  --font-size-large: 1.8rem;
+  --font-size-medium: 1.6rem;
+  --font-size-regular: 1.4rem;
+  --font-size-small: 1.2rem;
+  --font-size-xsmall: 0.8rem;
+
+  --letter-spacing-large: 1px;
+  --letter-spacing-medium: 0.75px;
+  --letter-spacing-regular: 0.5px;
+  --letter-spacing-small: 0.4px;
+}
+
+// my soul died while naming this, I wanted to name this fs-08 :(
+.fs-8 {
+  font-size: var(--font-size-xsmall);
+}
+
+.fs-12 {
+  font-size: var(--font-size-small);
+}
+
+.fs-14 {
+  font-size: var(--font-size-regular);
+}
+
+.fs-16 {
+  font-size: var(--font-size-medium);
+}
+
+.fs-18 {
+  font-size: var(--font-size-large);
+}
+
+.fs-20 {
+  font-size: var(--font-size-xlarge);
+}
+
+.ls-40 {
+  letter-spacing: var(--letter-spacing-small);
+}
+
+.ls-50 {
+  letter-spacing: var(--letter-spacing-regular);
+}
+
+.ls-75 {
+  letter-spacing: var(--letter-spacing-medium);
+}
+
+// now I don't care it's gonna be logical at least
+.ls-100 {
+  letter-spacing: var(--letter-spacing-large);
 }
