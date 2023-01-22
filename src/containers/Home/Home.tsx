@@ -2,7 +2,7 @@ import React, {FC} from 'react';
 
 import {PageTitle} from 'components';
 
-import HomeHero from './HomeHero';
+import HomeHero from './HomeHero/HomeHero';
 
 const Home: FC = () => (
   <>

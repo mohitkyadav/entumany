@@ -1,8 +1,8 @@
 import React, {FC} from 'react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
-import Home from './Home';
-import Dashboard from './Dashboard';
+import Home from './Home/Home';
+import Dashboard from './Dashboard/Dashboard';
 
 const App: FC = () => {
   return (
