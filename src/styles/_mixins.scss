@@ -4,3 +4,39 @@
   word-break: break-word;
   word-wrap: break-word;
 }
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-row-align($align-items: center) {
+  @include flex-row;
+
+  align-items: $align-items;
+}
+
+@mixin flex-row-justify($justify-content: center) {
+  @include flex-row;
+
+  justify-content: $justify-content;
+}
+
+@mixin flex-raj($align-items: center, $justify-content: center) {
+  @include flex-row;
+
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+
+@mixin flex-caj($align-items: center, $justify-content: center) {
+  @include flex-column;
+
+  align-items: $align-items;
+  justify-content: $justify-content;
+}

@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom';
 import {A, Button} from '../../../components';
 import HelloWorld, {HelloWorldKeys, defaultHelloWorld} from './hello-world';
 import Hero from './Hero.png';
-import './HomeHero.scss';
+import './HomeHero.module.scss';
 
 const shuffledHelloKeys = shuffle(HelloWorldKeys);
 

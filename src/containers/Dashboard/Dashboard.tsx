@@ -5,7 +5,7 @@ import DashboardHero from './DashboardHero/DashboardHero';
 import DashboardRecentActivity from './DashboardRecentActivity/DashboardRecentActivity';
 
 const Dashboard: FC = () => (
-  <div>
+  <div className="page">
     <PageTitle title="Dashboard" />
     <DashboardHero />
     <DashboardRecentActivity />

@@ -1,13 +1,22 @@
-import React from 'react';
-import {FC} from 'react';
+import React, {FC} from 'react';
+import clsx from 'clsx';
+import {useNavigate} from 'react-router-dom';
+import {Button} from 'components';
 
-const DashboardRecentActivity: FC = () => (
-  <div className="dashboard-hero">
-    <div className="dashboard-hero__welcome-txt">Good morning brathi!</div>
-    <div className="dashboard-hero__user">
-      <img alt="user avatar" src="https://github.com/mohitkyadav.png" />
+import style from './DashboardRecentActivity.module.scss';
+
+const DashboardRecentActivity: FC = () => {
+  const navigate = useNavigate();
+  return (
+    <div className={style['dashboard-hero']}>
+      <div className={clsx(style['dashboard-hero__welcome-txt'], 'ls-50 fs-18')}>Some stats here</div>
+      <div className={style['dashboard-hero__actions']}>
+        <Button className="fs-20" onClick={() => navigate('/editor')}>
+          Add new words
+        </Button>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default DashboardRecentActivity;
