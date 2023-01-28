@@ -81,31 +81,6 @@ $title-width: 480px;
     }
   }
 
-  &__SocialMediaLink {
-    background: var(--color-sail-gray-900);
-    border-radius: 50%;
-    box-shadow: 0 4px 4px rgba(4, 34, 53, 0.25);
-    color: var(--color-white);
-    display: flex;
-    height: 42px;
-    justify-content: center;
-    transition: background-color 0.1s ease-in;
-    width: 42px;
-
-    &:not(:last-child) {
-      margin-right: 18px;
-    }
-
-    &:hover {
-      background: var(--color-primary-hover);
-    }
-  }
-
-  &__social-media-links {
-    display: flex;
-    margin-top: 32px;
-  }
-
   &__right {
     height: 100%;
     position: relative;
@@ -127,11 +102,11 @@ $title-width: 480px;
     font-size: var(--font-size-regular);
     font-weight: normal;
     line-height: 1.5;
-    margin-top: 30px;
+    margin: 3rem 0;
   }
 
   &__title {
-    font-size: 42px;
+    font-size: 62px;
     font-weight: 800;
     line-height: 1.25;
   }

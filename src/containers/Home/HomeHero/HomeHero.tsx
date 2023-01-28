@@ -6,7 +6,7 @@ import {useNavigate} from 'react-router-dom';
 import {A, Button} from '../../../components';
 import HelloWorld, {HelloWorldKeys, defaultHelloWorld} from './hello-world';
 import Hero from './Hero.png';
-import './HomeHero.module.scss';
+import style from './HomeHero.module.scss';
 
 const shuffledHelloKeys = shuffle(HelloWorldKeys);
 
@@ -43,26 +43,22 @@ const HomeHero: FC = () => {
   }, [setHelloFadeClass]);
 
   return (
-    <div className="HomeHero">
-      <div className="HomeHero__wrapper">
-        <div className="HomeHero__left">
-          <div className="HomeHero__left-content-container">
-            <span className={clsx('HomeHero__hello-world', 'fs-12', helloFadeClass)}>{helloText}</span>
-            <h1 className="HomeHero__title">The entumany project</h1>
-            <h2 className="HomeHero__subtitle">Need help?</h2>
-            <A className="fs-12" href="https://www.deepl.com/en/translator">
-              Try DeepL
-            </A>
-            <h2 className="HomeHero__subtitle">
-              Learn words, archive here and create randomized quiz and test yourslef.
+    <div className={style.HomeHero}>
+      <div className={style.HomeHero__wrapper}>
+        <div className={style.HomeHero__left}>
+          <div className={style['HomeHero__left-content-container']}>
+            <span className={clsx(style['HomeHero__hello-world'], 'fs-12', helloFadeClass)}>{helloText}</span>
+            <h1 className={style.HomeHero__title}>The entumany project</h1>
+            <h2 className={style.HomeHero__subtitle}>
+              Add new words you learn here, revisite and create randomized quiz to test yourself.
             </h2>
-            <Button className="fs-14 ls-50" type="button" onClick={() => navigate('/dashboard')}>
+            <Button className="fs-18 ls-50" type="button" onClick={() => navigate('/dashboard')}>
               Dashboard
             </Button>
           </div>
         </div>
-        <div className="HomeHero__right">
-          <img alt="hero" className="HomeHero__image" src={Hero} />
+        <div className={style.HomeHero__right}>
+          <img alt="hero" className={style.HomeHero__image} src={Hero} />
         </div>
       </div>
     </div>
