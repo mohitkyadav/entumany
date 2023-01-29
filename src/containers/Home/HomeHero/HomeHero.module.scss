@@ -12,6 +12,28 @@ $title-width: 480px;
   }
 }
 
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(+10px);
+  }
+}
+
 @keyframes fadeOut {
   from {
     opacity: 1;
@@ -36,15 +58,15 @@ $title-width: 480px;
 
   &__hello-world {
     display: block;
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
 
     &--fade-in {
-      animation: fadeIn 1s ease-in-out;
+      animation: slideIn 1s ease-in-out;
       opacity: 1;
     }
 
     &--fade-out {
-      animation: fadeOut 1s ease-in-out;
+      animation: slideOut 1s ease-in-out;
       opacity: 0;
     }
   }
@@ -99,7 +121,7 @@ $title-width: 480px;
   }
 
   &__subtitle {
-    font-size: var(--font-size-regular);
+    font-size: var(--font-size-medium);
     font-weight: normal;
     line-height: 1.5;
     margin: 3rem 0;

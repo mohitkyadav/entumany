@@ -3,20 +3,20 @@ import clsx from 'clsx';
 import shuffle from 'lodash/shuffle';
 import {useNavigate} from 'react-router-dom';
 
-import {A, Button} from '../../../components';
+import {Button} from '../../../components';
 import HelloWorld, {HelloWorldKeys, defaultHelloWorld} from './hello-world';
 import Hero from './Hero.png';
 import style from './HomeHero.module.scss';
 
 const shuffledHelloKeys = shuffle(HelloWorldKeys);
 
-enum HelloFadeClass {
-  fadeIn = 'HomeHero__hello-world--fade-in',
-  fadeOut = 'HomeHero__hello-world--fade-out',
-}
+const HelloFadeClass: Record<string, string> = {
+  fadeIn: style['HomeHero__hello-world--fade-in'],
+  fadeOut: style['HomeHero__hello-world--fade-out'],
+};
 
 const HomeHero: FC = () => {
-  const [helloFadeClass, setHelloFadeClass] = useState<HelloFadeClass>(HelloFadeClass.fadeIn);
+  const [helloFadeClass, setHelloFadeClass] = useState<string>(HelloFadeClass.fadeIn);
   const [helloText, setHelloText] = useState<string>(defaultHelloWorld);
   const navigate = useNavigate();
 
@@ -47,10 +47,10 @@ const HomeHero: FC = () => {
       <div className={style.HomeHero__wrapper}>
         <div className={style.HomeHero__left}>
           <div className={style['HomeHero__left-content-container']}>
-            <span className={clsx(style['HomeHero__hello-world'], 'fs-12', helloFadeClass)}>{helloText}</span>
+            <span className={clsx(style['HomeHero__hello-world'], 'fs-18', helloFadeClass)}>{helloText}</span>
             <h1 className={style.HomeHero__title}>The entumany project</h1>
             <h2 className={style.HomeHero__subtitle}>
-              Add new words you learn here, revisite and create randomized quiz to test yourself.
+              Add new words you learn here, revisit and create randomized quiz to test yourself.
             </h2>
             <Button className="fs-18 ls-50" type="button" onClick={() => navigate('/dashboard')}>
               Dashboard
