@@ -1,0 +1,7 @@
+@import '../../styles/mixins';
+
+.LangEditor {
+  @include flex-raj(center, space-between);
+  padding: 2rem 4rem;
+  background-color: red;
+}
