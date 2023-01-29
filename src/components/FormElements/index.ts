@@ -1,3 +1,1 @@
-import Button from './Button/Button';
-
-export {Button};
+export {Button} from './Button/Button';

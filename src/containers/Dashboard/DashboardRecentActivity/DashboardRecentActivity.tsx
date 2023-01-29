@@ -7,6 +7,7 @@ import style from './DashboardRecentActivity.module.scss';
 
 const DashboardRecentActivity: FC = () => {
   const navigate = useNavigate();
+
   return (
     <div className={style['dashboard-hero']}>
       <div className={clsx(style['dashboard-hero__welcome-txt'], 'ls-50 fs-18')}>Some stats here</div>

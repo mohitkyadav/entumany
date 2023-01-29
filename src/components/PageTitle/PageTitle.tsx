@@ -5,12 +5,10 @@ interface PageTitleProps {
   title: string;
 }
 
-const PageTitle: FC<PageTitleProps> = ({title}) => {
+export const PageTitle: FC<PageTitleProps> = ({title}) => {
   return (
     <Helmet>
       <title>{title}</title>
     </Helmet>
   );
 };
-
-export default PageTitle;

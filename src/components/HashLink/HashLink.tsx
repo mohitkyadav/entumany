@@ -8,12 +8,10 @@ interface ComponentProps {
   id: string;
 }
 
-const HashLink: FC<ComponentProps> = ({className, id}) => {
+export const HashLink: FC<ComponentProps> = ({className, id}) => {
   return (
     <a className={clsx('HashLink', className)} href={`#${id}`}>
       #
     </a>
   );
 };
-
-export default HashLink;

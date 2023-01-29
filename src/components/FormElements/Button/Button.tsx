@@ -14,7 +14,7 @@ export interface ButtonProps {
   children?: React.ReactNode;
 }
 
-const Button: FC<ButtonProps> = ({
+export const Button: FC<ButtonProps> = ({
   children,
   color = 'primary',
   className,
@@ -39,5 +39,3 @@ const Button: FC<ButtonProps> = ({
     </button>
   );
 };
-
-export default Button;
