@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 
 import {Button, LangEditor, PageTitle} from 'components';
 import {EntumanyDB} from 'services/db.service';
@@ -6,7 +6,12 @@ import {Language, WordEntry} from 'types/db';
 
 const EditorPage: FC = () => {
   const db = EntumanyDB.getInstance();
-  db.getState();
+
+  useEffect(() => {
+    db.populateFromLocalStorage();
+
+    return () => db.saveToLocalStorage();
+  }, [db]);
 
   const [sourceState, setSourceState] = React.useState<WordEntry>({
     language: Language.ENGLISH,
@@ -47,7 +52,6 @@ const EditorPage: FC = () => {
 
   const handleOnSaveClick = () => {
     db.addWords(sourceState, destState);
-    db.getState();
   };
 
   return (

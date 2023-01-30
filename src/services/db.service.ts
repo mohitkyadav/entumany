@@ -1,7 +1,5 @@
-import {WordEntry} from 'types/db';
+import {Language, WordEntry} from 'types/db';
 import {v4 as uuidv4} from 'uuid';
-
-const {REACT_APP_DB_NAME} = process.env;
 
 class Database {
   database: Record<string, any> = {};
@@ -15,10 +13,6 @@ class Database {
   public set(key: string, value: any): void {
     this.database[key] = value;
   }
-
-  public saveToLocalStorage(): void {
-    localStorage.setItem(REACT_APP_DB_NAME || 'db', JSON.stringify(this.database));
-  }
 }
 
 export class EntumanyDB extends Database {
@@ -31,6 +25,16 @@ export class EntumanyDB extends Database {
     return EntumanyDB.instance;
   }
 
+  public saveToLocalStorage(): void {
+    localStorage.setItem('database', JSON.stringify(this.database));
+    localStorage.setItem('wordIndex', JSON.stringify(this.wordIndex));
+  }
+
+  public populateFromLocalStorage(): void {
+    this.database = JSON.parse(localStorage.getItem('database') || '{}');
+    this.wordIndex = JSON.parse(localStorage.getItem('wordIndex') || '{}');
+  }
+
   private getWordIndex(e: WordEntry) {
     return `${e.word.toLowerCase()}|||${e.language}`;
   }
@@ -39,15 +43,32 @@ export class EntumanyDB extends Database {
     return uuidv4();
   }
 
-  private mergeEntries() {
-    // TODO: Merge entries
+  private mergeEntries(idA: string, idB: string): void {
+    const newId = this.generateId();
+
+    this.database[newId] = {...this.database[idA], ...this.database[idB]};
+    delete this.database[idA];
+    delete this.database[idB];
+
+    Object.entries<any>(this.database[newId]).map(([language, word]) => {
+      const idx = this.getWordIndex({language: language as Language, word});
+      this.wordIndex[idx] = newId;
+    });
   }
 
   addWords(a: WordEntry, b: WordEntry): void {
     const aIndex = this.getWordIndex(a); // For eg: "hello|||en"
     const bIndex = this.getWordIndex(b); // For eg: "Hellu|||de"
 
-    const id = this.wordIndex[aIndex] || this.wordIndex[bIndex] || this.generateId();
+    const idA = this.wordIndex[aIndex];
+    const idB = this.wordIndex[bIndex];
+
+    if (idA && idB) {
+      this.mergeEntries(idA, idB);
+      return;
+    }
+
+    const id = idA || idB || this.generateId();
 
     if (!this.database[id]) {
       this.database[id] = {};
