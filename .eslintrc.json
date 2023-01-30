@@ -4,6 +4,10 @@
     "es6": true,
     "jest": true
   },
+  "ignorePatterns": [
+    "**/*.stories.tsx",
+    "**/*.test.ts"
+  ],
   "extends": [
     "airbnb-typescript",
     "airbnb/hooks",

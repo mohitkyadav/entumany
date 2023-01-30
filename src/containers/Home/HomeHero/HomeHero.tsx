@@ -1,10 +1,10 @@
-import React, {FC, useEffect, useState} from 'react';
 import clsx from 'clsx';
 import shuffle from 'lodash/shuffle';
+import React, {FC, useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 
 import {Button} from '../../../components';
-import HelloWorld, {HelloWorldKeys, defaultHelloWorld} from './hello-world';
+import HelloWorld, {defaultHelloWorld, HelloWorldKeys} from './hello-world';
 import Hero from './Hero.png';
 import style from './HomeHero.module.scss';
 

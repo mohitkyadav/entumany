@@ -1,22 +1,38 @@
 import clsx from 'clsx';
 import React, {FC} from 'react';
+import {Language} from 'types/db';
 
 import style from './LangEditor.module.scss';
 
 interface LangEditorProps {
+  language: Language;
+  onChange: (value: string) => void;
+  onLanguageChange: (value: Language) => void;
   className?: string;
-  language?: string;
 }
 
-export const LangEditor: FC<LangEditorProps> = ({className, language}) => {
+interface LanguageDropDownProps {
+  defaultValue: Language;
+  onChange: (value: Language) => void;
+}
+
+const LanguageDropDown: FC<LanguageDropDownProps> = ({defaultValue, onChange}) => {
+  return (
+    <select name="langs" id="langs" defaultValue={defaultValue} onChange={(e) => onChange(e.target.value as Language)}>
+      {Object.entries(Language).map(([key, value]) => (
+        <option key={value} value={value}>
+          {key}
+        </option>
+      ))}
+    </select>
+  );
+};
+
+export const LangEditor: FC<LangEditorProps> = ({className, language, onChange, onLanguageChange}) => {
   return (
     <div className={clsx(style.LangEditor, className)}>
-      <label htmlFor="langs">Choose a car: {language}</label>
-      <select name="langs" id="langs">
-        <option value="lang1">Hi</option>
-        <option value="lang2">IN</option>
-      </select>
-      <textarea />
+      <LanguageDropDown defaultValue={language} onChange={onLanguageChange} />
+      <textarea onChange={(e) => onChange(e.target.value)} />
     </div>
   );
 };

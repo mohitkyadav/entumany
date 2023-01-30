@@ -6,9 +6,16 @@ import 'normalize.css';
 import 'styles/main.scss';
 
 import App from 'containers/App';
+import {EntumanyDB} from 'services/db.service';
 
-const container = document.getElementById('root');
-const root = createRoot(container!);
+const container = document.querySelector('#root');
+if (!container) {
+  throw new Error('render: Root element not found');
+}
+
+const root = createRoot(container);
+
+new EntumanyDB();
 
 root.render(
   <React.StrictMode>
