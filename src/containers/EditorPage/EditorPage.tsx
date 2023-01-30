@@ -13,6 +13,19 @@ const EditorPage: FC = () => {
     return () => db.saveToLocalStorage();
   }, [db]);
 
+  // TODO: This is not working
+  useEffect(() => {
+    const pageCloseCloseHandler = (e: BeforeUnloadEvent) => {
+      db.saveToLocalStorage();
+      e.preventDefault();
+      e.returnValue = 'message';
+    };
+
+    window.addEventListener('beforeunload', pageCloseCloseHandler);
+
+    return window.removeEventListener('beforeunload', pageCloseCloseHandler);
+  }, [db]);
+
   const [sourceState, setSourceState] = React.useState<WordEntry>({
     language: Language.ENGLISH,
     word: '',
