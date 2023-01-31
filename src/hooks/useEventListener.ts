@@ -2,7 +2,7 @@ import {useEffect, useRef} from 'react';
 
 type EventName = 'mousedown' | 'scroll';
 
-const useEventListener = (
+export const useEventListener = (
   eventName: EventName,
   handler: (e: Event) => any,
   element: EventTarget = window,
@@ -24,5 +24,3 @@ const useEventListener = (
     };
   }, [capture, element, eventName]);
 };
-
-export default useEventListener;

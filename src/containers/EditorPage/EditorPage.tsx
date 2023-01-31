@@ -3,27 +3,20 @@ import React, {FC, useEffect} from 'react';
 import {Button, LangEditor, PageTitle} from 'components';
 import {EntumanyDB} from 'services/db.service';
 import {Language, WordEntry} from 'types/db';
+import {useBeforeunload} from 'hooks';
 
 const EditorPage: FC = () => {
   const db = EntumanyDB.getInstance();
+
+  useBeforeunload((event) => {
+    event.preventDefault();
+    db.saveToLocalStorage();
+  });
 
   useEffect(() => {
     db.populateFromLocalStorage();
 
     return () => db.saveToLocalStorage();
-  }, [db]);
-
-  // TODO: This is not working
-  useEffect(() => {
-    const pageCloseCloseHandler = (e: BeforeUnloadEvent) => {
-      db.saveToLocalStorage();
-      e.preventDefault();
-      e.returnValue = 'message';
-    };
-
-    window.addEventListener('beforeunload', pageCloseCloseHandler);
-
-    return window.removeEventListener('beforeunload', pageCloseCloseHandler);
   }, [db]);
 
   const [sourceState, setSourceState] = React.useState<WordEntry>({
