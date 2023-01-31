@@ -6,7 +6,7 @@ interface WindowDimension {
   width: number;
 }
 
-const getWindowDimensions = (): WindowDimension => {
+export const getWindowDimensions = (): WindowDimension => {
   const {innerHeight: height, innerWidth: width} = window;
   const {clientWidth} = document.documentElement;
 
@@ -17,7 +17,7 @@ const getWindowDimensions = (): WindowDimension => {
   };
 };
 
-const useWindowDimensions = (): WindowDimension => {
+export const useWindowDimensions = (): WindowDimension => {
   const [windowDimensions, setWindowDimensions] = useState<WindowDimension>(getWindowDimensions());
 
   useEffect(() => {
@@ -31,5 +31,3 @@ const useWindowDimensions = (): WindowDimension => {
 
   return windowDimensions;
 };
-
-export default useWindowDimensions;
