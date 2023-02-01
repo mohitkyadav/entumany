@@ -32,7 +32,7 @@ export const LangEditor: FC<LangEditorProps> = ({className, language, onChange, 
   return (
     <div className={clsx(style.LangEditor, className)}>
       <LanguageDropDown defaultValue={language} onChange={onLanguageChange} />
-      <textarea onChange={(e) => onChange(e.target.value)} />
+      <textarea className={style.LangEditor__textarea} onChange={(e) => onChange(e.target.value)} />
     </div>
   );
 };

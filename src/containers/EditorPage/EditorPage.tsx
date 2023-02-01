@@ -5,6 +5,8 @@ import {EntumanyDB} from 'services/db.service';
 import {Language, WordEntry} from 'types/db';
 import {useBeforeunload} from 'hooks';
 
+import style from './EditorPage.module.scss';
+
 const EditorPage: FC = () => {
   const db = EntumanyDB.getInstance();
 
@@ -63,20 +65,25 @@ const EditorPage: FC = () => {
   return (
     <div className="page">
       <PageTitle title="Editor" />
-      <LangEditor
-        key="sourceLangEditor"
-        language={sourceState.language}
-        onChange={onSourceEditorChange}
-        onLanguageChange={onSourceLangChange}
-      />
-      <LangEditor
-        key="destLangEditor"
-        language={destState.language}
-        onChange={onDestEditorChange}
-        onLanguageChange={onDestLangChange}
-      />
 
-      <Button onClick={handleOnSaveClick}>Save</Button>
+      <div className={style.EditorPage}>
+        <LangEditor
+          key="sourceLangEditor"
+          language={sourceState.language}
+          onChange={onSourceEditorChange}
+          onLanguageChange={onSourceLangChange}
+        />
+        <LangEditor
+          key="destLangEditor"
+          language={destState.language}
+          onChange={onDestEditorChange}
+          onLanguageChange={onDestLangChange}
+        />
+
+        <Button className="fs-18" onClick={handleOnSaveClick}>
+          Save this translation
+        </Button>
+      </div>
     </div>
   );
 };
