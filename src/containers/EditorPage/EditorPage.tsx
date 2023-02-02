@@ -5,6 +5,8 @@ import {EntumanyDB} from 'services/db.service';
 import {Language, WordEntry} from 'types/db';
 import {useBeforeunload} from 'hooks';
 
+import style from './EditorPage.module.scss';
+
 const EditorPage: FC = () => {
   const db = EntumanyDB.getInstance();
 
@@ -20,11 +22,11 @@ const EditorPage: FC = () => {
   }, [db]);
 
   const [sourceState, setSourceState] = React.useState<WordEntry>({
-    language: Language.ENGLISH,
+    language: db.appOptions.language1 as Language,
     word: '',
   });
   const [destState, setDestState] = React.useState<WordEntry>({
-    language: Language.HINDI,
+    language: db.appOptions.language2 as Language,
     word: '',
   });
 
@@ -43,6 +45,7 @@ const EditorPage: FC = () => {
   };
 
   const onSourceLangChange = (language: Language) => {
+    db.updateLanguage1(language);
     setSourceState({
       ...sourceState,
       language,
@@ -50,6 +53,7 @@ const EditorPage: FC = () => {
   };
 
   const onDestLangChange = (language: Language) => {
+    db.updateLanguage2(language);
     setDestState({
       ...destState,
       language,
@@ -63,20 +67,25 @@ const EditorPage: FC = () => {
   return (
     <div className="page">
       <PageTitle title="Editor" />
-      <LangEditor
-        key="sourceLangEditor"
-        language={sourceState.language}
-        onChange={onSourceEditorChange}
-        onLanguageChange={onSourceLangChange}
-      />
-      <LangEditor
-        key="destLangEditor"
-        language={destState.language}
-        onChange={onDestEditorChange}
-        onLanguageChange={onDestLangChange}
-      />
 
-      <Button onClick={handleOnSaveClick}>Save</Button>
+      <div className={style.EditorPage}>
+        <LangEditor
+          key="sourceLangEditor"
+          language={sourceState.language}
+          onChange={onSourceEditorChange}
+          onLanguageChange={onSourceLangChange}
+        />
+        <LangEditor
+          key="destLangEditor"
+          language={destState.language}
+          onChange={onDestEditorChange}
+          onLanguageChange={onDestLangChange}
+        />
+
+        <Button className="fs-18" onClick={handleOnSaveClick}>
+          Save this translation
+        </Button>
+      </div>
     </div>
   );
 };

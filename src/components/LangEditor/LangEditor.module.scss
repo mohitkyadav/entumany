@@ -2,6 +2,24 @@
 
 .LangEditor {
   @include flex-raj(center, space-between);
-  padding: 2rem 4rem;
-  background-color: red;
+  gap: 2rem;
+  padding: 3.2rem 2.8rem;
+  background-color: var(--color-secondary);
+  border-radius: 1rem;
+  width: 70%;
+  box-shadow: 0 1px 4px 0 var(--color-blue-gray-200);
+
+  &__textarea {
+    flex: 1;
+  }
+
+  @media (max-width: 768px) {
+    @include flex-caj(stretch, space-between);
+    width: 90%;
+    padding: 2.4rem;
+
+    select {
+      flex: 1;
+    }
+  }
 }

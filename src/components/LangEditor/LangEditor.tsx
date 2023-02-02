@@ -9,6 +9,7 @@ interface LangEditorProps {
   onChange: (value: string) => void;
   onLanguageChange: (value: Language) => void;
   className?: string;
+  placeholder?: string;
 }
 
 interface LanguageDropDownProps {
@@ -28,11 +29,22 @@ const LanguageDropDown: FC<LanguageDropDownProps> = ({defaultValue, onChange}) =
   );
 };
 
-export const LangEditor: FC<LangEditorProps> = ({className, language, onChange, onLanguageChange}) => {
+export const LangEditor: FC<LangEditorProps> = ({
+  className,
+  language,
+  onChange,
+  onLanguageChange,
+  placeholder = 'Enter text',
+}) => {
   return (
     <div className={clsx(style.LangEditor, className)}>
       <LanguageDropDown defaultValue={language} onChange={onLanguageChange} />
-      <textarea onChange={(e) => onChange(e.target.value)} />
+      <textarea
+        className={style.LangEditor__textarea}
+        onChange={(e) => onChange(e.target.value)}
+        placeholder={placeholder}
+        rows={5}
+      />
     </div>
   );
 };

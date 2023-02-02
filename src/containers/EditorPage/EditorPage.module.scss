@@ -1,0 +1,7 @@
+@import '../../styles/mixins';
+
+.EditorPage {
+  @include flex-caj(center, space-between);
+  padding: 4rem 0;
+  gap: 2rem;
+}
