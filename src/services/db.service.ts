@@ -20,6 +20,18 @@ class Database {
   public set(key: string, value: any): void {
     this.database[key] = value;
   }
+
+  public clearDB(): void {
+    this.database = {};
+    this.wordIndex = {};
+    this.appOptions = defaultAppOptions;
+  }
+
+  public getState(): void {
+    console.log('💿', this.database);
+    console.log('💿', this.wordIndex);
+    console.log('💿', this.appOptions);
+  }
 }
 
 export class EntumanyDB extends Database {
@@ -88,17 +100,5 @@ export class EntumanyDB extends Database {
     this.database[id][b.language] = b.word;
     this.wordIndex[aIndex] = id;
     this.wordIndex[bIndex] = id;
-  }
-
-  public clearDB(): void {
-    this.database = {};
-    this.wordIndex = {};
-    this.appOptions = defaultAppOptions;
-  }
-
-  public getState(): void {
-    console.log('💿', this.database);
-    console.log('💿', this.wordIndex);
-    console.log('💿', this.appOptions);
   }
 }
