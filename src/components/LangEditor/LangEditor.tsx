@@ -43,6 +43,7 @@ export const LangEditor: FC<LangEditorProps> = ({
         className={style.LangEditor__textarea}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
+        rows={5}
       />
     </div>
   );
