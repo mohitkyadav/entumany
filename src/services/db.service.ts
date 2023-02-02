@@ -1,10 +1,17 @@
-import {Language, WordEntry} from 'types/db';
+import {AppOptions, Language, WordEntry} from 'types/db';
 import {v4 as uuidv4} from 'uuid';
 
+const defaultAppOptions: AppOptions = {
+  language1: Language.ENGLISH,
+  language2: Language.HINDI,
+  perQuestionAllowedTimeInSec: 0,
+};
 class Database {
   database: Record<string, any> = {};
 
   wordIndex: Record<string, string> = {};
+
+  appOptions: AppOptions = defaultAppOptions;
 
   public get(key: string): any {
     return this.database[key];
@@ -17,23 +24,6 @@ class Database {
 
 export class EntumanyDB extends Database {
   private static instance: EntumanyDB;
-
-  public static getInstance(): EntumanyDB {
-    if (!EntumanyDB.instance) {
-      EntumanyDB.instance = new EntumanyDB();
-    }
-    return EntumanyDB.instance;
-  }
-
-  public saveToLocalStorage(): void {
-    localStorage.setItem('database', JSON.stringify(this.database));
-    localStorage.setItem('wordIndex', JSON.stringify(this.wordIndex));
-  }
-
-  public populateFromLocalStorage(): void {
-    this.database = JSON.parse(localStorage.getItem('database') || '{}');
-    this.wordIndex = JSON.parse(localStorage.getItem('wordIndex') || '{}');
-  }
 
   private getWordIndex(e: WordEntry) {
     return `${e.word.toLowerCase()}|||${e.language}`;
@@ -56,7 +46,27 @@ export class EntumanyDB extends Database {
     });
   }
 
-  addWords(a: WordEntry, b: WordEntry): void {
+  public static getInstance(): EntumanyDB {
+    if (!EntumanyDB.instance) {
+      EntumanyDB.instance = new EntumanyDB();
+    }
+
+    return EntumanyDB.instance;
+  }
+
+  public saveToLocalStorage(): void {
+    localStorage.setItem('database', JSON.stringify(this.database));
+    localStorage.setItem('wordIndex', JSON.stringify(this.wordIndex));
+    localStorage.setItem('appOptions', JSON.stringify(this.appOptions));
+  }
+
+  public populateFromLocalStorage(): void {
+    this.database = JSON.parse(localStorage.getItem('database') || '{}');
+    this.wordIndex = JSON.parse(localStorage.getItem('wordIndex') || '{}');
+    this.appOptions = JSON.parse(localStorage.getItem('appOptions') || '{}');
+  }
+
+  public addWords(a: WordEntry, b: WordEntry): void {
     const aIndex = this.getWordIndex(a); // For eg: "hello|||en"
     const bIndex = this.getWordIndex(b); // For eg: "Hellu|||de"
 
@@ -80,12 +90,15 @@ export class EntumanyDB extends Database {
     this.wordIndex[bIndex] = id;
   }
 
-  clearDB(): void {
+  public clearDB(): void {
     this.database = {};
     this.wordIndex = {};
+    this.appOptions = defaultAppOptions;
   }
 
-  getState(): void {
+  public getState(): void {
     console.log('💿', this.database);
+    console.log('💿', this.wordIndex);
+    console.log('💿', this.appOptions);
   }
 }
