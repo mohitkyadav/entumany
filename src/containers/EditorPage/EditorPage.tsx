@@ -22,11 +22,11 @@ const EditorPage: FC = () => {
   }, [db]);
 
   const [sourceState, setSourceState] = React.useState<WordEntry>({
-    language: Language.ENGLISH,
+    language: db.appOptions.language1 as Language,
     word: '',
   });
   const [destState, setDestState] = React.useState<WordEntry>({
-    language: Language.HINDI,
+    language: db.appOptions.language2 as Language,
     word: '',
   });
 
@@ -45,6 +45,7 @@ const EditorPage: FC = () => {
   };
 
   const onSourceLangChange = (language: Language) => {
+    db.updateLanguage1(language);
     setSourceState({
       ...sourceState,
       language,
@@ -52,6 +53,7 @@ const EditorPage: FC = () => {
   };
 
   const onDestLangChange = (language: Language) => {
+    db.updateLanguage2(language);
     setDestState({
       ...destState,
       language,

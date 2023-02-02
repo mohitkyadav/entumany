@@ -6,6 +6,7 @@ const defaultAppOptions: AppOptions = {
   language2: Language.HINDI,
   perQuestionAllowedTimeInSec: 0,
 };
+
 class Database {
   database: Record<string, any> = {};
 
@@ -100,5 +101,17 @@ export class EntumanyDB extends Database {
     this.database[id][b.language] = b.word;
     this.wordIndex[aIndex] = id;
     this.wordIndex[bIndex] = id;
+  }
+
+  public updateLanguage1(newLanguage: Language): void {
+    this.appOptions.language1 = newLanguage;
+  }
+
+  public updateLanguage2(newLanguage: Language): void {
+    this.appOptions.language2 = newLanguage;
+  }
+
+  public updatePerQuestionAllowedTimeInSec(newPerQuestionAllowedTimeInSec = 0): void {
+    this.appOptions.perQuestionAllowedTimeInSec = newPerQuestionAllowedTimeInSec;
   }
 }
