@@ -9,6 +9,13 @@ import style from './DashboardRecentActivity.module.scss';
 const DashboardRecentActivity: FC = () => {
   const navigate = useNavigate();
 
+  const renderStatCard = (title: string, value: number) => (
+    <div className={style['dashboard-recent__stat-card']} key={title}>
+      <div className={style['dashboard-recent__stat-card__value']}>{value.toLocaleString()}</div>
+      <div className="fw-500">{title}</div>
+    </div>
+  );
+
   const {multilanguageWords, numberOfWords, uniqueLanguages} = getStatistics();
   const statistics = [
     {
@@ -26,18 +33,21 @@ const DashboardRecentActivity: FC = () => {
   ];
 
   return (
-    <div className={style['dashboard-hero']}>
-      <div className={clsx(style['dashboard-hero__welcome-txt'], 'ls-50 fs-18')}>
-        {statistics.map((s) => (
-          <div key={s.title}>
-            <span className="fw-600">{s.title}: </span>
-            <span>{s.value}</span>
-          </div>
-        ))}
+    <div className={style['dashboard-recent']}>
+      <div className={clsx(style['dashboard-recent__stat-container'], 'ls-50 fs-18')}>
+        {statistics.map((s) => renderStatCard(s.title, s.value))}
       </div>
-      <div className={style['dashboard-hero__actions']}>
-        <Button className="fs-16" onClick={() => navigate('/editor')}>
-          Add new words
+      <div className={style['dashboard-recent__actions']}>
+        <Button disabled={numberOfWords === 0} className="fs-16" onClick={() => navigate('/play')}>
+          Play ▶️
+        </Button>
+
+        <Button className="fs-16" onClick={() => navigate('/story-time')}>
+          Story Time ⏳
+        </Button>
+
+        <Button color="secondary" className="fs-16" onClick={() => navigate('/editor')}>
+          Add new words +
         </Button>
       </div>
     </div>

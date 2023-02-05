@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800&display=swap');
 
 :root {
-  --font-family-default: 'Varela Round', sans-serif;
+  --font-family-default: 'M PLUS Rounded 1c', sans-serif;
 
   --font-size-xlarge: 2rem;
   --font-size-large: 1.8rem;
@@ -56,4 +56,28 @@
 // now I don't care it's gonna be logical at least
 .ls-100 {
   letter-spacing: var(--letter-spacing-large);
+}
+
+.fw-100 {
+  font-weight: 100;
+}
+
+.fw-300 {
+  font-weight: 300;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+.fw-800 {
+  font-weight: 800;
 }
