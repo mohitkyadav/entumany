@@ -1,14 +1,16 @@
 import React, {FC, useEffect} from 'react';
 
 import {Button, LangEditor, PageTitle} from 'components';
+import {useBeforeunload} from 'hooks';
 import {EntumanyDB} from 'services/db.service';
 import {Language, WordEntry} from 'types/db';
-import {useBeforeunload} from 'hooks';
 
+import {useNavigate} from 'react-router-dom';
 import style from './EditorPage.module.scss';
 
 const EditorPage: FC = () => {
   const db = EntumanyDB.getInstance();
+  const navigate = useNavigate();
 
   useBeforeunload((event) => {
     event.preventDefault();
@@ -79,10 +81,20 @@ const EditorPage: FC = () => {
           onChange={onDestEditorChange}
           onLanguageChange={onDestLangChange}
         />
-
-        <Button className="fs-18" onClick={handleOnSaveClick}>
-          Save this translation
-        </Button>
+        <div className={style['EditorPage__buttons-container']}>
+          <Button
+            onClick={() => {
+              navigate('/');
+            }}
+            color="secondary"
+            className="fs-16"
+          >
+            Go Home
+          </Button>
+          <Button className="fs-16" disabled={destState.language === sourceState.language} onClick={handleOnSaveClick}>
+            Save this translation
+          </Button>
+        </div>
       </div>
     </div>
   );
