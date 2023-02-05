@@ -16,8 +16,6 @@ const EditorPage: FC = () => {
   });
 
   useEffect(() => {
-    db.populateFromLocalStorage();
-
     return () => db.saveToLocalStorage();
   }, [db]);
 
