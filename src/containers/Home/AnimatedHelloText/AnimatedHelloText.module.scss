@@ -46,7 +46,6 @@ $title-width: 480px;
 .HelloText {
   &__hello-world {
     display: block;
-    margin-bottom: 3rem;
 
     &--fade-in {
       animation: slideIn 1s ease-in-out;
