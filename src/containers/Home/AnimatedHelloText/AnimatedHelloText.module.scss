@@ -1,0 +1,61 @@
+$gap-width: 50px;
+$left-pl: 64px;
+$right-width: 714px;
+$title-width: 480px;
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(+10px);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.HelloText {
+  &__hello-world {
+    display: block;
+    margin-bottom: 3rem;
+
+    &--fade-in {
+      animation: slideIn 1s ease-in-out;
+      opacity: 1;
+    }
+
+    &--fade-out {
+      animation: slideOut 1s ease-in-out;
+      opacity: 0;
+    }
+  }
+}
