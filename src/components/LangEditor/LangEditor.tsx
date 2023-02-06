@@ -34,7 +34,7 @@ export const LangEditor: FC<LangEditorProps> = ({
   language,
   onChange,
   onLanguageChange,
-  placeholder = 'Enter text',
+  placeholder = 'Enter text...',
 }) => {
   return (
     <div className={clsx(style.LangEditor, className)}>

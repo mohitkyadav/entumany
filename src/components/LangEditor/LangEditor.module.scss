@@ -1,25 +1,41 @@
 @import '../../styles/mixins';
 
 .LangEditor {
-  @include flex-raj(center, space-between);
+  @include flex-caj(flex-start, space-between);
   gap: 2rem;
   padding: 3.2rem 2.8rem;
-  background-color: var(--color-secondary);
   border-radius: 1rem;
   width: 70%;
 
   &__textarea {
-    padding: 6px;
+    padding: 1rem;
     flex: 1;
+    width: 100%;
+    border-radius: 6px;
+    outline: none;
+    border: none;
+    border: 2px solid var(--color-primary);
+
+    &:focus {
+      border: 2px solid var(--color-secondary);
+    }
+  }
+
+  select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: var(--color-pink);
+    padding: 1rem 1rem 1rem 1.8rem;
+    border-radius: 3px;
+    border: none;
+    font-weight: 400;
+    position: relative;
+    cursor: pointer;
   }
 
   @media (max-width: 768px) {
-    @include flex-caj(stretch, space-between);
+    @include flex-caj(flex-start, space-between);
     width: 90%;
     padding: 2.4rem;
-
-    select {
-      flex: 1;
-    }
   }
 }

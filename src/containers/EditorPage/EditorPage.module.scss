@@ -9,4 +9,12 @@
     @include flex-raj(center, center);
     gap: 1rem;
   }
+
+  &__helper {
+    @include flex-raj(center, center);
+    padding: 1rem;
+    gap: 1rem;
+    font-size: 24px;
+    font-weight: 100;
+  }
 }

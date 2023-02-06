@@ -40,15 +40,18 @@ const DashboardRecentActivity: FC = () => {
       </div>
       <div className={style['dashboard-recent__actions']}>
         <Button disabled={numberOfWords === 0} className="fs-14" onClick={() => navigate('/play')}>
-          <Play size={14} /> Play
+          <Play size={14} />
+          <p>Test yourself</p>
         </Button>
 
         <Button className="fs-14" onClick={() => navigate('/story-time')}>
-          <Hourglass size={14} /> Story Time
+          <Hourglass size={14} />
+          <p>Timed quiz</p>
         </Button>
 
         <Button color="secondary" className="fs-14" onClick={() => navigate('/editor')}>
-          <Plus size={14} /> Add new words
+          <Plus size={14} />
+          <p>Add new words</p>
         </Button>
       </div>
     </div>

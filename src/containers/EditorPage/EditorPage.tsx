@@ -7,7 +7,7 @@ import {Language, WordEntry} from 'types/db';
 
 import {useNavigate} from 'react-router-dom';
 import style from './EditorPage.module.scss';
-import {ArrowLeft, Save} from 'lucide-react';
+import {ArrowLeft, InfoIcon, Save} from 'lucide-react';
 
 const EditorPage: FC = () => {
   const db = EntumanyDB.getInstance();
@@ -70,6 +70,10 @@ const EditorPage: FC = () => {
       <PageTitle title="Editor" />
 
       <div className={style.EditorPage}>
+        <div className={style.EditorPage__helper}>
+          <InfoIcon size={24} />
+          <p className="fs-20">Save your translations below</p>
+        </div>
         <LangEditor
           key="sourceLangEditor"
           language={sourceState.language}
@@ -90,10 +94,12 @@ const EditorPage: FC = () => {
             color="secondary"
             className="fs-16"
           >
-            <ArrowLeft size={16} /> Go Home
+            <ArrowLeft size={16} />
+            <p>Go Back</p>
           </Button>
           <Button className="fs-16" disabled={destState.language === sourceState.language} onClick={handleOnSaveClick}>
-            <Save size={16} /> Save this translation
+            <Save size={16} />
+            <p>Save this translation</p>
           </Button>
         </div>
       </div>
