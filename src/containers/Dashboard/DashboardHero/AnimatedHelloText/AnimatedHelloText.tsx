@@ -40,7 +40,7 @@ const AnimatedHelloText: FC = () => {
 
   return (
     <div>
-      <span className={clsx(style['HelloText__hello-world'], 'fs-18', helloFadeClass)}>{helloText}</span>
+      <span className={clsx(style['HelloText__hello-world'], 'fs-14', helloFadeClass)}>{helloText}</span>
     </div>
   );
 };
