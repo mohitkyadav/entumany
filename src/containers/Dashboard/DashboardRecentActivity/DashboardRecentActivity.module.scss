@@ -6,10 +6,6 @@
   padding: 2rem 4rem;
   gap: 4rem;
 
-  &__welcome-txt {
-    font-weight: 600;
-  }
-
   &__user {
     &__image {
       width: 50px;
@@ -22,6 +18,7 @@
     display: flex;
     gap: 4.5rem;
     width: 100%;
+    flex-wrap: wrap;
   }
 
   &__stat-card {
@@ -31,8 +28,8 @@
     border: 5px solid var(--color-blue-gray-100);
     outline: 5px solid var(--color-blue-gray-100);
 
-    width: 20rem;
-    height: 21rem;
+    min-width: 22rem;
+    height: 24rem;
 
     border-radius: 20px;
     padding-left: 12px;
@@ -41,12 +38,8 @@
 
     &__value {
       font-weight: 100;
-      font-size: 6rem;
+      font-size: 4.8rem;
       word-wrap: break-word;
-
-      &:hover {
-        font-weight: 300;
-      }
     }
   }
 
