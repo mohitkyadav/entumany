@@ -1,13 +1,17 @@
 .Button {
   $self: &;
-  border-radius: 3px;
+  border-radius: 6px;
   border-width: 1px;
   border-style: solid;
-  box-shadow: 0 4px 4px rgba(4, 34, 53, 0.25);
   cursor: pointer;
   outline: none;
   padding: 9px 12px;
   transition: all 0.1s;
+
+  &:focus {
+    outline: none;
+	  box-shadow: 0 0 0 2px var(--color-orange);
+  }
 
   &--disabled {
     cursor: not-allowed;

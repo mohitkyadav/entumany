@@ -1,5 +1,6 @@
 import clsx from 'clsx';
 import {Button} from 'components';
+import {Hourglass, Play, Plus} from 'lucide-react';
 import React, {FC} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {getStatistics} from 'services/statistics.service';
@@ -38,16 +39,16 @@ const DashboardRecentActivity: FC = () => {
         {statistics.map((s) => renderStatCard(s.title, s.value))}
       </div>
       <div className={style['dashboard-recent__actions']}>
-        <Button disabled={numberOfWords === 0} className="fs-16" onClick={() => navigate('/play')}>
-          Play ▶️
+        <Button disabled={numberOfWords === 0} className="fs-14" onClick={() => navigate('/play')}>
+          <Play size={14} /> Play
         </Button>
 
-        <Button className="fs-16" onClick={() => navigate('/story-time')}>
-          Story Time ⏳
+        <Button className="fs-14" onClick={() => navigate('/story-time')}>
+          <Hourglass size={14} /> Story Time
         </Button>
 
-        <Button color="secondary" className="fs-16" onClick={() => navigate('/editor')}>
-          Add new words +
+        <Button color="secondary" className="fs-14" onClick={() => navigate('/editor')}>
+          <Plus size={14} /> Add new words
         </Button>
       </div>
     </div>
