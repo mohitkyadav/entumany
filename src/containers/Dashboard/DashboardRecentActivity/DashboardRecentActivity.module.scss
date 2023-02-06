@@ -36,7 +36,7 @@
     justify-content: center;
 
     &__value {
-      font-weight: 100;
+      font-weight: 300;
       font-size: 4.8rem;
       word-wrap: break-word;
     }
@@ -46,5 +46,13 @@
     display: flex;
     gap: 3rem;
     user-select: none;
+
+    button {
+      padding: 1.6rem 2rem;
+
+      p {
+        letter-spacing: 0.45px;
+      }
+    }
   }
 }

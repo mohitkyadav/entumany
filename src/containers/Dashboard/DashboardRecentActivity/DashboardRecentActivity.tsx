@@ -13,7 +13,7 @@ const DashboardRecentActivity: FC = () => {
   const renderStatCard = (title: string, value: number) => (
     <div className={style['dashboard-recent__stat-card']} key={title}>
       <div className={style['dashboard-recent__stat-card__value']}>{value.toLocaleString()}</div>
-      <div className="fw-400">{title}</div>
+      <div className="fw-400 fs-16">{title}</div>
     </div>
   );
 
@@ -39,19 +39,19 @@ const DashboardRecentActivity: FC = () => {
         {statistics.map((s) => renderStatCard(s.title, s.value))}
       </div>
       <div className={style['dashboard-recent__actions']}>
-        <Button disabled={numberOfWords === 0} className="fs-14" onClick={() => navigate('/play')}>
-          <Play size={14} />
-          <p>Test yourself</p>
+        <Button disabled={numberOfWords === 0} onClick={() => navigate('/play')}>
+          <Play size={16} />
+          <p className="fs-16 fw-500">Test yourself</p>
         </Button>
 
-        <Button className="fs-14" onClick={() => navigate('/story-time')}>
-          <Hourglass size={14} />
-          <p>Timed quiz</p>
+        <Button onClick={() => navigate('/story-time')}>
+          <Hourglass size={16} />
+          <p className="fs-16 fw-500">Timed quiz</p>
         </Button>
 
-        <Button color="secondary" className="fs-14" onClick={() => navigate('/editor')}>
-          <Plus size={14} />
-          <p>Add new words</p>
+        <Button color="secondary" onClick={() => navigate('/editor')}>
+          <Plus size={16} />
+          <p className="fs-16 fw-500">Add new words</p>
         </Button>
       </div>
     </div>
