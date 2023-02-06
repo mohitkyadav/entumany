@@ -7,6 +7,7 @@ import {Language, WordEntry} from 'types/db';
 
 import {useNavigate} from 'react-router-dom';
 import style from './EditorPage.module.scss';
+import {ArrowLeft, Save} from 'lucide-react';
 
 const EditorPage: FC = () => {
   const db = EntumanyDB.getInstance();
@@ -89,10 +90,10 @@ const EditorPage: FC = () => {
             color="secondary"
             className="fs-16"
           >
-            Go Home
+            <ArrowLeft size={16} /> Go Home
           </Button>
           <Button className="fs-16" disabled={destState.language === sourceState.language} onClick={handleOnSaveClick}>
-            Save this translation
+            <Save size={16} /> Save this translation
           </Button>
         </div>
       </div>
