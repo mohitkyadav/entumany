@@ -1,16 +1,21 @@
 .Button {
   $self: &;
-  border-radius: 3px;
+  border-radius: 6px;
   border-width: 1px;
   border-style: solid;
-  box-shadow: 0 4px 4px rgba(4, 34, 53, 0.25);
   cursor: pointer;
   outline: none;
   padding: 9px 12px;
   transition: all 0.1s;
 
+  &:focus {
+    outline: none;
+	  box-shadow: 0 0 0 2px var(--color-orange);
+  }
+
   &--disabled {
-    cursor: auto;
+    cursor: not-allowed;
+    filter: brightness(0.7);
   }
 
   &--contained {
@@ -27,8 +32,8 @@
 
       &#{$self}--disabled,
       &#{$self}--disabled:hover {
-        background: var(--color-primary);
-        border-color: var(--color-primary);
+        background: var(--color-primary-disabled);
+        border-color: var(--color-primary-disabled);
       }
     }
 
@@ -66,8 +71,8 @@
 
       &#{$self}--disabled,
       &#{$self}--disabled:hover {
-        background: var(--color-primary);
-        border-color: var(--color-primary);
+        background: var(--color-primary-disabled);
+        border-color: var(--color-primary-disabled);
         color: var(--color-primary);
       }
     }

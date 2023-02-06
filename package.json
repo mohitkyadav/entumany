@@ -16,6 +16,7 @@
     "clsx": "^1.1.1",
     "date-fns": "^2.16.1",
     "lodash-es": "^4.17.15",
+    "lucide-react": "^0.109.0",
     "mdi-react": "^9.1.0",
     "node-sass": "^8.0.0",
     "normalize.css": "^8.0.1",

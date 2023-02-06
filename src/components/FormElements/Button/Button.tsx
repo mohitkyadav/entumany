@@ -30,6 +30,7 @@ export const Button: FC<ButtonProps> = ({
         ...getCustomClassNames(className, `--${variant}`, true),
         ...getCustomClassNames(className, `--${color}`, true),
         ...getCustomClassNames(className, '--disabled', disabled),
+        ...getCustomClassNames('Button', `--${color}--disabled`, disabled),
       })}
       disabled={disabled}
       onClick={onClick}

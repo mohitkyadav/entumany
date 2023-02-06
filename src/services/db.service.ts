@@ -38,6 +38,11 @@ class Database {
 export class EntumanyDB extends Database {
   private static instance: EntumanyDB;
 
+  public constructor() {
+    super();
+    this.populateFromLocalStorage();
+  }
+
   private getWordIndex(e: WordEntry) {
     return `${e.word.toLowerCase()}|||${e.language}`;
   }

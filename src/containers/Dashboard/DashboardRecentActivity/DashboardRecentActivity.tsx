@@ -1,19 +1,54 @@
-import React, {FC} from 'react';
 import clsx from 'clsx';
-import {useNavigate} from 'react-router-dom';
 import {Button} from 'components';
+import {Hourglass, Play, Plus} from 'lucide-react';
+import React, {FC} from 'react';
+import {useNavigate} from 'react-router-dom';
+import {getStatistics} from 'services/statistics.service';
 
 import style from './DashboardRecentActivity.module.scss';
 
 const DashboardRecentActivity: FC = () => {
   const navigate = useNavigate();
 
+  const renderStatCard = (title: string, value: number) => (
+    <div className={style['dashboard-recent__stat-card']} key={title}>
+      <div className={style['dashboard-recent__stat-card__value']}>{value.toLocaleString()}</div>
+      <div className="fw-400">{title}</div>
+    </div>
+  );
+
+  const {multilanguageWords, numberOfWords, uniqueLanguages} = getStatistics();
+  const statistics = [
+    {
+      title: 'Multi-language words',
+      value: multilanguageWords,
+    },
+    {
+      title: 'Total words',
+      value: numberOfWords,
+    },
+    {
+      title: 'Languages',
+      value: uniqueLanguages,
+    },
+  ];
+
   return (
-    <div className={style['dashboard-hero']}>
-      <div className={clsx(style['dashboard-hero__welcome-txt'], 'ls-50 fs-18')}>Some stats here</div>
-      <div className={style['dashboard-hero__actions']}>
-        <Button className="fs-20" onClick={() => navigate('/editor')}>
-          Add new words
+    <div className={style['dashboard-recent']}>
+      <div className={clsx(style['dashboard-recent__stat-container'], 'ls-50 fs-18')}>
+        {statistics.map((s) => renderStatCard(s.title, s.value))}
+      </div>
+      <div className={style['dashboard-recent__actions']}>
+        <Button disabled={numberOfWords === 0} className="fs-14" onClick={() => navigate('/play')}>
+          <Play size={14} /> Play
+        </Button>
+
+        <Button className="fs-14" onClick={() => navigate('/story-time')}>
+          <Hourglass size={14} /> Story Time
+        </Button>
+
+        <Button color="secondary" className="fs-14" onClick={() => navigate('/editor')}>
+          <Plus size={14} /> Add new words
         </Button>
       </div>
     </div>

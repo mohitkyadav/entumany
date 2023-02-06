@@ -4,4 +4,9 @@
   @include flex-caj(center, space-between);
   padding: 4rem 0;
   gap: 2rem;
+
+  &__buttons-container {
+    @include flex-raj(center, center);
+    gap: 1rem;
+  }
 }
