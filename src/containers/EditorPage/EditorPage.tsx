@@ -66,7 +66,7 @@ const EditorPage: FC = () => {
   };
 
   return (
-    <div className="page">
+    <div className="page animation-slide-down">
       <PageTitle title="Editor" />
 
       <div className={style.EditorPage}>

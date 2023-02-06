@@ -5,7 +5,7 @@ import DashboardHero from './DashboardHero/DashboardHero';
 import DashboardRecentActivity from './DashboardRecentActivity/DashboardRecentActivity';
 
 const Dashboard: FC = () => (
-  <div className="page">
+  <div className="page animation-scale-up">
     <PageTitle title="Dashboard" />
     <DashboardHero />
     <DashboardRecentActivity />
