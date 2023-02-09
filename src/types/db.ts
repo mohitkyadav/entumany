@@ -18,3 +18,7 @@ export type AppOptions = {
   language2: Language;
   perQuestionAllowedTimeInSec: number;
 };
+
+export type GameState = {
+  words: WordEntry[];
+};
