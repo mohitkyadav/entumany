@@ -12,7 +12,7 @@ const getRandomWords = (words: Record<string, any>): Record<string, any>[] => {
 
   return randIdcs.map((idx: number) => {
     const wordId = allWordsIds[idx];
-    return words[wordId];
+    return {...words[wordId], wordId};
   });
 };
 

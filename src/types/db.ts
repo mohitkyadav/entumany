@@ -8,6 +8,16 @@ export enum Language {
   JAPANESE = 'jp',
 }
 
+export const LanguageNames = {
+  [Language.HINDI]: 'Hindi',
+  [Language.ENGLISH]: 'English',
+  [Language.GERMAN]: 'German',
+  [Language.FRENCH]: 'French',
+  [Language.SPANISH]: 'Spanish',
+  [Language.ITALIAN]: 'Italian',
+  [Language.JAPANESE]: 'Japanese',
+};
+
 export type WordEntry = {
   word: string;
   language: Language;
