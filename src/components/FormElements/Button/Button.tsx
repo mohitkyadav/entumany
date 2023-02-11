@@ -1,14 +1,13 @@
-import React, {FC} from 'react';
+import React, {FC, ComponentPropsWithoutRef} from 'react';
 import clsx from 'clsx';
 
 import {getCustomClassNames} from 'utils/components';
 import './Button.scss';
 
-export interface ButtonProps {
+export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   className?: string;
   color?: 'primary' | 'secondary' | 'tertiary';
   disabled?: boolean;
-  onClick?(e: React.MouseEvent<HTMLButtonElement, MouseEvent>): void;
   type?: 'button' | 'reset' | 'submit';
   variant?: 'contained' | 'link' | 'outlined';
   children?: React.ReactNode;
