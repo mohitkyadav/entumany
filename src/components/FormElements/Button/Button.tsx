@@ -11,6 +11,7 @@ export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   type?: 'button' | 'reset' | 'submit';
   variant?: 'contained' | 'link' | 'outlined';
   children?: React.ReactNode;
+  leftIcon?: React.ReactNode;
 }
 
 export const Button: FC<ButtonProps> = ({
@@ -21,8 +22,10 @@ export const Button: FC<ButtonProps> = ({
   onClick,
   type = 'button',
   variant = 'contained',
+  leftIcon,
+  ...props
 }) => {
-  return (
+  const renderButton = () => (
     <button
       className={clsx('Button', `Button--${variant}`, `Button--${color}`, className, {
         'Button--disabled': disabled,
@@ -34,8 +37,15 @@ export const Button: FC<ButtonProps> = ({
       disabled={disabled}
       onClick={onClick}
       type={type}
+      {...props}
     >
+      {leftIcon}
       {children}
     </button>
   );
+
+  if (disabled && props.id) {
+    return <span id={props.id}>{renderButton()}</span>;
+  }
+  return renderButton();
 };

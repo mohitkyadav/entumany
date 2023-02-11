@@ -3,6 +3,7 @@ import {createRoot} from 'react-dom/client';
 
 // Styles
 import 'normalize.css';
+import 'react-tooltip/dist/react-tooltip.css';
 import 'styles/main.scss';
 
 import App from 'containers/App';
