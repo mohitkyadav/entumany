@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import React, {FC, FormEvent, useState} from 'react';
+import React, {FC, useState} from 'react';
 import {EntumanyDB} from 'services/db.service';
 import {Language, LanguageNames} from 'types/db';
 import style from './Game.module.scss';
