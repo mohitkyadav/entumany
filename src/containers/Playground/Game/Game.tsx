@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import {Button} from 'components';
+import {Button, StepProgressBar} from 'components';
 import {WordContainer} from 'components/WordContainer/WordContainer';
 import {ArrowLeft} from 'lucide-react';
 import React, {FC, useState} from 'react';
@@ -12,14 +12,6 @@ import style from './Game.module.scss';
 export interface GameProps {
   getRandomWords(words: Record<string, any>): Word[];
 }
-
-const ProgressBar: FC<{current: number; total: number}> = ({current, total}) => {
-  return (
-    <div className={style.Game__progressBar}>
-      Progress: {current} / {total}
-    </div>
-  );
-};
 
 const Game: FC<GameProps> = ({getRandomWords}) => {
   const dbInstance = EntumanyDB.getInstance();
@@ -70,7 +62,7 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
       >
         <p>Go Back</p>
       </Button>
-      <ProgressBar current={currentWordIdx + 1} total={gameWords.length} />
+      <StepProgressBar current={currentWordIdx + 1} total={gameWords.length} />
       <div className={style.Game__container}>
         <WordContainer word={currentWord} language={srcLang} cardType="display" />
         <WordContainer word={currentWord} language={destLang} cardType="input" handleSubmit={handleSubmit} />
