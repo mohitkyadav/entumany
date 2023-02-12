@@ -38,6 +38,7 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
     const isCorrect = ansValue === currentWord[destLang].toLowerCase();
 
     postSubmitAnimation(isCorrect);
+    e.currentTarget.reset();
     moveToNextWord();
   };
 
