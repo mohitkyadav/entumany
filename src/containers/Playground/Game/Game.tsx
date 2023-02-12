@@ -1,6 +1,9 @@
 import clsx from 'clsx';
+import {Button} from 'components';
 import {WordContainer} from 'components/WordContainer/WordContainer';
+import {ArrowLeft} from 'lucide-react';
 import React, {FC, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import {EntumanyDB} from 'services/db.service';
 import {Language} from 'types/db';
 import {Word} from '../Playground';
@@ -21,6 +24,7 @@ const ProgressBar: FC<{current: number; total: number}> = ({current, total}) => 
 const Game: FC<GameProps> = ({getRandomWords}) => {
   const dbInstance = EntumanyDB.getInstance();
   const allWords = dbInstance.database;
+  const navigate = useNavigate();
   const [currentWordIdx, setCurrentWordIdx] = useState(0);
 
   const gameWords = getRandomWords(allWords);
@@ -60,6 +64,16 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
         <WordContainer word={currentWord} language={srcLang} cardType="display" />
         <WordContainer word={currentWord} language={destLang} cardType="input" handleSubmit={handleSubmit} />
       </div>
+      <Button
+        leftIcon={<ArrowLeft size={16} />}
+        onClick={() => {
+          navigate('/');
+        }}
+        color="secondary"
+        className="fs-16"
+      >
+        <p>Go Back</p>
+      </Button>
     </div>
   );
 };
