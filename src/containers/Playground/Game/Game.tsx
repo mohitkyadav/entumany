@@ -58,11 +58,10 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
         onClick={() => {
           navigate('/');
         }}
-        color="secondary"
       >
         <p>Go Back</p>
       </Button>
-      <StepProgressBar current={currentWordIdx + 1} total={gameWords.length} />
+      <StepProgressBar current={currentWordIdx} total={gameWords.length} />
       <div className={style.Game__container}>
         <WordContainer word={currentWord} language={srcLang} cardType="display" />
         <WordContainer word={currentWord} language={destLang} cardType="input" handleSubmit={handleSubmit} />
