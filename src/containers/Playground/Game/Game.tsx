@@ -1,12 +1,22 @@
 import clsx from 'clsx';
+import {WordContainer} from 'components/WordContainer/WordContainer';
 import React, {FC, useState} from 'react';
 import {EntumanyDB} from 'services/db.service';
-import {Language, LanguageNames} from 'types/db';
+import {Language} from 'types/db';
+import {Word} from '../Playground';
 import style from './Game.module.scss';
 
 export interface GameProps {
-  getRandomWords(words: Record<string, any>): Record<string, any>[];
+  getRandomWords(words: Record<string, any>): Word[];
 }
+
+const ProgressBar: FC<{current: number; total: number}> = ({current, total}) => {
+  return (
+    <div className={style.Game__progressBar}>
+      Progress: {current} / {total}
+    </div>
+  );
+};
 
 const Game: FC<GameProps> = ({getRandomWords}) => {
   const dbInstance = EntumanyDB.getInstance();
@@ -45,26 +55,10 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
 
   return (
     <div className={clsx(style.Game, 'animation-scale-up')}>
-      <div>
-        Progress: {currentWordIdx + 1} / {gameWords.length}
-      </div>
-      <div className="row">
-        <div className="wordcontainer">
-          <div className="top-left">{LanguageNames[srcLang]}</div>
-          <div>{currentWord[srcLang]}</div>
-        </div>
-        <form className="wordcontainer" onSubmit={handleSubmit}>
-          <div className="top-right">{LanguageNames[destLang]}</div>
-          <input name="answer" placeholder={`Translate in ${LanguageNames[destLang]}`} />
-          <button type="submit">submit</button>
-          <button
-            onClick={() => {
-              alert('there is no skip, right or wrong, fill the fucking input');
-            }}
-          >
-            skip
-          </button>
-        </form>
+      <ProgressBar current={currentWordIdx + 1} total={gameWords.length} />
+      <div className={style.Game__container}>
+        <WordContainer word={currentWord} language={srcLang} cardType="display" />
+        <WordContainer word={currentWord} language={destLang} cardType="input" handleSubmit={handleSubmit} />
       </div>
     </div>
   );

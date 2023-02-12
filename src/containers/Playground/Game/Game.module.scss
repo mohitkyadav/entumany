@@ -1,11 +1,24 @@
 @import '../../../styles/mixins';
 
 .Game {
-  width: 100vw;
+  @include flex-caj();
   height: 100vh;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   padding: 1rem;
+
+  &__container {
+    display: flex;
+    width: 85%;
+    gap: 2rem;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem;
+  }
+
+  &__progressBar {
+    width: 85%;
+    height: 2rem;
+    margin: 1rem;
+    border-radius: 6px;
+    background-color: #e0e0e0;
+  }
 }

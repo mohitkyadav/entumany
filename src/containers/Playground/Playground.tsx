@@ -4,8 +4,15 @@ import {PageTitle} from 'components';
 import Game from './Game/Game';
 import {generateRandomIdxFromInterval, generateRandomIntFromInterval} from 'utils/urls';
 import {MIN_WORDS_REQUIRED} from 'utils/constants';
+import {Language} from 'types/db';
 
-const getRandomWords = (words: Record<string, any>): Record<string, any>[] => {
+export type Word = {
+  [key in Language]: string;
+} & {
+  wordId: string;
+};
+
+const getRandomWords = (words: Record<string, any>): Word[] => {
   const allWordsIds = Object.keys(words);
   const allWordsLen = allWordsIds.length;
   // PS: this case prevents infinite loop
