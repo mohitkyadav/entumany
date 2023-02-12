@@ -51,7 +51,8 @@ const DashboardRecentActivity: FC = () => {
     btn?.addEventListener('click', easterEggHandler);
 
     return () => btn?.removeEventListener('click', easterEggHandler);
-  }, [navigate]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
