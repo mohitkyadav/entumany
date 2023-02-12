@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import {Button} from 'components';
 import {Hourglass, Play, Plus} from 'lucide-react';
-import React, {FC} from 'react';
+import React, {FC, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {Tooltip} from 'react-tooltip';
 import {getStatistics} from 'services/statistics.service';
@@ -9,6 +9,7 @@ import {MIN_WORDS_REQUIRED} from 'utils/constants';
 
 import style from './DashboardRecentActivity.module.scss';
 
+const PLAY_BUTTON_ID = 'play-button';
 const DashboardRecentActivity: FC = () => {
   const navigate = useNavigate();
 
@@ -37,6 +38,21 @@ const DashboardRecentActivity: FC = () => {
 
   const isPlayAllowed = numberOfWordSets >= MIN_WORDS_REQUIRED;
 
+  // Easter egg that starts game with 7 clicks, even if less than 5 word sets are saved
+  useEffect(() => {
+    const btn = document.getElementById(PLAY_BUTTON_ID);
+    const easterEggHandler = (evt: MouseEvent) => {
+      if (evt.detail === 7) {
+        console.info('You have found the easter egg! 🥚');
+        navigate('/play');
+      }
+    };
+
+    btn?.addEventListener('click', easterEggHandler);
+
+    return () => btn?.removeEventListener('click', easterEggHandler);
+  }, [navigate]);
+
   return (
     <>
       <div className={style['dashboard-recent']}>
@@ -45,7 +61,7 @@ const DashboardRecentActivity: FC = () => {
         </div>
         <div className={style['dashboard-recent__actions']}>
           <Button
-            id="play-button"
+            id={PLAY_BUTTON_ID}
             leftIcon={<Play size={16} />}
             disabled={!isPlayAllowed}
             onClick={() => navigate('/play')}
@@ -53,7 +69,11 @@ const DashboardRecentActivity: FC = () => {
             <p className="fs-16 fw-500">Test yourself</p>
           </Button>
           {!isPlayAllowed && (
-            <Tooltip anchorId="play-button" content="To play a game save, atleast 5 different word sets" place="top" />
+            <Tooltip
+              anchorId={PLAY_BUTTON_ID}
+              content="To play a game save, atleast 5 different word sets"
+              place="top"
+            />
           )}
 
           <Button leftIcon={<Hourglass size={16} />} onClick={() => navigate('/story-time')}>
