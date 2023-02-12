@@ -59,21 +59,21 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
 
   return (
     <div className={clsx(style.Game, 'animation-scale-up')}>
-      <ProgressBar current={currentWordIdx + 1} total={gameWords.length} />
-      <div className={style.Game__container}>
-        <WordContainer word={currentWord} language={srcLang} cardType="display" />
-        <WordContainer word={currentWord} language={destLang} cardType="input" handleSubmit={handleSubmit} />
-      </div>
       <Button
+        className={style.Game__back}
         leftIcon={<ArrowLeft size={16} />}
         onClick={() => {
           navigate('/');
         }}
         color="secondary"
-        className="fs-16"
       >
         <p>Go Back</p>
       </Button>
+      <ProgressBar current={currentWordIdx + 1} total={gameWords.length} />
+      <div className={style.Game__container}>
+        <WordContainer word={currentWord} language={srcLang} cardType="display" />
+        <WordContainer word={currentWord} language={destLang} cardType="input" handleSubmit={handleSubmit} />
+      </div>
     </div>
   );
 };

@@ -12,8 +12,11 @@ export const getStatistics = () => {
     return acc;
   }, 0);
 
+  const numberOfWordSets = Object.keys(dbInstance.database).length;
+
   return {
     multilanguageWords,
+    numberOfWordSets,
     numberOfWords,
     uniqueLanguages,
   };

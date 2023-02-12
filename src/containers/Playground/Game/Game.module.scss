@@ -4,20 +4,25 @@
   @include flex-caj();
   height: 100vh;
   padding: 1rem;
+  gap: 2rem;
+  margin-left: 7%;
+  margin-right: 7%;
+
+  &__back {
+    align-self: flex-start;
+  }
 
   &__container {
     display: flex;
-    width: 85%;
+    width: 100%;
     gap: 2rem;
-    flex-direction: row;
     justify-content: space-between;
     margin: 1rem;
   }
 
   &__progressBar {
-    width: 85%;
-    height: 2rem;
-    margin: 1rem;
+    width: 100%;
+    padding: 1rem;
     border-radius: 6px;
     background-color: #e0e0e0;
   }

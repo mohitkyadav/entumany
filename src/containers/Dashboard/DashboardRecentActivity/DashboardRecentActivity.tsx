@@ -19,7 +19,7 @@ const DashboardRecentActivity: FC = () => {
     </div>
   );
 
-  const {multilanguageWords, numberOfWords, uniqueLanguages} = getStatistics();
+  const {multilanguageWords, numberOfWords, uniqueLanguages, numberOfWordSets} = getStatistics();
   const statistics = [
     {
       title: 'Multi-language words',
@@ -35,7 +35,7 @@ const DashboardRecentActivity: FC = () => {
     },
   ];
 
-  const isPlayAllowed = numberOfWords >= MIN_WORDS_REQUIRED;
+  const isPlayAllowed = numberOfWordSets >= MIN_WORDS_REQUIRED;
 
   return (
     <>
@@ -53,7 +53,7 @@ const DashboardRecentActivity: FC = () => {
             <p className="fs-16 fw-500">Test yourself</p>
           </Button>
           {!isPlayAllowed && (
-            <Tooltip anchorId="play-button" content="To play a game save, atleast 5 words" place="top" />
+            <Tooltip anchorId="play-button" content="To play a game save, atleast 5 different word sets" place="top" />
           )}
 
           <Button leftIcon={<Hourglass size={16} />} onClick={() => navigate('/story-time')}>
