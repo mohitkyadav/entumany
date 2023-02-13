@@ -15,6 +15,7 @@ export const WordContainer: FC<WordContainerProps> = ({word, language, cardType,
   const isInput = cardType === 'input';
 
   const renderWord = () => <div className={style['Word-Container__word']}>{word[language]}</div>;
+
   const renderInput = () => (
     <form className={style['Word-Container__form']} onSubmit={handleSubmit}>
       <input
@@ -39,7 +40,7 @@ export const WordContainer: FC<WordContainerProps> = ({word, language, cardType,
 
   return (
     <div className={style['Word-Container']}>
-      <div className={style[`Word-Container__lang__${cardType}`]}>{LanguageNames[language]}</div>
+      <div className={style[`Word-Container__lang`]}>{LanguageNames[language]}</div>
       {isInput ? renderInput() : renderWord()}
     </div>
   );
