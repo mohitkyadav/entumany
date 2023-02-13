@@ -15,6 +15,17 @@
     width: 100%;
     gap: 4rem;
     justify-content: space-between;
-    margin: 1rem;
+    margin-top: 5rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .Game {
+    padding: 1.8rem;
+
+    &__container {
+      flex-direction: column;
+      margin-top: 4rem;
+    }
   }
 }
