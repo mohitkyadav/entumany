@@ -16,14 +16,14 @@ const DashboardRecentActivity: FC = () => {
   const renderStatCard = (title: string, value: number) => (
     <div className={style['dashboard-recent__stat-card']} key={title}>
       <div className={style['dashboard-recent__stat-card__value']}>{value.toLocaleString()}</div>
-      <div className="fw-400 fs-16">{title}</div>
+      <div className={clsx('fw-400', style['dashboard-recent__stat-card__subtitle'])}>{title}</div>
     </div>
   );
 
   const {multilanguageWords, numberOfWords, uniqueLanguages, numberOfWordSets} = getStatistics();
   const statistics = [
     {
-      title: 'Multi-language words',
+      title: 'Multilang words',
       value: multilanguageWords,
     },
     {
