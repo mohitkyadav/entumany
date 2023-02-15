@@ -66,12 +66,25 @@ const GameFeedbackModal: FC<GameFeedbackModalProps> = ({
       hide?.();
     }
   };
+
+  const getHeaderText = () => {
+    if (isComplete) {
+      return 'Quiz completed!';
+    }
+
+    if (wasCorrect) {
+      return 'Correct!';
+    }
+
+    return 'Incorrect!';
+  };
+
   return (
     <Modal
       className={clsx(style.GameFeedbackModal, 'animation-slide-up')}
       isShown={isShown}
       hide={hide}
-      headerText={wasCorrect ? 'Correct!' : 'Incorrect'}
+      headerText={getHeaderText()}
     >
       <div className={style.GameFeedbackModal__content}>
         {modalDescription()}
