@@ -1,6 +1,7 @@
 import clsx from 'clsx';
 import {Button, Modal} from 'components';
 import React, {FC, useEffect, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import {GameAnswer, LanguageNames, Word} from 'types/db';
 import style from './GameFeedbackModal.module.scss';
 
@@ -9,15 +10,18 @@ export interface GameFeedbackModalProps {
   answerFeedback: GameAnswer;
   showSubmitFeedback?: boolean;
   currentWord?: Word;
+  isComplete: boolean;
 }
 
 const GameFeedbackModal: FC<GameFeedbackModalProps> = ({
   showSubmitFeedback = false,
+  isComplete = false,
   onHide,
   answerFeedback,
   currentWord,
 }) => {
   const [isShown, setIsShown] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setIsShown(showSubmitFeedback);
@@ -39,6 +43,10 @@ const GameFeedbackModal: FC<GameFeedbackModalProps> = ({
   const bold = (text = '') => <strong>{text}</strong>;
 
   const modalDescription = () => {
+    if (isComplete) {
+      return 'Good job reaching till the end!';
+    }
+
     if (wasCorrect) {
       return 'Nice... that was correct';
     }
@@ -51,6 +59,13 @@ const GameFeedbackModal: FC<GameFeedbackModalProps> = ({
     );
   };
 
+  const onContinueClickHandler = () => {
+    if (isComplete) {
+      navigate('/');
+    } else {
+      hide?.();
+    }
+  };
   return (
     <Modal
       className={clsx(style.GameFeedbackModal, 'animation-slide-up')}
@@ -61,7 +76,7 @@ const GameFeedbackModal: FC<GameFeedbackModalProps> = ({
       <div className={style.GameFeedbackModal__content}>
         {modalDescription()}
 
-        <Button onClick={hide} color={wasCorrect ? 'tertiary' : 'secondary'}>
+        <Button autoFocus onClick={onContinueClickHandler} color={wasCorrect ? 'tertiary' : 'secondary'}>
           Continue
         </Button>
       </div>

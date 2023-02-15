@@ -20,9 +20,9 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
   const [currentWordIdx, setCurrentWordIdx] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
   const [showSubmitFeedback, setShowSubmitFeedback] = useState(false);
+  const [gameWords] = useState(getRandomWords(allWords));
   const [answerFeedback, setAnswerFeedback] = useState<GameAnswer>();
 
-  const gameWords = getRandomWords(allWords);
   const {wordId, ...currentWord} = gameWords[currentWordIdx];
   const [srcLang, destLang] = Object.keys(currentWord) as Language[];
 
@@ -49,8 +49,8 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
     if (currentWordIdx !== gameWords.length - 1) {
       setCurrentWordIdx((prevIdx) => prevIdx + 1);
     } else {
-      console.log('Trigger quiz result UI');
       setIsComplete(true);
+      setTimeout(() => setShowSubmitFeedback(true), 500);
     }
   };
 
@@ -70,6 +70,7 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
           onHide={moveToNextWord}
           answerFeedback={answerFeedback}
           currentWord={gameWords[currentWordIdx]}
+          isComplete={isComplete}
         />
       )}
     </div>
