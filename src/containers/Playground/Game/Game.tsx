@@ -18,6 +18,7 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
   const allWords = dbInstance.database;
   const navigate = useNavigate();
   const [currentWordIdx, setCurrentWordIdx] = useState(0);
+  const [isComplete, setIsComplete] = useState(false);
 
   const gameWords = getRandomWords(allWords);
   const {wordId, ...currentWord} = gameWords[currentWordIdx];
@@ -39,6 +40,7 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
       setCurrentWordIdx((prevIdx) => prevIdx + 1);
     } else {
       console.log('Trigger quiz result UI');
+      setIsComplete(true);
     }
   };
 
@@ -55,7 +57,7 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
       <Button className={style.Game__back} leftIcon={<ArrowLeft size={16} />} onClick={() => navigate('/')}>
         <p>Go Back</p>
       </Button>
-      <StepProgressBar current={currentWordIdx} total={gameWords.length} />
+      <StepProgressBar current={currentWordIdx} isComplete={isComplete} total={gameWords.length} />
       <div className={style.Game__container}>
         <WordContainer word={currentWord} language={srcLang} cardType="display" />
         <WordContainer word={currentWord} language={destLang} cardType="input" handleSubmit={handleSubmit} />

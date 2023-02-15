@@ -3,7 +3,11 @@ import React, {FC} from 'react';
 
 import style from './StepProgressBar.module.scss';
 
-export const StepProgressBar: FC<{current: number; total: number}> = ({current, total}) => {
+export const StepProgressBar: FC<{current: number; total: number; isComplete?: boolean}> = ({
+  current,
+  total,
+  isComplete = false,
+}) => {
   const totalSteps = Array(total).fill(0);
 
   return (
@@ -11,7 +15,7 @@ export const StepProgressBar: FC<{current: number; total: number}> = ({current, 
       {totalSteps.map((_, idx) => (
         <div
           className={clsx(style.StepProgressBar__step, {
-            [style['StepProgressBar__step--completed']]: idx < current,
+            [style['StepProgressBar__step--completed']]: idx < current || isComplete,
           })}
           key={idx}
         />
