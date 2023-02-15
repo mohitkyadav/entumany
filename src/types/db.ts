@@ -35,7 +35,14 @@ export type GameState = {
 
 export type GameAnswer = {
   destLang: Language;
+  inputValue: string;
   srcLang: Language;
   wordId: string;
   wasCorrectlyAnswered: boolean;
+};
+
+export type Word = {
+  [key in Language]: string;
+} & {
+  wordId: string;
 };

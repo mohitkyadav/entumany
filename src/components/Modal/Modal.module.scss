@@ -23,7 +23,7 @@
     position: relative;
     margin: auto;
     border-radius: 8px;
-    padding: 1rem;
+    padding: 2rem;
   }
 
   &__Header {
@@ -31,7 +31,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0.3rem;
   }
 
   &__HeaderText {
@@ -41,10 +40,8 @@
   }
 
   &__CloseButton {
-    font-size: 0.8rem;
     border: none;
     border-radius: 3px;
-    margin-left: 0.5rem;
     background: none;
 
     &:hover {
@@ -53,7 +50,6 @@
   }
 
   &__Content {
-    padding: 10px;
     max-height: 30rem;
     overflow-x: hidden;
     overflow-y: auto;

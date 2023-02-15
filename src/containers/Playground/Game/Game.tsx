@@ -5,9 +5,8 @@ import {ArrowLeft} from 'lucide-react';
 import React, {FC, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {EntumanyDB} from 'services/db.service';
-import {GameAnswer, Language} from 'types/db';
+import {GameAnswer, Language, Word} from 'types/db';
 import GameFeedbackModal from '../GameFeedbackModal/GameFeedbackModal';
-import {Word} from '../Playground';
 import style from './Game.module.scss';
 
 export interface GameProps {
@@ -30,11 +29,13 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const ansValue = formData.get('answer')?.toString().toLowerCase();
-    const isCorrect = ansValue === currentWord[destLang].toLowerCase();
+    const inputValue = formData.get('answer')?.toString().toLowerCase() ?? '';
+    const actualValue = currentWord[destLang].toLowerCase();
+    const isCorrect = inputValue === actualValue;
 
     setAnswerFeedback({
       destLang,
+      inputValue,
       srcLang,
       wasCorrectlyAnswered: isCorrect,
       wordId,
@@ -63,11 +64,14 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
         <WordContainer word={currentWord} language={srcLang} cardType="display" />
         <WordContainer word={currentWord} language={destLang} cardType="input" handleSubmit={handleSubmit} />
       </div>
-      <GameFeedbackModal
-        showSubmitFeedback={showSubmitFeedback}
-        onHide={moveToNextWord}
-        answerFeedback={answerFeedback}
-      />
+      {answerFeedback && (
+        <GameFeedbackModal
+          showSubmitFeedback={showSubmitFeedback}
+          onHide={moveToNextWord}
+          answerFeedback={answerFeedback}
+          currentWord={gameWords[currentWordIdx]}
+        />
+      )}
     </div>
   );
 };

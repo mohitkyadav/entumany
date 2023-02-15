@@ -1,16 +1,22 @@
 import clsx from 'clsx';
 import {Button, Modal} from 'components';
 import React, {FC, useEffect, useState} from 'react';
-import {GameAnswer} from 'types/db';
+import {GameAnswer, LanguageNames, Word} from 'types/db';
 import style from './GameFeedbackModal.module.scss';
 
 export interface GameFeedbackModalProps {
   onHide?: () => void;
-  answerFeedback?: GameAnswer;
+  answerFeedback: GameAnswer;
   showSubmitFeedback?: boolean;
+  currentWord?: Word;
 }
 
-const GameFeedbackModal: FC<GameFeedbackModalProps> = ({showSubmitFeedback = false, onHide, answerFeedback}) => {
+const GameFeedbackModal: FC<GameFeedbackModalProps> = ({
+  showSubmitFeedback = false,
+  onHide,
+  answerFeedback,
+  currentWord,
+}) => {
   const [isShown, setIsShown] = useState(false);
 
   useEffect(() => {
@@ -22,7 +28,28 @@ const GameFeedbackModal: FC<GameFeedbackModalProps> = ({showSubmitFeedback = fal
     onHide?.();
   };
 
-  const wasCorrect = answerFeedback?.wasCorrectlyAnswered;
+  const wasCorrect = answerFeedback.wasCorrectlyAnswered;
+
+  const srcLang = LanguageNames[answerFeedback.srcLang];
+  const destLang = LanguageNames[answerFeedback.destLang];
+  const targetWord = currentWord?.[answerFeedback.srcLang];
+  const destWord = currentWord?.[answerFeedback.destLang];
+  const {inputValue} = answerFeedback;
+
+  const bold = (text = '') => <strong>{text}</strong>;
+
+  const modalDescription = () => {
+    if (wasCorrect) {
+      return 'Nice... that was correct';
+    }
+
+    return (
+      <div>
+        Na... The correct translation of {bold(srcLang)} word "{bold(targetWord)}" in {bold(destLang)} is "
+        {bold(destWord)}" not "{bold(inputValue)}".
+      </div>
+    );
+  };
 
   return (
     <Modal
@@ -32,8 +59,11 @@ const GameFeedbackModal: FC<GameFeedbackModalProps> = ({showSubmitFeedback = fal
       headerText={wasCorrect ? 'Correct!' : 'Incorrect'}
     >
       <div className={style.GameFeedbackModal__content}>
-        {wasCorrect ? <div>Correct</div> : <div>Incorrect</div>}
-        <Button onClick={hide}>Continue</Button>
+        {modalDescription()}
+
+        <Button onClick={hide} color={wasCorrect ? 'tertiary' : 'secondary'}>
+          Continue
+        </Button>
       </div>
     </Modal>
   );

@@ -4,13 +4,7 @@ import {PageTitle} from 'components';
 import Game from './Game/Game';
 import {generateRandomIdxFromInterval, generateRandomIntFromInterval} from 'utils/urls';
 import {MIN_WORDS_REQUIRED} from 'utils/constants';
-import {Language} from 'types/db';
-
-export type Word = {
-  [key in Language]: string;
-} & {
-  wordId: string;
-};
+import {Word} from 'types/db';
 
 const getRandomWords = (words: Record<string, any>): Word[] => {
   const allWordsIds = Object.keys(words);
