@@ -1,0 +1,65 @@
+@import '../../styles/mixins';
+
+.Word-Container {
+  @include flex-caj();
+  flex: 1;
+  width: 100%;
+  min-height: 20rem;
+  border-radius: 6px;
+  box-sizing: border-box;
+  color: black;
+  overflow: hidden;
+  background-color: rgb(252, 252, 252);
+  box-shadow: 0 0 0.4rem 0.1rem rgba(0, 0, 0, 0.1);
+
+  &__lang {
+    user-select: none;
+    font-size: 1.8rem;
+    font-weight: 300;
+    border-bottom: 2px solid var(--color-blue-gray-50);
+    width: 100%;
+    padding: 1rem;
+  }
+
+  &__word {
+    @include flex-caj();
+    user-select: none;
+    flex: 1;
+    margin: 0;
+    padding: 0;
+    font-size: 36px;
+    letter-spacing: 0.1rem;
+    word-spacing: 0.2rem;
+    font-weight: 700;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    overflow-wrap: break-word;
+    text-transform: capitalize;
+  }
+
+  &__form {
+    @include flex-caj();
+    flex: 1;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    overflow: hidden;
+
+    &__input {
+      padding: 1rem;
+      outline: none;
+      border: 2px solid black;
+      font-size: larger;
+      border-radius: 6px;
+    }
+
+    &__actions {
+      @include flex-raj(center, center);
+      justify-self: flex-end;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+  }
+}

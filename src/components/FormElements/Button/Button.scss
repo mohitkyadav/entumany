@@ -9,6 +9,7 @@
   transition: all 0.1s;
   display: flex;
   gap: 0.6rem;
+  user-select: none;
 
   &:focus {
     outline: none;

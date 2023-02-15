@@ -1,19 +1,80 @@
 import clsx from 'clsx';
-import React, {FC} from 'react';
+import {Button, StepProgressBar} from 'components';
+import {WordContainer} from 'components/WordContainer/WordContainer';
+import {ArrowLeft} from 'lucide-react';
+import React, {FC, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 import {EntumanyDB} from 'services/db.service';
+import {GameAnswer, Language, Word} from 'types/db';
+import GameFeedbackModal from '../GameFeedbackModal/GameFeedbackModal';
 import style from './Game.module.scss';
 
 export interface GameProps {
-  getRandomWords(words: Record<string, any>): Record<string, any>[];
+  getRandomWords(words: Record<string, any>): Word[];
 }
 
 const Game: FC<GameProps> = ({getRandomWords}) => {
   const dbInstance = EntumanyDB.getInstance();
   const allWords = dbInstance.database;
+  const navigate = useNavigate();
+  const [currentWordIdx, setCurrentWordIdx] = useState(0);
+  const [isComplete, setIsComplete] = useState(false);
+  const [showSubmitFeedback, setShowSubmitFeedback] = useState(false);
+  const [gameWords] = useState(getRandomWords(allWords));
+  const [answerFeedback, setAnswerFeedback] = useState<GameAnswer>();
 
-  console.log(getRandomWords(allWords));
+  const {wordId, ...currentWord} = gameWords[currentWordIdx];
+  const [srcLang, destLang] = Object.keys(currentWord) as Language[];
 
-  return <div className={clsx(style.Game, 'animation-scale-up')}>hi</div>;
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    const inputValue = formData.get('answer')?.toString().toLowerCase() ?? '';
+    const actualValue = currentWord[destLang].toLowerCase();
+    const isCorrect = inputValue === actualValue;
+
+    setAnswerFeedback({
+      destLang,
+      inputValue,
+      srcLang,
+      wasCorrectlyAnswered: isCorrect,
+      wordId,
+    });
+    setShowSubmitFeedback(true);
+    e.currentTarget.reset();
+  };
+
+  const moveToNextWord = () => {
+    setShowSubmitFeedback(false);
+    if (currentWordIdx !== gameWords.length - 1) {
+      setCurrentWordIdx((prevIdx) => prevIdx + 1);
+    } else {
+      setIsComplete(true);
+      setTimeout(() => setShowSubmitFeedback(true), 500);
+    }
+  };
+
+  return (
+    <div className={clsx(style.Game, 'animation-slide-up')}>
+      <Button className={style.Game__back} leftIcon={<ArrowLeft size={16} />} onClick={() => navigate('/')}>
+        <p>Go Back</p>
+      </Button>
+      <StepProgressBar current={currentWordIdx} isComplete={isComplete} total={gameWords.length} />
+      <div className={style.Game__container}>
+        <WordContainer word={currentWord} language={srcLang} cardType="display" />
+        <WordContainer word={currentWord} language={destLang} cardType="input" handleSubmit={handleSubmit} />
+      </div>
+      {answerFeedback && (
+        <GameFeedbackModal
+          showSubmitFeedback={showSubmitFeedback}
+          onHide={moveToNextWord}
+          answerFeedback={answerFeedback}
+          currentWord={gameWords[currentWordIdx]}
+          isComplete={isComplete}
+        />
+      )}
+    </div>
+  );
 };
 
 export default Game;

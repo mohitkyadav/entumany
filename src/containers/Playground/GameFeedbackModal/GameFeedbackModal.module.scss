@@ -1,0 +1,22 @@
+.GameFeedbackModal {
+  position: fixed;
+  width: 100%;
+  top: unset;
+  left: 0;
+  bottom: 0;
+  padding: 4rem;
+
+  &__content {
+    padding: 1rem;
+
+    button {
+      margin-top: 2rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .GameFeedbackModal {
+    padding: 1rem;
+  }
+}

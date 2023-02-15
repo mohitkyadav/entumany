@@ -88,13 +88,13 @@ const EditorPage: FC = () => {
         />
         <div className={style['EditorPage__buttons-container']}>
           <Button
+            leftIcon={<ArrowLeft size={16} />}
             onClick={() => {
               navigate('/');
             }}
             color="secondary"
             className="fs-16"
           >
-            <ArrowLeft size={16} />
             <p>Go Back</p>
           </Button>
           <Button className="fs-16" disabled={destState.language === sourceState.language} onClick={handleOnSaveClick}>

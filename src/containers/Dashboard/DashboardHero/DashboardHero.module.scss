@@ -8,3 +8,9 @@
     font-weight: 600;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .dashboard-hero {
+    padding: 2rem;
+  }
+}

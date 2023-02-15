@@ -8,6 +8,16 @@ export enum Language {
   JAPANESE = 'jp',
 }
 
+export const LanguageNames = {
+  [Language.HINDI]: 'Hindi',
+  [Language.ENGLISH]: 'English',
+  [Language.GERMAN]: 'German',
+  [Language.FRENCH]: 'French',
+  [Language.SPANISH]: 'Spanish',
+  [Language.ITALIAN]: 'Italian',
+  [Language.JAPANESE]: 'Japanese',
+};
+
 export type WordEntry = {
   word: string;
   language: Language;
@@ -21,4 +31,18 @@ export type AppOptions = {
 
 export type GameState = {
   words: WordEntry[];
+};
+
+export type GameAnswer = {
+  destLang: Language;
+  inputValue: string;
+  srcLang: Language;
+  wordId: string;
+  wasCorrectlyAnswered: boolean;
+};
+
+export type Word = {
+  [key in Language]: string;
+} & {
+  wordId: string;
 };
