@@ -32,3 +32,10 @@ export type AppOptions = {
 export type GameState = {
   words: WordEntry[];
 };
+
+export type GameAnswer = {
+  destLang: Language;
+  srcLang: Language;
+  wordId: string;
+  wasCorrectlyAnswered: boolean;
+};
