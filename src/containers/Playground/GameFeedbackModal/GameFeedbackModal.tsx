@@ -2,7 +2,8 @@ import clsx from 'clsx';
 import {Button, Modal} from 'components';
 import React, {FC, useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
-import {GameAnswer, LanguageNames, Word} from 'types/db';
+import {GameAnswer, Word} from 'types/db';
+import {LanguageNames} from 'utils/constants';
 import style from './GameFeedbackModal.module.scss';
 
 export interface GameFeedbackModalProps {

@@ -41,8 +41,13 @@
       word-wrap: break-word;
     }
 
-    &__subtitle {
+    &__title {
       font-size: 1.6rem;
+      font-weight: 500;
+    }
+
+    &__subtitle {
+      font-size: 1.4rem;
     }
   }
 
@@ -69,6 +74,7 @@
     &__stat-card {
       width: 100%;
       height: 16rem;
+      border: 6px solid var(--color-pink);
 
       &__value {
         font-weight: 300;

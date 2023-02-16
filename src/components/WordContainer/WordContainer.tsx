@@ -1,6 +1,7 @@
 import {Button} from 'components/FormElements';
 import React, {FC} from 'react';
-import {Language, LanguageNames} from 'types/db';
+import {Language} from 'types/db';
+import {LanguageNames} from 'utils/constants';
 import style from './WordContainer.module.scss';
 
 interface WordContainerProps {
