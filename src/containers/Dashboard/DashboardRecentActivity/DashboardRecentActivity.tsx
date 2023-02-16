@@ -1,11 +1,10 @@
 import clsx from 'clsx';
 import {Button} from 'components';
-import {Hourglass, Play, Plus} from 'lucide-react';
+import {Play, Plus} from 'lucide-react';
 import React, {FC, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {Tooltip} from 'react-tooltip';
 import {getStatistics} from 'services/statistics.service';
-import {Language} from 'types/db';
 import {MIN_WORDS_REQUIRED} from 'utils/constants';
 import {getLangFlagsString} from 'utils/language';
 
@@ -32,7 +31,7 @@ const DashboardRecentActivity: FC = () => {
       value: numberOfWords,
     },
     {
-      stat: getLangFlagsString(Array.from(uniqueLanguages) as Language[]),
+      stat: getLangFlagsString(Array.from(uniqueLanguages)),
       title: 'Languages',
       value: uniqueLanguages.size,
     },

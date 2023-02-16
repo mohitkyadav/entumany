@@ -1,6 +1,7 @@
 import {Language} from 'types/db';
 
 export const MIN_WORDS_REQUIRED = 5;
+export const KEY_DELIMITER = '|||';
 
 export const LanguageNames = {
   [Language.HINDI]: 'Hindi',

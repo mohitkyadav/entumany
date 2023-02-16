@@ -1,3 +1,5 @@
+import {KEY_DELIMITER} from 'utils/constants';
+
 export enum Language {
   HINDI = 'hi',
   ENGLISH = 'en',
@@ -7,6 +9,8 @@ export enum Language {
   ITALIAN = 'it',
   JAPANESE = 'jp',
 }
+
+export type WordIndexKey = `${string}${typeof KEY_DELIMITER}${Language}`;
 
 export type WordEntry = {
   word: string;
