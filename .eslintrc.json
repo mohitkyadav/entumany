@@ -6,7 +6,8 @@
   },
   "ignorePatterns": [
     "**/*.stories.tsx",
-    "**/*.test.ts"
+    "**/*.test.ts",
+    "public"
   ],
   "extends": [
     "airbnb-typescript",
