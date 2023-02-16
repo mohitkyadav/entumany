@@ -1,6 +1,9 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
 
+import * as serviceWorkerRegistration from './serviceWorkerRegistration';
+import reportWebVitals from './reportWebVitals';
+
 // Styles
 import 'normalize.css';
 import 'react-tooltip/dist/react-tooltip.css';
@@ -23,3 +26,6 @@ root.render(
     <App />
   </React.StrictMode>,
 );
+
+serviceWorkerRegistration.register();
+reportWebVitals();
