@@ -11,10 +11,10 @@ yarn install
 yarn start
 ```
 
-## Requirements
+## Motivation
+I love learning languages and while doing so I often write down some words or sentenses in different places such as OneNote or other note take apps. Entumany is a mix of this and Duolingo.
 
-1. List of languages that the user has already added words for.
-2. Last lang1
-3. Last lang2
-4. Input word1 in lang1, find the word2 in lang2 or vice verca. If not found add the input if found show the word2 in right textarea and allow amend.
-5. word1 in lang1, translation word2 in lang2 and later if I add word2 and translation word3 in lang3. User should also be able to relate word1 to word3 if lang3 is selected in right box.
+## Functionality
+Users can add translations between multiple languages. And come back any time and play a simple quiz, in which Entumany shows you one quetion and you input the respactive translation.
+
+There's no need for internet or any account, it works offlie on user's localstorage. It has a beautiful and minimal mobile device focused user interface.
