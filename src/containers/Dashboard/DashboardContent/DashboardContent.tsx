@@ -8,11 +8,11 @@ import {getStatistics} from 'services/statistics.service';
 import {MIN_WORDS_REQUIRED, ROUTES} from 'utils/constants';
 import {getLangFlagsString} from 'utils/language';
 
-import style from './DashboardRecentActivity.module.scss';
+import style from './DashboardContent.module.scss';
 
 const PLAY_BUTTON_ID = 'play-button';
 
-const DashboardRecentActivity: FC = () => {
+const DashboardContent: FC = () => {
   const navigate = useNavigate();
 
   const renderStatCard = (title: string, value: number, stat: string) => (
@@ -87,4 +87,4 @@ const DashboardRecentActivity: FC = () => {
   );
 };
 
-export default DashboardRecentActivity;
+export default DashboardContent;
