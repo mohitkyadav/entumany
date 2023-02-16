@@ -1,3 +1,5 @@
+import {KEY_DELIMITER} from 'utils/constants';
+
 export enum Language {
   HINDI = 'hi',
   ENGLISH = 'en',
@@ -8,15 +10,7 @@ export enum Language {
   JAPANESE = 'jp',
 }
 
-export const LanguageNames = {
-  [Language.HINDI]: 'Hindi',
-  [Language.ENGLISH]: 'English',
-  [Language.GERMAN]: 'German',
-  [Language.FRENCH]: 'French',
-  [Language.SPANISH]: 'Spanish',
-  [Language.ITALIAN]: 'Italian',
-  [Language.JAPANESE]: 'Japanese',
-};
+export type WordIndexKey = `${string}${typeof KEY_DELIMITER}${Language}`;
 
 export type WordEntry = {
   word: string;

@@ -1,4 +1,5 @@
-import {AppOptions, Language, WordEntry} from 'types/db';
+import {AppOptions, Language, WordEntry, WordIndexKey} from 'types/db';
+import {KEY_DELIMITER} from 'utils/constants';
 import {v4 as uuidv4} from 'uuid';
 
 const defaultAppOptions: AppOptions = {
@@ -10,7 +11,7 @@ const defaultAppOptions: AppOptions = {
 class Database {
   database: Record<string, any> = {};
 
-  wordIndex: Record<string, string> = {};
+  wordIndex: Record<WordIndexKey, string> = {};
 
   appOptions: AppOptions = defaultAppOptions;
 
@@ -43,8 +44,8 @@ export class EntumanyDB extends Database {
     this.populateFromLocalStorage();
   }
 
-  private getWordIndex(e: WordEntry) {
-    return `${e.word.toLowerCase()}|||${e.language}`;
+  private getWordIndex(e: WordEntry): WordIndexKey {
+    return `${e.word.toLowerCase()}${KEY_DELIMITER}${e.language}`;
   }
 
   private generateId(): string {

@@ -1,38 +1,39 @@
 import clsx from 'clsx';
 import {Button} from 'components';
-import {Hourglass, Play, Plus} from 'lucide-react';
+import {Play, Plus} from 'lucide-react';
 import React, {FC, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {Tooltip} from 'react-tooltip';
 import {getStatistics} from 'services/statistics.service';
 import {MIN_WORDS_REQUIRED} from 'utils/constants';
+import {getLangFlagsString} from 'utils/language';
 
 import style from './DashboardRecentActivity.module.scss';
 
 const PLAY_BUTTON_ID = 'play-button';
+
 const DashboardRecentActivity: FC = () => {
   const navigate = useNavigate();
 
-  const renderStatCard = (title: string, value: number) => (
+  const renderStatCard = (title: string, value: number, stat: string) => (
     <div className={style['dashboard-recent__stat-card']} key={title}>
+      <div className={clsx('fw-400', style['dashboard-recent__stat-card__title'])}>{title}</div>
       <div className={style['dashboard-recent__stat-card__value']}>{value.toLocaleString()}</div>
-      <div className={clsx('fw-400', style['dashboard-recent__stat-card__subtitle'])}>{title}</div>
+      <div className={style['dashboard-recent__stat-card__subtitle']}>{stat.toLocaleString()}</div>
     </div>
   );
 
   const {multilanguageWords, numberOfWords, uniqueLanguages, numberOfWordSets} = getStatistics();
   const statistics = [
     {
-      title: 'Multilang words',
-      value: multilanguageWords,
-    },
-    {
+      stat: `${multilanguageWords} Multilang words`,
       title: 'Total words',
       value: numberOfWords,
     },
     {
+      stat: getLangFlagsString(Array.from(uniqueLanguages)),
       title: 'Languages',
-      value: uniqueLanguages,
+      value: uniqueLanguages.size,
     },
   ];
 
@@ -58,7 +59,7 @@ const DashboardRecentActivity: FC = () => {
     <>
       <div className={style['dashboard-recent']}>
         <div className={clsx(style['dashboard-recent__stat-container'], 'ls-50 fs-18')}>
-          {statistics.map((s) => renderStatCard(s.title, s.value))}
+          {statistics.map((s) => renderStatCard(s.title, s.value, s.stat))}
         </div>
         <div className={style['dashboard-recent__actions']}>
           <Button
@@ -76,10 +77,6 @@ const DashboardRecentActivity: FC = () => {
               place="top"
             />
           )}
-
-          <Button leftIcon={<Hourglass size={16} />} onClick={() => navigate('/story-time')}>
-            <p className="fs-16 fw-500">Timed quiz</p>
-          </Button>
 
           <Button leftIcon={<Plus size={16} />} color="secondary" onClick={() => navigate('/editor')}>
             <p className="fs-16 fw-500">Add new words</p>
