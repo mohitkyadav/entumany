@@ -11,6 +11,7 @@
   overflow: hidden;
   background-color: rgb(252, 252, 252);
   box-shadow: 0 0 0.4rem 0.1rem rgba(0, 0, 0, 0.1);
+  padding-bottom: 0.8rem;
 
   &__lang {
     user-select: none;
@@ -25,16 +26,12 @@
     @include flex-caj();
     user-select: none;
     flex: 1;
-    margin: 0;
-    padding: 0;
-    font-size: 36px;
+    padding: 0.8rem;
+    font-size: 2.4rem;
     letter-spacing: 0.1rem;
     word-spacing: 0.2rem;
     font-weight: 700;
     line-height: 1.5;
-    white-space: pre-wrap;
-    overflow-wrap: break-word;
-    text-transform: capitalize;
   }
 
   &__form {
@@ -60,6 +57,14 @@
       justify-self: flex-end;
       gap: 1rem;
       margin-top: 1rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .Word-Container {
+    &__word {
+      font-size: 1.8rem;
     }
   }
 }

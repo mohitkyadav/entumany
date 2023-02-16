@@ -55,7 +55,7 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
   };
 
   return (
-    <div className={clsx(style.Game, 'animation-slide-up')}>
+    <div className={clsx(style.Game, 'animation-slide-down')}>
       <Button className={style.Game__back} leftIcon={<ArrowLeft size={16} />} onClick={() => navigate('/')}>
         <p>Go Back</p>
       </Button>
