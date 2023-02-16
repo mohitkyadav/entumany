@@ -1,5 +1,5 @@
 const CACHE_NAME = 'entumany-only4';
-const urlsToCache = ['/', '/editor', '/play'];
+const urlsToCache = ['/', '/new', '/play'];
 
 // Install a service worker
 self.addEventListener('install', (event) => {

@@ -8,6 +8,7 @@ import {Language, WordEntry} from 'types/db';
 import {useNavigate} from 'react-router-dom';
 import style from './EditorPage.module.scss';
 import {ArrowLeft, InfoIcon, Save} from 'lucide-react';
+import {ROUTES} from 'utils/constants';
 
 const EditorPage: FC = () => {
   const db = EntumanyDB.getInstance();
@@ -109,7 +110,7 @@ const EditorPage: FC = () => {
           <Button
             leftIcon={<ArrowLeft size={16} />}
             onClick={() => {
-              navigate('/');
+              navigate(ROUTES.DASHBOARD);
             }}
             color="secondary"
             className="fs-16"

@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import {ROUTES} from 'utils/constants';
 
 import Dashboard from './Dashboard/Dashboard';
 import EditorPage from './EditorPage/EditorPage';
@@ -9,9 +10,9 @@ const App: FC = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
-        <Route path="/editor" element={<EditorPage />} />
-        <Route path="/play" element={<Playground />} />
+        <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
+        <Route path={ROUTES.EDITOR} element={<EditorPage />} />
+        <Route path={ROUTES.PLAYGROUND} element={<Playground />} />
       </Routes>
     </Router>
   );
