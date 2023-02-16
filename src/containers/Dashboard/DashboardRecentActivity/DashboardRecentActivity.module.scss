@@ -94,9 +94,9 @@
 
     &__actions {
       gap: 1rem;
-      justify-content: center;
 
       button {
+        flex: 1;
         padding: 1rem 1.4rem;
         font-size: 1.2rem;
       }

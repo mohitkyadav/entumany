@@ -12,6 +12,7 @@ import {getLangFlagsString} from 'utils/language';
 import style from './DashboardRecentActivity.module.scss';
 
 const PLAY_BUTTON_ID = 'play-button';
+
 const DashboardRecentActivity: FC = () => {
   const navigate = useNavigate();
 
@@ -77,10 +78,6 @@ const DashboardRecentActivity: FC = () => {
               place="top"
             />
           )}
-
-          <Button leftIcon={<Hourglass size={16} />} onClick={() => navigate('/story-time')}>
-            <p className="fs-16 fw-500">Timed quiz</p>
-          </Button>
 
           <Button leftIcon={<Plus size={16} />} color="secondary" onClick={() => navigate('/editor')}>
             <p className="fs-16 fw-500">Add new words</p>
