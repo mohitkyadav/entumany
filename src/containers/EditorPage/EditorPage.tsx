@@ -31,6 +31,21 @@ const EditorPage: FC = () => {
     word: '',
   });
 
+  const resetInputs = () => {
+    setSourceState((prevState) => {
+      return {
+        ...prevState,
+        word: '',
+      };
+    });
+    setDestState((prevState) => {
+      return {
+        ...prevState,
+        word: '',
+      };
+    });
+  };
+
   const onSourceEditorChange = (word: string) => {
     setSourceState({
       ...sourceState,
@@ -63,6 +78,8 @@ const EditorPage: FC = () => {
 
   const handleOnSaveClick = () => {
     db.addWords(sourceState, destState);
+    resetInputs();
+    // TODO: show feedback, snackbar or something
   };
 
   return (
@@ -79,12 +96,14 @@ const EditorPage: FC = () => {
           language={sourceState.language}
           onChange={onSourceEditorChange}
           onLanguageChange={onSourceLangChange}
+          value={sourceState.word}
         />
         <LangEditor
           key="destLangEditor"
           language={destState.language}
           onChange={onDestEditorChange}
           onLanguageChange={onDestLangChange}
+          value={destState.word}
         />
         <div className={style['EditorPage__buttons-container']}>
           <Button

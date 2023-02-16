@@ -10,6 +10,7 @@ interface LangEditorProps {
   onLanguageChange: (value: Language) => void;
   className?: string;
   placeholder?: string;
+  value?: string;
 }
 
 interface LanguageDropDownProps {
@@ -35,6 +36,7 @@ export const LangEditor: FC<LangEditorProps> = ({
   onChange,
   onLanguageChange,
   placeholder = 'Enter text...',
+  value,
 }) => {
   return (
     <div className={clsx(style.LangEditor, className)}>
@@ -43,6 +45,7 @@ export const LangEditor: FC<LangEditorProps> = ({
         className={style.LangEditor__textarea}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
+        value={value}
         rows={5}
       />
     </div>
