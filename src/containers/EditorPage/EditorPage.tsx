@@ -3,7 +3,7 @@ import React, {FC, useEffect} from 'react';
 import {Button, LangEditor, PageTitle} from 'components';
 import {useBeforeunload} from 'hooks';
 import {EntumanyDB} from 'services/db.service';
-import {Language, WordEntry} from 'types/db';
+import {Language, LanguageKey, WordEntry} from 'types/db';
 
 import {useNavigate} from 'react-router-dom';
 import style from './EditorPage.module.scss';
@@ -62,20 +62,35 @@ const EditorPage: FC = () => {
     });
   };
 
+  const getRandomLanguageNotInUse = (inUseLang: Language): Language => {
+    const languages = Object.values(Language).filter((lang) => lang !== inUseLang);
+    const randomIndex = Math.floor(Math.random() * languages.length);
+    const randomLang = languages[randomIndex];
+    return randomLang;
+  };
+
   const onSourceLangChange = (language: Language) => {
-    db.updateLanguage1(language);
+    db.updateLanguage('primaryLanguage', language);
     setSourceState({
       ...sourceState,
       language,
     });
+    if (language === destState.language) {
+      const newLang = getRandomLanguageNotInUse(language);
+      onDestLangChange(newLang);
+    }
   };
 
   const onDestLangChange = (language: Language) => {
-    db.updateLanguage2(language);
+    db.updateLanguage('secondaryLanguage', language);
     setDestState({
       ...destState,
       language,
     });
+    if (language === sourceState.language) {
+      const newLang = getRandomLanguageNotInUse(language);
+      onSourceLangChange(newLang);
+    }
   };
 
   const handleOnSaveClick = () => {

@@ -20,7 +20,7 @@ interface LanguageDropDownProps {
 
 const LanguageDropDown: FC<LanguageDropDownProps> = ({defaultValue, onChange}) => {
   return (
-    <select name="langs" id="langs" defaultValue={defaultValue} onChange={(e) => onChange(e.target.value as Language)}>
+    <select name="langs" id="langs" value={defaultValue} onChange={(e) => onChange(e.target.value as Language)}>
       {Object.entries(Language).map(([key, value]) => (
         <option key={value} value={value}>
           {key}
