@@ -25,6 +25,7 @@ export const WordContainer: FC<WordContainerProps> = ({word, language, cardType,
         required
         autoComplete="off"
         placeholder={`Translate to ${LanguageNames[language]}`}
+        lang={language}
       />
       <div className={style['Word-Container__form__actions']}>
         <Button type="submit">Submit</Button>
