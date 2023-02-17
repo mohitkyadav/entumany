@@ -3,7 +3,7 @@ import {Button, Modal} from 'components';
 import React, {FC, useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {GameAnswer, Word} from 'types/db';
-import {LanguageNames} from 'utils/constants';
+import {LanguageNames, ROUTES} from 'utils/constants';
 import style from './GameFeedbackModal.module.scss';
 
 export interface GameFeedbackModalProps {
@@ -62,7 +62,7 @@ const GameFeedbackModal: FC<GameFeedbackModalProps> = ({
 
   const onContinueClickHandler = () => {
     if (isComplete) {
-      navigate('/');
+      navigate(ROUTES.DASHBOARD);
     } else {
       hide?.();
     }

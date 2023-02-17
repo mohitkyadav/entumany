@@ -17,10 +17,13 @@ export type WordEntry = {
   language: Language;
 };
 
+type LanguageType = 'primary' | 'secondary';
+export type LanguageKey = `${LanguageType}Language`;
+
 export type AppOptions = {
-  language1: Language;
-  language2: Language;
   perQuestionAllowedTimeInSec: number;
+} & {
+  [key in LanguageKey]: Language;
 };
 
 export type GameState = {

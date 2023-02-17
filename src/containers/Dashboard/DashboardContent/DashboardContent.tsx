@@ -5,14 +5,14 @@ import React, {FC, useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {Tooltip} from 'react-tooltip';
 import {getStatistics} from 'services/statistics.service';
-import {MIN_WORDS_REQUIRED} from 'utils/constants';
+import {MIN_WORDS_REQUIRED, ROUTES} from 'utils/constants';
 import {getLangFlagsString} from 'utils/language';
 
-import style from './DashboardRecentActivity.module.scss';
+import style from './DashboardContent.module.scss';
 
 const PLAY_BUTTON_ID = 'play-button';
 
-const DashboardRecentActivity: FC = () => {
+const DashboardContent: FC = () => {
   const navigate = useNavigate();
 
   const renderStatCard = (title: string, value: number, stat: string) => (
@@ -45,7 +45,7 @@ const DashboardRecentActivity: FC = () => {
     const easterEggHandler = (evt: MouseEvent) => {
       if (evt.detail === 7) {
         console.info('You have found the easter egg! 🥚');
-        navigate('/play');
+        navigate(ROUTES.PLAYGROUND);
       }
     };
 
@@ -66,7 +66,7 @@ const DashboardRecentActivity: FC = () => {
             id={PLAY_BUTTON_ID}
             leftIcon={<Play size={16} />}
             disabled={!isPlayAllowed}
-            onClick={() => navigate('/play')}
+            onClick={() => navigate(ROUTES.PLAYGROUND)}
           >
             <p className="fs-16 fw-500">Test yourself</p>
           </Button>
@@ -78,7 +78,7 @@ const DashboardRecentActivity: FC = () => {
             />
           )}
 
-          <Button leftIcon={<Plus size={16} />} color="secondary" onClick={() => navigate('/editor')}>
+          <Button leftIcon={<Plus size={16} />} color="secondary" onClick={() => navigate(ROUTES.EDITOR)}>
             <p className="fs-16 fw-500">Add new words</p>
           </Button>
         </div>
@@ -87,4 +87,4 @@ const DashboardRecentActivity: FC = () => {
   );
 };
 
-export default DashboardRecentActivity;
+export default DashboardContent;

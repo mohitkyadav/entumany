@@ -1,11 +1,11 @@
-import {AppOptions, Language, WordEntry, WordIndexKey} from 'types/db';
+import {AppOptions, Language, LanguageKey, WordEntry, WordIndexKey} from 'types/db';
 import {KEY_DELIMITER} from 'utils/constants';
 import {v4 as uuidv4} from 'uuid';
 
 const defaultAppOptions: AppOptions = {
-  language1: Language.ENGLISH,
-  language2: Language.HINDI,
   perQuestionAllowedTimeInSec: 0,
+  primaryLanguage: Language.ENGLISH,
+  secondaryLanguage: Language.HINDI,
 };
 
 class Database {
@@ -109,12 +109,8 @@ export class EntumanyDB extends Database {
     this.wordIndex[bIndex] = id;
   }
 
-  public updateLanguage1(newLanguage: Language): void {
-    this.appOptions.language1 = newLanguage;
-  }
-
-  public updateLanguage2(newLanguage: Language): void {
-    this.appOptions.language2 = newLanguage;
+  public updateLanguage(id: LanguageKey, newLanguage: Language): void {
+    this.appOptions[id] = newLanguage;
   }
 
   public updatePerQuestionAllowedTimeInSec(newPerQuestionAllowedTimeInSec = 0): void {

@@ -18,7 +18,6 @@
     "date-fns": "^2.16.1",
     "lodash-es": "^4.17.15",
     "lucide-react": "^0.109.0",
-    "web-vitals": "^2.1.4",
     "mdi-react": "^9.1.0",
     "node-sass": "^8.0.0",
     "normalize.css": "^8.0.1",
@@ -28,12 +27,14 @@
     "react-copy-to-clipboard": "^5.0.2",
     "react-dom": "18.2.0",
     "react-helmet": "^6.1.0",
+    "react-hot-toast": "^2.4.0",
     "react-router-dom": "^6.7.0",
     "react-scripts": "5.0.1",
     "react-syntax-highlighter": "^15.3.0",
     "react-tooltip": "^5.7.5",
     "typescript": "4.9",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "web-vitals": "^2.1.4"
   },
   "scripts": {
     "build": "react-scripts build",

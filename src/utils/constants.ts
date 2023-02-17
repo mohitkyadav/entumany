@@ -1,5 +1,11 @@
 import {Language} from 'types/db';
 
+export const ROUTES = {
+  DASHBOARD: '/',
+  EDITOR: '/new',
+  PLAYGROUND: '/play',
+};
+
 export const MIN_WORDS_REQUIRED = 5;
 export const KEY_DELIMITER = '|||';
 

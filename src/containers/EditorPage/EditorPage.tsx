@@ -5,9 +5,14 @@ import {useBeforeunload} from 'hooks';
 import {EntumanyDB} from 'services/db.service';
 import {Language, WordEntry} from 'types/db';
 
-import {useNavigate} from 'react-router-dom';
-import style from './EditorPage.module.scss';
 import {ArrowLeft, InfoIcon, Save} from 'lucide-react';
+import {toast} from 'react-hot-toast';
+import {useNavigate} from 'react-router-dom';
+import {Tooltip} from 'react-tooltip';
+import {ROUTES} from 'utils/constants';
+import style from './EditorPage.module.scss';
+
+const SAVE_BUTTON_ID = 'save-button';
 
 const EditorPage: FC = () => {
   const db = EntumanyDB.getInstance();
@@ -23,11 +28,12 @@ const EditorPage: FC = () => {
   }, [db]);
 
   const [sourceState, setSourceState] = React.useState<WordEntry>({
-    language: db.appOptions.language1 as Language,
+    language: db.appOptions.primaryLanguage,
     word: '',
   });
+
   const [destState, setDestState] = React.useState<WordEntry>({
-    language: db.appOptions.language2 as Language,
+    language: db.appOptions.secondaryLanguage,
     word: '',
   });
 
@@ -60,27 +66,48 @@ const EditorPage: FC = () => {
     });
   };
 
+  const getRandomLanguageNotInUse = (inUseLang: Language): Language => {
+    const languages = Object.values(Language).filter((lang) => lang !== inUseLang);
+    const randomIndex = Math.floor(Math.random() * languages.length);
+    const randomLang = languages[randomIndex];
+    return randomLang;
+  };
+
   const onSourceLangChange = (language: Language) => {
-    db.updateLanguage1(language);
+    db.updateLanguage('primaryLanguage', language);
     setSourceState({
       ...sourceState,
       language,
     });
+    if (language === destState.language) {
+      const newLang = getRandomLanguageNotInUse(language);
+      onDestLangChange(newLang);
+    }
   };
 
   const onDestLangChange = (language: Language) => {
-    db.updateLanguage2(language);
+    db.updateLanguage('secondaryLanguage', language);
     setDestState({
       ...destState,
       language,
     });
+    if (language === sourceState.language) {
+      const newLang = getRandomLanguageNotInUse(language);
+      onSourceLangChange(newLang);
+    }
   };
 
   const handleOnSaveClick = () => {
     db.addWords(sourceState, destState);
     resetInputs();
-    // TODO: show feedback, snackbar or something
+    toast('Saved!', {
+      icon: '✅',
+      position: 'bottom-center',
+    });
   };
+
+  const allowSave =
+    sourceState.word.length > 0 && destState.word.length > 0 && destState.language !== sourceState.language;
 
   return (
     <div className="page animation-slide-down">
@@ -109,19 +136,22 @@ const EditorPage: FC = () => {
           <Button
             leftIcon={<ArrowLeft size={16} />}
             onClick={() => {
-              navigate('/');
+              navigate(ROUTES.DASHBOARD);
             }}
             color="secondary"
             className="fs-16"
           >
             <p>Go Back</p>
           </Button>
-          <Button className="fs-16" disabled={destState.language === sourceState.language} onClick={handleOnSaveClick}>
+          <Button id={SAVE_BUTTON_ID} className="fs-16" disabled={!allowSave} onClick={handleOnSaveClick}>
             <Save size={16} />
             <p>Save this translation</p>
           </Button>
         </div>
       </div>
+      {!allowSave && (
+        <Tooltip anchorId={SAVE_BUTTON_ID} content="Hey! YOU, yes you! please enter some text to save" place="top" />
+      )}
     </div>
   );
 };
