@@ -3,12 +3,16 @@ import React, {FC, useEffect} from 'react';
 import {Button, LangEditor, PageTitle} from 'components';
 import {useBeforeunload} from 'hooks';
 import {EntumanyDB} from 'services/db.service';
-import {Language, LanguageKey, WordEntry} from 'types/db';
+import {Language, WordEntry} from 'types/db';
 
-import {useNavigate} from 'react-router-dom';
-import style from './EditorPage.module.scss';
 import {ArrowLeft, InfoIcon, Save} from 'lucide-react';
+import {toast} from 'react-hot-toast';
+import {useNavigate} from 'react-router-dom';
+import {Tooltip} from 'react-tooltip';
 import {ROUTES} from 'utils/constants';
+import style from './EditorPage.module.scss';
+
+const SAVE_BUTTON_ID = 'save-button';
 
 const EditorPage: FC = () => {
   const db = EntumanyDB.getInstance();
@@ -96,8 +100,14 @@ const EditorPage: FC = () => {
   const handleOnSaveClick = () => {
     db.addWords(sourceState, destState);
     resetInputs();
-    // TODO: show feedback, snackbar or something
+    toast('Saved!', {
+      icon: '✅',
+      position: 'bottom-center',
+    });
   };
+
+  const allowSave =
+    sourceState.word.length > 0 && destState.word.length > 0 && destState.language !== sourceState.language;
 
   return (
     <div className="page animation-slide-down">
@@ -133,12 +143,15 @@ const EditorPage: FC = () => {
           >
             <p>Go Back</p>
           </Button>
-          <Button className="fs-16" disabled={destState.language === sourceState.language} onClick={handleOnSaveClick}>
+          <Button id={SAVE_BUTTON_ID} className="fs-16" disabled={!allowSave} onClick={handleOnSaveClick}>
             <Save size={16} />
             <p>Save this translation</p>
           </Button>
         </div>
       </div>
+      {!allowSave && (
+        <Tooltip anchorId={SAVE_BUTTON_ID} content="Hey! YOU, yes you! please enter some text to save" place="top" />
+      )}
     </div>
   );
 };
