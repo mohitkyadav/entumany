@@ -18,8 +18,8 @@ export type WordEntry = {
 };
 
 export type AppOptions = {
-  language1: Language;
-  language2: Language;
+  primaryLanguage: Language;
+  secondaryLanguage: Language;
   perQuestionAllowedTimeInSec: number;
 };
 

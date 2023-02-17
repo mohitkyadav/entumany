@@ -3,9 +3,9 @@ import {KEY_DELIMITER} from 'utils/constants';
 import {v4 as uuidv4} from 'uuid';
 
 const defaultAppOptions: AppOptions = {
-  language1: Language.ENGLISH,
-  language2: Language.HINDI,
   perQuestionAllowedTimeInSec: 0,
+  primaryLanguage: Language.ENGLISH,
+  secondaryLanguage: Language.HINDI,
 };
 
 class Database {
@@ -110,11 +110,11 @@ export class EntumanyDB extends Database {
   }
 
   public updateLanguage1(newLanguage: Language): void {
-    this.appOptions.language1 = newLanguage;
+    this.appOptions.primaryLanguage = newLanguage;
   }
 
   public updateLanguage2(newLanguage: Language): void {
-    this.appOptions.language2 = newLanguage;
+    this.appOptions.primaryLanguage = newLanguage;
   }
 
   public updatePerQuestionAllowedTimeInSec(newPerQuestionAllowedTimeInSec = 0): void {

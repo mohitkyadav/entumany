@@ -24,11 +24,12 @@ const EditorPage: FC = () => {
   }, [db]);
 
   const [sourceState, setSourceState] = React.useState<WordEntry>({
-    language: db.appOptions.language1 as Language,
+    language: db.appOptions.primaryLanguage,
     word: '',
   });
+
   const [destState, setDestState] = React.useState<WordEntry>({
-    language: db.appOptions.language2 as Language,
+    language: db.appOptions.secondaryLanguage,
     word: '',
   });
 
