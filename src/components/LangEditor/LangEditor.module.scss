@@ -22,15 +22,14 @@
   }
 
   select {
-    appearance: none;
-    -webkit-appearance: none;
     background-color: var(--color-pink);
-    padding: 1rem 1rem 1rem 1.8rem;
+    padding: 0.8rem 0 0.8rem 1rem;
     border-radius: 3px;
     border: none;
     font-weight: 400;
     position: relative;
     cursor: pointer;
+    border-right: 1rem solid transparent;
   }
 
   @media (max-width: 768px) {
