@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import {Button, StepProgressBar} from 'components';
 import {WordContainer} from 'components/WordContainer/WordContainer';
-import {ArrowLeft} from 'lucide-react';
+import {XCircleIcon} from 'lucide-react';
 import React, {FC, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {EntumanyDB} from 'services/db.service';
@@ -56,9 +56,12 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
 
   return (
     <div className={clsx(style.Game, 'animation-slide-down')}>
-      <Button className={style.Game__back} leftIcon={<ArrowLeft size={16} />} onClick={() => navigate('/')}>
-        <p>Go Back</p>
-      </Button>
+      <Button
+        color="secondary"
+        className={style.Game__back}
+        leftIcon={<XCircleIcon size={28} />}
+        onClick={() => navigate('/')}
+      ></Button>
       <StepProgressBar current={currentWordIdx} isComplete={isComplete} total={gameWords.length} />
       <div className={style.Game__container}>
         <WordContainer word={currentWord} language={srcLang} cardType="display" />
