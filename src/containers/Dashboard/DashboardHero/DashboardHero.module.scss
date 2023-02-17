@@ -7,6 +7,10 @@
   &__welcome-txt {
     font-weight: 600;
   }
+
+  a {
+    color: var(--color-sail-gray-700);
+  }
 }
 
 @media only screen and (max-width: 600px) {

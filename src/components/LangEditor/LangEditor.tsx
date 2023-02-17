@@ -47,6 +47,7 @@ export const LangEditor: FC<LangEditorProps> = ({
         placeholder={placeholder}
         value={value}
         rows={5}
+        lang={language}
       />
     </div>
   );
