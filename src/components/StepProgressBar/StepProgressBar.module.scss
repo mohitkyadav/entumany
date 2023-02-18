@@ -6,7 +6,7 @@
   flex-direction: row;
   justify-content: stretch;
   align-items: stretch;
-  gap: 0.6rem;
+  gap: 0.4rem;
 
   &__step {
     background-color: var(--color-blue-gray-100);
@@ -31,7 +31,7 @@
       transform: translateX(-100%);
       top: 0;
       background: repeating-linear-gradient(45deg, #ffc0cb, #ffb6c1 10px, #ff69b4 10px, #e16e92 20px);
-      transition: transform 0.8s cubic-bezier(0, 0, 0.17, 0.94), opacity 0.5s ease-out, border-radius 1s ease-in;
+      transition: transform 0.8s cubic-bezier(0, 0, 0.17, 1.16), opacity 0.5s ease-out, border-radius 1s ease-in;
       border-radius: 12px;
       opacity: 0;
     }

@@ -1,7 +1,9 @@
 import {Button} from 'components/FormElements';
-import React, {FC} from 'react';
+import {MicIcon} from 'lucide-react';
+import React, {FC, useState, useEffect} from 'react';
 import {Language} from 'types/db';
 import {LanguageNames} from 'utils/constants';
+import {useSpeechRecognition} from 'hooks';
 import style from './WordContainer.module.scss';
 
 interface WordContainerProps {
@@ -12,8 +14,27 @@ interface WordContainerProps {
   handleSubmit?: React.FormEventHandler<HTMLFormElement>;
 }
 
+declare global {
+  interface Window {
+    webkitSpeechRecognition: any;
+  }
+}
+
 export const WordContainer: FC<WordContainerProps> = ({word, language, cardType, handleSubmit}) => {
   const isInput = cardType === 'input';
+
+  const [speechVal, setSpeechVal] = useState('');
+  const processResult = (event: SpeechRecognitionEvent) => {
+    const results: SpeechRecognitionResult = Array.from(event.results)[0] as SpeechRecognitionResult;
+
+    setSpeechVal(results[0].transcript);
+  };
+
+  const {isListenning, startListenning, stopListenning} = useSpeechRecognition(processResult, language);
+
+  useEffect(() => {
+    setSpeechVal('');
+  }, [word]);
 
   const renderWord = () => <div className={style['Word-Container__word']}>{word[language]}</div>;
 
@@ -25,16 +46,19 @@ export const WordContainer: FC<WordContainerProps> = ({word, language, cardType,
         required
         autoComplete="off"
         placeholder={`Translate to ${LanguageNames[language]}`}
+        defaultValue={speechVal}
         lang={language}
       />
       <div className={style['Word-Container__form__actions']}>
         <Button type="submit">Submit</Button>
         <Button
+          color={isListenning ? 'tertiary' : 'primary'}
           onClick={() => {
-            alert('there is no skip, right or wrong, fill the fucking input');
+            startListenning();
+            setTimeout(() => stopListenning(), 4000);
           }}
         >
-          Skip
+          <MicIcon size={14} />
         </Button>
       </div>
     </form>
