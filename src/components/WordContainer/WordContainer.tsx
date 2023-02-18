@@ -1,8 +1,9 @@
 import {Button} from 'components/FormElements';
 import {MicIcon} from 'lucide-react';
-import React, {FC, useState} from 'react';
+import React, {FC, useState, useEffect} from 'react';
 import {Language} from 'types/db';
 import {LanguageNames} from 'utils/constants';
+import {useSpeechRecognition} from 'hooks';
 import style from './WordContainer.module.scss';
 
 interface WordContainerProps {
@@ -23,12 +24,17 @@ export const WordContainer: FC<WordContainerProps> = ({word, language, cardType,
   const isInput = cardType === 'input';
 
   const [speechVal, setSpeechVal] = useState('');
-
-  const processResult = (event: any) => {
+  const processResult = (event: SpeechRecognitionEvent) => {
     const results: SpeechRecognitionResult = Array.from(event.results)[0] as SpeechRecognitionResult;
 
     setSpeechVal(results[0].transcript);
   };
+
+  const {isListenning, startListenning, stopListenning} = useSpeechRecognition(processResult, language);
+
+  useEffect(() => {
+    setSpeechVal('');
+  }, [word]);
 
   const renderWord = () => <div className={style['Word-Container__word']}>{word[language]}</div>;
 
@@ -40,22 +46,16 @@ export const WordContainer: FC<WordContainerProps> = ({word, language, cardType,
         required
         autoComplete="off"
         placeholder={`Translate to ${LanguageNames[language]}`}
-        value={speechVal}
+        defaultValue={speechVal}
         lang={language}
       />
       <div className={style['Word-Container__form__actions']}>
         <Button type="submit">Submit</Button>
         <Button
+          color={isListenning ? 'tertiary' : 'primary'}
           onClick={() => {
-            alert('there is no skip, right or wrong, fill the fucking input');
-            const recognition = new window.webkitSpeechRecognition();
-            recognition.lang = language;
-            recognition.interimResults = true;
-            recognition.continuous = true;
-            recognition.onresult = processResult;
-            recognition.start();
-
-            setTimeout(() => recognition.stop(), 5000);
+            startListenning();
+            setTimeout(() => stopListenning(), 4000);
           }}
         >
           <MicIcon size={14} />
