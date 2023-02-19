@@ -24,13 +24,18 @@ export const WordContainer: FC<WordContainerProps> = ({word, language, cardType,
   const isInput = cardType === 'input';
 
   const [speechVal, setSpeechVal] = useState('');
+
   const processResult = (event: SpeechRecognitionEvent) => {
     const results: SpeechRecognitionResult = Array.from(event.results)[0] as SpeechRecognitionResult;
 
     setSpeechVal(results[0].transcript);
   };
 
-  const {isListenning, startListenning, stopListenning} = useSpeechRecognition(processResult, language);
+  const processError = (event: SpeechRecognitionErrorEvent) => {
+    alert(`Exception while trying to access your microphone: "${event.error}"`);
+  };
+
+  const {isListenning, startListenning, stopListenning} = useSpeechRecognition(processResult, processError, language);
 
   useEffect(() => {
     setSpeechVal('');

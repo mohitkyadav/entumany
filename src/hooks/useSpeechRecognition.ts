@@ -1,15 +1,9 @@
 import {useRef, useEffect, useState} from 'react';
 import {Language} from 'types/db';
 
-declare global {
-  interface Window {
-    SpeechRecognition: any;
-    webkitSpeechRecognition: any;
-  }
-}
-
 export const useSpeechRecognition = (
   onResult: (event: SpeechRecognitionEvent) => void,
+  onError: (event: SpeechRecognitionErrorEvent) => void,
   lang = Language.ENGLISH,
   interimResults = true,
   continuous = true,
@@ -22,7 +16,7 @@ export const useSpeechRecognition = (
     window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
     if (window.SpeechRecognition) {
-      recognition.current = new window.webkitSpeechRecognition();
+      recognition.current = new window.SpeechRecognition();
     }
   }, []);
 
@@ -32,6 +26,7 @@ export const useSpeechRecognition = (
       recognition.current.interimResults = interimResults;
       recognition.current.continuous = continuous;
       recognition.current.onresult = onResult;
+      recognition.current.onerror = handleError;
       recognition.current.start();
       setIsListenning(true);
     }
@@ -42,6 +37,14 @@ export const useSpeechRecognition = (
       recognition.current.stop();
       setIsListenning(false);
     }
+  };
+
+  const handleError = (event: SpeechRecognitionErrorEvent) => {
+    if (recognition.current && event.error === 'not-allowed') {
+      recognition.current.onend = () => {};
+      setIsListenning(false);
+    }
+    onError?.(event);
   };
 
   return {isListenning, startListenning, stopListenning};
