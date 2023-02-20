@@ -1,5 +1,7 @@
 import clsx from 'clsx';
+import {useAppContext} from 'contexts/App.context';
 import React, {FC} from 'react';
+import {useTranslation} from 'react-i18next';
 import {Language} from 'types/db';
 
 import style from './LangEditor.module.scss';
@@ -9,7 +11,6 @@ interface LangEditorProps {
   onChange: (value: string) => void;
   onLanguageChange: (value: Language) => void;
   className?: string;
-  placeholder?: string;
   value?: string;
 }
 
@@ -30,21 +31,19 @@ const LanguageDropDown: FC<LanguageDropDownProps> = ({defaultValue, onChange}) =
   );
 };
 
-export const LangEditor: FC<LangEditorProps> = ({
-  className,
-  language,
-  onChange,
-  onLanguageChange,
-  placeholder = 'Enter text...',
-  value,
-}) => {
+export const LangEditor: FC<LangEditorProps> = ({className, language, onChange, onLanguageChange, value}) => {
+  const {availableLanguages} = useAppContext();
+  const {i18n, t} = useTranslation();
+
+  const tPlaceHolder = availableLanguages.includes(language) ? i18n.getFixedT(language)('enterText') : t('enterText');
+
   return (
     <div className={clsx(style.LangEditor, className)}>
       <LanguageDropDown defaultValue={language} onChange={onLanguageChange} />
       <textarea
         className={style.LangEditor__textarea}
         onChange={(e) => onChange(e.target.value)}
-        placeholder={placeholder}
+        placeholder={tPlaceHolder}
         value={value}
         rows={5}
         lang={language}

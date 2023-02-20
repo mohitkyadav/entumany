@@ -1,9 +1,11 @@
 import {Button} from 'components/FormElements';
+import {useAppContext} from 'contexts/App.context';
+import {useSpeechRecognition} from 'hooks';
 import {MicIcon} from 'lucide-react';
-import React, {FC, useState, useEffect} from 'react';
+import React, {FC, useEffect, useState} from 'react';
+import {useTranslation} from 'react-i18next';
 import {Language} from 'types/db';
 import {LanguageNames} from 'utils/constants';
-import {useSpeechRecognition} from 'hooks';
 import style from './WordContainer.module.scss';
 
 interface WordContainerProps {
@@ -24,6 +26,9 @@ export const WordContainer: FC<WordContainerProps> = ({word, language, cardType,
   const isInput = cardType === 'input';
 
   const [speechVal, setSpeechVal] = useState('');
+  const {availableLanguages} = useAppContext();
+
+  const {i18n} = useTranslation();
 
   const processResult = (event: SpeechRecognitionEvent) => {
     const results: SpeechRecognitionResult = Array.from(event.results)[0] as SpeechRecognitionResult;
@@ -43,6 +48,10 @@ export const WordContainer: FC<WordContainerProps> = ({word, language, cardType,
 
   const renderWord = () => <div className={style['Word-Container__word']}>{word[language]}</div>;
 
+  const placeholder = availableLanguages.includes(language)
+    ? i18n.getFixedT(language)('translateToText')
+    : `Translate to ${LanguageNames[language]}`;
+
   const renderInput = () => (
     <form className={style['Word-Container__form']} onSubmit={handleSubmit}>
       <input
@@ -50,7 +59,7 @@ export const WordContainer: FC<WordContainerProps> = ({word, language, cardType,
         name="answer"
         required
         autoComplete="off"
-        placeholder={`Translate to ${LanguageNames[language]}`}
+        placeholder={placeholder}
         defaultValue={speechVal}
         lang={language}
       />

@@ -10,7 +10,9 @@
       "playButton": "Test yourself",
       "saveTranslationBtn": "Save this translation",
       "saveTranslationsNote": "Save your translations below",
-      "savedToastText": "Saved!"
+      "savedToastText": "Saved!",
+      "translateToText": "Translate to English",
+      "enterText": "Enter text..."
     }
   },
   "hi": {
@@ -24,7 +26,9 @@
       "playButton": "खेलें",
       "saveTranslationBtn": "इस अनुवाद को सहेजें",
       "saveTranslationsNote": "अपने अनुवादों को नीचे सहेजें",
-      "savedToastText": "सहेजा गया!"
+      "savedToastText": "सहेजा गया!",
+      "translateToText": "हिन्दी में अनुवाद करें",
+      "enterText": "शब्द लिखे..."
     }
   }
 }
