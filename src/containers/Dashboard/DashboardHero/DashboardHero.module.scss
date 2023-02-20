@@ -13,6 +13,11 @@
   }
 }
 
+.right-nav-actions {
+  @include flex-raj();
+  gap: 1rem;
+}
+
 @media only screen and (max-width: 600px) {
   .dashboard-hero {
     padding: 2rem;

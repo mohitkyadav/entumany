@@ -5,16 +5,22 @@ import {initReactI18next} from 'react-i18next';
 import resources from '../i18n/resource.json';
 import {Language} from 'types/db';
 
-const AppContext = createContext({
+const AppContext = createContext<{
+  availableLanguages: Language[];
+  lng: Language;
+  setLng: React.Dispatch<React.SetStateAction<Language>>;
+}>({
+  availableLanguages: [],
   lng: Language.ENGLISH,
-  setLng: (lng: Language) => {
-    console.log('setLng', lng);
+  setLng: () => {
+    throw new Error('setLng not implemented');
   },
 });
 
 const AppProvider: React.FC<{
   children: React.ReactNode;
 }> = ({children}) => {
+  const availableLanguages = Object.keys(resources) as Language[];
   const [lng, setLng] = React.useState(Language.ENGLISH);
   i18n.use(initReactI18next).init({
     fallbackLng: Language.ENGLISH,
@@ -27,6 +33,7 @@ const AppProvider: React.FC<{
   return (
     <AppContext.Provider
       value={{
+        availableLanguages,
         lng,
         setLng,
       }}

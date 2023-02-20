@@ -1,0 +1,12 @@
+.LanguageSwitcher {
+  select {
+    background-color: var(--color-pink);
+    padding: 0.6rem 0 0.6rem 0.8rem;
+    border-radius: 3px;
+    border: none;
+    font-weight: 400;
+    position: relative;
+    cursor: pointer;
+    border-right: 1rem solid transparent;
+  }
+}
