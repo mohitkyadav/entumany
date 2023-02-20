@@ -1,0 +1,30 @@
+{
+  "en": {
+    "translation": {
+      "Languages": "Languages",
+      "Total words": "Total words",
+      "addNewWordButton": "Add new words",
+      "addWordsToPlay": "To play a game save, atleast 5 different word sets",
+      "goBackButton": "Go back",
+      "multilangWords": "multilingual words",
+      "playButton": "Test yourself",
+      "saveTranslationBtn": "Save this translation",
+      "saveTranslationsNote": "Save your translations below",
+      "savedToastText": "Saved!"
+    }
+  },
+  "hi": {
+    "translation": {
+      "Languages": "भाषाएँ",
+      "Total words": "कुल शब्द",
+      "addNewWordButton": "नए शब्द जोड़ें",
+      "addWordsToPlay": "खेल खेलने के लिए, कम से कम 5 अलग-अलग शब्द सेट सहेजें",
+      "goBackButton": "पीछे जाएं",
+      "multilangWords": "बहुभाषी शब्द",
+      "playButton": "खेलें",
+      "saveTranslationBtn": "इस अनुवाद को सहेजें",
+      "saveTranslationsNote": "अपने अनुवादों को नीचे सहेजें",
+      "savedToastText": "सहेजा गया!"
+    }
+  }
+}

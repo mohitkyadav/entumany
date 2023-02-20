@@ -11,12 +11,14 @@ import {useNavigate} from 'react-router-dom';
 import {Tooltip} from 'react-tooltip';
 import {ROUTES} from 'utils/constants';
 import style from './EditorPage.module.scss';
+import {useTranslation} from 'react-i18next';
 
 const SAVE_BUTTON_ID = 'save-button';
 
 const EditorPage: FC = () => {
   const db = EntumanyDB.getInstance();
   const navigate = useNavigate();
+  const {t} = useTranslation();
 
   useBeforeunload((event) => {
     event.preventDefault();
@@ -100,7 +102,7 @@ const EditorPage: FC = () => {
   const handleOnSaveClick = () => {
     db.addWords(sourceState, destState);
     resetInputs();
-    toast('Saved!', {
+    toast(t('savedToastText'), {
       icon: '✅',
       position: 'bottom-center',
     });
@@ -116,7 +118,7 @@ const EditorPage: FC = () => {
       <div className={style.EditorPage}>
         <div className={style.EditorPage__helper}>
           <InfoIcon size={24} />
-          <p className="fs-20">Save your translations below</p>
+          <p className="fs-20">{t('saveTranslationsNote')}</p>
         </div>
         <LangEditor
           key="sourceLangEditor"
@@ -141,11 +143,11 @@ const EditorPage: FC = () => {
             color="secondary"
             className="fs-16"
           >
-            <p>Go Back</p>
+            <p>{t('goBackButton')}</p>
           </Button>
           <Button id={SAVE_BUTTON_ID} className="fs-16" disabled={!allowSave} onClick={handleOnSaveClick}>
             <Save size={16} />
-            <p>Save this translation</p>
+            <p>{t('saveTranslationBtn')}</p>
           </Button>
         </div>
       </div>
