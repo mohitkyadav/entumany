@@ -4,24 +4,26 @@ import i18n from 'i18next';
 import {initReactI18next} from 'react-i18next';
 import resources from '../i18n/resource.json';
 import {Language} from 'types/db';
+import {EntumanyDB} from 'services/db.service';
 
 const AppContext = createContext<{
   availableLanguages: Language[];
   lng: Language;
-  setLng: React.Dispatch<React.SetStateAction<Language>>;
+  switchLanguage: (lng: Language) => void;
 }>({
   availableLanguages: [],
   lng: Language.ENGLISH,
-  setLng: () => {
-    throw new Error('setLng not implemented');
-  },
+  switchLanguage: () => {},
 });
 
 const AppProvider: React.FC<{
   children: React.ReactNode;
 }> = ({children}) => {
   const availableLanguages = Object.keys(resources) as Language[];
-  const [lng, setLng] = React.useState(Language.ENGLISH);
+  const dbInstance = EntumanyDB.getInstance();
+
+  const [lng, setLng] = React.useState(dbInstance.appOptions.appLanguage);
+
   i18n.use(initReactI18next).init({
     fallbackLng: Language.ENGLISH,
     interpolation: {
@@ -30,12 +32,18 @@ const AppProvider: React.FC<{
     lng,
     resources,
   });
+
+  const switchLanguage = (l: Language) => {
+    dbInstance.updateAppLanguage(l);
+    setLng(l);
+  };
+
   return (
     <AppContext.Provider
       value={{
         availableLanguages,
         lng,
-        setLng,
+        switchLanguage,
       }}
     >
       {children}

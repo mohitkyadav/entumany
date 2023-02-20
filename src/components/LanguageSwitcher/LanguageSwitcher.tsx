@@ -6,9 +6,9 @@ import style from './LanguageSwitcher.module.scss';
 import {LanguageFlags} from 'utils/constants';
 
 export const LanguageSwitcher = () => {
-  const {availableLanguages, lng, setLng} = useAppContext();
+  const {availableLanguages, lng, switchLanguage} = useAppContext();
   const handleLangChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setLng(e.target.value as Language);
+    switchLanguage(e.target.value as Language);
   };
 
   return (

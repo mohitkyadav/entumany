@@ -61,7 +61,7 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
         className={style.Game__back}
         leftIcon={<XCircleIcon size={28} />}
         onClick={() => navigate('/')}
-      ></Button>
+      />
       <StepProgressBar current={currentWordIdx} isComplete={isComplete} total={gameWords.length} />
       <div className={style.Game__container}>
         <WordContainer word={currentWord} language={srcLang} cardType="display" />
