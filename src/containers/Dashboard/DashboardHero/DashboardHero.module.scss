@@ -10,7 +10,13 @@
 
   a {
     color: var(--color-sail-gray-700);
+    display: flex;
   }
+}
+
+.right-nav-actions {
+  @include flex-raj();
+  gap: 1.6rem;
 }
 
 @media only screen and (max-width: 600px) {

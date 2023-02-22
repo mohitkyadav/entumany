@@ -17,7 +17,7 @@ export type WordEntry = {
   language: Language;
 };
 
-type LanguageType = 'primary' | 'secondary';
+type LanguageType = 'app' | 'primary' | 'secondary';
 export type LanguageKey = `${LanguageType}Language`;
 
 export type AppOptions = {

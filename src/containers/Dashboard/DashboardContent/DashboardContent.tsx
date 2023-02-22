@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import {Button} from 'components';
 import {Play, Plus} from 'lucide-react';
 import React, {FC, useEffect} from 'react';
+import {useTranslation} from 'react-i18next';
 import {useNavigate} from 'react-router-dom';
 import {Tooltip} from 'react-tooltip';
 import {getStatistics} from 'services/statistics.service';
@@ -14,6 +15,7 @@ const PLAY_BUTTON_ID = 'play-button';
 
 const DashboardContent: FC = () => {
   const navigate = useNavigate();
+  const {t} = useTranslation();
 
   const renderStatCard = (title: string, value: number, stat: string) => (
     <div className={style['dashboard-recent__stat-card']} key={title}>
@@ -26,13 +28,13 @@ const DashboardContent: FC = () => {
   const {multilanguageWords, numberOfWords, uniqueLanguages, numberOfWordSets} = getStatistics();
   const statistics = [
     {
-      stat: `${multilanguageWords} Multilang words`,
-      title: 'Total words',
+      stat: `${multilanguageWords} ${t('multilangWords')}`,
+      title: t('Total words'),
       value: numberOfWords,
     },
     {
       stat: getLangFlagsString(Array.from(uniqueLanguages)),
-      title: 'Languages',
+      title: t('Languages'),
       value: uniqueLanguages.size,
     },
   ];
@@ -68,18 +70,12 @@ const DashboardContent: FC = () => {
             disabled={!isPlayAllowed}
             onClick={() => navigate(ROUTES.PLAYGROUND)}
           >
-            <p className="fs-16 fw-500">Test yourself</p>
+            <p className="fs-16 fw-500">{t('playButton')}</p>
           </Button>
-          {!isPlayAllowed && (
-            <Tooltip
-              anchorId={PLAY_BUTTON_ID}
-              content="To play a game save, atleast 5 different word sets"
-              place="top"
-            />
-          )}
+          {!isPlayAllowed && <Tooltip anchorId={PLAY_BUTTON_ID} content={t('addWordsToPlay') || ''} place="top" />}
 
           <Button leftIcon={<Plus size={16} />} color="secondary" onClick={() => navigate(ROUTES.EDITOR)}>
-            <p className="fs-16 fw-500">Add new words</p>
+            <p className="fs-16 fw-500">{t('addNewWordButton')}</p>
           </Button>
         </div>
       </div>
