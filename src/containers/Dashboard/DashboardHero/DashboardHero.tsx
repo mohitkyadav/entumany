@@ -15,7 +15,7 @@ const DashboardHero: FC = () => (
     <div className={style['right-nav-actions']}>
       <LanguageSwitcher />
       <A href="https://github.com/mohitkyadav/entumany">
-        <Github size={28} />
+        <Github size={30} />
       </A>
     </div>
   </div>
