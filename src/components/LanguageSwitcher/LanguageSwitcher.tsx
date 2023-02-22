@@ -16,7 +16,7 @@ export const LanguageSwitcher = () => {
       <select name="app-lang" id="app-lang" value={lng} onChange={handleLangChange}>
         {availableLanguages.map((k) => (
           <option key={k} value={k}>
-            {LanguageFlags[k]}-{k.toUpperCase()}
+            {LanguageFlags[k]} {k.toUpperCase()}
           </option>
         ))}
       </select>
