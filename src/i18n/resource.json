@@ -13,7 +13,10 @@
       "savedToastText": "Saved!",
       "translateToText": "Translate to English",
       "enterText": "Enter text...",
-      "submit": "Submit"
+      "submit": "Submit",
+      "correctFeedback0": "Correct",
+      "correctFeedback1": "That was correct.",
+      "correctFeedback2": "Good job!"
     }
   },
   "hi": {
@@ -30,7 +33,10 @@
       "savedToastText": "सहेजा गया!",
       "translateToText": "हिन्दी में अनुवाद करें",
       "enterText": "शब्द लिखे...",
-      "submit": "जमा करें"
+      "submit": "जमा करें",
+      "correctFeedback0": "सही जवाब",
+      "correctFeedback1": "बहुत अच्छा!",
+      "correctFeedback2": "शाबाश!"
     }
   }
 }

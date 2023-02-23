@@ -6,6 +6,9 @@ import React, {FC, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {EntumanyDB} from 'services/db.service';
 import {GameAnswer, Language, Word} from 'types/db';
+import {toast} from 'react-hot-toast';
+import {useTranslation} from 'react-i18next';
+import {generateRandomIntFromInterval} from 'utils/urls';
 import GameFeedbackModal from '../GameFeedbackModal/GameFeedbackModal';
 import style from './Game.module.scss';
 
@@ -22,6 +25,7 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
   const [showSubmitFeedback, setShowSubmitFeedback] = useState(false);
   const [gameWords] = useState(getRandomWords(allWords));
   const [answerFeedback, setAnswerFeedback] = useState<GameAnswer>();
+  const {t} = useTranslation();
 
   const {wordId, ...currentWord} = gameWords[currentWordIdx];
   const [srcLang, destLang] = Object.keys(currentWord) as Language[];
@@ -40,7 +44,16 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
       wasCorrectlyAnswered: isCorrect,
       wordId,
     });
-    setShowSubmitFeedback(true);
+
+    if (isCorrect) {
+      toast(t(`correctFeedback${generateRandomIntFromInterval(0, 2)}`), {
+        icon: '✅',
+        position: 'bottom-center',
+      });
+      moveToNextWord();
+    } else {
+      setShowSubmitFeedback(true);
+    }
     e.currentTarget.reset();
   };
 

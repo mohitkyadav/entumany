@@ -3,7 +3,7 @@ import {Button, Modal} from 'components';
 import React, {FC, useEffect, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {GameAnswer, Word} from 'types/db';
-import {LanguageNames, ROUTES} from 'utils/constants';
+import {ROUTES} from 'utils/constants';
 import style from './GameFeedbackModal.module.scss';
 
 export interface GameFeedbackModalProps {
@@ -35,11 +35,7 @@ const GameFeedbackModal: FC<GameFeedbackModalProps> = ({
 
   const wasCorrect = answerFeedback.wasCorrectlyAnswered;
 
-  const srcLang = LanguageNames[answerFeedback.srcLang];
-  const destLang = LanguageNames[answerFeedback.destLang];
-  const targetWord = currentWord?.[answerFeedback.srcLang];
   const destWord = currentWord?.[answerFeedback.destLang];
-  const {inputValue} = answerFeedback;
 
   const bold = (text = '') => <strong>{text}</strong>;
 
@@ -52,12 +48,7 @@ const GameFeedbackModal: FC<GameFeedbackModalProps> = ({
       return 'Nice... that was correct';
     }
 
-    return (
-      <div>
-        Na... The correct translation of {bold(srcLang)} word "{bold(targetWord)}" in {bold(destLang)} is "
-        {bold(destWord)}" not "{bold(inputValue)}".
-      </div>
-    );
+    return <div>Na! The correct translation is "{bold(destWord)}".</div>;
   };
 
   const onContinueClickHandler = () => {
