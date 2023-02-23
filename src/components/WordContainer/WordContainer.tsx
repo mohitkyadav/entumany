@@ -11,8 +11,8 @@ import style from './WordContainer.module.scss';
 interface WordContainerProps {
   children?: React.ReactNode;
   word: {[key in Language]: string};
-  cardType: 'display' | 'input';
-  language: Language;
+  destLang: Language;
+  srcLang: Language;
   handleSubmit?: React.FormEventHandler<HTMLFormElement>;
 }
 
@@ -22,13 +22,11 @@ declare global {
   }
 }
 
-export const WordContainer: FC<WordContainerProps> = ({word, language, cardType, handleSubmit}) => {
-  const isInput = cardType === 'input';
-
+export const WordContainer: FC<WordContainerProps> = ({word, destLang, srcLang, handleSubmit}) => {
   const [speechVal, setSpeechVal] = useState('');
   const {availableLanguages} = useAppContext();
 
-  const {i18n} = useTranslation();
+  const {i18n, t} = useTranslation();
 
   const processResult = (event: SpeechRecognitionEvent) => {
     const results: SpeechRecognitionResult = Array.from(event.results)[0] as SpeechRecognitionResult;
@@ -40,48 +38,42 @@ export const WordContainer: FC<WordContainerProps> = ({word, language, cardType,
     alert(`Exception while trying to access your microphone: "${event.error}"`);
   };
 
-  const {isListenning, startListenning, stopListenning} = useSpeechRecognition(processResult, processError, language);
+  const {isListenning, startListenning, stopListenning} = useSpeechRecognition(processResult, processError, destLang);
 
   useEffect(() => {
     setSpeechVal('');
   }, [word]);
 
-  const renderWord = () => <div className={style['Word-Container__word']}>{word[language]}</div>;
-
-  const placeholder = availableLanguages.includes(language)
-    ? i18n.getFixedT(language)('translateToText')
-    : `Translate to ${LanguageNames[language]}`;
-
-  const renderInput = () => (
-    <form className={style['Word-Container__form']} onSubmit={handleSubmit}>
-      <input
-        className={style['Word-Container__form__input']}
-        name="answer"
-        required
-        autoComplete="off"
-        placeholder={placeholder}
-        defaultValue={speechVal}
-        lang={language}
-      />
-      <div className={style['Word-Container__form__actions']}>
-        <Button type="submit">Submit</Button>
-        <Button
-          color={isListenning ? 'tertiary' : 'primary'}
-          onClick={() => {
-            startListenning();
-            setTimeout(() => stopListenning(), 4000);
-          }}
-        >
-          <MicIcon size={14} />
-        </Button>
-      </div>
-    </form>
-  );
+  const placeholder = availableLanguages.includes(destLang)
+    ? i18n.getFixedT(destLang)('translateToText')
+    : `Translate to ${LanguageNames[destLang]}`;
 
   return (
     <div className={style['Word-Container']}>
-      <div className={style[`Word-Container__lang`]}>{LanguageNames[language]}</div>
-      {isInput ? renderInput() : renderWord()}
+      <div className={style[`Word-Container__word`]}>{word[srcLang]}</div>
+      <form className={style['Word-Container__form']} onSubmit={handleSubmit}>
+        <input
+          className={style['Word-Container__form__input']}
+          name="answer"
+          required
+          autoComplete="off"
+          placeholder={placeholder}
+          defaultValue={speechVal}
+          lang={destLang}
+        />
+        <div className={style['Word-Container__form__actions']}>
+          <Button type="submit">{t('submit')}</Button>
+          <Button
+            color={isListenning ? 'tertiary' : 'primary'}
+            onClick={() => {
+              startListenning();
+              setTimeout(() => stopListenning(), 4000);
+            }}
+          >
+            <MicIcon size={14} />
+          </Button>
+        </div>
+      </form>
     </div>
   );
 };

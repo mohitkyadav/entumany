@@ -64,8 +64,7 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
       />
       <StepProgressBar current={currentWordIdx} isComplete={isComplete} total={gameWords.length} />
       <div className={style.Game__container}>
-        <WordContainer word={currentWord} language={srcLang} cardType="display" />
-        <WordContainer word={currentWord} language={destLang} cardType="input" handleSubmit={handleSubmit} />
+        <WordContainer word={currentWord} destLang={destLang} srcLang={srcLang} handleSubmit={handleSubmit} />
       </div>
       {answerFeedback && (
         <GameFeedbackModal

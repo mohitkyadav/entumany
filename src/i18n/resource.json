@@ -12,7 +12,8 @@
       "saveTranslationsNote": "Save your translations below",
       "savedToastText": "Saved!",
       "translateToText": "Translate to English",
-      "enterText": "Enter text..."
+      "enterText": "Enter text...",
+      "submit": "Submit"
     }
   },
   "hi": {
@@ -28,7 +29,8 @@
       "saveTranslationsNote": "अपने अनुवादों को नीचे सहेजें",
       "savedToastText": "सहेजा गया!",
       "translateToText": "हिन्दी में अनुवाद करें",
-      "enterText": "शब्द लिखे..."
+      "enterText": "शब्द लिखे...",
+      "submit": "जमा करें"
     }
   }
 }
