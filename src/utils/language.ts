@@ -13,14 +13,16 @@ export const sanitiseTranslation = (value = '') => {
     ['g'],
   );
 
-  return value.trim().replaceAll(notImportantCharRegex, '');
+  const saneValue = value.trim().toLowerCase();
+  saneValue.replaceAll(notImportantCharRegex, '');
+
+  return saneValue;
 };
 
-export const psudeoInteligentTranslationVerify = (providedTranslation = '', realTranslation = '') => {
-  console.log(providedTranslation, realTranslation);
+export const psudeoInteligentTranslationVerify = (realTranslation = '', providedTranslation = '') => {
   // sanitise values
-  const saneProvidedTranslation = sanitiseTranslation(providedTranslation.toLowerCase());
-  const saneRealTranslation = sanitiseTranslation(realTranslation.toLowerCase());
+  const saneRealTranslation = sanitiseTranslation(realTranslation);
+  const saneProvidedTranslation = sanitiseTranslation(providedTranslation);
 
-  return saneProvidedTranslation === saneRealTranslation;
+  return saneRealTranslation === saneProvidedTranslation;
 };
