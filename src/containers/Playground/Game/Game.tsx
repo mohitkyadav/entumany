@@ -11,6 +11,7 @@ import {useTranslation} from 'react-i18next';
 import {generateRandomIntFromInterval} from 'utils/urls';
 import GameFeedbackModal from '../GameFeedbackModal/GameFeedbackModal';
 import style from './Game.module.scss';
+import {psudeoInteligentTranslationVerify} from 'utils/language';
 
 export interface GameProps {
   getRandomWords(words: Record<string, any>): Word[];
@@ -33,9 +34,9 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const inputValue = formData.get('answer')?.toString().toLowerCase() ?? '';
-    const actualValue = currentWord[destLang].toLowerCase();
-    const isCorrect = inputValue === actualValue;
+    const inputValue = formData.get('answer')?.toString() ?? '';
+    const actualValue = currentWord[destLang];
+    const isCorrect = psudeoInteligentTranslationVerify(actualValue, inputValue);
 
     setAnswerFeedback({
       destLang,

@@ -20,6 +20,7 @@
     "i18next": "^22.4.10",
     "lodash-es": "^4.17.15",
     "lucide-react": "^0.109.0",
+    "magic-regexp": "^0.6.2",
     "mdi-react": "^9.1.0",
     "node-sass": "^8.0.0",
     "normalize.css": "^8.0.1",
