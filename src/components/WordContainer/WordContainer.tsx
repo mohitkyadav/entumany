@@ -16,12 +16,6 @@ interface WordContainerProps {
   handleSubmit?: React.FormEventHandler<HTMLFormElement>;
 }
 
-declare global {
-  interface Window {
-    webkitSpeechRecognition: any;
-  }
-}
-
 export const WordContainer: FC<WordContainerProps> = ({word, destLang, srcLang, handleSubmit}) => {
   const [speechVal, setSpeechVal] = useState('');
   const {availableLanguages} = useAppContext();
@@ -29,8 +23,8 @@ export const WordContainer: FC<WordContainerProps> = ({word, destLang, srcLang, 
   const {i18n, t} = useTranslation();
 
   const processResult = (event: SpeechRecognitionEvent) => {
-    const results: SpeechRecognitionResult = Array.from(event.results)[0] as SpeechRecognitionResult;
-
+    const resultsLength = event.results.length;
+    const results: SpeechRecognitionResult = Array.from(event.results)[resultsLength - 1];
     setSpeechVal(results[0].transcript);
   };
 
