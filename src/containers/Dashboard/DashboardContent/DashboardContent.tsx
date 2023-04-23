@@ -18,8 +18,8 @@ const DashboardContent: FC = () => {
   const {t} = useTranslation();
 
   const renderStatCard = (title: string, value: number, stat: string, link?: string) => (
-    <Link to={link ?? '#'} className="unset-a">
-      <div className={style['dashboard-recent__stat-card']} key={title}>
+    <Link to={link ?? '#'} className="unset-a" key={title}>
+      <div className={style['dashboard-recent__stat-card']}>
         <div className={clsx('fw-400', style['dashboard-recent__stat-card__title'])}>{title}</div>
         <div className={style['dashboard-recent__stat-card__value']}>{value.toLocaleString()}</div>
         <div className={style['dashboard-recent__stat-card__subtitle']}>{stat.toLocaleString()}</div>
