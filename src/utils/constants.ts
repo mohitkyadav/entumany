@@ -4,6 +4,7 @@ export const ROUTES = {
   DASHBOARD: '/',
   EDITOR: '/new',
   PLAYGROUND: '/play',
+  WORD_LIST: '/list',
 };
 
 export const MIN_WORDS_REQUIRED = 5;
