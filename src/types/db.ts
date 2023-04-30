@@ -43,3 +43,9 @@ export type Word = {
 } & {
   wordId: string;
 };
+
+export type WordListItem = {
+  id: string;
+  word: string;
+  lang: Language;
+};
