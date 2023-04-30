@@ -13,12 +13,12 @@ export const WordListContent: FC<WordListContentProps> = ({words}) => {
     <div className={style['word-list-content']}>
       {words.map((saneEntry) => (
         <div key={saneEntry[0].word} className={style['word-list-content__entry']}>
-          {saneEntry.map((entry) => (
-            <div key={`${entry.id}-${entry.lang}`} className={style['word-list-content__entry__word']}>
-              <span title={LanguageNames[entry.lang]} className={style['word-list-content__entry__word__lang']}>
-                {LanguageNames[entry.lang]}
+          {saneEntry.map(({id, lang, word}) => (
+            <div key={`${id}-${lang}`} className={style['word-list-content__entry__word']}>
+              <span title={LanguageNames[lang]} className={style['word-list-content__entry__word__lang']}>
+                {LanguageNames[lang]}
               </span>
-              <p className={style['word-list-content__entry__word__text']}>{entry.word}</p>
+              <p className={style['word-list-content__entry__word__text']}>{word}</p>
             </div>
           ))}
         </div>
