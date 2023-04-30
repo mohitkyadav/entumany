@@ -3,7 +3,7 @@ import {Button} from 'components';
 import {Play, Plus} from 'lucide-react';
 import React, {FC, useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
-import {useNavigate} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import {Tooltip} from 'react-tooltip';
 import {getStatistics} from 'services/statistics.service';
 import {MIN_WORDS_REQUIRED, ROUTES} from 'utils/constants';
@@ -17,17 +17,20 @@ const DashboardContent: FC = () => {
   const navigate = useNavigate();
   const {t} = useTranslation();
 
-  const renderStatCard = (title: string, value: number, stat: string) => (
-    <div className={style['dashboard-recent__stat-card']} key={title}>
-      <div className={clsx('fw-400', style['dashboard-recent__stat-card__title'])}>{title}</div>
-      <div className={style['dashboard-recent__stat-card__value']}>{value.toLocaleString()}</div>
-      <div className={style['dashboard-recent__stat-card__subtitle']}>{stat.toLocaleString()}</div>
-    </div>
+  const renderStatCard = (title: string, value: number, stat: string, link?: string) => (
+    <Link to={link ?? '#'} className="unset-a" key={title}>
+      <div className={style['dashboard-recent__stat-card']}>
+        <div className={clsx('fw-400', style['dashboard-recent__stat-card__title'])}>{title}</div>
+        <div className={style['dashboard-recent__stat-card__value']}>{value.toLocaleString()}</div>
+        <div className={style['dashboard-recent__stat-card__subtitle']}>{stat.toLocaleString()}</div>
+      </div>
+    </Link>
   );
 
   const {multilanguageWords, numberOfWords, uniqueLanguages, numberOfWordSets} = getStatistics();
   const statistics = [
     {
+      link: ROUTES.WORD_LIST,
       stat: `${multilanguageWords} ${t('multilangWords')}`,
       title: t('Total words'),
       value: numberOfWords,
@@ -61,7 +64,7 @@ const DashboardContent: FC = () => {
     <>
       <div className={style['dashboard-recent']}>
         <div className={clsx(style['dashboard-recent__stat-container'], 'ls-50 fs-18')}>
-          {statistics.map((s) => renderStatCard(s.title, s.value, s.stat))}
+          {statistics.map((s) => renderStatCard(s.title, s.value, s.stat, s.link))}
         </div>
         <div className={style['dashboard-recent__actions']}>
           <Button
