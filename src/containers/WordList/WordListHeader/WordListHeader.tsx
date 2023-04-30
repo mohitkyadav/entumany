@@ -1,5 +1,9 @@
 import React from 'react';
 
+import style from './WordListHeader.module.scss';
+import {useTranslation} from 'react-i18next';
+
 export const WordListHeader = () => {
-  return <div>header</div>;
+  const {t} = useTranslation();
+  return <div className={style['word-list-header']}>{t('yourDict')}</div>;
 };

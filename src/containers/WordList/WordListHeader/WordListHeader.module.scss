@@ -1,0 +1,15 @@
+@import '../../../styles/mixins';
+
+.word-list-header {
+  display: flex;
+  flex-direction: row;
+  padding: 2rem 4rem;
+  font-size: var(--font-size-xlarge);
+  font-weight: 500;
+}
+
+@media only screen and (max-width: 600px) {
+  .word-list-header {
+    padding: 2rem;
+  }
+}

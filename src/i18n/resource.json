@@ -16,7 +16,8 @@
       "submit": "Submit",
       "correctFeedback0": "Correct",
       "correctFeedback1": "That was correct.",
-      "correctFeedback2": "Good job!"
+      "correctFeedback2": "Good job!",
+      "yourDict": "Your dictionary"
     }
   },
   "hi": {
@@ -36,7 +37,8 @@
       "submit": "जमा करें",
       "correctFeedback0": "सही जवाब",
       "correctFeedback1": "बहुत अच्छा!",
-      "correctFeedback2": "शाबाश!"
+      "correctFeedback2": "शाबाश!",
+      "yourDict": "आपका शब्दकोष"
     }
   }
 }
