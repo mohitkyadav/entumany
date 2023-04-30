@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import {Button, StepProgressBar} from 'components';
-import {WordContainer, GameFeedbackModal} from 'components';
 import {XCircleIcon} from 'lucide-react';
 import React, {FC, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
@@ -9,7 +8,9 @@ import {GameAnswer, Language, Word} from 'types/db';
 import {toast} from 'react-hot-toast';
 import {useTranslation} from 'react-i18next';
 import {generateRandomIntFromInterval} from 'utils/urls';
+import {WordContainer, GameFeedbackModal} from 'components';
 import {psudeoInteligentTranslationVerify} from 'utils/language';
+
 import style from './Game.module.scss';
 
 export interface GameProps {

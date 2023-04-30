@@ -14,7 +14,7 @@ export interface GameFeedbackModalProps {
   isComplete: boolean;
 }
 
-const GameFeedbackModal: FC<GameFeedbackModalProps> = ({
+export const GameFeedbackModal: FC<GameFeedbackModalProps> = ({
   showSubmitFeedback = false,
   isComplete = false,
   onHide,
@@ -88,5 +88,3 @@ const GameFeedbackModal: FC<GameFeedbackModalProps> = ({
     </Modal>
   );
 };
-
-export default GameFeedbackModal;

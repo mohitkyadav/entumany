@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import {Button} from 'components';
-import {Play, Plus} from 'lucide-react';
+import {Play, Plus, Shuffle} from 'lucide-react';
 import React, {FC, useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
 import {Link, useNavigate} from 'react-router-dom';
@@ -76,6 +76,13 @@ const DashboardContent: FC = () => {
             <p className="fs-16 fw-500">{t('playButton')}</p>
           </Button>
           {!isPlayAllowed && <Tooltip anchorId={PLAY_BUTTON_ID} content={t('addWordsToPlay') || ''} place="top" />}
+          <Button
+            leftIcon={<Shuffle size={16} />}
+            disabled={!isPlayAllowed}
+            onClick={() => navigate(ROUTES.MATCHING_GAME)}
+          >
+            <p className="fs-16 fw-500">{t('playButton')}</p>
+          </Button>
 
           <Button leftIcon={<Plus size={16} />} color="secondary" onClick={() => navigate(ROUTES.EDITOR)}>
             <p className="fs-16 fw-500">{t('addNewWordButton')}</p>

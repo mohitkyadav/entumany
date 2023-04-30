@@ -7,6 +7,7 @@ import Dashboard from './Dashboard/Dashboard';
 import EditorPage from './EditorPage/EditorPage';
 import Playground from './Playground/Playground';
 import WordList from './WordList/WordList';
+import MatchingGame from './MatchingGame/MatchingGame';
 
 const App: FC = () => {
   return (
@@ -17,6 +18,7 @@ const App: FC = () => {
       <Routes>
         <Route path={ROUTES.DASHBOARD} element={<Dashboard />} />
         <Route path={ROUTES.EDITOR} element={<EditorPage />} />
+        <Route path={ROUTES.MATCHING_GAME} element={<MatchingGame />} />
         <Route path={ROUTES.PLAYGROUND} element={<Playground />} />
         <Route path={ROUTES.WORD_LIST} element={<WordList />} />
       </Routes>
