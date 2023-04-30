@@ -24,7 +24,7 @@ const WordList: FC = () => {
   });
 
   return (
-    <div className="page animation-scale-up">
+    <div className="page animation-slide-down">
       <PageTitle title="Your words" />
       <WordListHeader />
       <WordListContent words={words} />
