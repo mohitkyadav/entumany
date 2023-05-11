@@ -1,17 +1,18 @@
 import clsx from 'clsx';
-import {Button, StepProgressBar} from 'components';
+import {Button} from 'components';
 import {XCircleIcon} from 'lucide-react';
 import React, {FC, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {EntumanyDB} from 'services/db.service';
-import {GameAnswer, Language, Word} from 'types/db';
+import {GameAnswer, Language, Word, WordListItem} from 'types/db';
 import {toast} from 'react-hot-toast';
 import {useTranslation} from 'react-i18next';
 import {generateRandomIntFromInterval} from 'utils/urls';
-import {WordContainer, GameFeedbackModal} from 'components';
+import {GameFeedbackModal} from 'components';
 import {psudeoInteligentTranslationVerify} from 'utils/language';
 
 import style from './Game.module.scss';
+import {generateUniqueArray} from 'utils/common';
 
 export interface GameProps {
   getRandomWords(words: Record<string, any>): Word[];
@@ -24,9 +25,22 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
   const [currentWordIdx, setCurrentWordIdx] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
   const [showSubmitFeedback, setShowSubmitFeedback] = useState(false);
-  const [gameWords] = useState(getRandomWords(allWords));
+  const gameWords = getRandomWords(allWords);
+  const sequence = generateUniqueArray(gameWords.length);
   const [answerFeedback, setAnswerFeedback] = useState<GameAnswer>();
   const {t} = useTranslation();
+
+  const listOfListOfwords = gameWords.map(({wordId, ...word}) => {
+    const langs = Object.keys(word);
+    const langWords = Object.values(word);
+    const saneWords: WordListItem[] = [];
+    for (let i = 0; i < langs.length; i++) {
+      saneWords.push({id: wordId, lang: langs[i] as Language, word: langWords[i] as string});
+    }
+    return saneWords;
+  });
+
+  console.log(listOfListOfwords, sequence);
 
   const {wordId, ...currentWord} = gameWords[currentWordIdx];
   const [srcLang, destLang] = Object.keys(currentWord) as Language[];
@@ -76,9 +90,14 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
         leftIcon={<XCircleIcon size={28} />}
         onClick={() => navigate('/')}
       />
-      <StepProgressBar current={currentWordIdx} isComplete={isComplete} total={gameWords.length} />
       <div className={style.Game__container}>
-        <WordContainer word={currentWord} destLang={destLang} srcLang={srcLang} handleSubmit={handleSubmit} />
+        {/* <WordContainer word={currentWord} destLang={destLang} srcLang={srcLang} handleSubmit={handleSubmit} /> */}
+        {sequence.map((colOne, colTwo) => (
+          <div className={style.Game__container__row}>
+            <Button>{listOfListOfwords[colOne][0].word}</Button>
+            <Button>{listOfListOfwords[colTwo][1].word}</Button>
+          </div>
+        ))}
       </div>
       {answerFeedback && (
         <GameFeedbackModal
