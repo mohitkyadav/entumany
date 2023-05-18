@@ -70,6 +70,10 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
   const resetSelectedWords = () => {
     setSelectedFirstWord(undefined);
     setSelectedSecondWord(undefined);
+
+    if (correctlyAnsweredIds.size === sequence.length) {
+      navigate(0);
+    }
   };
 
   const getButtonColour = (wordId: string, selectedId?: string) => {
