@@ -94,8 +94,8 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
         {/* <WordContainer word={currentWord} destLang={destLang} srcLang={srcLang} handleSubmit={handleSubmit} /> */}
         {sequence.map((colOne, colTwo) => (
           <div className={style.Game__container__row}>
-            <Button>{listOfListOfwords[colOne][0].word}</Button>
-            <Button>{listOfListOfwords[colTwo][1].word}</Button>
+            <Button className="fs-16">{listOfListOfwords[colOne][0].word}</Button>
+            <Button className="fs-16">{listOfListOfwords[colTwo][1].word}</Button>
           </div>
         ))}
       </div>
