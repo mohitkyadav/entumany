@@ -16,6 +16,8 @@ export interface GameProps {
   getRandomWords(words: Record<string, any>): Word[];
 }
 
+const correctlyAnsweredIds: Map<string, boolean> = new Map();
+
 const Game: FC<GameProps> = ({getRandomWords}) => {
   const dbInstance = EntumanyDB.getInstance();
   const allWords = dbInstance.database;
@@ -55,7 +57,31 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
         icon: '✅',
         position: 'bottom-center',
       });
+      correctlyAnsweredIds.set(firstWord.id, true);
+    } else {
+      toast(t(`inCorrectFeedback${generateRandomIntFromInterval(0, 2)}`), {
+        icon: '🚫',
+        position: 'bottom-center',
+      });
     }
+    setTimeout(() => resetSelectedWords(), 300);
+  };
+
+  const resetSelectedWords = () => {
+    setSelectedFirstWord(undefined);
+    setSelectedSecondWord(undefined);
+  };
+
+  const getButtonColour = (wordId: string, selectedId?: string) => {
+    if (wordId === selectedId) {
+      return 'secondary';
+    }
+
+    if (correctlyAnsweredIds.get(wordId)) {
+      return 'tertiary';
+    }
+
+    return 'primary';
   };
 
   return (
@@ -75,15 +101,17 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
             <div key={firstWord.id + secondWord.id} className={style.Game__container__row}>
               <Button
                 className="fs-16"
-                color={selectedFirstWord?.id === firstWord.id ? 'secondary' : 'primary'}
+                color={getButtonColour(firstWord.id, selectedFirstWord?.id)}
                 onClick={() => selectFirstWord(firstWord)}
+                disabled={correctlyAnsweredIds.get(firstWord.id)}
               >
                 {firstWord.word}
               </Button>
               <Button
                 className="fs-16"
-                color={selectedSecondWord?.id === secondWord.id ? 'secondary' : 'primary'}
+                color={getButtonColour(secondWord.id, selectedSecondWord?.id)}
                 onClick={() => selectSecondWord(secondWord)}
+                disabled={correctlyAnsweredIds.get(secondWord.id)}
               >
                 {secondWord.word}
               </Button>
