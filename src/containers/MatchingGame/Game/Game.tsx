@@ -26,51 +26,24 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
   const [isComplete, setIsComplete] = useState(false);
   const [showSubmitFeedback, setShowSubmitFeedback] = useState(false);
   const gameWords = getRandomWords(allWords);
-  const sequence = generateUniqueArray(gameWords.length);
+  const [sequence] = useState(generateUniqueArray(gameWords.length));
+  const [listOfListOfwords] = useState(
+    gameWords.map(({wordId, ...word}) => {
+      const langs = Object.keys(word);
+      const langWords = Object.values(word);
+      const saneWords: WordListItem[] = [];
+      for (let i = 0; i < langs.length; i++) {
+        saneWords.push({id: wordId, lang: langs[i] as Language, word: langWords[i] as string});
+      }
+      return saneWords;
+    }),
+  );
   const [answerFeedback, setAnswerFeedback] = useState<GameAnswer>();
+  const [selectedFirstWord, setSelectedFirstWord] = useState<WordListItem>();
+  const [selectedSecondWord, setSelectedSecondWord] = useState<WordListItem>();
   const {t} = useTranslation();
 
-  const listOfListOfwords = gameWords.map(({wordId, ...word}) => {
-    const langs = Object.keys(word);
-    const langWords = Object.values(word);
-    const saneWords: WordListItem[] = [];
-    for (let i = 0; i < langs.length; i++) {
-      saneWords.push({id: wordId, lang: langs[i] as Language, word: langWords[i] as string});
-    }
-    return saneWords;
-  });
-
   console.log(listOfListOfwords, sequence);
-
-  const {wordId, ...currentWord} = gameWords[currentWordIdx];
-  const [srcLang, destLang] = Object.keys(currentWord) as Language[];
-
-  const handleSubmit: React.FormEventHandler<HTMLFormElement> = (e) => {
-    e.preventDefault();
-    const formData = new FormData(e.currentTarget);
-    const inputValue = formData.get('answer')?.toString() ?? '';
-    const actualValue = currentWord[destLang];
-    const isCorrect = psudeoInteligentTranslationVerify(actualValue, inputValue);
-
-    setAnswerFeedback({
-      destLang,
-      inputValue,
-      srcLang,
-      wasCorrectlyAnswered: isCorrect,
-      wordId,
-    });
-
-    if (isCorrect) {
-      toast(t(`correctFeedback${generateRandomIntFromInterval(0, 2)}`), {
-        icon: '✅',
-        position: 'bottom-center',
-      });
-      moveToNextWord();
-    } else {
-      setShowSubmitFeedback(true);
-    }
-    e.currentTarget.reset();
-  };
 
   const moveToNextWord = () => {
     setShowSubmitFeedback(false);
@@ -82,6 +55,14 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
     }
   };
 
+  const selectFirstWord = (selectedWord: WordListItem) => {
+    setSelectedFirstWord(selectedWord);
+  };
+
+  const selectSecondWord = (selectedWord: WordListItem) => {
+    setSelectedSecondWord(selectedWord);
+  };
+
   return (
     <div className={clsx(style.Game, 'animation-slide-down')}>
       <Button
@@ -91,13 +72,29 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
         onClick={() => navigate('/')}
       />
       <div className={style.Game__container}>
-        {/* <WordContainer word={currentWord} destLang={destLang} srcLang={srcLang} handleSubmit={handleSubmit} /> */}
-        {sequence.map((colOne, colTwo) => (
-          <div className={style.Game__container__row}>
-            <Button className="fs-16">{listOfListOfwords[colOne][0].word}</Button>
-            <Button className="fs-16">{listOfListOfwords[colTwo][1].word}</Button>
-          </div>
-        ))}
+        {sequence.map((colOne, colTwo) => {
+          const firstWord = listOfListOfwords[colOne][0];
+          const secondWord = listOfListOfwords[colTwo][1];
+
+          return (
+            <div className={style.Game__container__row}>
+              <Button
+                className="fs-16"
+                color={selectedFirstWord?.id === firstWord.id ? 'secondary' : 'primary'}
+                onClick={() => selectFirstWord(firstWord)}
+              >
+                {firstWord.word}
+              </Button>
+              <Button
+                className="fs-16"
+                color={selectedSecondWord?.id === secondWord.id ? 'secondary' : 'primary'}
+                onClick={() => selectSecondWord(secondWord)}
+              >
+                {secondWord.word}
+              </Button>
+            </div>
+          );
+        })}
       </div>
       {answerFeedback && (
         <GameFeedbackModal
