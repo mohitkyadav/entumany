@@ -3,6 +3,7 @@ import {Language} from 'types/db';
 export const ROUTES = {
   DASHBOARD: '/',
   EDITOR: '/new',
+  MATCHING_GAME: '/match',
   PLAYGROUND: '/play',
   WORD_LIST: '/list',
 };

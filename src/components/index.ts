@@ -6,3 +6,5 @@ export {PageTitle} from './PageTitle/PageTitle';
 export {LangEditor} from './LangEditor/LangEditor';
 export {StepProgressBar} from './StepProgressBar/StepProgressBar';
 export {Modal} from './Modal/Modal';
+export {GameFeedbackModal} from './GameFeedbackModal/GameFeedbackModal';
+export {WordContainer} from './WordContainer/WordContainer';

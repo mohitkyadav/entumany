@@ -1,0 +1,49 @@
+@import '../../../styles/mixins';
+
+.Game {
+  @include flex-caj(center, flex-start);
+  height: 100vh;
+  padding: 2rem 10%;
+  gap: 2.4rem;
+
+  &__back {
+    align-self: flex-end;
+    border-radius: 100%;
+    padding: 0;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 4rem;
+    margin-top: 5rem;
+
+    &__row {
+      display: flex;
+      justify-content: space-between;
+      flex-direction: row;
+      gap: 4rem;
+
+      & > * {
+        flex: 1;
+        text-transform: capitalize;
+      }
+
+      button {
+        padding: 1.6rem 2rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .Game {
+    padding: 1.8rem;
+
+    &__container {
+      flex-direction: column;
+      margin-top: 4rem;
+    }
+  }
+}

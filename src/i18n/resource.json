@@ -17,6 +17,9 @@
       "correctFeedback0": "Correct",
       "correctFeedback1": "That was correct.",
       "correctFeedback2": "Good job!",
+      "inCorrectFeedback0": "Incorrect",
+      "inCorrectFeedback1": "That was incorrect.",
+      "inCorrectFeedback2": "Nope!",
       "yourDict": "Your dictionary"
     }
   },
@@ -38,6 +41,9 @@
       "correctFeedback0": "सही जवाब",
       "correctFeedback1": "बहुत अच्छा!",
       "correctFeedback2": "शाबाश!",
+      "inCorrectFeedback0": "गलत जवाब",
+      "inCorrectFeedback1": "दोबारा कोशिश करें",
+      "inCorrectFeedback2": "एकदम गलत",
       "yourDict": "आपका शब्दकोष"
     }
   }
