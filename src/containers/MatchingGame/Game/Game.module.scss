@@ -2,7 +2,6 @@
 
 .Game {
   @include flex-caj(center, flex-start);
-  height: 100vh;
   padding: 2rem 10%;
   gap: 2.4rem;
 
@@ -32,6 +31,10 @@
 
       button {
         padding: 1.6rem 2rem;
+        @include flex-raj(center, center);
+        inline-size: 45%;
+        flex: 1;
+        overflow-wrap: break-word;
       }
     }
   }
