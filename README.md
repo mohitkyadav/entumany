@@ -1,4 +1,4 @@
-<h1 align="center">Source Server Manager</h1>
+<h1 align="center">Entumany</h1>
 
 ## Features
 
