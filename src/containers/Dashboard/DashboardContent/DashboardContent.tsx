@@ -81,7 +81,7 @@ const DashboardContent: FC = () => {
             disabled={!isPlayAllowed}
             onClick={() => navigate(ROUTES.MATCHING_GAME)}
           >
-            <p className="fs-16 fw-500">{t('playButton')}</p>
+            <p className="fs-16 fw-500">{t('playMatchingButton')}</p>
           </Button>
 
           <Button leftIcon={<Plus size={16} />} color="secondary" onClick={() => navigate(ROUTES.EDITOR)}>
