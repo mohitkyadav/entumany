@@ -5,6 +5,8 @@
 - Users can add a custom dictionary of 2 or more languages.
 - Play a randomised matching game.
 - Play a randomised translation game.
+- ✨ Install as PWA on your mobile device.
+- No internet connection required, everything stays in localstorage.
 
 <div align="left">
     <img width="270" src="demo/home.png">
