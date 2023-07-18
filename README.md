@@ -1,20 +1,32 @@
-[![License](https://img.shields.io/github/license/mohitkyadav/react-ts-sass-boilerplate)](http://opensource.org/licenses/MIT)
+<h1 align="center">Source Server Manager</h1>
 
-## Getting Started
+## Features
+
+- Users can add a custom dictionary of 2 or more languages.
+- Play a randomised matching game.
+- Play a randomised translation game.
+
+<div align="left">
+    <img width="270" src="demo/home.png">
+    <img width="270" src="demo/add.png">
+    <img width="270" src="demo/list.png">
+    <img width="270" src="demo/match-success.png">
+    <img width="270" src="demo/play.png">
+</div>
+
+## Contributing
+
+![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)
+[![Bugs](https://img.shields.io/static/v1?label=Bugs&message=Report&color=red&style=flat-square)](https://github.com/mohitkyadav/entumany/issues)
+
+We welcome all contributions.
+
+- You can submit any ideas as Pull Request or Issues.
+- If you'd like to improve code, make sure you stick to exisiting practices in code.
 
 
-```bash
-yarn install
-```
+## License
 
-```bash
-yarn start
-```
+Copyright (c) Mohit Kumar Yadav. All rights reserved.
 
-## Motivation
-I love learning languages and while doing so I often write down some words or sentenses in different places such as OneNote or other note take apps. Entumany is a mix of this and Duolingo.
-
-## Functionality
-Users can add translations between multiple languages. They come back any time and play a simple quiz, in which Entumany shows you one quetion and you input the respactive translation.
-
-There's no need for internet or any account, it works offlie on user's localstorage. It has a beautiful and minimal mobile device focused user interface.
+[![MIT license](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge&color=orange)](https://github.com/mohitkyadav/entumany/blob/master/LICENSE)
