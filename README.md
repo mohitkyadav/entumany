@@ -1,5 +1,6 @@
 <h1 align="center">Entumany</h1>
 
+Live here https://ent.only4.dev/
 ## Features
 
 - Users can add a custom dictionary of 2 or more languages.
