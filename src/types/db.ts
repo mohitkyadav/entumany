@@ -8,6 +8,7 @@ export enum Language {
   SPANISH = 'es',
   ITALIAN = 'it',
   JAPANESE = 'ja',
+  RUSSIAN = 'ru',
 }
 
 export type WordIndexKey = `${string}${typeof KEY_DELIMITER}${Language}`;

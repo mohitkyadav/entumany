@@ -19,6 +19,7 @@ export const LanguageNames = {
   [Language.SPANISH]: 'Spanish',
   [Language.ITALIAN]: 'Italian',
   [Language.JAPANESE]: 'Japanese',
+  [Language.RUSSIAN]: 'Russian',
 };
 
 export const LanguageFlags = {
@@ -29,4 +30,5 @@ export const LanguageFlags = {
   [Language.SPANISH]: '🇪🇸',
   [Language.ITALIAN]: '🇮🇹',
   [Language.JAPANESE]: '🇯🇵',
+  [Language.RUSSIAN]: '🇷🇺',
 };
