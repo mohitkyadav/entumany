@@ -22,7 +22,7 @@
     "lucide-react": "^0.109.0",
     "magic-regexp": "^0.6.2",
     "mdi-react": "^9.1.0",
-    "node-sass": "^8.0.0",
+    "sass": "1.86.0.",
     "normalize.css": "^8.0.1",
     "qrcode": "^1.4.4",
     "react": "18.2.0",
