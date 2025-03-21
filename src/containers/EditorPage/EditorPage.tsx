@@ -100,6 +100,7 @@ const EditorPage: FC = () => {
   };
 
   const handleOnSaveClick = () => {
+    console.log(sourceState, destState);
     db.addWords(sourceState, destState);
     resetInputs();
     toast(t('savedToastText'), {

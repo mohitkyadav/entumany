@@ -8,8 +8,14 @@
 
   &__entry {
     display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1.8rem;
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+    }
 
     &__word {
       display: flex;
