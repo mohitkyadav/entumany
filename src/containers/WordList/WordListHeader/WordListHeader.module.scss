@@ -7,6 +7,11 @@
   align-items: flex-start;
   gap: 1.4rem;
 
+  &__actions {
+    display: flex;
+    gap: 2rem;
+  }
+
   &__text {
     font-size: var(--font-size-xlarge);
     font-weight: 500;
