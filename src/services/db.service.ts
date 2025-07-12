@@ -24,6 +24,11 @@ class Database {
     this.database[key] = value;
   }
 
+  public delete(idToDelete: string): void {
+    delete this.database[idToDelete];
+    this.wordIndex = Object.fromEntries(Object.entries(this.wordIndex).filter(([, value]) => value !== idToDelete));
+  }
+
   public clearDB(): void {
     this.database = {};
     this.wordIndex = {};
@@ -108,6 +113,11 @@ export class EntumanyDB extends Database {
     this.database[id][b.language] = b.word;
     this.wordIndex[aIndex] = id;
     this.wordIndex[bIndex] = id;
+  }
+
+  public deleteWordEntryWithIndex(id: string): void {
+    this.delete(id);
+    this.saveToLocalStorage();
   }
 
   public updateLanguage(id: LanguageKey, newLanguage: Language): void {

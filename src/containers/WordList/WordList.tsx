@@ -1,4 +1,4 @@
-import React, {FC} from 'react';
+import React, {FC, useState} from 'react';
 
 import {PageTitle} from 'components';
 import {EntumanyDB} from 'services/db.service';
@@ -9,6 +9,8 @@ import {WordListHeader} from './WordListHeader/WordListHeader';
 const WordList: FC = () => {
   const dbInstance = EntumanyDB.getInstance();
   const db = dbInstance.database;
+
+  const [isEditMode, setIsEditMode] = useState(false);
 
   const words = Object.entries(db).map(([wordId, word]) => {
     const langs = Object.keys(word);
@@ -26,8 +28,8 @@ const WordList: FC = () => {
   return (
     <div className="page animation-slide-down">
       <PageTitle title="Your words" />
-      <WordListHeader />
-      <WordListContent words={words} />
+      <WordListHeader isEditMode={isEditMode} setIsEditMode={setIsEditMode} />
+      <WordListContent isEditMode={isEditMode} words={words} />
     </div>
   );
 };
