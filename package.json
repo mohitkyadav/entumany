@@ -98,5 +98,8 @@
     "{,!(node_modules)/**/}*.{css,scss}": [
       "prettier --write"
     ]
+  },
+  "engines": {
+    "node": ">=18"
   }
 }
