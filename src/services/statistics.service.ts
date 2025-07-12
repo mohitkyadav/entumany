@@ -6,7 +6,7 @@ export const getStatistics = () => {
   const dbInstance = EntumanyDB.getInstance();
   const wordIndexKeys = Object.keys(dbInstance.wordIndex);
   const uniqueLanguages = new Set(wordIndexKeys.map((key) => key.split(KEY_DELIMITER).at(-1) as Language));
-  const numberOfWords = wordIndexKeys.length;
+  const numberOfWords = wordIndexKeys.length / 2;
 
   const multilanguageWords = Object.keys(dbInstance.database).reduce((acc, id) => {
     const values = Object.keys(dbInstance.database[id]);

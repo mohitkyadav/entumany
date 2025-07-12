@@ -21,6 +21,7 @@ export const LanguageNames = {
   [Language.JAPANESE]: 'Japanese',
   [Language.RUSSIAN]: 'Russian',
   [Language.POLISH]: 'Polish',
+  [Language.PORTUGUESE]: 'Portuguese',
 };
 
 export const LanguageFlags = {
@@ -33,4 +34,5 @@ export const LanguageFlags = {
   [Language.JAPANESE]: '🇯🇵',
   [Language.RUSSIAN]: '🇷🇺',
   [Language.POLISH]: '🇵🇱',
+  [Language.PORTUGUESE]: '🇵🇹',
 };
