@@ -39,6 +39,13 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
   const [selectedSecondWord, setSelectedSecondWord] = useState<WordListItem>();
   const {t} = useTranslation();
 
+  const playFeedbackSound = (isSuccess: boolean) => {
+    const audio = new Audio(isSuccess ? '/sounds/correct-1.mp3' : '/sounds/error-1.mp3');
+    audio.play().catch((error) => {
+      console.warn('Failed to play error sound:', error);
+    });
+  };
+
   const selectFirstWord = (selectedWord: WordListItem) => {
     setSelectedFirstWord(selectedWord);
 
@@ -53,12 +60,14 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
 
   const checkMatch = (firstWord: WordListItem, secondWord: WordListItem) => {
     if (firstWord?.id === secondWord?.id) {
+      playFeedbackSound(true);
       toast(t(`correctFeedback${generateRandomIntFromInterval(0, 2)}`), {
         icon: '✅',
         position: 'bottom-center',
       });
       correctlyAnsweredIds.set(firstWord.id, true);
     } else {
+      playFeedbackSound(false);
       toast(t(`inCorrectFeedback${generateRandomIntFromInterval(0, 2)}`), {
         icon: '🚫',
         position: 'bottom-center',
