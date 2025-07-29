@@ -113,7 +113,7 @@ const EditorPage: FC = () => {
 
   return (
     <div className="page animation-slide-down">
-      <PageTitle title="Editor" />
+      <PageTitle title={t('editorTitle')} />
 
       <div className={style.EditorPage}>
         <div className={style.EditorPage__helper}>
@@ -152,7 +152,11 @@ const EditorPage: FC = () => {
         </div>
       </div>
       {!allowSave && (
-        <Tooltip anchorId={SAVE_BUTTON_ID} content="Hey! YOU, yes you! please enter some text to save" place="top" />
+        <Tooltip
+          anchorId={SAVE_BUTTON_ID}
+          content={t('saveTooltipText') || 'Hey! YOU, yes you! please enter some text to save'}
+          place="top"
+        />
       )}
     </div>
   );

@@ -1,6 +1,7 @@
 import React, {FC} from 'react';
 
 import {PageTitle} from 'components';
+import {useTranslation} from 'react-i18next';
 import Game from './Game/Game';
 import {generateRandomIdxFromInterval, generateRandomIntFromInterval} from 'utils/urls';
 import {MIN_WORDS_REQUIRED} from 'utils/constants';
@@ -24,9 +25,10 @@ const getRandomWords = (words: Record<string, any>): Word[] => {
 };
 
 const Playground: FC = () => {
+  const {t} = useTranslation();
   return (
     <div className="page animation-scale-up">
-      <PageTitle title="Playground" />
+      <PageTitle title={t('playgroundTitle')} />
       <Game getRandomWords={getRandomWords} />
     </div>
   );
