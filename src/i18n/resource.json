@@ -21,7 +21,18 @@
       "inCorrectFeedback0": "Incorrect",
       "inCorrectFeedback1": "That was incorrect.",
       "inCorrectFeedback2": "Nope!",
-      "yourDict": "Your dictionary"
+      "yourDict": "Your dictionary",
+      "victoryTitle": "🎉 Victory! 🎉",
+      "correctMatches": "Correct",
+      "mistakes": "Mistakes",
+      "accuracy": "Accuracy",
+      "excellentMessage": "Excellent! Perfect matching!",
+      "goodMessage": "Great job! Well done!",
+      "averageMessage": "Good effort! Keep practicing!",
+      "poorMessage": "Keep practicing to improve!",
+      "mistakesTitle": "Mistakes Made:",
+      "playAgain": "Play Again",
+      "backToHome": "Back to Home"
     }
   },
   "hi": {
@@ -46,7 +57,18 @@
       "inCorrectFeedback0": "गलत जवाब",
       "inCorrectFeedback1": "दोबारा कोशिश करें",
       "inCorrectFeedback2": "एकदम गलत",
-      "yourDict": "आपका शब्दकोष"
+      "yourDict": "आपका शब्दकोष",
+      "victoryTitle": "🎉 जीत! 🎉",
+      "correctMatches": "सही",
+      "mistakes": "गलतियाँ",
+      "accuracy": "सटीकता",
+      "excellentMessage": "उत्कृष्ट! बिल्कुल सही मिलान!",
+      "goodMessage": "बहुत अच्छा! शाबाश!",
+      "averageMessage": "अच्छी कोशिश! अभ्यास जारी रखें!",
+      "poorMessage": "सुधार के लिए अभ्यास जारी रखें!",
+      "mistakesTitle": "की गई गलतियाँ:",
+      "playAgain": "फिर से खेलें",
+      "backToHome": "होम पर वापस जाएं"
     }
   }
 }

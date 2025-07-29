@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import {Button} from 'components';
+import {Button, VictoryModal} from 'components';
 import {XCircleIcon} from 'lucide-react';
 import React, {FC, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
@@ -11,6 +11,7 @@ import {generateRandomIntFromInterval} from 'utils/urls';
 
 import style from './Game.module.scss';
 import {generateUniqueArray} from 'utils/common';
+import {Mistake} from 'components/VictoryModal/VictoryModal';
 
 export interface GameProps {
   getRandomWords(words: Record<string, any>): Word[];
@@ -37,6 +38,8 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
   );
   const [selectedFirstWord, setSelectedFirstWord] = useState<WordListItem>();
   const [selectedSecondWord, setSelectedSecondWord] = useState<WordListItem>();
+  const [mistakes, setMistakes] = useState<Mistake[]>([]);
+  const [showVictoryModal, setShowVictoryModal] = useState(false);
   const {t} = useTranslation();
 
   const playFeedbackSound = (isSuccess: boolean) => {
@@ -72,6 +75,15 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
         icon: '🚫',
         position: 'bottom-center',
       });
+      // Track the mistake
+      setMistakes((prev) => [
+        ...prev,
+        {
+          firstWord,
+          secondWord,
+          timestamp: Date.now(),
+        },
+      ]);
     }
     setTimeout(() => resetSelectedWords(), 300);
   };
@@ -81,7 +93,7 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
     setSelectedSecondWord(undefined);
 
     if (correctlyAnsweredIds.size === sequence.length) {
-      navigate(0);
+      setShowVictoryModal(true);
     }
   };
 
@@ -95,6 +107,13 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
     }
 
     return 'primary';
+  };
+
+  const handlePlayAgain = () => {
+    setShowVictoryModal(false);
+    setMistakes([]);
+    correctlyAnsweredIds.clear();
+    navigate(0); // Refresh the page to get new words
   };
 
   return (
@@ -132,6 +151,14 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
           );
         })}
       </div>
+
+      <VictoryModal
+        isShown={showVictoryModal}
+        totalPairs={sequence.length}
+        mistakes={mistakes}
+        onPlayAgain={handlePlayAgain}
+        onHide={() => setShowVictoryModal(false)}
+      />
     </div>
   );
 };
