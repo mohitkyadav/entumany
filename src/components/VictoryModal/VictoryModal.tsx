@@ -36,6 +36,7 @@ export const VictoryModal: FC<VictoryModalProps> = ({onHide, isShown, totalPairs
   }, [isShown]);
 
   const hide = () => {
+    onPlayAgain();
     onHide?.();
   };
 
