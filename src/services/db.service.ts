@@ -133,4 +133,25 @@ export class EntumanyDB extends Database {
   public updatePerQuestionAllowedTimeInSec(newPerQuestionAllowedTimeInSec = 0): void {
     this.appOptions.perQuestionAllowedTimeInSec = newPerQuestionAllowedTimeInSec;
   }
+
+  public getExistingWords(language: Language): string[] {
+    const words: string[] = [];
+    Object.values(this.database).forEach((entry: any) => {
+      if (entry[language]) {
+        words.push(entry[language]);
+      }
+    });
+    return words;
+  }
+
+  public getWordSuggestions(input: string, language: Language, maxSuggestions = 5): string[] {
+    if (!input.trim()) return [];
+
+    const existingWords = this.getExistingWords(language);
+    const inputLower = input.toLowerCase();
+
+    return existingWords
+      .filter((word) => word.toLowerCase().includes(inputLower) && word.toLowerCase() !== inputLower)
+      .slice(0, maxSuggestions);
+  }
 }

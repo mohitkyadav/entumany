@@ -8,10 +8,12 @@ import {EntumanyDB} from 'services/db.service';
 
 const AppContext = createContext<{
   availableLanguages: Language[];
+  dbInstance: EntumanyDB;
   lng: Language;
   switchLanguage: (lng: Language) => void;
 }>({
   availableLanguages: [],
+  dbInstance: EntumanyDB.getInstance(),
   lng: Language.ENGLISH,
   switchLanguage: () => {},
 });
@@ -42,6 +44,7 @@ const AppProvider: React.FC<{
     <AppContext.Provider
       value={{
         availableLanguages,
+        dbInstance,
         lng,
         switchLanguage,
       }}
