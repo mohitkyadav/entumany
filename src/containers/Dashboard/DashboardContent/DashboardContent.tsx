@@ -84,10 +84,7 @@ const DashboardContent: FC = () => {
             <p className="fs-16 fw-500">{t('playMatchingButton')}</p>
           </Button>
 
-          <Button
-            leftIcon={<BookOpen size={16} />}
-            onClick={() => navigate(ROUTES.ARTICLE_GAME)}
-          >
+          <Button leftIcon={<BookOpen size={16} />} onClick={() => navigate(ROUTES.ARTICLE_GAME)}>
             <p className="fs-16 fw-500">{t('playArticleButton')}</p>
           </Button>
 
