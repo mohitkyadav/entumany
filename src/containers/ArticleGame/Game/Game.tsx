@@ -16,20 +16,24 @@ type GermanNoun = {
 };
 
 const ARTICLE_OPTIONS = ['der', 'die', 'das', '?'];
+const WORDS_PER_ROUND = 10;
 
 const Game: FC = () => {
   const navigate = useNavigate();
   const {t} = useTranslation();
-  const nouns = germanNouns as GermanNoun[];
+  const allNouns = germanNouns as GermanNoun[];
 
-  const shuffledOrder = useMemo(() => generateUniqueArray(nouns.length), [nouns.length]);
+  const gameNouns = useMemo(() => {
+    const shuffled = generateUniqueArray(allNouns.length);
+    return shuffled.slice(0, WORDS_PER_ROUND).map((i) => allNouns[i]);
+  }, [allNouns]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedArticle, setSelectedArticle] = useState<string | null>(null);
   const [correctCount, setCorrectCount] = useState(0);
   const [incorrectCount, setIncorrectCount] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
 
-  const currentNoun = nouns[shuffledOrder[currentIndex]];
+  const currentNoun = gameNouns[currentIndex];
   const isAnswered = selectedArticle !== null;
   const isCorrect = selectedArticle === currentNoun?.article;
 
@@ -54,7 +58,7 @@ const Game: FC = () => {
   };
 
   const handleNext = () => {
-    if (currentIndex + 1 >= nouns.length) {
+    if (currentIndex + 1 >= gameNouns.length) {
       setIsComplete(true);
     } else {
       setCurrentIndex((i) => i + 1);
@@ -79,7 +83,7 @@ const Game: FC = () => {
   };
 
   if (isComplete) {
-    const accuracy = Math.round((correctCount / nouns.length) * 100);
+    const accuracy = Math.round((correctCount / gameNouns.length) * 100);
 
     return (
       <div className={clsx(style.Game, 'animation-slide-down')}>
@@ -121,7 +125,7 @@ const Game: FC = () => {
         onClick={() => navigate('/')}
       />
 
-      <StepProgressBar current={currentIndex + (isAnswered ? 1 : 0)} total={nouns.length} />
+      <StepProgressBar current={currentIndex + (isAnswered ? 1 : 0)} total={gameNouns.length} />
 
       <div className={style.Game__card}>
         <div className={style.Game__card__word}>{currentNoun.word}</div>
@@ -157,7 +161,7 @@ const Game: FC = () => {
             <span>{isCorrect ? t('correctFeedback2') : `${currentNoun.article} ${currentNoun.word}`}</span>
           </div>
           <Button color="primary" onClick={handleNext} autoFocus>
-            {currentIndex + 1 >= nouns.length ? t('articleGameSeeResults') : t('articleGameNext')}
+            {currentIndex + 1 >= gameNouns.length ? t('articleGameSeeResults') : t('articleGameNext')}
           </Button>
         </div>
       )}
