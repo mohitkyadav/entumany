@@ -38,7 +38,11 @@
       "playgroundTitle": "Playground",
       "matchingGameTitle": "Matching game",
       "wordListTitle": "Your words",
-      "saveTooltipText": "Hey! YOU, yes you! please enter some text to save"
+      "saveTooltipText": "Hey! YOU, yes you! please enter some text to save",
+      "playArticleButton": "Der, Die, Das",
+      "articleGameTitle": "Der, Die, Das?",
+      "articleGameNext": "Next",
+      "articleGameSeeResults": "See results"
     }
   },
   "hi": {
@@ -80,7 +84,11 @@
       "playgroundTitle": "खेल का मैदान",
       "matchingGameTitle": "मिलान खेल",
       "wordListTitle": "आपके शब्द",
-      "saveTooltipText": "अरे! आप, हाँ आप! कृपया सहेजने के लिए कुछ टेक्स्ट दर्ज करें"
+      "saveTooltipText": "अरे! आप, हाँ आप! कृपया सहेजने के लिए कुछ टेक्स्ट दर्ज करें",
+      "playArticleButton": "Der, Die, Das",
+      "articleGameTitle": "Der, Die, Das?",
+      "articleGameNext": "अगला",
+      "articleGameSeeResults": "परिणाम देखें"
     }
   },
   "pt": {
@@ -122,7 +130,11 @@
       "playgroundTitle": "Área de Jogos",
       "matchingGameTitle": "Jogo de Correspondência",
       "wordListTitle": "Suas Palavras",
-      "saveTooltipText": "Ei! VOCÊ, sim você! por favor, digite algum texto para salvar"
+      "saveTooltipText": "Ei! VOCÊ, sim você! por favor, digite algum texto para salvar",
+      "playArticleButton": "Der, Die, Das",
+      "articleGameTitle": "Der, Die, Das?",
+      "articleGameNext": "Próximo",
+      "articleGameSeeResults": "Ver resultados"
     }
   },
   "es": {
@@ -164,7 +176,11 @@
       "playgroundTitle": "Área de Juegos",
       "matchingGameTitle": "Juego de Coincidencia",
       "wordListTitle": "Tus Palabras",
-      "saveTooltipText": "¡Oye! TÚ, sí tú! por favor, ingresa algún texto para guardar"
+      "saveTooltipText": "¡Oye! TÚ, sí tú! por favor, ingresa algún texto para guardar",
+      "playArticleButton": "Der, Die, Das",
+      "articleGameTitle": "Der, Die, Das?",
+      "articleGameNext": "Siguiente",
+      "articleGameSeeResults": "Ver resultados"
     }
   },
   "pl": {
@@ -206,7 +222,11 @@
       "playgroundTitle": "Plac Zabaw",
       "matchingGameTitle": "Gra w Dopasowywanie",
       "wordListTitle": "Twoje Słowa",
-      "saveTooltipText": "Hej! TY, tak ty! proszę, wprowadź jakiś tekst do zapisania"
+      "saveTooltipText": "Hej! TY, tak ty! proszę, wprowadź jakiś tekst do zapisania",
+      "playArticleButton": "Der, Die, Das",
+      "articleGameTitle": "Der, Die, Das?",
+      "articleGameNext": "Następny",
+      "articleGameSeeResults": "Zobacz wyniki"
     }
   }
 }

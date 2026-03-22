@@ -1,0 +1,12 @@
+[
+  { "word": "Haus", "article": "das", "translation": "house" },
+  { "word": "Frau", "article": "die", "translation": "woman" },
+  { "word": "Mann", "article": "der", "translation": "man" },
+  { "word": "Kind", "article": "das", "translation": "child" },
+  { "word": "Stadt", "article": "die", "translation": "city" },
+  { "word": "Tag", "article": "der", "translation": "day" },
+  { "word": "Wasser", "article": "das", "translation": "water" },
+  { "word": "Schule", "article": "die", "translation": "school" },
+  { "word": "Freund", "article": "der", "translation": "friend" },
+  { "word": "Buch", "article": "das", "translation": "book" }
+]

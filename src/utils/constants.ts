@@ -1,6 +1,7 @@
 import {Language} from 'types/db';
 
 export const ROUTES = {
+  ARTICLE_GAME: '/articles',
   DASHBOARD: '/',
   EDITOR: '/new',
   MATCHING_GAME: '/match',

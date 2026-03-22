@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import {Button} from 'components';
-import {Play, Plus, Shuffle} from 'lucide-react';
+import {BookOpen, Play, Plus, Shuffle} from 'lucide-react';
 import React, {FC, useEffect} from 'react';
 import {useTranslation} from 'react-i18next';
 import {Link, useNavigate} from 'react-router-dom';
@@ -82,6 +82,13 @@ const DashboardContent: FC = () => {
             onClick={() => navigate(ROUTES.MATCHING_GAME)}
           >
             <p className="fs-16 fw-500">{t('playMatchingButton')}</p>
+          </Button>
+
+          <Button
+            leftIcon={<BookOpen size={16} />}
+            onClick={() => navigate(ROUTES.ARTICLE_GAME)}
+          >
+            <p className="fs-16 fw-500">{t('playArticleButton')}</p>
           </Button>
 
           <Button leftIcon={<Plus size={16} />} color="secondary" onClick={() => navigate(ROUTES.EDITOR)}>
