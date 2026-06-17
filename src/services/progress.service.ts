@@ -2,7 +2,7 @@ import type {QuizQuestion} from 'components/QuizGame/QuizGame';
 import {generateUniqueArray} from 'utils/common';
 
 /** Consecutive correct answers after which an item counts as "mastered". */
-export const MASTERY_THRESHOLD = 2;
+export const MASTERY_THRESHOLD = 4;
 
 const STORAGE_KEY = 'quizProgress';
 
