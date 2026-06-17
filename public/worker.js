@@ -1,43 +1,41 @@
-const CACHE_NAME = 'entumany-only4';
-const urlsToCache = ['/', '/new', '/play'];
+/* eslint-disable */
+// Self-destroying service worker (tombstone).
+//
+// This file used to be a hand-written, cache-first service worker. It cached
+// navigations (/, /new, /play) forever, which froze the app on stale assets and
+// blocked PWA updates. It is no longer registered (see public/index.html).
+//
+// Devices that already installed the old worker.js still have it controlling
+// them, so we can't simply delete this file (a 404 would leave the bad worker in
+// place). Instead this version tears itself down: it clears every cache,
+// unregisters itself, and reloads open tabs so the Workbox service worker
+// (/service-worker.js) takes over with the latest deployment.
+//
+// Once you're confident existing installs have updated, this file can be deleted.
 
-// Install a service worker
-self.addEventListener('install', (event) => {
-  // Perform install steps
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(function (cache) {
-      console.log('Opened cache');
-      return cache.addAll(urlsToCache);
-    }),
-  );
+self.addEventListener('install', () => {
+  // Activate immediately, replacing the old cache-first worker.
+  self.skipWaiting();
 });
 
-// Cache and return requests
-self.addEventListener('fetch', (event) => {
-  event.respondWith(
-    caches.match(event.request).then(function (response) {
-      // Cache hit - return response
-      if (response) {
-        return response;
-      }
-
-      return fetch(event.request);
-    }),
-  );
-});
-
-// Update a service worker
 self.addEventListener('activate', (event) => {
-  const cacheWhitelist = [CACHE_NAME];
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames.map((cacheName) => {
-          if (cacheWhitelist.indexOf(cacheName) === -1) {
-            return caches.delete(cacheName);
-          }
-        }),
-      );
-    }),
+    (async () => {
+      // Drop every cache this origin created (including the stale entumany-* ones).
+      const cacheNames = await caches.keys();
+      await Promise.all(cacheNames.map((name) => caches.delete(name)));
+
+      // Remove this service worker registration.
+      await self.registration.unregister();
+
+      // Reload open tabs onto a freshly fetched, network-served page. The new
+      // page no longer registers this worker and instead uses /service-worker.js.
+      const clients = await self.clients.matchAll({type: 'window'});
+      clients.forEach((client) => {
+        if ('navigate' in client) {
+          client.navigate(client.url).catch(() => {});
+        }
+      });
+    })(),
   );
 });

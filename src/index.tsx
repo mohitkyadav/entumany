@@ -31,5 +31,22 @@ root.render(
   </React.StrictMode>,
 );
 
-serviceWorkerRegistration.register();
+// Auto-update the PWA: when a new version is deployed, activate the waiting
+// service worker right away and reload once it takes over, so users stop seeing
+// the previously cached build.
+serviceWorkerRegistration.register({
+  onUpdate: (registration) => {
+    const newWorker = registration.waiting ?? registration.installing;
+    if (!newWorker) {
+      window.location.reload();
+      return;
+    }
+    newWorker.postMessage({type: 'SKIP_WAITING'});
+    newWorker.addEventListener('statechange', () => {
+      if (newWorker.state === 'activated') {
+        window.location.reload();
+      }
+    });
+  },
+});
 reportWebVitals();
