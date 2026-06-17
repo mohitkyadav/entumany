@@ -58,6 +58,18 @@
       font-size: 0.95rem;
       color: var(--color-blue-gray-300);
     }
+
+    &__badge {
+      margin-top: 0.4rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      color: var(--color-tertiary);
+      background: rgba(30, 166, 114, 0.16);
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+    }
   }
 }
 

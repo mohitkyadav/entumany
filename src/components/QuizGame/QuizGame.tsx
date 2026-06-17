@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 import {CheckCircle, XCircle, XCircleIcon} from 'lucide-react';
-import React, {FC, useCallback, useState} from 'react';
+import React, {FC, useCallback, useRef, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 
@@ -11,6 +11,8 @@ import {StepProgressBar} from '../StepProgressBar/StepProgressBar';
 import style from './QuizGame.module.scss';
 
 export interface QuizQuestion {
+  /** Stable identifier, used to track per-item progress across sessions. */
+  id?: string;
   /** The main text shown on the card (a word, a "prep + article" pair, or a sentence with a blank). */
   prompt: string;
   /** Optional helper line under the prompt (e.g. an English translation). */
@@ -25,15 +27,26 @@ export interface QuizQuestion {
   explanation?: string;
 }
 
+export interface QuizCompletion {
+  accuracy: number;
+  bestStreak: number;
+}
+
 export interface QuizGameProps {
   questions: QuizQuestion[];
   wordsPerRound?: number;
   promptVariant?: 'word' | 'sentence';
+  /** Picks the questions for a round. Defaults to a random selection. */
+  selectQuestions?: (questions: QuizQuestion[], count: number) => QuizQuestion[];
+  /** Called once per answered question with its id and whether it was correct. */
+  onAnswer?: (questionId: string | undefined, isCorrect: boolean) => void;
+  /** Called once when a round finishes. */
+  onComplete?: (completion: QuizCompletion) => void;
 }
 
 const DEFAULT_WORDS_PER_ROUND = 10;
 
-const pickQuestions = (questions: QuizQuestion[], count: number): QuizQuestion[] => {
+const randomPick = (questions: QuizQuestion[], count: number): QuizQuestion[] => {
   const shuffled = generateUniqueArray(questions.length);
   return shuffled.slice(0, Math.min(count, questions.length)).map((i) => questions[i]);
 };
@@ -42,16 +55,27 @@ export const QuizGame: FC<QuizGameProps> = ({
   questions,
   wordsPerRound = DEFAULT_WORDS_PER_ROUND,
   promptVariant = 'word',
+  selectQuestions,
+  onAnswer,
+  onComplete,
 }) => {
   const navigate = useNavigate();
   const {t} = useTranslation();
 
-  const [roundQuestions, setRoundQuestions] = useState<QuizQuestion[]>(() => pickQuestions(questions, wordsPerRound));
+  const pick = useCallback(
+    (qs: QuizQuestion[], count: number) => (selectQuestions ? selectQuestions(qs, count) : randomPick(qs, count)),
+    [selectQuestions],
+  );
+
+  const [roundQuestions, setRoundQuestions] = useState<QuizQuestion[]>(() => pick(questions, wordsPerRound));
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selected, setSelected] = useState<string | null>(null);
   const [correctCount, setCorrectCount] = useState(0);
   const [incorrectCount, setIncorrectCount] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
+
+  const streakRef = useRef(0);
+  const bestStreakRef = useRef(0);
 
   const currentQuestion = roundQuestions[currentIndex];
   const isAnswered = selected !== null;
@@ -71,14 +95,20 @@ export const QuizGame: FC<QuizGameProps> = ({
     const correct = option === currentQuestion.answer;
     if (correct) {
       setCorrectCount((c) => c + 1);
+      streakRef.current += 1;
+      bestStreakRef.current = Math.max(bestStreakRef.current, streakRef.current);
     } else {
       setIncorrectCount((c) => c + 1);
+      streakRef.current = 0;
     }
+    onAnswer?.(currentQuestion.id, correct);
     playFeedbackSound(correct);
   };
 
   const handleNext = () => {
     if (currentIndex + 1 >= roundQuestions.length) {
+      const accuracy = Math.round((correctCount / roundQuestions.length) * 100);
+      onComplete?.({accuracy, bestStreak: bestStreakRef.current});
       setIsComplete(true);
     } else {
       setCurrentIndex((i) => i + 1);
@@ -87,7 +117,9 @@ export const QuizGame: FC<QuizGameProps> = ({
   };
 
   const handlePlayAgain = () => {
-    setRoundQuestions(pickQuestions(questions, wordsPerRound));
+    streakRef.current = 0;
+    bestStreakRef.current = 0;
+    setRoundQuestions(pick(questions, wordsPerRound));
     setCurrentIndex(0);
     setSelected(null);
     setCorrectCount(0);
@@ -123,6 +155,10 @@ export const QuizGame: FC<QuizGameProps> = ({
             <div className={style.Game__results__stat}>
               <span>{accuracy}%</span>
               <span>{t('accuracy')}</span>
+            </div>
+            <div className={style.Game__results__stat}>
+              <span>{bestStreakRef.current}</span>
+              <span>{t('bestStreak')}</span>
             </div>
           </div>
           <div className={style.Game__results__actions}>

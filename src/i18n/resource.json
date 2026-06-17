@@ -53,7 +53,12 @@
       "articleGameDesc": "Pick der, die or das",
       "contractionsGameDesc": "Combine prepositions with articles",
       "genderGameDesc": "Masculine or feminine?",
-      "serEstarGameDesc": "Choose ser or estar"
+      "serEstarGameDesc": "Choose ser or estar",
+      "pack1Name": "Basics",
+      "pack1Desc": "Contractions, gender & ser/estar",
+      "masteredLabel": "mastered",
+      "bestLabel": "best",
+      "bestStreak": "Streak"
     }
   },
   "hi": {
@@ -110,7 +115,12 @@
       "articleGameDesc": "der, die या das चुनें",
       "contractionsGameDesc": "पूर्वसर्ग और आर्टिकल जोड़ें",
       "genderGameDesc": "पुल्लिंग या स्त्रीलिंग?",
-      "serEstarGameDesc": "ser या estar चुनें"
+      "serEstarGameDesc": "ser या estar चुनें",
+      "pack1Name": "मूल बातें",
+      "pack1Desc": "संकुचन, लिंग और ser/estar",
+      "masteredLabel": "में महारत",
+      "bestLabel": "सर्वश्रेष्ठ",
+      "bestStreak": "स्ट्रीक"
     }
   },
   "pt": {
@@ -167,7 +177,12 @@
       "articleGameDesc": "Escolhe der, die ou das",
       "contractionsGameDesc": "Combina preposições com artigos",
       "genderGameDesc": "Masculino ou feminino?",
-      "serEstarGameDesc": "Escolhe ser ou estar"
+      "serEstarGameDesc": "Escolhe ser ou estar",
+      "pack1Name": "Básico",
+      "pack1Desc": "Contrações, género e ser/estar",
+      "masteredLabel": "dominados",
+      "bestLabel": "melhor",
+      "bestStreak": "Sequência"
     }
   },
   "es": {
@@ -224,7 +239,12 @@
       "articleGameDesc": "Elige der, die o das",
       "contractionsGameDesc": "Combina preposiciones con artículos",
       "genderGameDesc": "¿Masculino o femenino?",
-      "serEstarGameDesc": "Elige ser o estar"
+      "serEstarGameDesc": "Elige ser o estar",
+      "pack1Name": "Básico",
+      "pack1Desc": "Contracciones, género y ser/estar",
+      "masteredLabel": "dominados",
+      "bestLabel": "mejor",
+      "bestStreak": "Racha"
     }
   },
   "pl": {
@@ -281,7 +301,12 @@
       "articleGameDesc": "Wybierz der, die lub das",
       "contractionsGameDesc": "Połącz przyimki z rodzajnikami",
       "genderGameDesc": "Rodzaj męski czy żeński?",
-      "serEstarGameDesc": "Wybierz ser lub estar"
+      "serEstarGameDesc": "Wybierz ser lub estar",
+      "pack1Name": "Podstawy",
+      "pack1Desc": "Ściągnięcia, rodzaj i ser/estar",
+      "masteredLabel": "opanowane",
+      "bestLabel": "najlepszy",
+      "bestStreak": "Seria"
     }
   }
 }

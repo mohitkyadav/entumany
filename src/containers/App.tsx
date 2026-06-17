@@ -11,9 +11,8 @@ import MatchingGame from './MatchingGame/MatchingGame';
 import ArticleGame from './ArticleGame/ArticleGame';
 import GermanHub from './German/GermanHub';
 import PortugueseHub from './Portuguese/PortugueseHub';
-import Contractions from './Portuguese/Contractions/Contractions';
-import Gender from './Portuguese/Gender/Gender';
-import SerEstar from './Portuguese/SerEstar/SerEstar';
+import PackPage from './Portuguese/PackPage';
+import PackGamePage from './Portuguese/PackGamePage';
 
 const App: FC = () => {
   return (
@@ -28,9 +27,8 @@ const App: FC = () => {
         <Route path={ROUTES.GERMAN_HUB} element={<GermanHub />} />
         <Route path={ROUTES.ARTICLE_GAME} element={<ArticleGame />} />
         <Route path={ROUTES.PORTUGUESE_HUB} element={<PortugueseHub />} />
-        <Route path={ROUTES.PT_CONTRACTIONS} element={<Contractions />} />
-        <Route path={ROUTES.PT_GENDER} element={<Gender />} />
-        <Route path={ROUTES.PT_SER_ESTAR} element={<SerEstar />} />
+        <Route path={ROUTES.PORTUGUESE_PACK} element={<PackPage />} />
+        <Route path={ROUTES.PORTUGUESE_GAME} element={<PackGamePage />} />
         <Route path={ROUTES.PLAYGROUND} element={<Playground />} />
         <Route path={ROUTES.WORD_LIST} element={<WordList />} />
       </Routes>

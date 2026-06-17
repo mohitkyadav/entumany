@@ -22,6 +22,7 @@ export const buildContractionQuestions = (): QuizQuestion[] =>
     ARTICLES.map((art) => ({
       answer: CONTRACTIONS[prep][art],
       explanation: `${prep} + ${art} = ${CONTRACTIONS[prep][art]}`,
+      id: `pt.contractions.${prep}_${art}`,
       // Distractors are the other contractions of the same preposition, so the
       // player has to get the article agreement right, not just the preposition.
       options: ARTICLES.map((a) => CONTRACTIONS[prep][a]),
