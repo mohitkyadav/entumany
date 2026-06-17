@@ -42,7 +42,18 @@
       "playArticleButton": "Der, Die, Das",
       "articleGameTitle": "Der, Die, Das?",
       "articleGameNext": "Next",
-      "articleGameSeeResults": "See results"
+      "articleGameSeeResults": "See results",
+      "germanHubButton": "German",
+      "portugueseHubButton": "Portuguese",
+      "germanHubTitle": "German games",
+      "portugueseHubTitle": "Portuguese games",
+      "contractionsGameTitle": "Contractions",
+      "genderGameTitle": "o or a?",
+      "serEstarGameTitle": "Ser vs Estar",
+      "articleGameDesc": "Pick der, die or das",
+      "contractionsGameDesc": "Combine prepositions with articles",
+      "genderGameDesc": "Masculine or feminine?",
+      "serEstarGameDesc": "Choose ser or estar"
     }
   },
   "hi": {
@@ -88,7 +99,18 @@
       "playArticleButton": "Der, Die, Das",
       "articleGameTitle": "Der, Die, Das?",
       "articleGameNext": "अगला",
-      "articleGameSeeResults": "परिणाम देखें"
+      "articleGameSeeResults": "परिणाम देखें",
+      "germanHubButton": "जर्मन",
+      "portugueseHubButton": "पुर्तगाली",
+      "germanHubTitle": "जर्मन खेल",
+      "portugueseHubTitle": "पुर्तगाली खेल",
+      "contractionsGameTitle": "संकुचन",
+      "genderGameTitle": "o या a?",
+      "serEstarGameTitle": "Ser बनाम Estar",
+      "articleGameDesc": "der, die या das चुनें",
+      "contractionsGameDesc": "पूर्वसर्ग और आर्टिकल जोड़ें",
+      "genderGameDesc": "पुल्लिंग या स्त्रीलिंग?",
+      "serEstarGameDesc": "ser या estar चुनें"
     }
   },
   "pt": {
@@ -134,7 +156,18 @@
       "playArticleButton": "Der, Die, Das",
       "articleGameTitle": "Der, Die, Das?",
       "articleGameNext": "Próximo",
-      "articleGameSeeResults": "Ver resultados"
+      "articleGameSeeResults": "Ver resultados",
+      "germanHubButton": "Alemão",
+      "portugueseHubButton": "Português",
+      "germanHubTitle": "Jogos de alemão",
+      "portugueseHubTitle": "Jogos de português",
+      "contractionsGameTitle": "Contrações",
+      "genderGameTitle": "o ou a?",
+      "serEstarGameTitle": "Ser ou Estar",
+      "articleGameDesc": "Escolhe der, die ou das",
+      "contractionsGameDesc": "Combina preposições com artigos",
+      "genderGameDesc": "Masculino ou feminino?",
+      "serEstarGameDesc": "Escolhe ser ou estar"
     }
   },
   "es": {
@@ -180,7 +213,18 @@
       "playArticleButton": "Der, Die, Das",
       "articleGameTitle": "Der, Die, Das?",
       "articleGameNext": "Siguiente",
-      "articleGameSeeResults": "Ver resultados"
+      "articleGameSeeResults": "Ver resultados",
+      "germanHubButton": "Alemán",
+      "portugueseHubButton": "Portugués",
+      "germanHubTitle": "Juegos de alemán",
+      "portugueseHubTitle": "Juegos de portugués",
+      "contractionsGameTitle": "Contracciones",
+      "genderGameTitle": "¿o o a?",
+      "serEstarGameTitle": "Ser vs Estar",
+      "articleGameDesc": "Elige der, die o das",
+      "contractionsGameDesc": "Combina preposiciones con artículos",
+      "genderGameDesc": "¿Masculino o femenino?",
+      "serEstarGameDesc": "Elige ser o estar"
     }
   },
   "pl": {
@@ -226,7 +270,18 @@
       "playArticleButton": "Der, Die, Das",
       "articleGameTitle": "Der, Die, Das?",
       "articleGameNext": "Następny",
-      "articleGameSeeResults": "Zobacz wyniki"
+      "articleGameSeeResults": "Zobacz wyniki",
+      "germanHubButton": "Niemiecki",
+      "portugueseHubButton": "Portugalski",
+      "germanHubTitle": "Gry niemieckie",
+      "portugueseHubTitle": "Gry portugalskie",
+      "contractionsGameTitle": "Ściągnięcia",
+      "genderGameTitle": "o czy a?",
+      "serEstarGameTitle": "Ser vs Estar",
+      "articleGameDesc": "Wybierz der, die lub das",
+      "contractionsGameDesc": "Połącz przyimki z rodzajnikami",
+      "genderGameDesc": "Rodzaj męski czy żeński?",
+      "serEstarGameDesc": "Wybierz ser lub estar"
     }
   }
 }

@@ -1,4 +1,4 @@
-@import '../../../styles/mixins';
+@import '../../styles/mixins';
 
 .Game {
   @include flex-caj(center, flex-start);
@@ -27,6 +27,14 @@
       font-weight: 700;
       color: white;
       letter-spacing: 1px;
+      text-align: center;
+
+      &--sentence {
+        font-size: 1.7rem;
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 1.5;
+      }
     }
 
     &__translation {
@@ -34,6 +42,7 @@
       color: var(--color-blue-gray-300);
       margin-top: 0.5rem;
       font-style: italic;
+      text-align: center;
     }
   }
 
@@ -87,6 +96,7 @@
       font-size: 1.1rem;
       font-weight: 600;
       width: 100%;
+      text-align: center;
 
       &--correct {
         background: rgba(30, 166, 114, 0.12);
@@ -186,6 +196,10 @@
 
       &__word {
         font-size: 2.5rem;
+
+        &--sentence {
+          font-size: 1.5rem;
+        }
       }
 
       &__translation {

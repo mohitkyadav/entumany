@@ -1,0 +1,72 @@
+@import '../../styles/mixins';
+
+.GameHub {
+  @include flex-caj(center, flex-start);
+  padding: 2rem 10%;
+  gap: 1.5rem;
+  min-height: 80vh;
+
+  &__back {
+    align-self: flex-end;
+    border-radius: 100%;
+    padding: 0;
+  }
+
+  &__title {
+    font-size: 2rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 720px;
+  }
+
+  &__card {
+    @include flex-caj(center, center);
+    gap: 0.5rem;
+    text-align: center;
+    background: var(--color-primary);
+    border-radius: 16px;
+    padding: 2rem 1.5rem;
+    color: white;
+    box-shadow: 0 8px 32px rgba(4, 34, 53, 0.2);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(4, 34, 53, 0.3);
+    }
+
+    &__flag {
+      font-size: 2.5rem;
+      line-height: 1;
+    }
+
+    &__title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: white;
+    }
+
+    &__desc {
+      font-size: 0.95rem;
+      color: var(--color-blue-gray-300);
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .GameHub {
+    padding: 1.2rem;
+
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

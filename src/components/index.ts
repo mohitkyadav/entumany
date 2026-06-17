@@ -5,6 +5,8 @@ export {HashLink} from './HashLink/HashLink';
 export {PageTitle} from './PageTitle/PageTitle';
 export {LangEditor} from './LangEditor/LangEditor';
 export {StepProgressBar} from './StepProgressBar/StepProgressBar';
+export {QuizGame} from './QuizGame/QuizGame';
+export {GameHub} from './GameHub/GameHub';
 export {Modal} from './Modal/Modal';
 export {GameFeedbackModal} from './GameFeedbackModal/GameFeedbackModal';
 export {VictoryModal} from './VictoryModal/VictoryModal';

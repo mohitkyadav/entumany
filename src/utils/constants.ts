@@ -4,8 +4,13 @@ export const ROUTES = {
   ARTICLE_GAME: '/articles',
   DASHBOARD: '/',
   EDITOR: '/new',
+  GERMAN_HUB: '/de',
   MATCHING_GAME: '/match',
   PLAYGROUND: '/play',
+  PORTUGUESE_HUB: '/pt',
+  PT_CONTRACTIONS: '/pt/contractions',
+  PT_GENDER: '/pt/gender',
+  PT_SER_ESTAR: '/pt/ser-estar',
   WORD_LIST: '/list',
 };
 
