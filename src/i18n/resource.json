@@ -58,7 +58,11 @@
       "pack1Desc": "Contractions, gender & ser/estar",
       "masteredLabel": "mastered",
       "bestLabel": "best",
-      "bestStreak": "Streak"
+      "bestStreak": "Streak",
+      "conjugationTrainerTitle": "Conjugation",
+      "conjugationTrainerDesc": "Drill EP verb tenses — type or flip",
+      "vocabTrainerTitle": "A1 Vocabulary",
+      "vocabTrainerDesc": "Spaced-repetition deck (A1–A2)"
     }
   },
   "hi": {
@@ -120,7 +124,11 @@
       "pack1Desc": "संकुचन, लिंग और ser/estar",
       "masteredLabel": "में महारत",
       "bestLabel": "सर्वश्रेष्ठ",
-      "bestStreak": "स्ट्रीक"
+      "bestStreak": "स्ट्रीक",
+      "conjugationTrainerTitle": "क्रिया रूप",
+      "conjugationTrainerDesc": "EP क्रिया काल अभ्यास — टाइप या पलटें",
+      "vocabTrainerTitle": "A1 शब्दावली",
+      "vocabTrainerDesc": "स्पेस्ड-रिपीटिशन डेक (A1–A2)"
     }
   },
   "pt": {
@@ -182,7 +190,11 @@
       "pack1Desc": "Contrações, género e ser/estar",
       "masteredLabel": "dominados",
       "bestLabel": "melhor",
-      "bestStreak": "Sequência"
+      "bestStreak": "Sequência",
+      "conjugationTrainerTitle": "Conjugação",
+      "conjugationTrainerDesc": "Treina tempos verbais — escrever ou virar",
+      "vocabTrainerTitle": "Vocabulário A1",
+      "vocabTrainerDesc": "Baralho de repetição espaçada (A1–A2)"
     }
   },
   "es": {
@@ -244,7 +256,11 @@
       "pack1Desc": "Contracciones, género y ser/estar",
       "masteredLabel": "dominados",
       "bestLabel": "mejor",
-      "bestStreak": "Racha"
+      "bestStreak": "Racha",
+      "conjugationTrainerTitle": "Conjugación",
+      "conjugationTrainerDesc": "Practica tiempos verbales EP — escribe o voltea",
+      "vocabTrainerTitle": "Vocabulario A1",
+      "vocabTrainerDesc": "Baraja de repetición espaciada (A1–A2)"
     }
   },
   "pl": {
@@ -306,7 +322,11 @@
       "pack1Desc": "Ściągnięcia, rodzaj i ser/estar",
       "masteredLabel": "opanowane",
       "bestLabel": "najlepszy",
-      "bestStreak": "Seria"
+      "bestStreak": "Seria",
+      "conjugationTrainerTitle": "Koniugacja",
+      "conjugationTrainerDesc": "Ćwicz czasy EP — pisz lub odwracaj",
+      "vocabTrainerTitle": "Słownictwo A1",
+      "vocabTrainerDesc": "Talia z powtórkami (A1–A2)"
     }
   }
 }

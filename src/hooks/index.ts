@@ -1,5 +1,7 @@
 export {useBooleanState} from './useBooleanState';
-export {useEventListener} from './useEventListener';
-export {useWindowDimensions, getWindowDimensions} from './useWindowDimensions';
 export {useBeforeunload} from './useBeforeunload';
+export {useEventListener} from './useEventListener';
+export {usePersistentState} from './usePersistentState';
+export {useSpeech} from './useSpeech';
 export {useSpeechRecognition} from './useSpeechRecognition';
+export {useWindowDimensions, getWindowDimensions} from './useWindowDimensions';

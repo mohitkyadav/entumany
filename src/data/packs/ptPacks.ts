@@ -3,6 +3,7 @@ import type {QuizQuestion} from 'components/QuizGame/QuizGame';
 import {buildContractionQuestions} from 'data/ptContractions';
 import ptNouns from 'data/ptNouns.json';
 import serEstar from 'data/ptSerEstar.json';
+import {ROUTES} from 'utils/constants';
 import type {LanguagePack, PackGame} from './types';
 
 type PtNoun = {word: string; gender: 'o' | 'a'; en: string};
@@ -78,3 +79,28 @@ export const findGame = (packId?: string, gameId?: string): {pack: LanguagePack;
 
 export const packPath = (packId: string): string => `/pt/${packId}`;
 export const gamePath = (packId: string, gameId: string): string => `/pt/${packId}/${gameId}`;
+
+export interface PortugueseTrainer {
+  descKey: string;
+  flag: string;
+  id: string;
+  nameKey: string;
+  route: string;
+}
+
+export const PORTUGUESE_TRAINERS: PortugueseTrainer[] = [
+  {
+    descKey: 'conjugationTrainerDesc',
+    flag: '🔀',
+    id: 'pt.conjugation',
+    nameKey: 'conjugationTrainerTitle',
+    route: ROUTES.PORTUGUESE_CONJUGATION,
+  },
+  {
+    descKey: 'vocabTrainerDesc',
+    flag: '🃏',
+    id: 'pt.vocab',
+    nameKey: 'vocabTrainerTitle',
+    route: ROUTES.PORTUGUESE_VOCAB,
+  },
+];

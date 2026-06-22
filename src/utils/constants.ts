@@ -7,9 +7,11 @@ export const ROUTES = {
   GERMAN_HUB: '/de',
   MATCHING_GAME: '/match',
   PLAYGROUND: '/play',
+  PORTUGUESE_CONJUGATION: '/pt/conjugation',
   PORTUGUESE_GAME: '/pt/:packId/:gameId',
   PORTUGUESE_HUB: '/pt',
   PORTUGUESE_PACK: '/pt/:packId',
+  PORTUGUESE_VOCAB: '/pt/vocab',
   WORD_LIST: '/list',
 };
 

@@ -2,13 +2,13 @@ import React, {FC} from 'react';
 
 import {GameHub, PageTitle} from 'components';
 import {useTranslation} from 'react-i18next';
-import {PORTUGUESE_PACKS, packPath} from 'data/packs/ptPacks';
+import {PORTUGUESE_PACKS, PORTUGUESE_TRAINERS, packPath} from 'data/packs/ptPacks';
 import {getMasteryForIds} from 'services/progress.service';
 
 const PortugueseHub: FC = () => {
   const {t} = useTranslation();
 
-  const items = PORTUGUESE_PACKS.map((pack) => {
+  const packItems = PORTUGUESE_PACKS.map((pack) => {
     const ids = pack.games.flatMap((game) => game.buildQuestions().map((q) => q.id ?? '')).filter(Boolean);
     const {mastered, total} = getMasteryForIds(ids);
 
@@ -21,10 +21,17 @@ const PortugueseHub: FC = () => {
     };
   });
 
+  const trainerItems = PORTUGUESE_TRAINERS.map((tr) => ({
+    description: t(tr.descKey),
+    flag: tr.flag,
+    route: tr.route,
+    title: t(tr.nameKey),
+  }));
+
   return (
     <div className="page animation-scale-up">
       <PageTitle title={t('portugueseHubTitle')} />
-      <GameHub title={t('portugueseHubTitle')} items={items} />
+      <GameHub title={t('portugueseHubTitle')} items={[...packItems, ...trainerItems]} />
     </div>
   );
 };

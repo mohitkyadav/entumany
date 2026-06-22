@@ -1,0 +1,91 @@
+{
+  "PRON": ["eu", "tu", "ele / ela / você", "nós", "eles / elas / vocês"],
+  "TENSES": [
+    {"key": "pres",   "pt": "Presente",                "en": "I speak / I'm speaking",              "grp": "now",  "def": true},
+    {"key": "prog",   "pt": "Estar a + infinitivo",    "en": "I'm speaking right now (EP)",          "grp": "now",  "def": true},
+    {"key": "futp",   "pt": "Futuro com «ir»",         "en": "I'm going to speak",                   "grp": "now",  "def": true},
+    {"key": "perf",   "pt": "Pretérito Perfeito",      "en": "I spoke (finished)",                   "grp": "past", "def": true},
+    {"key": "imperf", "pt": "Pretérito Imperfeito",    "en": "I used to / was speaking",             "grp": "past", "def": false},
+    {"key": "fut",    "pt": "Futuro Simples",          "en": "I will speak (formal)",                "grp": "past", "def": false},
+    {"key": "cond",   "pt": "Condicional",             "en": "I would speak",                        "grp": "past", "def": false},
+    {"key": "pconj",  "pt": "Presente do Conjuntivo",  "en": "…que eu fale",                         "grp": "conj", "def": false},
+    {"key": "iconj",  "pt": "Imperfeito do Conjuntivo","en": "se eu falasse…",                       "grp": "conj", "def": false},
+    {"key": "fconj",  "pt": "Futuro do Conjuntivo",    "en": "quando eu falar… (EP)",                "grp": "conj", "def": false}
+  ],
+  "HINTS": {
+    "pres":   "<b>Presente.</b> Habits and current facts. <i>Eu falo português todos os dias.</i>",
+    "prog":   "<b>Estar a + infinitivo.</b> Something happening right now. EP uses <i>a + infinitivo</i>, not the «-ndo» gerund: <i>Estou a falar</i> — not «estou falando».",
+    "futp":   "<b>Ir + infinitivo.</b> The everyday way to talk about the future. <i>Amanhã vou falar com ela.</i>",
+    "perf":   "<b>Pretérito Perfeito.</b> A single completed past action. <i>Ontem falei com o João.</i> (Watch the «nós» accent: <i>falámos</i> = past, <i>falamos</i> = present.)",
+    "imperf": "<b>Pretérito Imperfeito.</b> Background, habits, descriptions in the past. <i>Antigamente falava com ele todos os dias.</i>",
+    "fut":    "<b>Futuro Simples.</b> Mostly written/formal — speech prefers <i>ir + inf</i>. <i>Falarei consigo amanhã.</i>",
+    "cond":   "<b>Condicional.</b> Hypothetical or polite. <i>Eu falaria com ele, mas…</i>",
+    "pconj":  "<b>Presente do Conjuntivo.</b> After wishes, doubts, emotions, <i>talvez</i>. <i>Espero que fales com ele. / Talvez fale.</i>",
+    "iconj":  "<b>Imperfeito do Conjuntivo.</b> Unreal / counterfactual conditions. <i>Se eu falasse melhor, arranjava emprego.</i>",
+    "fconj":  "<b>Futuro do Conjuntivo.</b> Very common in EP — used after <i>quando / se / assim que / enquanto</i> pointing at the future, where English uses the present. <i>Quando falares com ele, diz-lhe.</i>"
+  },
+  "STEMENDS": {
+    "ar": {
+      "pres":  ["o","as","a","amos","am"],
+      "perf":  ["ei","aste","ou","ámos","aram"],
+      "imperf":["ava","avas","ava","ávamos","avam"],
+      "pconj": ["e","es","e","emos","em"],
+      "iconj": ["asse","asses","asse","ássemos","assem"],
+      "fconj": ["ar","ares","ar","armos","arem"]
+    },
+    "er": {
+      "pres":  ["o","es","e","emos","em"],
+      "perf":  ["i","este","eu","emos","eram"],
+      "imperf":["ia","ias","ia","íamos","iam"],
+      "pconj": ["a","as","a","amos","am"],
+      "iconj": ["esse","esses","esse","êssemos","essem"],
+      "fconj": ["er","eres","er","ermos","erem"]
+    },
+    "ir": {
+      "pres":  ["o","es","e","imos","em"],
+      "perf":  ["i","iste","iu","imos","iram"],
+      "imperf":["ia","ias","ia","íamos","iam"],
+      "pconj": ["a","as","a","amos","am"],
+      "iconj": ["isse","isses","isse","íssemos","issem"],
+      "fconj": ["ir","ires","ir","irmos","irem"]
+    }
+  },
+  "FUT_E":   ["ei","ás","á","emos","ão"],
+  "COND_E":  ["ia","ias","ia","íamos","iam"],
+  "IR_PRES": ["vou","vais","vai","vamos","vão"],
+  "EST_PRES":["estou","estás","está","estamos","estão"],
+  "IRREG": [
+    {"inf":"ser",    "en":"to be (essence)", "forms":{"pres":["sou","és","é","somos","são"],"perf":["fui","foste","foi","fomos","foram"],"imperf":["era","eras","era","éramos","eram"],"fut":["serei","serás","será","seremos","serão"],"cond":["seria","serias","seria","seríamos","seriam"],"pconj":["seja","sejas","seja","sejamos","sejam"],"iconj":["fosse","fosses","fosse","fôssemos","fossem"],"fconj":["for","fores","for","formos","forem"]}},
+    {"inf":"estar",  "en":"to be (state)",   "forms":{"pres":["estou","estás","está","estamos","estão"],"perf":["estive","estiveste","esteve","estivemos","estiveram"],"imperf":["estava","estavas","estava","estávamos","estavam"],"fut":["estarei","estarás","estará","estaremos","estarão"],"cond":["estaria","estarias","estaria","estaríamos","estariam"],"pconj":["esteja","estejas","esteja","estejamos","estejam"],"iconj":["estivesse","estivesses","estivesse","estivéssemos","estivessem"],"fconj":["estiver","estiveres","estiver","estivermos","estiverem"]}},
+    {"inf":"ter",    "en":"to have",         "forms":{"pres":["tenho","tens","tem","temos","têm"],"perf":["tive","tiveste","teve","tivemos","tiveram"],"imperf":["tinha","tinhas","tinha","tínhamos","tinham"],"fut":["terei","terás","terá","teremos","terão"],"cond":["teria","terias","teria","teríamos","teriam"],"pconj":["tenha","tenhas","tenha","tenhamos","tenham"],"iconj":["tivesse","tivesses","tivesse","tivéssemos","tivessem"],"fconj":["tiver","tiveres","tiver","tivermos","tiverem"]}},
+    {"inf":"ir",     "en":"to go",           "forms":{"pres":["vou","vais","vai","vamos","vão"],"perf":["fui","foste","foi","fomos","foram"],"imperf":["ia","ias","ia","íamos","iam"],"fut":["irei","irás","irá","iremos","irão"],"cond":["iria","irias","iria","iríamos","iriam"],"pconj":["vá","vás","vá","vamos","vão"],"iconj":["fosse","fosses","fosse","fôssemos","fossem"],"fconj":["for","fores","for","formos","forem"]}},
+    {"inf":"fazer",  "en":"to do / make",    "forms":{"pres":["faço","fazes","faz","fazemos","fazem"],"perf":["fiz","fizeste","fez","fizemos","fizeram"],"imperf":["fazia","fazias","fazia","fazíamos","faziam"],"fut":["farei","farás","fará","faremos","farão"],"cond":["faria","farias","faria","faríamos","fariam"],"pconj":["faça","faças","faça","façamos","façam"],"iconj":["fizesse","fizesses","fizesse","fizéssemos","fizessem"],"fconj":["fizer","fizeres","fizer","fizermos","fizerem"]}},
+    {"inf":"querer", "en":"to want",         "forms":{"pres":["quero","queres","quer","queremos","querem"],"perf":["quis","quiseste","quis","quisemos","quiseram"],"imperf":["queria","querias","queria","queríamos","queriam"],"fut":["quererei","quererás","quererá","quereremos","quererão"],"cond":["quereria","quererias","quereria","quereríamos","quereriam"],"pconj":["queira","queiras","queira","queiramos","queiram"],"iconj":["quisesse","quisesses","quisesse","quiséssemos","quisessem"],"fconj":["quiser","quiseres","quiser","quisermos","quiserem"]}},
+    {"inf":"poder",  "en":"to be able / can","forms":{"pres":["posso","podes","pode","podemos","podem"],"perf":["pude","pudeste","pôde","pudemos","puderam"],"imperf":["podia","podias","podia","podíamos","podiam"],"fut":["poderei","poderás","poderá","poderemos","poderão"],"cond":["poderia","poderias","poderia","poderíamos","poderiam"],"pconj":["possa","possas","possa","possamos","possam"],"iconj":["pudesse","pudesses","pudesse","pudéssemos","pudessem"],"fconj":["puder","puderes","puder","pudermos","puderem"]}},
+    {"inf":"ver",    "en":"to see",          "forms":{"pres":["vejo","vês","vê","vemos","veem"],"perf":["vi","viste","viu","vimos","viram"],"imperf":["via","vias","via","víamos","viam"],"fut":["verei","verás","verá","veremos","verão"],"cond":["veria","verias","veria","veríamos","veriam"],"pconj":["veja","vejas","veja","vejamos","vejam"],"iconj":["visse","visses","visse","víssemos","vissem"],"fconj":["vir","vires","vir","virmos","virem"]}},
+    {"inf":"dar",    "en":"to give",         "forms":{"pres":["dou","dás","dá","damos","dão"],"perf":["dei","deste","deu","demos","deram"],"imperf":["dava","davas","dava","dávamos","davam"],"fut":["darei","darás","dará","daremos","darão"],"cond":["daria","darias","daria","daríamos","dariam"],"pconj":["dê","dês","dê","demos","deem"],"iconj":["desse","desses","desse","déssemos","dessem"],"fconj":["der","deres","der","dermos","derem"]}},
+    {"inf":"vir",    "en":"to come",         "forms":{"pres":["venho","vens","vem","vimos","vêm"],"perf":["vim","vieste","veio","viemos","vieram"],"imperf":["vinha","vinhas","vinha","vínhamos","vinham"],"fut":["virei","virás","virá","viremos","virão"],"cond":["viria","virias","viria","viríamos","viriam"],"pconj":["venha","venhas","venha","venhamos","venham"],"iconj":["viesse","viesses","viesse","viéssemos","viessem"],"fconj":["vier","vieres","vier","viermos","vierem"]}},
+    {"inf":"dizer",  "en":"to say / tell",   "forms":{"pres":["digo","dizes","diz","dizemos","dizem"],"perf":["disse","disseste","disse","dissemos","disseram"],"imperf":["dizia","dizias","dizia","dizíamos","diziam"],"fut":["direi","dirás","dirá","diremos","dirão"],"cond":["diria","dirias","diria","diríamos","diriam"],"pconj":["diga","digas","diga","digamos","digam"],"iconj":["dissesse","dissesses","dissesse","disséssemos","dissessem"],"fconj":["disser","disseres","disser","dissermos","disserem"]}},
+    {"inf":"saber",  "en":"to know (facts)", "forms":{"pres":["sei","sabes","sabe","sabemos","sabem"],"perf":["soube","soubeste","soube","soubemos","souberam"],"imperf":["sabia","sabias","sabia","sabíamos","sabiam"],"fut":["saberei","saberás","saberá","saberemos","saberão"],"cond":["saberia","saberias","saberia","saberíamos","saberiam"],"pconj":["saiba","saibas","saiba","saibamos","saibam"],"iconj":["soubesse","soubesses","soubesse","soubéssemos","soubessem"],"fconj":["souber","souberes","souber","soubermos","souberem"]}},
+    {"inf":"pôr",    "en":"to put",          "forms":{"pres":["ponho","pões","põe","pomos","põem"],"perf":["pus","puseste","pôs","pusemos","puseram"],"imperf":["punha","punhas","punha","púnhamos","punham"],"fut":["porei","porás","porá","poremos","porão"],"cond":["poria","porias","poria","poríamos","poriam"],"pconj":["ponha","ponhas","ponha","ponhamos","ponham"],"iconj":["pusesse","pusesses","pusesse","puséssemos","pusessem"],"fconj":["puser","puseres","puser","pusermos","puserem"]}},
+    {"inf":"ler",    "en":"to read",         "forms":{"pres":["leio","lês","lê","lemos","leem"],"perf":["li","leste","leu","lemos","leram"],"imperf":["lia","lias","lia","líamos","liam"],"fut":["lerei","lerás","lerá","leremos","lerão"],"cond":["leria","lerias","leria","leríamos","leriam"],"pconj":["leia","leias","leia","leiamos","leiam"],"iconj":["lesse","lesses","lesse","lêssemos","lessem"],"fconj":["ler","leres","ler","lermos","lerem"]}},
+    {"inf":"trazer", "en":"to bring",        "forms":{"pres":["trago","trazes","traz","trazemos","trazem"],"perf":["trouxe","trouxeste","trouxe","trouxemos","trouxeram"],"imperf":["trazia","trazias","trazia","trazíamos","traziam"],"fut":["trarei","trarás","trará","traremos","trarão"],"cond":["traria","trarias","traria","traríamos","trariam"],"pconj":["traga","tragas","traga","tragamos","tragam"],"iconj":["trouxesse","trouxesses","trouxesse","trouxéssemos","trouxessem"],"fconj":["trouxer","trouxeres","trouxer","trouxermos","trouxerem"]}}
+  ],
+  "REG": [
+    {"inf":"falar",     "en":"to speak",        "type":"ar"},
+    {"inf":"gostar",    "en":"to like",         "type":"ar"},
+    {"inf":"trabalhar", "en":"to work",         "type":"ar"},
+    {"inf":"comprar",   "en":"to buy",          "type":"ar"},
+    {"inf":"estudar",   "en":"to study",        "type":"ar"},
+    {"inf":"morar",     "en":"to live (reside)","type":"ar"},
+    {"inf":"comer",     "en":"to eat",          "type":"er"},
+    {"inf":"beber",     "en":"to drink",        "type":"er"},
+    {"inf":"aprender",  "en":"to learn",        "type":"er"},
+    {"inf":"escrever",  "en":"to write",        "type":"er"},
+    {"inf":"vender",    "en":"to sell",         "type":"er"},
+    {"inf":"partir",    "en":"to leave",        "type":"ir"},
+    {"inf":"abrir",     "en":"to open",         "type":"ir"},
+    {"inf":"decidir",   "en":"to decide",       "type":"ir"}
+  ],
+  "CORE": ["ser","estar","ter","ir","fazer","querer","poder","gostar"]
+}

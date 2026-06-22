@@ -13,6 +13,8 @@ import GermanHub from './German/GermanHub';
 import PortugueseHub from './Portuguese/PortugueseHub';
 import PackPage from './Portuguese/PackPage';
 import PackGamePage from './Portuguese/PackGamePage';
+import ConjugationTrainer from './Portuguese/ConjugationTrainer/ConjugationTrainer';
+import VocabTrainer from './Portuguese/VocabTrainer/VocabTrainer';
 
 const App: FC = () => {
   return (
@@ -26,6 +28,8 @@ const App: FC = () => {
         <Route path={ROUTES.MATCHING_GAME} element={<MatchingGame />} />
         <Route path={ROUTES.GERMAN_HUB} element={<GermanHub />} />
         <Route path={ROUTES.ARTICLE_GAME} element={<ArticleGame />} />
+        <Route path={ROUTES.PORTUGUESE_CONJUGATION} element={<ConjugationTrainer />} />
+        <Route path={ROUTES.PORTUGUESE_VOCAB} element={<VocabTrainer />} />
         <Route path={ROUTES.PORTUGUESE_HUB} element={<PortugueseHub />} />
         <Route path={ROUTES.PORTUGUESE_PACK} element={<PackPage />} />
         <Route path={ROUTES.PORTUGUESE_GAME} element={<PackGamePage />} />
