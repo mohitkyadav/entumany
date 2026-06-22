@@ -2,6 +2,7 @@ import React, {FC, useCallback, useEffect, useRef, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {PageTitle} from 'components';
 import {usePersistentState, useSpeech} from 'hooks';
+import {recordActivity} from 'services/activity.service';
 import {BY, CONJ_STORAGE_KEY, HINTS, PRON, TENSES, conj, missRate, norm, scopeVerbs, wpick} from 'data/pt/conjugation';
 import type {Scope} from 'data/pt/conjugation';
 import './ConjugationTrainer.scss';
@@ -104,6 +105,7 @@ const ConjugationTrainer: FC = () => {
 
   const recordResult = useCallback(
     (ok: boolean) => {
+      recordActivity();
       setState((prev) => {
         const {inf, tense} = cur!;
         const pt = prev.perTense[tense] ?? {miss: 0, seen: 0};

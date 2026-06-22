@@ -62,7 +62,19 @@
       "conjugationTrainerTitle": "Conjugation",
       "conjugationTrainerDesc": "Drill EP verb tenses — type or flip",
       "vocabTrainerTitle": "A1 Vocabulary",
-      "vocabTrainerDesc": "Spaced-repetition deck (A1–A2)"
+      "vocabTrainerDesc": "Spaced-repetition deck (A1–A2)",
+      "wordSetsTitle": "Word sets",
+      "wordSetsLabel": "saved",
+      "masteredStatTitle": "Mastered",
+      "reviewsLabel": "Reviews",
+      "activeDaysLabel": "active days",
+      "ofLabel": "of",
+      "dayStreakLabel": "day streak",
+      "streakNudge": "Practise today to start a streak",
+      "wordsByLanguageTitle": "Words by language",
+      "activityTitle": "Activity",
+      "lessLabel": "Less",
+      "moreLabel": "More"
     }
   },
   "hi": {
@@ -128,7 +140,19 @@
       "conjugationTrainerTitle": "क्रिया रूप",
       "conjugationTrainerDesc": "EP क्रिया काल अभ्यास — टाइप या पलटें",
       "vocabTrainerTitle": "A1 शब्दावली",
-      "vocabTrainerDesc": "स्पेस्ड-रिपीटिशन डेक (A1–A2)"
+      "vocabTrainerDesc": "स्पेस्ड-रिपीटिशन डेक (A1–A2)",
+      "wordSetsTitle": "शब्द सेट",
+      "wordSetsLabel": "सहेजे गए",
+      "masteredStatTitle": "महारत",
+      "reviewsLabel": "समीक्षाएँ",
+      "activeDaysLabel": "सक्रिय दिन",
+      "ofLabel": "में से",
+      "dayStreakLabel": "दिन की लय",
+      "streakNudge": "आज अभ्यास करें और लय शुरू करें",
+      "wordsByLanguageTitle": "भाषा अनुसार शब्द",
+      "activityTitle": "गतिविधि",
+      "lessLabel": "कम",
+      "moreLabel": "ज़्यादा"
     }
   },
   "pt": {
@@ -194,7 +218,19 @@
       "conjugationTrainerTitle": "Conjugação",
       "conjugationTrainerDesc": "Treina tempos verbais — escrever ou virar",
       "vocabTrainerTitle": "Vocabulário A1",
-      "vocabTrainerDesc": "Baralho de repetição espaçada (A1–A2)"
+      "vocabTrainerDesc": "Baralho de repetição espaçada (A1–A2)",
+      "wordSetsTitle": "Conjuntos",
+      "wordSetsLabel": "guardados",
+      "masteredStatTitle": "Dominado",
+      "reviewsLabel": "Revisões",
+      "activeDaysLabel": "dias ativos",
+      "ofLabel": "de",
+      "dayStreakLabel": "dias seguidos",
+      "streakNudge": "Pratica hoje para começar uma sequência",
+      "wordsByLanguageTitle": "Palavras por idioma",
+      "activityTitle": "Atividade",
+      "lessLabel": "Menos",
+      "moreLabel": "Mais"
     }
   },
   "es": {
@@ -260,7 +296,19 @@
       "conjugationTrainerTitle": "Conjugación",
       "conjugationTrainerDesc": "Practica tiempos verbales EP — escribe o voltea",
       "vocabTrainerTitle": "Vocabulario A1",
-      "vocabTrainerDesc": "Baraja de repetición espaciada (A1–A2)"
+      "vocabTrainerDesc": "Baraja de repetición espaciada (A1–A2)",
+      "wordSetsTitle": "Conjuntos",
+      "wordSetsLabel": "guardados",
+      "masteredStatTitle": "Dominado",
+      "reviewsLabel": "Repasos",
+      "activeDaysLabel": "días activos",
+      "ofLabel": "de",
+      "dayStreakLabel": "días seguidos",
+      "streakNudge": "Practica hoy para empezar una racha",
+      "wordsByLanguageTitle": "Palabras por idioma",
+      "activityTitle": "Actividad",
+      "lessLabel": "Menos",
+      "moreLabel": "Más"
     }
   },
   "pl": {
@@ -326,7 +374,19 @@
       "conjugationTrainerTitle": "Koniugacja",
       "conjugationTrainerDesc": "Ćwicz czasy EP — pisz lub odwracaj",
       "vocabTrainerTitle": "Słownictwo A1",
-      "vocabTrainerDesc": "Talia z powtórkami (A1–A2)"
+      "vocabTrainerDesc": "Talia z powtórkami (A1–A2)",
+      "wordSetsTitle": "Zestawy słów",
+      "wordSetsLabel": "zapisane",
+      "masteredStatTitle": "Opanowane",
+      "reviewsLabel": "Powtórki",
+      "activeDaysLabel": "aktywne dni",
+      "ofLabel": "z",
+      "dayStreakLabel": "dni z rzędu",
+      "streakNudge": "Ćwicz dziś, aby zacząć passę",
+      "wordsByLanguageTitle": "Słowa wg języka",
+      "activityTitle": "Aktywność",
+      "lessLabel": "Mniej",
+      "moreLabel": "Więcej"
     }
   }
 }

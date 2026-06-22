@@ -2,6 +2,7 @@ import React, {FC, useEffect, useMemo, useReducer, useRef, useState} from 'react
 import {useNavigate} from 'react-router-dom';
 import {PageTitle} from 'components';
 import {usePersistentState, useSpeech} from 'hooks';
+import {recordActivity} from 'services/activity.service';
 import {
   BUILTIN,
   BOX,
@@ -273,6 +274,7 @@ const VocabTrainer: FC = () => {
   const grade = (q: Quality) => {
     const sess = sessionRef.current;
     if (!sess || !sess.queue.length) return;
+    recordActivity();
     const k = sess.queue[0];
     const wasNew = !state.cards[k];
     const prev = state.cards[k] ?? {box: 1, due: 0, lapses: 0, reps: 0};

@@ -1,5 +1,6 @@
 import type {QuizQuestion} from 'components/QuizGame/QuizGame';
 import {generateUniqueArray} from 'utils/common';
+import {recordActivity} from './activity.service';
 
 /** Consecutive correct answers after which an item counts as "mastered". */
 export const MASTERY_THRESHOLD = 4;
@@ -58,6 +59,7 @@ export const recordAnswer = (questionId: string | undefined, isCorrect: boolean)
     streak: isCorrect ? prev.streak + 1 : 0,
   };
   save(state);
+  recordActivity();
 };
 
 export const recordGame = (gameId: string, accuracy: number, bestStreak: number): void => {

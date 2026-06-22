@@ -8,6 +8,12 @@ export const getStatistics = () => {
   const uniqueLanguages = new Set(wordIndexKeys.map((key) => key.split(KEY_DELIMITER).at(-1) as Language));
   const numberOfWords = wordIndexKeys.length / 2;
 
+  const wordsByLanguage = wordIndexKeys.reduce<Record<string, number>>((acc, key) => {
+    const lang = key.split(KEY_DELIMITER).at(-1) as Language;
+    acc[lang] = (acc[lang] ?? 0) + 1;
+    return acc;
+  }, {});
+
   const multilanguageWords = Object.keys(dbInstance.database).reduce((acc, id) => {
     const values = Object.keys(dbInstance.database[id]);
     acc += values.length >= 3 ? 1 : 0;
@@ -21,5 +27,6 @@ export const getStatistics = () => {
     numberOfWordSets,
     numberOfWords,
     uniqueLanguages,
+    wordsByLanguage,
   };
 };

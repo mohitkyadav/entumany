@@ -1,8 +1,13 @@
 @import '../../../styles/mixins';
 
 .dashboard-hero {
-  @include flex-raj(center, space-between);
+  @include flex-raj(flex-start, space-between);
   padding: 2rem 4rem;
+
+  &__welcome {
+    @include flex-column;
+    gap: 1rem;
+  }
 
   &__welcome-txt {
     font-weight: 600;
@@ -11,6 +16,50 @@
   a {
     color: var(--color-sail-gray-700);
     display: flex;
+  }
+}
+
+.streak {
+  @include flex-row-align(center);
+  gap: 0.6rem;
+  align-self: flex-start;
+  padding: 0.5rem 1.2rem;
+  border-radius: 999px;
+  background: rgba(237, 164, 38, 0.14);
+  border: 1px solid rgba(237, 164, 38, 0.35);
+  color: var(--color-primary);
+  font-size: 1.3rem;
+  line-height: 1;
+
+  &__flame {
+    font-size: 1.6rem;
+    animation: streak-flicker 1.6s ease-in-out infinite;
+  }
+
+  &__count {
+    font-weight: 700;
+    font-size: 1.6rem;
+  }
+
+  &__label {
+    color: var(--color-sail-gray-700);
+  }
+
+  &--idle {
+    background: var(--color-sail-gray-50);
+    border-color: var(--color-sail-gray-100);
+    color: var(--color-sail-gray-500);
+  }
+}
+
+@keyframes streak-flicker {
+  0%,
+  100% {
+    transform: scale(1) rotate(-2deg);
+  }
+
+  50% {
+    transform: scale(1.12) rotate(2deg);
   }
 }
 

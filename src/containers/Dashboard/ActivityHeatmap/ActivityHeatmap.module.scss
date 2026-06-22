@@ -1,0 +1,63 @@
+@import '../../../styles/mixins';
+
+.heatmap {
+  @include flex-column;
+  gap: 1.2rem;
+
+  &__grid {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    padding-bottom: 0.4rem;
+  }
+
+  &__col {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  &__cell {
+    width: 1.4rem;
+    height: 1.4rem;
+    border-radius: 3px;
+    background: var(--color-sail-gray-100);
+    flex-shrink: 0;
+
+    &--empty {
+      background: transparent;
+    }
+
+    &--l0 {
+      background: var(--color-sail-gray-100);
+    }
+
+    &--l1 {
+      background: rgba(30, 166, 114, 0.32);
+    }
+
+    &--l2 {
+      background: rgba(30, 166, 114, 0.55);
+    }
+
+    &--l3 {
+      background: rgba(30, 166, 114, 0.78);
+    }
+
+    &--l4 {
+      background: var(--color-tertiary);
+    }
+  }
+
+  &__legend {
+    @include flex-row-align(center);
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    color: var(--color-sail-gray-500);
+
+    .heatmap__cell {
+      width: 1.2rem;
+      height: 1.2rem;
+    }
+  }
+}
