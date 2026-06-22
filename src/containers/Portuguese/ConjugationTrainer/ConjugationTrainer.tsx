@@ -2,7 +2,7 @@ import React, {FC, useCallback, useEffect, useRef, useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 import {PageTitle} from 'components';
 import {usePersistentState, useSpeech} from 'hooks';
-import {BY, HINTS, PRON, TENSES, conj, missRate, norm, scopeVerbs, wpick} from 'data/pt/conjugation';
+import {BY, CONJ_STORAGE_KEY, HINTS, PRON, TENSES, conj, missRate, norm, scopeVerbs, wpick} from 'data/pt/conjugation';
 import type {Scope} from 'data/pt/conjugation';
 import './ConjugationTrainer.scss';
 
@@ -61,7 +61,7 @@ function activeTenses(settings: ConjSettings): string[] {
 const ConjugationTrainer: FC = () => {
   const navigate = useNavigate();
   const speech = useSpeech();
-  const [state, setState] = usePersistentState<ConjState>('ep-conjugation:v1', INITIAL_STATE);
+  const [state, setState] = usePersistentState<ConjState>(CONJ_STORAGE_KEY, INITIAL_STATE);
 
   const [cur, setCur] = useState<CurItem | null>(null);
   const [input, setInput] = useState('');
@@ -259,15 +259,11 @@ const ConjugationTrainer: FC = () => {
   });
 
   return (
-    <div className="ep-conj">
+    <div className="ep-conj animation-scale-up">
       <PageTitle title="Conjugação" />
       <div className="wrap">
-        <div style={{display: 'flex', justifyContent: 'flex-end', marginBottom: '8px'}}>
-          <button
-            className="btn"
-            onClick={() => navigate('/pt')}
-            style={{fontFamily: 'var(--mono)', fontSize: '12px', padding: '6px 12px'}}
-          >
+        <div className="backrow">
+          <button className="backbtn" onClick={() => navigate('/pt')}>
             ← back
           </button>
         </div>
@@ -382,18 +378,7 @@ const ConjugationTrainer: FC = () => {
         <div className="rule" />
 
         <p className="section-h">Tenses to drill</p>
-        <p
-          className="section-h"
-          style={{
-            color: 'var(--ink-soft)',
-            fontSize: '11px',
-            letterSpacing: 0,
-            marginTop: '-2px',
-            textTransform: 'none',
-          }}
-        >
-          Presente &amp; perífrases
-        </p>
+        <p className="section-sub">Presente &amp; perífrases</p>
         <div className="chips">
           {TENSES.filter((t) => t.grp === 'now').map((t) => (
             <button
@@ -407,12 +392,7 @@ const ConjugationTrainer: FC = () => {
             </button>
           ))}
         </div>
-        <p
-          className="section-h"
-          style={{color: 'var(--ink-soft)', fontSize: '11px', letterSpacing: 0, textTransform: 'none'}}
-        >
-          Passado &amp; futuro (indicativo)
-        </p>
+        <p className="section-sub">Passado &amp; futuro (indicativo)</p>
         <div className="chips">
           {TENSES.filter((t) => t.grp === 'past').map((t) => (
             <button
@@ -426,12 +406,7 @@ const ConjugationTrainer: FC = () => {
             </button>
           ))}
         </div>
-        <p
-          className="section-h"
-          style={{color: 'var(--ink-soft)', fontSize: '11px', letterSpacing: 0, textTransform: 'none'}}
-        >
-          Conjuntivo
-        </p>
+        <p className="section-sub">Conjuntivo</p>
         <div className="chips">
           {TENSES.filter((t) => t.grp === 'conj').map((t) => (
             <button

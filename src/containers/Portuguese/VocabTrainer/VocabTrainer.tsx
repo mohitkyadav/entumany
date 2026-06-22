@@ -10,6 +10,7 @@ import {
   Card,
   CardState,
   Quality,
+  VOCAB_STORAGE_KEY,
   VocabSettings,
   buildSrs,
   checkType,
@@ -77,7 +78,7 @@ function sayText(card: Card): string {
 const VocabTrainer: FC = () => {
   const navigate = useNavigate();
   const speech = useSpeech();
-  const [state, setState] = usePersistentState<VocabState>('ep-a1-vocab:v2', INITIAL_VOCAB_STATE);
+  const [state, setState] = usePersistentState<VocabState>(VOCAB_STORAGE_KEY, INITIAL_VOCAB_STATE);
 
   // derived deck
   const deckAll = useMemo(() => BUILTIN.concat(state.custom), [state.custom]);
@@ -457,16 +458,12 @@ const VocabTrainer: FC = () => {
   });
 
   return (
-    <div className="ep-vocab">
+    <div className="ep-vocab animation-scale-up">
       <PageTitle title="Baralho A1" />
       <div className="wrap">
         {/* back button */}
-        <div style={{display: 'flex', justifyContent: 'flex-end', marginBottom: '8px'}}>
-          <button
-            className="btn"
-            onClick={() => navigate('/pt')}
-            style={{fontFamily: 'var(--mono)', fontSize: '12px', padding: '6px 12px'}}
-          >
+        <div className="backrow">
+          <button className="backbtn" onClick={() => navigate('/pt')}>
             ← back
           </button>
         </div>
@@ -632,12 +629,14 @@ const VocabTrainer: FC = () => {
         {view === 'cont' && (
           <div className="panel">
             <h2>{contMsg}</h2>
-            <button className="btn primary" onClick={() => startExtra()} style={{marginBottom: '10px'}}>
-              Keep practising
-            </button>
-            <button className="btn" onClick={leaveSession} style={{width: '100%'}}>
-              Finish
-            </button>
+            <div className="contactions">
+              <button className="btn primary" onClick={() => startExtra()}>
+                Keep practising
+              </button>
+              <button className="btn" onClick={leaveSession}>
+                Finish
+              </button>
+            </div>
           </div>
         )}
 
@@ -771,7 +770,7 @@ const VocabTrainer: FC = () => {
             </div>
           </div>
           <div className="addrow">
-            <button className="btn primary" onClick={handleAddCard} style={{width: 'auto'}}>
+            <button className="btn primary" onClick={handleAddCard}>
               Add card
             </button>
             {addMsg && <span className="verdict">{addMsg}</span>}

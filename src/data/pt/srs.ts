@@ -159,3 +159,38 @@ export function fmtTime(ms: number): string {
   const s = Math.floor(ms / 1000);
   return Math.floor(s / 60) + ':' + String(s % 60).padStart(2, '0');
 }
+
+// ---- progress persistence + mastery ----
+
+/** localStorage key for the vocab trainer's persisted state. */
+export const VOCAB_STORAGE_KEY = 'ep-a1-vocab:v2';
+
+/** A card counts as mastered once it reaches this Leitner box (matches the in-trainer "learned" bar). */
+export const VOCAB_MASTERY_MIN_BOX = 4;
+
+interface StoredVocab {
+  cards?: Record<string, CardState>;
+  custom?: Card[];
+}
+
+/**
+ * Reads the trainer's persisted state and counts cards the learner has
+ * learned (Leitner box ≥ threshold) over the full deck. Mirrors the
+ * pack-mastery shape consumed by the Portuguese hub.
+ */
+export function getVocabMastery(): {mastered: number; total: number} {
+  try {
+    const raw = localStorage.getItem(VOCAB_STORAGE_KEY);
+    const parsed = raw ? (JSON.parse(raw) as StoredVocab) : {};
+    const cards = parsed.cards ?? {};
+    const custom = parsed.custom ?? [];
+    const total = BUILTIN.length + custom.length;
+    const mastered = Object.keys(cards).reduce(
+      (acc, k) => acc + (cards[k] && cards[k].box >= VOCAB_MASTERY_MIN_BOX ? 1 : 0),
+      0,
+    );
+    return {mastered, total};
+  } catch {
+    return {mastered: 0, total: BUILTIN.length};
+  }
+}

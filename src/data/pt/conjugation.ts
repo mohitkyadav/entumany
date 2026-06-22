@@ -103,3 +103,40 @@ export function wpick<T>(arr: T[], wf: (item: T) => number): T {
   }
   return arr[arr.length - 1];
 }
+
+// ---- progress persistence + mastery ----
+
+/** localStorage key for the conjugation trainer's persisted state. */
+export const CONJ_STORAGE_KEY = 'ep-conjugation:v1';
+
+/** A verb counts as mastered once drilled this many times with high accuracy. */
+export const CONJ_MASTERY_MIN_SEEN = 4;
+export const CONJ_MASTERY_MIN_ACC = 0.85;
+
+interface StoredConj {
+  perVerb?: Record<string, MissRecord>;
+}
+
+/**
+ * Reads the trainer's persisted state and counts verbs the learner has
+ * effectively mastered (seen ≥ threshold with ≥85% accuracy). Mirrors the
+ * pack-mastery shape consumed by the Portuguese hub.
+ */
+export function getConjugationMastery(): {mastered: number; total: number} {
+  const total = VERBS.length;
+  try {
+    const raw = localStorage.getItem(CONJ_STORAGE_KEY);
+    if (!raw) return {mastered: 0, total};
+    const parsed = JSON.parse(raw) as StoredConj;
+    const perVerb = parsed.perVerb ?? {};
+    const mastered = VERBS.reduce((acc, v) => {
+      const rec = perVerb[v.inf];
+      if (!rec || rec.seen < CONJ_MASTERY_MIN_SEEN) return acc;
+      const accuracy = (rec.seen - rec.miss) / rec.seen;
+      return acc + (accuracy >= CONJ_MASTERY_MIN_ACC ? 1 : 0);
+    }, 0);
+    return {mastered, total};
+  } catch {
+    return {mastered: 0, total};
+  }
+}

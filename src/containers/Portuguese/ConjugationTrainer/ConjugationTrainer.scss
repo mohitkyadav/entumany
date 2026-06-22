@@ -1,17 +1,33 @@
 .ep-conj {
-  --paper: #e7ecea;
-  --card: #fcfefd;
-  --ink: #10393a;
-  --ink-soft: #496463;
-  --line: #c7d2d0;
-  --signal: #e08d2b;
-  --signal-deep: #b96e16;
-  --got: #2e7d5b;
-  --got-soft: #e2f0e9;
-  --miss: #c2553f;
-  --miss-soft: #f6e3dd;
-  --mono: ui-monospace, 'SF Mono', 'Cascadia Code', 'JetBrains Mono', Menlo, Consolas, monospace;
-  --sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  // Mapped onto the app design tokens (see styles/_colors.scss)
+  --paper: var(--color-bg); // page background (white)
+  --surface: #fff; // light card / panel surface
+  --surface-soft: var(--color-sail-gray-50); // #f7fafc subtle fill
+  --hero: var(--color-primary); // navy flashcard (matches GameHub / QuizGame)
+  --hero-line: rgba(255, 255, 255, 0.16); // dividers on navy
+  --hero-soft: rgba(255, 255, 255, 0.08); // hover fill on navy
+  --on-hero: #fff; // text on navy
+  --on-hero-mute: var(--color-blue-gray-300); // #90a4ae muted text on navy
+  --ink: var(--color-primary); // primary text on light
+  --ink-soft: var(--color-sail-gray-500); // #697386 secondary text
+  --line: var(--color-sail-gray-100); // #e3e8ee borders
+  --accent: var(--color-primary); // primary action (navy)
+  --accent-hover: var(--color-primary-hover); // #06457a
+  --got: var(--color-tertiary); // #1ea672 correct / success
+  --got-soft: rgba(30, 166, 114, 0.14);
+  --miss: var(--color-secondary); // #e16e92 wrong / attention
+  --warn: var(--color-orange); // #eda426 due / heads-up
+  --focus: var(--color-orange); // focus ring (app convention)
+  --mono: var(--font-family-mono);
+  --sans: var(--font-family-default);
+  --radius: 16px;
+
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.5;
+  min-height: 100%;
+  width: 100%;
 
   & * {
     box-sizing: border-box;
@@ -20,60 +36,90 @@
   .wrap {
     max-width: 600px;
     margin: 0 auto;
-    padding: 26px 20px 60px;
+    padding: 2.4rem 1.6rem 5.6rem;
+  }
+
+  .backrow {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+  }
+
+  .backbtn {
+    font-family: var(--mono);
+    font-size: 1.2rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-soft);
+    background: transparent;
+    border: 1.5px solid var(--line);
+    border-radius: 999px;
+    padding: 0.6rem 1.4rem;
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+
+    &:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
+    }
   }
 
   .top {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 18px;
+    gap: 1.6rem;
+    margin-bottom: 1.8rem;
   }
 
   .eyebrow {
     font-family: var(--mono);
-    font-size: 11px;
-    letter-spacing: 0.22em;
+    font-size: 1.1rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
     color: var(--ink-soft);
   }
 
   h1 {
-    font-size: 30px;
-    line-height: 1.05;
-    margin: 6px 0 0;
-    font-weight: 680;
+    font-size: 2.8rem;
+    line-height: 1.1;
+    margin: 0.6rem 0 0;
+    font-weight: 700;
     letter-spacing: -0.01em;
+    color: var(--ink);
   }
 
   .readout {
     font-family: var(--mono);
-    font-size: 12px;
+    font-size: 1.2rem;
     color: var(--ink-soft);
     text-align: right;
     white-space: nowrap;
 
     b {
       display: block;
-      font-size: 22px;
+      font-size: 2.2rem;
       color: var(--ink);
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: -0.02em;
     }
   }
 
   .notice {
     font-family: var(--mono);
-    font-size: 12px;
+    font-size: 1.2rem;
     line-height: 1.55;
     color: var(--ink-soft);
-    background: #fff;
+    background: var(--surface-soft);
     border: 1px solid var(--line);
-    border-left: 3px solid var(--signal);
-    border-radius: 8px;
-    padding: 11px 13px;
-    margin-bottom: 18px;
+    border-left: 3px solid var(--warn);
+    border-radius: 10px;
+    padding: 1.1rem 1.3rem;
+    margin-bottom: 1.8rem;
 
     b {
       color: var(--ink);
@@ -84,82 +130,87 @@
     }
   }
 
+  // ---- navy flashcard (the prompt being studied) ----
   .card {
-    background: var(--card);
-    border: 1.5px solid var(--line);
-    border-radius: 16px;
-    padding: 26px 22px;
+    background: var(--hero);
+    border-radius: var(--radius);
+    padding: 2.8rem 2.2rem;
     text-align: center;
+    color: var(--on-hero);
+    box-shadow: 0 8px 32px rgba(4, 34, 53, 0.2);
   }
 
   .verbline {
     font-family: var(--mono);
-    font-size: 12px;
+    font-size: 1.2rem;
     letter-spacing: 0.04em;
-    color: var(--ink-soft);
+    color: var(--on-hero-mute);
     min-height: 1.3em;
   }
 
   .verb {
-    font-size: 30px;
-    font-weight: 680;
+    font-size: 3rem;
+    font-weight: 700;
     letter-spacing: -0.015em;
-    margin: 4px 0 2px;
+    margin: 0.4rem 0 0.2rem;
+    color: var(--on-hero);
   }
 
   .ask {
-    margin-top: 14px;
-    padding-top: 14px;
-    border-top: 1px dashed var(--line);
+    margin-top: 1.4rem;
+    padding-top: 1.4rem;
+    border-top: 1px dashed var(--hero-line);
   }
 
   .person {
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 600;
+    color: var(--on-hero);
   }
 
   .tense {
     font-family: var(--mono);
-    font-size: 12.5px;
+    font-size: 1.25rem;
     letter-spacing: 0.05em;
-    color: var(--signal-deep);
-    margin-top: 3px;
+    color: var(--warn);
+    margin-top: 0.3rem;
 
     small {
       display: block;
-      color: var(--ink-soft);
+      color: var(--on-hero-mute);
       letter-spacing: 0.02em;
       text-transform: none;
-      margin-top: 2px;
+      margin-top: 0.2rem;
     }
   }
 
   .typebox {
-    margin-top: 18px;
+    margin-top: 1.8rem;
 
     input {
       width: 100%;
       font-family: var(--sans);
-      font-size: 22px;
+      font-size: 2.2rem;
       text-align: center;
-      padding: 12px 14px;
-      border: 1.5px solid var(--line);
+      padding: 1.2rem 1.4rem;
+      border: 1.5px solid transparent;
       border-radius: 11px;
       background: #fff;
-      color: var(--ink);
+      color: var(--color-primary);
 
       &:focus {
         outline: none;
-        border-color: var(--signal);
+        border-color: var(--focus);
+        box-shadow: 0 0 0 3px rgba(237, 164, 38, 0.3);
       }
     }
   }
 
   .verdict {
     font-family: var(--mono);
-    font-size: 13px;
+    font-size: 1.3rem;
     letter-spacing: 0.03em;
-    margin-top: 8px;
+    margin-top: 0.8rem;
     min-height: 1.2em;
 
     &.ok {
@@ -171,16 +222,16 @@
     }
 
     &.warn {
-      color: var(--signal-deep);
+      color: var(--warn);
     }
   }
 
   .para {
     display: none;
-    margin-top: 16px;
-    padding-top: 14px;
-    border-top: 1px dashed var(--line);
-    max-width: 330px;
+    margin-top: 1.6rem;
+    padding-top: 1.4rem;
+    border-top: 1px dashed var(--hero-line);
+    max-width: 33rem;
     margin-left: auto;
     margin-right: auto;
 
@@ -193,13 +244,13 @@
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    gap: 16px;
-    padding: 5px 10px;
+    gap: 1.6rem;
+    padding: 0.5rem 1rem;
     border-radius: 8px;
     cursor: pointer;
 
     &:hover {
-      background: #eef3f1;
+      background: var(--hero-soft);
     }
 
     &.hl {
@@ -208,13 +259,14 @@
 
     .pp {
       font-family: var(--mono);
-      font-size: 12px;
-      color: var(--ink-soft);
+      font-size: 1.2rem;
+      color: var(--on-hero-mute);
     }
 
     .pf {
-      font-size: 17px;
+      font-size: 1.7rem;
       font-weight: 500;
+      color: var(--on-hero);
     }
 
     &.hl .pf {
@@ -225,36 +277,37 @@
 
   .hint {
     font-family: var(--mono);
-    font-size: 11.5px;
-    color: var(--ink-soft);
+    font-size: 1.15rem;
+    color: var(--on-hero-mute);
     line-height: 1.55;
-    margin-top: 14px;
+    margin-top: 1.4rem;
     text-align: left;
 
     b {
-      color: var(--ink);
+      color: var(--on-hero);
     }
   }
 
   .controls {
-    margin-top: 16px;
+    margin-top: 1.6rem;
   }
 
+  // ---- buttons (live on the light page, matching app Button) ----
   .btn {
     font-family: var(--mono);
-    font-size: 13px;
+    font-size: 1.3rem;
     letter-spacing: 0.05em;
-    border: 1.5px solid var(--ink);
+    border: 1.5px solid var(--accent);
     background: transparent;
-    color: var(--ink);
-    padding: 13px 18px;
+    color: var(--accent);
+    padding: 1.3rem 1.8rem;
     border-radius: 10px;
     cursor: pointer;
     transition: background 0.15s, color 0.15s;
 
     &:hover:not(:disabled) {
-      background: var(--ink);
-      color: var(--paper);
+      background: var(--accent);
+      color: var(--color-white);
     }
 
     &:disabled {
@@ -263,20 +316,19 @@
     }
 
     &:focus-visible {
-      outline: 3px solid var(--signal);
+      outline: 2px solid var(--focus);
       outline-offset: 2px;
     }
 
     &.primary {
-      background: var(--signal);
-      border-color: var(--signal);
-      color: #1c1206;
+      background: var(--accent);
+      border-color: var(--accent);
+      color: var(--color-white);
       width: 100%;
 
       &:hover {
-        background: var(--signal-deep);
-        border-color: var(--signal-deep);
-        color: #fff;
+        background: var(--accent-hover);
+        border-color: var(--accent-hover);
       }
     }
   }
@@ -284,23 +336,25 @@
   .grade {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    gap: 0.8rem;
 
     button {
       font-family: var(--mono);
       border-radius: 10px;
       border: 1.5px solid var(--line);
-      background: var(--card);
+      background: var(--surface);
       color: var(--ink);
-      padding: 12px 4px;
+      padding: 1.2rem 0.4rem;
       cursor: pointer;
+      transition: border-color 0.12s, background 0.12s;
 
       &:hover {
-        border-color: var(--ink);
+        border-color: var(--accent);
+        background: var(--surface-soft);
       }
 
       &:focus-visible {
-        outline: 3px solid var(--signal);
+        outline: 2px solid var(--focus);
         outline-offset: 2px;
       }
     }
@@ -314,15 +368,15 @@
     }
 
     .lbl {
-      font-size: 13px;
-      font-weight: 600;
+      font-size: 1.3rem;
+      font-weight: 700;
       display: block;
     }
 
     .k {
-      font-size: 10px;
+      font-size: 1rem;
       color: var(--ink-soft);
-      margin-top: 3px;
+      margin-top: 0.3rem;
       display: block;
     }
   }
@@ -330,48 +384,67 @@
   .rule {
     height: 1px;
     background: var(--line);
-    margin: 28px 0 16px;
+    margin: 2.8rem 0 1.6rem;
   }
 
   .section-h {
     font-family: var(--mono);
-    font-size: 10.5px;
+    font-size: 1.05rem;
     letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--ink-soft);
-    margin: 0 0 9px;
+    margin: 0 0 0.9rem;
+  }
+
+  .section-sub {
+    font-family: var(--mono);
+    font-size: 1.1rem;
+    letter-spacing: 0;
+    text-transform: none;
+    color: var(--ink-soft);
+    margin: -0.2rem 0 0.9rem;
   }
 
   .chips {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(152px, 1fr));
-    gap: 8px;
-    margin-bottom: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    gap: 0.8rem;
+    margin-bottom: 1.6rem;
   }
 
   .chip {
     font-family: var(--mono);
-    font-size: 12px;
+    font-size: 1.2rem;
     text-align: left;
-    padding: 8px 11px;
+    padding: 0.9rem 1.1rem;
     border: 1.5px solid var(--line);
     border-radius: 9px;
-    background: var(--card);
+    background: var(--surface);
     color: var(--ink-soft);
     cursor: pointer;
     line-height: 1.25;
+    transition: border-color 0.12s, background 0.12s, color 0.12s;
+
+    &:hover {
+      border-color: var(--accent);
+    }
 
     &[aria-pressed='true'] {
-      background: var(--ink);
-      color: var(--paper);
-      border-color: var(--ink);
+      background: var(--accent);
+      color: var(--on-hero);
+      border-color: var(--accent);
+    }
+
+    &:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 2px;
     }
 
     small {
       display: block;
-      font-size: 9.5px;
+      font-size: 0.95rem;
       opacity: 0.72;
-      margin-top: 3px;
+      margin-top: 0.3rem;
       letter-spacing: 0.02em;
     }
   }
@@ -379,19 +452,19 @@
   .settings {
     display: flex;
     flex-wrap: wrap;
-    gap: 14px 22px;
+    gap: 1.4rem 2.2rem;
     align-items: center;
   }
 
   .grp {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 0.8rem;
   }
 
   .glab {
     font-family: var(--mono);
-    font-size: 10.5px;
+    font-size: 1.05rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--ink-soft);
@@ -405,21 +478,26 @@
 
     button {
       font-family: var(--mono);
-      font-size: 11.5px;
+      font-size: 1.15rem;
       letter-spacing: 0.04em;
-      padding: 8px 11px;
+      padding: 0.8rem 1.1rem;
       border: none;
-      background: var(--card);
+      background: var(--surface);
       color: var(--ink-soft);
       cursor: pointer;
+      transition: background 0.12s, color 0.12s;
+
+      & + button {
+        border-left: 1.5px solid var(--line);
+      }
 
       &[aria-pressed='true'] {
-        background: var(--ink);
-        color: var(--paper);
+        background: var(--accent);
+        color: var(--on-hero);
       }
 
       &:focus-visible {
-        outline: 2px solid var(--signal);
+        outline: 2px solid var(--focus);
         outline-offset: -2px;
       }
     }
@@ -427,18 +505,23 @@
 
   select {
     font-family: var(--mono);
-    font-size: 12px;
-    padding: 7px 9px;
+    font-size: 1.2rem;
+    padding: 0.7rem 0.9rem;
     border: 1.5px solid var(--line);
     border-radius: 8px;
-    background: var(--card);
+    background: var(--surface);
     color: var(--ink);
-    max-width: 210px;
+    max-width: 21rem;
+
+    &:focus-visible {
+      outline: 2px solid var(--focus);
+      outline-offset: 1px;
+    }
   }
 
   .link {
     font-family: var(--mono);
-    font-size: 11.5px;
+    font-size: 1.15rem;
     color: var(--ink-soft);
     background: none;
     border: none;
@@ -453,7 +536,7 @@
   }
 
   .stats {
-    margin-top: 16px;
+    margin-top: 1.6rem;
     display: none;
 
     &.show {
@@ -464,15 +547,15 @@
   .srow {
     display: flex;
     align-items: center;
-    gap: 10px;
-    margin-bottom: 7px;
+    gap: 1rem;
+    margin-bottom: 0.7rem;
   }
 
   .skey {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 1.1rem;
     color: var(--ink-soft);
-    width: 150px;
+    width: 15rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -482,7 +565,7 @@
     flex: 1;
     height: 6px;
     border-radius: 99px;
-    background: #d6dedc;
+    background: var(--line);
     overflow: hidden;
   }
 
@@ -495,29 +578,62 @@
 
   .spct {
     font-family: var(--mono);
-    font-size: 11px;
+    font-size: 1.1rem;
     color: var(--ink-soft);
-    width: 62px;
+    width: 6.2rem;
     text-align: right;
   }
 
-  .back-btn {
-    position: absolute;
-    top: 16px;
-    right: 16px;
-  }
+  // ---- responsive: phones (incl. iPhone 13 mini @ 375px) ----
+  @media only screen and (max-width: 600px) {
+    .wrap {
+      padding: 2rem 1.4rem 4.8rem;
+    }
 
-  @media (max-width: 430px) {
     h1 {
-      font-size: 25px;
+      font-size: 2.4rem;
+    }
+
+    .card {
+      padding: 2.4rem 1.6rem;
     }
 
     .verb {
-      font-size: 26px;
+      font-size: 2.6rem;
+    }
+
+    .chips {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .settings {
+      gap: 1.2rem 1.6rem;
+    }
+  }
+
+  @media only screen and (max-width: 380px) {
+    .top {
+      gap: 1rem;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+    }
+
+    .readout b {
+      font-size: 2rem;
+    }
+
+    .verb {
+      font-size: 2.4rem;
     }
 
     .prow .pf {
-      font-size: 16px;
+      font-size: 1.6rem;
+    }
+
+    .grade .lbl {
+      font-size: 1.2rem;
     }
   }
 }
