@@ -74,7 +74,13 @@
       "wordsByLanguageTitle": "Words by language",
       "activityTitle": "Activity",
       "lessLabel": "Less",
-      "moreLabel": "More"
+      "moreLabel": "More",
+      "addWordsToPlayShort": "Add {{count}} more to play",
+      "matchingModeLabel": "Match the pairs",
+      "addWordModeLabel": "Build your deck",
+      "wordListModeTitle": "Word list",
+      "wordListModeLabel": "Browse your words",
+      "progressTitle": "Progress"
     }
   },
   "hi": {
@@ -152,7 +158,13 @@
       "wordsByLanguageTitle": "भाषा अनुसार शब्द",
       "activityTitle": "गतिविधि",
       "lessLabel": "कम",
-      "moreLabel": "ज़्यादा"
+      "moreLabel": "ज़्यादा",
+      "addWordsToPlayShort": "खेलने के लिए {{count}} और जोड़ें",
+      "matchingModeLabel": "जोड़ी मिलाएँ",
+      "addWordModeLabel": "अपना संग्रह बनाएँ",
+      "wordListModeTitle": "शब्द सूची",
+      "wordListModeLabel": "अपने शब्द देखें",
+      "progressTitle": "प्रगति"
     }
   },
   "pt": {
@@ -230,7 +242,13 @@
       "wordsByLanguageTitle": "Palavras por idioma",
       "activityTitle": "Atividade",
       "lessLabel": "Menos",
-      "moreLabel": "Mais"
+      "moreLabel": "Mais",
+      "addWordsToPlayShort": "Adiciona mais {{count}} para jogar",
+      "matchingModeLabel": "Combina os pares",
+      "addWordModeLabel": "Cria o teu baralho",
+      "wordListModeTitle": "Lista de palavras",
+      "wordListModeLabel": "Vê as tuas palavras",
+      "progressTitle": "Progresso"
     }
   },
   "es": {
@@ -308,7 +326,13 @@
       "wordsByLanguageTitle": "Palabras por idioma",
       "activityTitle": "Actividad",
       "lessLabel": "Menos",
-      "moreLabel": "Más"
+      "moreLabel": "Más",
+      "addWordsToPlayShort": "Añade {{count}} más para jugar",
+      "matchingModeLabel": "Empareja las parejas",
+      "addWordModeLabel": "Crea tu mazo",
+      "wordListModeTitle": "Lista de palabras",
+      "wordListModeLabel": "Mira tus palabras",
+      "progressTitle": "Progreso"
     }
   },
   "pl": {
@@ -386,7 +410,13 @@
       "wordsByLanguageTitle": "Słowa wg języka",
       "activityTitle": "Aktywność",
       "lessLabel": "Mniej",
-      "moreLabel": "Więcej"
+      "moreLabel": "Więcej",
+      "addWordsToPlayShort": "Dodaj jeszcze {{count}}, aby zagrać",
+      "matchingModeLabel": "Dopasuj pary",
+      "addWordModeLabel": "Twórz talię",
+      "wordListModeTitle": "Lista słów",
+      "wordListModeLabel": "Przeglądaj słowa",
+      "progressTitle": "Postęp"
     }
   }
 }

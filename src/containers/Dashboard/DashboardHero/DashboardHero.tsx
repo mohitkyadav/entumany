@@ -19,7 +19,7 @@ const DashboardHero: FC = () => {
         <div className={clsx(style['dashboard-hero__welcome-txt'], 'ls-50 fs-18')}>
           <AnimatedHelloText />
         </div>
-        {streak == 0 ? (
+        {streak > 0 ? (
           <div className={style.streak} title={t('dayStreakLabel') || ''}>
             <span className={style.streak__flame}>🔥</span>
             <b className={style.streak__count}>{streak}</b>
