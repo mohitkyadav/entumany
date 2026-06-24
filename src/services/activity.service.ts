@@ -70,6 +70,42 @@ export const getCurrentStreak = (log: ActivityLog = load()): number => {
   return streak;
 };
 
+export interface RecentDay {
+  active: boolean;
+  count: number;
+  date: string;
+  isToday: boolean;
+  weekday: string;
+}
+
+const WEEKDAY_INITIALS = ['S', 'M', 'T', 'W', 'T', 'F', 'S'];
+
+/**
+ * The trailing `days` days ending today, oldest first — a compact rolling
+ * window for the dashboard streak strip (distinct from the calendar-aligned
+ * heatmap matrix below).
+ */
+export const getRecentDays = (days = 7, log: ActivityLog = load()): RecentDay[] => {
+  const today = ymd(new Date());
+  const result: RecentDay[] = [];
+  const cursor = new Date();
+  cursor.setDate(cursor.getDate() - (days - 1));
+
+  for (let i = 0; i < days; i += 1) {
+    const date = ymd(cursor);
+    const count = log[date] ?? 0;
+    result.push({
+      active: count > 0,
+      count,
+      date,
+      isToday: date === today,
+      weekday: WEEKDAY_INITIALS[cursor.getDay()],
+    });
+    cursor.setDate(cursor.getDate() + 1);
+  }
+  return result;
+};
+
 /**
  * Returns the trailing `weeks` worth of days as week-columns (each column is 7
  * days, Sunday→Saturday) ready to render as a GitHub-style heatmap. The final

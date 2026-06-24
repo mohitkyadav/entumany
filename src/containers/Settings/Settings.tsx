@@ -2,9 +2,9 @@ import React, {FC, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useNavigate} from 'react-router-dom';
 import {toast} from 'react-hot-toast';
-import {ArrowLeft, Copy, Download, Trash2, Upload} from 'lucide-react';
+import {ArrowLeft, Copy, Download, Github, Trash2, Upload} from 'lucide-react';
 
-import {Button, PageTitle} from 'components';
+import {A, Button, PageTitle} from 'components';
 import {useAppContext} from 'contexts/App.context';
 import {Language} from 'types/db';
 import {LanguageFlags, LanguageNames, ROUTES} from 'utils/constants';
@@ -177,6 +177,11 @@ const Settings: FC = () => {
           </div>
           <input ref={fileInputRef} type="file" accept="application/json,.json" onChange={handleFileChange} hidden />
         </section>
+
+        <A href="https://github.com/mohitkyadav/entumany" className={style.Settings__github}>
+          <Github size={18} />
+          <span>GitHub</span>
+        </A>
       </div>
     </div>
   );
