@@ -1,3 +1,13 @@
+// Form controls must render at >= 16px or iOS Safari auto-zooms on focus
+// (and, with no maximum-scale in the viewport, stays zoomed). The global
+// `* { font-size: 1.4rem }` reset in _core.scss would otherwise leave every
+// input/textarea/select at 14px, triggering the zoom. Keep this >= 16px.
+input,
+textarea,
+select {
+  font-size: var(--font-size-medium); // 1.6rem = 16px
+}
+
 body {
   background: var(--color-bg);
   color: var(--color-primary);
