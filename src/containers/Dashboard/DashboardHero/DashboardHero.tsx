@@ -1,15 +1,12 @@
 import clsx from 'clsx';
 import React, {FC} from 'react';
 import {useTranslation} from 'react-i18next';
-
 import {Link} from 'react-router-dom';
 
 import {A} from 'components';
-import {LanguageSwitcher} from 'components/LanguageSwitcher/LanguageSwitcher';
 import {Github, Settings} from 'lucide-react';
 import {getCurrentStreak} from 'services/activity.service';
 import {ROUTES} from 'utils/constants';
-import AnimatedHelloText from './AnimatedHelloText/AnimatedHelloText';
 import style from './DashboardHero.module.scss';
 
 const DashboardHero: FC = () => {
@@ -18,22 +15,16 @@ const DashboardHero: FC = () => {
 
   return (
     <div className={style['dashboard-hero']}>
-      <div className={style['dashboard-hero__welcome']}>
-        <div className={clsx(style['dashboard-hero__welcome-txt'], 'ls-50 fs-18')}>
-          <AnimatedHelloText />
+      {streak > 0 ? (
+        <div className={style.streak} title={t('dayStreakLabel') || ''}>
+          <span className={style.streak__flame}>🔥</span>
+          <b className={style.streak__count}>{streak}</b>
+          <span className={style.streak__label}>{t('dayStreakLabel')}</span>
         </div>
-        {streak > 0 ? (
-          <div className={style.streak} title={t('dayStreakLabel') || ''}>
-            <span className={style.streak__flame}>🔥</span>
-            <b className={style.streak__count}>{streak}</b>
-            <span className={style.streak__label}>{t('dayStreakLabel')}</span>
-          </div>
-        ) : (
-          <div className={clsx(style.streak, style['streak--idle'])}>{t('streakNudge')}</div>
-        )}
-      </div>
+      ) : (
+        <div className={clsx(style.streak, style['streak--idle'])}>{t('streakNudge')}</div>
+      )}
       <div className={style['right-nav-actions']}>
-        <LanguageSwitcher />
         <Link to={ROUTES.SETTINGS} className="unset-a" aria-label={t('settingsTitle') || 'Settings'}>
           <Settings size={28} />
         </Link>
