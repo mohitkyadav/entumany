@@ -16,6 +16,58 @@
     font-size: var(--font-size-xlarge);
     font-weight: 500;
   }
+
+  &__search {
+    @include flex-row-align(center);
+    position: relative;
+    width: 100%;
+    max-width: 42rem;
+    margin-top: 0.4rem;
+
+    &__icon {
+      position: absolute;
+      left: 1.2rem;
+      color: var(--color-sail-gray-400);
+      pointer-events: none;
+    }
+
+    input {
+      width: 100%;
+      padding: 1rem 3.6rem;
+      border-radius: 8px;
+      border: 2px solid var(--color-sail-gray-100);
+      outline: none;
+      background: var(--color-sail-gray-50);
+      transition: border-color 0.15s ease, background 0.15s ease;
+
+      &:focus {
+        border-color: var(--color-secondary);
+        background: var(--color-white);
+      }
+
+      // hide the native clear affordance of type=search; we render our own
+      &::-webkit-search-cancel-button {
+        appearance: none;
+      }
+    }
+
+    &__clear {
+      @include flex-raj(center, center);
+      position: absolute;
+      right: 0.8rem;
+      padding: 0.4rem;
+      border: none;
+      background: none;
+      border-radius: 50%;
+      cursor: pointer;
+      color: var(--color-sail-gray-500);
+
+      &:hover {
+        color: var(--color-primary);
+        background: var(--color-sail-gray-100);
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 600px) {

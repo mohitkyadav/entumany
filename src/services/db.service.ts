@@ -88,7 +88,9 @@ export class EntumanyDB extends Database {
   public populateFromLocalStorage(): void {
     this.database = JSON.parse(localStorage.getItem('database') || '{}');
     this.wordIndex = JSON.parse(localStorage.getItem('wordIndex') || '{}');
-    this.appOptions = JSON.parse(localStorage.getItem('appOptions') || '{}');
+    // Merge over defaults so every option is always defined, even on a fresh
+    // install or after a partial/older backup is restored.
+    this.appOptions = {...defaultAppOptions, ...JSON.parse(localStorage.getItem('appOptions') || '{}')};
   }
 
   public addWords(a: WordEntry, b: WordEntry): void {
@@ -100,6 +102,7 @@ export class EntumanyDB extends Database {
 
     if (idA && idB) {
       this.mergeEntries(idA, idB);
+      this.saveToLocalStorage();
       return;
     }
 
@@ -113,6 +116,34 @@ export class EntumanyDB extends Database {
     this.database[id][b.language] = b.word;
     this.wordIndex[aIndex] = id;
     this.wordIndex[bIndex] = id;
+
+    // Persist immediately. Relying on the beforeunload/unmount handlers alone is
+    // unsafe on mobile, where backgrounded tabs are often discarded without
+    // firing those events — freshly added words would silently vanish.
+    this.saveToLocalStorage();
+  }
+
+  /**
+   * Replace the words of an existing entry, one per language, rebuilding the
+   * word index for that entry. A language whose word is blanked out is dropped
+   * from the set.
+   */
+  public updateWordEntry(id: string, entries: WordEntry[]): void {
+    if (!this.database[id]) return;
+
+    // Drop every index key pointing at this entry; we rebuild them below.
+    this.wordIndex = Object.fromEntries(Object.entries(this.wordIndex).filter(([, value]) => value !== id));
+
+    const updated: Record<string, string> = {};
+    entries.forEach(({language, word}) => {
+      const trimmed = word.trim();
+      if (!trimmed) return;
+      updated[language] = trimmed;
+      this.wordIndex[this.getWordIndex({language, word: trimmed})] = id;
+    });
+
+    this.database[id] = updated;
+    this.saveToLocalStorage();
   }
 
   public deleteWordEntryWithIndex(id: string): void {
@@ -122,6 +153,7 @@ export class EntumanyDB extends Database {
 
   public updateLanguage(id: LanguageKey, newLanguage: Language): void {
     this.appOptions[id] = newLanguage;
+    this.saveToLocalStorage();
   }
 
   public updateAppLanguage(newLanguage: Language): void {

@@ -27,9 +27,13 @@
     &__word {
       display: flex;
       flex-direction: row;
+      align-items: center;
       gap: 0.6rem;
 
       &__wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
         width: 100%;
       }
 
@@ -37,6 +41,7 @@
         font-size: var(--font-size-medium);
         font-weight: 300;
         width: 10rem;
+        flex-shrink: 0;
         color: var(--color-sail-gray-700);
       }
 
@@ -47,6 +52,38 @@
         flex-wrap: wrap;
         max-width: 65%;
       }
+
+      &__input {
+        flex: 1;
+        max-width: 32rem;
+        padding: 0.6rem 1rem;
+        border-radius: 6px;
+        border: 2px solid var(--color-primary);
+        outline: none;
+
+        &:focus {
+          border-color: var(--color-secondary);
+        }
+      }
+    }
+
+    &__edit-actions {
+      display: flex;
+      flex-direction: row;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+  }
+
+  &__empty {
+    @include flex-caj(center, center);
+    gap: 1.6rem;
+    padding: 6rem 2rem;
+    text-align: center;
+
+    &__text {
+      font-size: var(--font-size-large);
+      color: var(--color-sail-gray-500);
     }
   }
 }

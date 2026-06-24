@@ -2,10 +2,13 @@ import clsx from 'clsx';
 import React, {FC} from 'react';
 import {useTranslation} from 'react-i18next';
 
+import {Link} from 'react-router-dom';
+
 import {A} from 'components';
 import {LanguageSwitcher} from 'components/LanguageSwitcher/LanguageSwitcher';
-import {Github} from 'lucide-react';
+import {Github, Settings} from 'lucide-react';
 import {getCurrentStreak} from 'services/activity.service';
+import {ROUTES} from 'utils/constants';
 import AnimatedHelloText from './AnimatedHelloText/AnimatedHelloText';
 import style from './DashboardHero.module.scss';
 
@@ -31,6 +34,9 @@ const DashboardHero: FC = () => {
       </div>
       <div className={style['right-nav-actions']}>
         <LanguageSwitcher />
+        <Link to={ROUTES.SETTINGS} className="unset-a" aria-label={t('settingsTitle') || 'Settings'}>
+          <Settings size={28} />
+        </Link>
         <A href="https://github.com/mohitkyadav/entumany">
           <Github size={28} />
         </A>

@@ -1,0 +1,103 @@
+@import '../../styles/mixins';
+
+.Settings {
+  @include flex-column;
+  gap: 2.4rem;
+  width: 100%;
+  max-width: 60rem;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+
+  &__header {
+    @include flex-row-align(center);
+    gap: 1.6rem;
+  }
+
+  &__title {
+    font-size: var(--font-size-xlarge);
+    font-weight: 700;
+  }
+
+  &__section {
+    @include flex-column;
+    gap: 0.8rem;
+    padding: 2rem;
+    border: 1.5px solid var(--color-sail-gray-100);
+    border-radius: 16px;
+    background: var(--color-white);
+  }
+
+  &__sectionTitle {
+    font-size: var(--font-size-large);
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  &__help {
+    font-size: var(--font-size-small);
+    color: var(--color-sail-gray-500);
+  }
+
+  &__count {
+    font-size: var(--font-size-regular);
+    font-weight: 500;
+    color: var(--color-sail-gray-700);
+  }
+
+  &__select {
+    margin-top: 0.4rem;
+    padding: 1rem 1.2rem;
+    border-radius: 8px;
+    border: 2px solid var(--color-sail-gray-100);
+    background: var(--color-sail-gray-50);
+    cursor: pointer;
+    outline: none;
+    width: 100%;
+
+    &:focus {
+      border-color: var(--color-secondary);
+      background: var(--color-white);
+    }
+  }
+
+  &__langPair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.6rem;
+    margin-top: 0.4rem;
+  }
+
+  &__field {
+    @include flex-column;
+    gap: 0.4rem;
+  }
+
+  &__fieldLabel {
+    font-size: var(--font-size-small);
+    font-weight: 500;
+    color: var(--color-sail-gray-500);
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.8rem;
+  }
+
+  &__danger {
+    margin-top: 1.6rem;
+    padding-top: 1.6rem;
+    border-top: 1px solid var(--color-sail-gray-100);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .Settings {
+    padding: 2.4rem 1.6rem;
+
+    &__langPair {
+      grid-template-columns: 1fr;
+    }
+  }
+}

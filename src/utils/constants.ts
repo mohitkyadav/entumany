@@ -12,6 +12,7 @@ export const ROUTES = {
   PORTUGUESE_HUB: '/pt',
   PORTUGUESE_PACK: '/pt/:packId',
   PORTUGUESE_VOCAB: '/pt/vocab',
+  SETTINGS: '/settings',
   WORD_LIST: '/list',
 };
 

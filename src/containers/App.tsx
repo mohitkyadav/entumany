@@ -15,6 +15,7 @@ import PackPage from './Portuguese/PackPage';
 import PackGamePage from './Portuguese/PackGamePage';
 import ConjugationTrainer from './Portuguese/ConjugationTrainer/ConjugationTrainer';
 import VocabTrainer from './Portuguese/VocabTrainer/VocabTrainer';
+import Settings from './Settings/Settings';
 
 const App: FC = () => {
   return (
@@ -35,6 +36,7 @@ const App: FC = () => {
         <Route path={ROUTES.PORTUGUESE_GAME} element={<PackGamePage />} />
         <Route path={ROUTES.PLAYGROUND} element={<Playground />} />
         <Route path={ROUTES.WORD_LIST} element={<WordList />} />
+        <Route path={ROUTES.SETTINGS} element={<Settings />} />
       </Routes>
     </Router>
   );

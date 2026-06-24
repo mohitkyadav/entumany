@@ -23,6 +23,16 @@ const root = createRoot(container);
 
 new EntumanyDB();
 
+// Flush the in-memory DB to localStorage when the page is hidden or unloaded.
+// `visibilitychange`/`pagehide` fire reliably when a mobile browser backgrounds
+// or discards the tab, unlike `beforeunload`. This is a safety net — mutations
+// already persist eagerly (see EntumanyDB.addWords/updateWordEntry).
+const persist = () => EntumanyDB.getInstance().saveToLocalStorage();
+window.addEventListener('pagehide', persist);
+document.addEventListener('visibilitychange', () => {
+  if (document.visibilityState === 'hidden') persist();
+});
+
 root.render(
   <React.StrictMode>
     <AppProvider>

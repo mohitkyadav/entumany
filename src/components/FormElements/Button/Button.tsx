@@ -6,7 +6,7 @@ import './Button.scss';
 
 export interface ButtonProps extends ComponentPropsWithoutRef<'button'> {
   className?: string;
-  color?: 'primary' | 'secondary' | 'tertiary';
+  color?: 'primary' | 'secondary' | 'tertiary' | 'danger';
   disabled?: boolean;
   type?: 'button' | 'reset' | 'submit';
   variant?: 'contained' | 'link' | 'outlined';

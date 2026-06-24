@@ -59,6 +59,16 @@
         border-color: var(--color-tertiary);
       }
     }
+
+    &#{$self}--danger {
+      background: var(--color-danger);
+      border-color: var(--color-danger);
+
+      &:hover {
+        background: var(--color-danger);
+        border-color: var(--color-danger);
+      }
+    }
   }
 
   &--outlined {
@@ -98,6 +108,16 @@
       &:hover {
         border-color: var(--color-tertiary);
         color: var(--color-tertiary);
+      }
+    }
+
+    &#{$self}--danger {
+      border-color: var(--color-danger);
+      color: var(--color-danger);
+
+      &:hover {
+        background: var(--color-danger);
+        color: var(--color-white);
       }
     }
   }
