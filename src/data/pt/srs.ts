@@ -1,4 +1,5 @@
 import {generateUniqueArray} from 'utils/common';
+import {normalizeText} from 'utils/language';
 import vocabData from './a1VocabData.json';
 
 // ---- types ----
@@ -57,15 +58,8 @@ export function yesterday(): string {
 
 // ---- typing helpers ----
 
-export function norm(s: string): string {
-  return (s || '')
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
-    .replace(/[.?!,]/g, '')
-    .trim()
-    .replace(/\s+/g, ' ');
-}
+/** Answer comparison goes through the app-wide normaliser. */
+export const norm = (s: string): string => normalizeText(s);
 
 export function stripArt(s: string): string {
   return s.replace(/^(o|a|os|as)\s+/, '');

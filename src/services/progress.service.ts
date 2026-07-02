@@ -87,29 +87,31 @@ export const getMasteryForIds = (ids: string[]): {mastered: number; total: numbe
 };
 
 /**
- * Picks `count` questions, prioritising what the learner most needs to practise:
+ * Picks `count` items, prioritising what the learner most needs to practise:
  * unseen items first, then weak (unmastered) ones, then a light review of mastered
  * ones. Ties are randomised; the final selection is shuffled so the hardest items
- * aren't always shown first.
+ * aren't always shown first. Works for anything with a stable id — quiz questions,
+ * dictionary words, cards.
  */
-export const selectQuestions = (questions: QuizQuestion[], count: number): QuizQuestion[] => {
+export const selectByMastery = <T>(pool: T[], count: number, getId: (item: T) => string | undefined): T[] => {
   const {items} = load();
 
-  // Shuffle first so questions in the same priority bucket appear in random order.
-  const shuffleOrder = generateUniqueArray(questions.length);
-  const shuffled = shuffleOrder.map((i) => questions[i]);
+  // Shuffle first so items in the same priority bucket appear in random order.
+  const shuffleOrder = generateUniqueArray(pool.length);
+  const shuffled = shuffleOrder.map((i) => pool[i]);
 
-  const bucketOf = (q: QuizQuestion): number => {
-    const item = q.id ? items[q.id] : undefined;
+  const bucketOf = (entry: T): number => {
+    const id = getId(entry);
+    const item = id ? items[id] : undefined;
     if (!item || item.seen === 0) return 0; // unseen
     if (item.streak < MASTERY_THRESHOLD) return 1; // weak
     return 2; // mastered
   };
 
   const prioritised = shuffled
-    .map((q, idx) => ({bucket: bucketOf(q), idx, q}))
+    .map((entry, idx) => ({bucket: bucketOf(entry), entry, idx}))
     .sort((a, b) => (a.bucket !== b.bucket ? a.bucket - b.bucket : a.idx - b.idx))
-    .map((entry) => entry.q);
+    .map(({entry}) => entry);
 
   const selected = prioritised.slice(0, Math.min(count, prioritised.length));
 
@@ -117,3 +119,6 @@ export const selectQuestions = (questions: QuizQuestion[], count: number): QuizQ
   const finalOrder = generateUniqueArray(selected.length);
   return finalOrder.map((i) => selected[i]);
 };
+
+export const selectQuestions = (questions: QuizQuestion[], count: number): QuizQuestion[] =>
+  selectByMastery(questions, count, (q) => q.id);

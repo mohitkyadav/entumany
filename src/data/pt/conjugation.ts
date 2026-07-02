@@ -1,3 +1,4 @@
+import {normalizeText} from 'utils/language';
 import data from './conjugationData.json';
 
 // ---- types ----
@@ -78,15 +79,8 @@ export function conj(v: Verb, tense: string): string[] {
   return regForms(rv.inf, rv.type, tense);
 }
 
-export function norm(s: string): string {
-  return (s || '')
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[̀-ͯ]/g, '')
-    .replace(/[.!?,]/g, '')
-    .trim()
-    .replace(/\s+/g, ' ');
-}
+/** Answer comparison goes through the app-wide normaliser. */
+export const norm = (s: string): string => normalizeText(s);
 
 export function missRate(o: MissRecord | undefined): number {
   return o && o.seen ? o.miss / o.seen : 0;

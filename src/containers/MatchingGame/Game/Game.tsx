@@ -1,46 +1,44 @@
 import clsx from 'clsx';
 import {Button, VictoryModal} from 'components';
 import {XCircleIcon} from 'lucide-react';
-import React, {FC, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
+import React, {FC, useMemo, useState} from 'react';
+import {Navigate, useNavigate} from 'react-router-dom';
 import {EntumanyDB} from 'services/db.service';
-import {Language, Word, WordListItem} from 'types/db';
+import {recordAnswer, recordGame} from 'services/progress.service';
+import {WORD_GAME_IDS, getWordGameLanguages, pickGameWords, wordItemId} from 'services/wordGames.service';
+import {Word, WordListItem} from 'types/db';
 import {toast} from 'react-hot-toast';
 import {useTranslation} from 'react-i18next';
+import {ROUTES} from 'utils/constants';
 import {generateRandomIntFromInterval} from 'utils/urls';
 
 import style from './Game.module.scss';
 import {generateUniqueArray} from 'utils/common';
 import {Mistake} from 'components/VictoryModal/VictoryModal';
 
-export interface GameProps {
-  getRandomWords(words: Record<string, any>): Word[];
-}
+const buildRows = (words: Word[]): WordListItem[][] =>
+  words.map((word) => {
+    const [langA, langB] = getWordGameLanguages(word);
+    return [
+      {id: word.wordId, lang: langA, word: word[langA]},
+      {id: word.wordId, lang: langB, word: word[langB]},
+    ];
+  });
 
-const correctlyAnsweredIds: Map<string, boolean> = new Map();
-
-const Game: FC<GameProps> = ({getRandomWords}) => {
+const Game: FC = () => {
   const dbInstance = EntumanyDB.getInstance();
-  const allWords = dbInstance.database;
   const navigate = useNavigate();
-  const gameWords = getRandomWords(allWords);
-  const [sequence] = useState(generateUniqueArray(gameWords.length));
-  const [listOfListOfwords] = useState(
-    gameWords.map(({wordId, ...word}) => {
-      const langs = Object.keys(word);
-      const langWords = Object.values(word);
-      const saneWords: WordListItem[] = [];
-      for (let i = 0; i < langs.length; i++) {
-        saneWords.push({id: wordId, lang: langs[i] as Language, word: langWords[i] as string});
-      }
-      return saneWords;
-    }),
-  );
+  const [gameWords, setGameWords] = useState(() => pickGameWords(dbInstance.database));
+  const [sequence, setSequence] = useState(() => generateUniqueArray(gameWords.length));
+  const rows = useMemo(() => buildRows(gameWords), [gameWords]);
+  const [matchedIds, setMatchedIds] = useState<Set<string>>(new Set());
   const [selectedFirstWord, setSelectedFirstWord] = useState<WordListItem>();
   const [selectedSecondWord, setSelectedSecondWord] = useState<WordListItem>();
   const [mistakes, setMistakes] = useState<Mistake[]>([]);
   const [showVictoryModal, setShowVictoryModal] = useState(false);
   const {t} = useTranslation();
+
+  if (!gameWords.length) return <Navigate to={ROUTES.DASHBOARD} replace />;
 
   const playFeedbackSound = (isSuccess: boolean) => {
     const audio = new Audio(isSuccess ? '/sounds/correct-1.mp3' : '/sounds/error-1.mp3');
@@ -62,20 +60,24 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
   };
 
   const checkMatch = (firstWord: WordListItem, secondWord: WordListItem) => {
-    if (firstWord?.id === secondWord?.id) {
+    const isMatch = firstWord?.id === secondWord?.id;
+
+    if (isMatch) {
       playFeedbackSound(true);
       toast(t(`correctFeedback${generateRandomIntFromInterval(0, 2)}`), {
         icon: '✅',
         position: 'bottom-center',
       });
-      correctlyAnsweredIds.set(firstWord.id, true);
+      recordAnswer(wordItemId(firstWord.id), true);
     } else {
       playFeedbackSound(false);
       toast(t(`inCorrectFeedback${generateRandomIntFromInterval(0, 2)}`), {
         icon: '🚫',
         position: 'bottom-center',
       });
-      // Track the mistake
+      // A mismatch means both words were confused — count it against both.
+      recordAnswer(wordItemId(firstWord.id), false);
+      recordAnswer(wordItemId(secondWord.id), false);
       setMistakes((prev) => [
         ...prev,
         {
@@ -85,16 +87,20 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
         },
       ]);
     }
-    setTimeout(() => resetSelectedWords(), 300);
-  };
 
-  const resetSelectedWords = () => {
-    setSelectedFirstWord(undefined);
-    setSelectedSecondWord(undefined);
+    const nextMatched = isMatch ? new Set(matchedIds).add(firstWord.id) : matchedIds;
+    if (isMatch) setMatchedIds(nextMatched);
 
-    if (correctlyAnsweredIds.size === sequence.length) {
-      setShowVictoryModal(true);
-    }
+    setTimeout(() => {
+      setSelectedFirstWord(undefined);
+      setSelectedSecondWord(undefined);
+
+      if (nextMatched.size === gameWords.length) {
+        const accuracy = Math.round((100 * gameWords.length) / (gameWords.length + mistakes.length));
+        recordGame(WORD_GAME_IDS.match, accuracy, 0);
+        setShowVictoryModal(true);
+      }
+    }, 300);
   };
 
   const getButtonColour = (wordId: string, selectedId?: string) => {
@@ -102,7 +108,7 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
       return 'secondary';
     }
 
-    if (correctlyAnsweredIds.get(wordId)) {
+    if (matchedIds.has(wordId)) {
       return 'tertiary';
     }
 
@@ -110,10 +116,14 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
   };
 
   const handlePlayAgain = () => {
-    setShowVictoryModal(false);
+    const nextWords = pickGameWords(dbInstance.database);
+    setGameWords(nextWords);
+    setSequence(generateUniqueArray(nextWords.length));
+    setMatchedIds(new Set());
+    setSelectedFirstWord(undefined);
+    setSelectedSecondWord(undefined);
     setMistakes([]);
-    correctlyAnsweredIds.clear();
-    navigate(0); // Refresh the page to get new words
+    setShowVictoryModal(false);
   };
 
   return (
@@ -126,8 +136,8 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
       />
       <div className={style.Game__container}>
         {sequence.map((colOne, colTwo) => {
-          const firstWord = listOfListOfwords[colOne][0];
-          const secondWord = listOfListOfwords[colTwo][1];
+          const firstWord = rows[colOne][0];
+          const secondWord = rows[colTwo][1];
 
           return (
             <div key={firstWord.id + secondWord.id} className={style.Game__container__row}>
@@ -135,7 +145,7 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
                 className="fs-16"
                 color={getButtonColour(firstWord.id, selectedFirstWord?.id)}
                 onClick={() => selectFirstWord(firstWord)}
-                disabled={correctlyAnsweredIds.get(firstWord.id)}
+                disabled={matchedIds.has(firstWord.id)}
               >
                 {firstWord.word}
               </Button>
@@ -143,7 +153,7 @@ const Game: FC<GameProps> = ({getRandomWords}) => {
                 className="fs-16"
                 color={getButtonColour(secondWord.id, selectedSecondWord?.id)}
                 onClick={() => selectSecondWord(secondWord)}
-                disabled={correctlyAnsweredIds.get(secondWord.id)}
+                disabled={matchedIds.has(secondWord.id)}
               >
                 {secondWord.word}
               </Button>

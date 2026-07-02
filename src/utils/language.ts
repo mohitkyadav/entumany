@@ -1,4 +1,3 @@
-import {createRegExp, char} from 'magic-regexp';
 import {Language} from 'types/db';
 import {LanguageFlags} from './constants';
 
@@ -7,22 +6,20 @@ export const getLangFlagsString = (languages: Language[]) => {
   return flagList.join(' ');
 };
 
-export const sanitiseTranslation = (value = '') => {
-  const notImportantCharRegex = createRegExp(
-    char.or('.').or(',').or("'").or('?').or(':').or('/').or('"').or('$').or('!'),
-    ['g'],
-  );
-
-  const saneValue = value.trim().toLowerCase();
-  saneValue.replaceAll(notImportantCharRegex, '');
-
-  return saneValue;
-};
+/**
+ * The app-wide answer normaliser: lowercase, strip accents (NFD combining
+ * marks), drop punctuation that shouldn't decide correctness, and collapse
+ * whitespace. Every mode that grades typed answers compares through this.
+ */
+export const normalizeText = (value = ''): string =>
+  value
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .replace(/[.?!,:;'"’«»]/g, '')
+    .trim()
+    .replace(/\s+/g, ' ');
 
 export const psudeoInteligentTranslationVerify = (realTranslation = '', providedTranslation = '') => {
-  // sanitise values
-  const saneRealTranslation = sanitiseTranslation(realTranslation);
-  const saneProvidedTranslation = sanitiseTranslation(providedTranslation);
-
-  return saneRealTranslation === saneProvidedTranslation;
+  return normalizeText(realTranslation) === normalizeText(providedTranslation);
 };

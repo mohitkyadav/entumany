@@ -1,30 +1,20 @@
 import React, {FC, useMemo} from 'react';
 
 import {QuizGame} from 'components';
-import type {QuizQuestion} from 'components/QuizGame/QuizGame';
-import germanNouns from 'data/germanNouns.json';
-
-type GermanNoun = {
-  word: string;
-  article: string;
-  translation: string;
-};
-
-const ARTICLE_OPTIONS = ['der', 'die', 'das', '?'];
-
-const buildQuestions = (): QuizQuestion[] =>
-  (germanNouns as GermanNoun[]).map((noun) => ({
-    answer: noun.article,
-    answerLabel: `${noun.article} ${noun.word}`,
-    options: ARTICLE_OPTIONS,
-    prompt: noun.word,
-    subtitle: noun.translation,
-  }));
+import {GERMAN_ARTICLES_GAME_ID, buildArticleQuestions} from 'data/deArticles';
+import {recordAnswer, recordGame, selectQuestions} from 'services/progress.service';
 
 const Game: FC = () => {
-  const questions = useMemo(buildQuestions, []);
+  const questions = useMemo(buildArticleQuestions, []);
 
-  return <QuizGame questions={questions} />;
+  return (
+    <QuizGame
+      questions={questions}
+      selectQuestions={selectQuestions}
+      onAnswer={recordAnswer}
+      onComplete={({accuracy, bestStreak}) => recordGame(GERMAN_ARTICLES_GAME_ID, accuracy, bestStreak)}
+    />
+  );
 };
 
 export default Game;
