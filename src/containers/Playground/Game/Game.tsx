@@ -1,9 +1,8 @@
 import clsx from 'clsx';
-import {Button, StepProgressBar} from 'components';
+import {BackButton, RoundResults, StepProgressBar} from 'components';
 import {WordContainer, GameFeedbackModal} from 'components';
-import {XCircleIcon} from 'lucide-react';
 import React, {FC, useRef, useState} from 'react';
-import {Navigate, useNavigate} from 'react-router-dom';
+import {Navigate} from 'react-router-dom';
 import {EntumanyDB} from 'services/db.service';
 import {recordAnswer, recordGame} from 'services/progress.service';
 import {WORD_GAME_IDS, getWordGameLanguages, pickGameWords, wordItemId} from 'services/wordGames.service';
@@ -17,11 +16,10 @@ import style from './Game.module.scss';
 
 const Game: FC = () => {
   const dbInstance = EntumanyDB.getInstance();
-  const navigate = useNavigate();
   const [currentWordIdx, setCurrentWordIdx] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
   const [showSubmitFeedback, setShowSubmitFeedback] = useState(false);
-  const [gameWords] = useState(() => pickGameWords(dbInstance.database));
+  const [gameWords, setGameWords] = useState(() => pickGameWords(dbInstance.database));
   const [answerFeedback, setAnswerFeedback] = useState<GameAnswer>();
   const correctCountRef = useRef(0);
   const streakRef = useRef(0);
@@ -77,18 +75,39 @@ const Game: FC = () => {
       const accuracy = Math.round((100 * correctCountRef.current) / gameWords.length);
       recordGame(WORD_GAME_IDS.play, accuracy, bestStreakRef.current);
       setIsComplete(true);
-      setTimeout(() => setShowSubmitFeedback(true), 500);
     }
   };
 
+  const handlePlayAgain = () => {
+    correctCountRef.current = 0;
+    streakRef.current = 0;
+    bestStreakRef.current = 0;
+    setGameWords(pickGameWords(dbInstance.database));
+    setCurrentWordIdx(0);
+    setAnswerFeedback(undefined);
+    setShowSubmitFeedback(false);
+    setIsComplete(false);
+  };
+
+  if (isComplete) {
+    const accuracy = Math.round((100 * correctCountRef.current) / gameWords.length);
+
+    return (
+      <div className={clsx(style.Game, 'animation-slide-down')}>
+        <RoundResults
+          correctCount={correctCountRef.current}
+          incorrectCount={gameWords.length - correctCountRef.current}
+          accuracy={accuracy}
+          bestStreak={bestStreakRef.current}
+          onPlayAgain={handlePlayAgain}
+        />
+      </div>
+    );
+  }
+
   return (
     <div className={clsx(style.Game, 'animation-slide-down')}>
-      <Button
-        color="secondary"
-        className={style.Game__back}
-        leftIcon={<XCircleIcon size={28} />}
-        onClick={() => navigate('/')}
-      />
+      <BackButton className={style.Game__back} />
       <StepProgressBar current={currentWordIdx} isComplete={isComplete} total={gameWords.length} />
       <div className={style.Game__container}>
         <WordContainer word={currentWord} destLang={destLang} srcLang={srcLang} handleSubmit={handleSubmit} />
@@ -99,7 +118,6 @@ const Game: FC = () => {
           onHide={moveToNextWord}
           answerFeedback={answerFeedback}
           currentWord={gameWords[currentWordIdx]}
-          isComplete={isComplete}
         />
       )}
     </div>

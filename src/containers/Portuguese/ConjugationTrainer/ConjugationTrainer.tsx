@@ -1,6 +1,6 @@
 import React, {FC, useCallback, useEffect, useRef, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
-import {PageTitle} from 'components';
+import {useTranslation} from 'react-i18next';
+import {BackButton, ConfirmModal, PageTitle} from 'components';
 import {usePersistentState, useSpeech} from 'hooks';
 import {recordActivity} from 'services/activity.service';
 import {BY, CONJ_STORAGE_KEY, HINTS, PRON, TENSES, conj, missRate, norm, scopeVerbs, wpick} from 'data/pt/conjugation';
@@ -60,10 +60,11 @@ function activeTenses(settings: ConjSettings): string[] {
 }
 
 const ConjugationTrainer: FC = () => {
-  const navigate = useNavigate();
+  const {t} = useTranslation();
   const speech = useSpeech();
   const [state, setState] = usePersistentState<ConjState>(CONJ_STORAGE_KEY, INITIAL_STATE);
 
+  const [showResetConfirm, setShowResetConfirm] = useState(false);
   const [cur, setCur] = useState<CurItem | null>(null);
   const [input, setInput] = useState('');
   const [revealed, setRevealed] = useState(false);
@@ -89,7 +90,7 @@ const ConjugationTrainer: FC = () => {
     let key: string;
     let tries = 0;
     do {
-      tense = wpick(ts, (t) => 1 + 3 * missRate(stateRef.current.perTense[t]));
+      tense = wpick(ts, (tn) => 1 + 3 * missRate(stateRef.current.perTense[tn]));
       inf = wpick(vs, (i) => 1 + 3 * missRate(stateRef.current.perVerb[i]));
       person = Math.floor(Math.random() * 5);
       key = inf + '|' + tense + '|' + person;
@@ -210,7 +211,7 @@ const ConjugationTrainer: FC = () => {
   );
 
   const handleReset = useCallback(() => {
-    if (!window.confirm('Reset all progress?')) return;
+    setShowResetConfirm(false);
     setState((prev) => ({
       ...prev,
       best: 0,
@@ -265,9 +266,7 @@ const ConjugationTrainer: FC = () => {
       <PageTitle title="Conjugação" />
       <div className="wrap">
         <div className="backrow">
-          <button className="backbtn" onClick={() => navigate('/pt')}>
-            ← back
-          </button>
+          <BackButton to="/pt" />
         </div>
         <div className="top">
           <div>
@@ -292,8 +291,8 @@ const ConjugationTrainer: FC = () => {
               <div className="ask">
                 <div className="person">{PRON[cur.person]}</div>
                 <div className="tense">
-                  {TENSES.find((t) => t.key === cur.tense)?.pt}
-                  <small>{TENSES.find((t) => t.key === cur.tense)?.en}</small>
+                  {TENSES.find((tense) => tense.key === cur.tense)?.pt}
+                  <small>{TENSES.find((tense) => tense.key === cur.tense)?.en}</small>
                 </div>
               </div>
 
@@ -382,43 +381,43 @@ const ConjugationTrainer: FC = () => {
         <p className="section-h">Tenses to drill</p>
         <p className="section-sub">Presente &amp; perífrases</p>
         <div className="chips">
-          {TENSES.filter((t) => t.grp === 'now').map((t) => (
+          {TENSES.filter((tense) => tense.grp === 'now').map((tense) => (
             <button
-              aria-pressed={state.settings.tenses.includes(t.key) ? 'true' : 'false'}
+              aria-pressed={state.settings.tenses.includes(tense.key) ? 'true' : 'false'}
               className="chip"
-              key={t.key}
-              onClick={() => toggleTense(t.key)}
+              key={tense.key}
+              onClick={() => toggleTense(tense.key)}
             >
-              {t.pt}
-              <small>{t.en}</small>
+              {tense.pt}
+              <small>{tense.en}</small>
             </button>
           ))}
         </div>
         <p className="section-sub">Passado &amp; futuro (indicativo)</p>
         <div className="chips">
-          {TENSES.filter((t) => t.grp === 'past').map((t) => (
+          {TENSES.filter((tense) => tense.grp === 'past').map((tense) => (
             <button
-              aria-pressed={state.settings.tenses.includes(t.key) ? 'true' : 'false'}
+              aria-pressed={state.settings.tenses.includes(tense.key) ? 'true' : 'false'}
               className="chip"
-              key={t.key}
-              onClick={() => toggleTense(t.key)}
+              key={tense.key}
+              onClick={() => toggleTense(tense.key)}
             >
-              {t.pt}
-              <small>{t.en}</small>
+              {tense.pt}
+              <small>{tense.en}</small>
             </button>
           ))}
         </div>
         <p className="section-sub">Conjuntivo</p>
         <div className="chips">
-          {TENSES.filter((t) => t.grp === 'conj').map((t) => (
+          {TENSES.filter((tense) => tense.grp === 'conj').map((tense) => (
             <button
-              aria-pressed={state.settings.tenses.includes(t.key) ? 'true' : 'false'}
+              aria-pressed={state.settings.tenses.includes(tense.key) ? 'true' : 'false'}
               className="chip"
-              key={t.key}
-              onClick={() => toggleTense(t.key)}
+              key={tense.key}
+              onClick={() => toggleTense(tense.key)}
             >
-              {t.pt}
-              <small>{t.en}</small>
+              {tense.pt}
+              <small>{tense.en}</small>
             </button>
           ))}
         </div>
@@ -487,7 +486,7 @@ const ConjugationTrainer: FC = () => {
           <button className="link" onClick={() => setShowStats((s) => !s)}>
             {showStats ? 'hide progress' : 'show progress'}
           </button>
-          <button className="link" onClick={handleReset}>
+          <button className="link" onClick={() => setShowResetConfirm(true)}>
             reset
           </button>
         </div>
@@ -498,7 +497,7 @@ const ConjugationTrainer: FC = () => {
             const pct = o.seen ? Math.round((100 * (o.seen - o.miss)) / o.seen) : 0;
             return (
               <div className="srow" key={k}>
-                <span className="skey">{TENSES.find((t) => t.key === k)?.pt}</span>
+                <span className="skey">{TENSES.find((tense) => tense.key === k)?.pt}</span>
                 <span className="strack">
                   <span className="sfill" style={{width: pct + '%'}} />
                 </span>
@@ -507,6 +506,14 @@ const ConjugationTrainer: FC = () => {
             );
           })}
         </div>
+
+        <ConfirmModal
+          isShown={showResetConfirm}
+          title={t('resetProgressTitle')}
+          message={t('conjResetConfirm')}
+          onConfirm={handleReset}
+          onCancel={() => setShowResetConfirm(false)}
+        />
       </div>
     </div>
   );

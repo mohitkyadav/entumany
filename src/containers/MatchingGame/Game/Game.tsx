@@ -1,8 +1,7 @@
 import clsx from 'clsx';
-import {Button, VictoryModal} from 'components';
-import {XCircleIcon} from 'lucide-react';
+import {BackButton, Button, VictoryModal} from 'components';
 import React, {FC, useMemo, useState} from 'react';
-import {Navigate, useNavigate} from 'react-router-dom';
+import {Navigate} from 'react-router-dom';
 import {EntumanyDB} from 'services/db.service';
 import {recordAnswer, recordGame} from 'services/progress.service';
 import {WORD_GAME_IDS, getWordGameLanguages, pickGameWords, wordItemId} from 'services/wordGames.service';
@@ -27,7 +26,6 @@ const buildRows = (words: Word[]): WordListItem[][] =>
 
 const Game: FC = () => {
   const dbInstance = EntumanyDB.getInstance();
-  const navigate = useNavigate();
   const [gameWords, setGameWords] = useState(() => pickGameWords(dbInstance.database));
   const [sequence, setSequence] = useState(() => generateUniqueArray(gameWords.length));
   const rows = useMemo(() => buildRows(gameWords), [gameWords]);
@@ -128,12 +126,7 @@ const Game: FC = () => {
 
   return (
     <div className={clsx(style.Game, 'animation-slide-down')}>
-      <Button
-        color="secondary"
-        className={style.Game__back}
-        leftIcon={<XCircleIcon size={28} />}
-        onClick={() => navigate('/')}
-      />
+      <BackButton className={style.Game__back} />
       <div className={style.Game__container}>
         {sequence.map((colOne, colTwo) => {
           const firstWord = rows[colOne][0];

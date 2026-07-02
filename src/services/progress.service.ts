@@ -86,30 +86,65 @@ export const getMasteryForIds = (ids: string[]): {mastered: number; total: numbe
   return {mastered, total: ids.length};
 };
 
+const DAY_MS = 864e5;
+
 /**
- * Picks `count` items, prioritising what the learner most needs to practise:
- * unseen items first, then weak (unmastered) ones, then a light review of mastered
- * ones. Ties are randomised; the final selection is shuffled so the hardest items
- * aren't always shown first. Works for anything with a stable id — quiz questions,
- * dictionary words, cards.
+ * Days until a mastered item comes back for a refresher. Grows with the answer
+ * streak (Leitner-style), so well-known items return less and less often.
  */
-export const selectByMastery = <T>(pool: T[], count: number, getId: (item: T) => string | undefined): T[] => {
+const reviewIntervalDays = (streak: number): number => {
+  if (streak >= 7) return 30;
+  if (streak === 6) return 14;
+  if (streak === 5) return 7;
+  return 3; // streak === MASTERY_THRESHOLD
+};
+
+/** A mastered item whose review interval has elapsed since it was last seen. */
+export const isDueForReview = (item?: ItemProgress): boolean =>
+  !!item && item.streak >= MASTERY_THRESHOLD && nowMs() >= item.lastSeen + reviewIntervalDays(item.streak) * DAY_MS;
+
+/** Ids from `ids` that are due for a refresher — for composing review sessions. */
+export const getDueReviewIds = (ids: string[]): string[] => {
+  const {items} = load();
+  return ids.filter((id) => isDueForReview(items[id]));
+};
+
+type BucketFn = (item: ItemProgress | undefined) => number;
+
+// Regular game rounds: coverage first (unseen → weak), then due refreshers,
+// then well-known items as filler.
+const gameBucket: BucketFn = (item) => {
+  if (!item || item.seen === 0) return 0; // unseen
+  if (item.streak < MASTERY_THRESHOLD) return 1; // weak
+  return isDueForReview(item) ? 2 : 3; // due for review, then fresh mastered
+};
+
+// Daily review sessions: keep learned material alive first (due → weak),
+// then new items, then filler.
+const reviewBucket: BucketFn = (item) => {
+  if (isDueForReview(item)) return 0;
+  if (item && item.seen > 0 && item.streak < MASTERY_THRESHOLD) return 1; // weak
+  if (!item || item.seen === 0) return 2; // unseen
+  return 3; // fresh mastered
+};
+
+const selectByBuckets = <T>(
+  pool: T[],
+  count: number,
+  getId: (item: T) => string | undefined,
+  bucketOf: BucketFn,
+): T[] => {
   const {items} = load();
 
   // Shuffle first so items in the same priority bucket appear in random order.
   const shuffleOrder = generateUniqueArray(pool.length);
   const shuffled = shuffleOrder.map((i) => pool[i]);
 
-  const bucketOf = (entry: T): number => {
-    const id = getId(entry);
-    const item = id ? items[id] : undefined;
-    if (!item || item.seen === 0) return 0; // unseen
-    if (item.streak < MASTERY_THRESHOLD) return 1; // weak
-    return 2; // mastered
-  };
-
   const prioritised = shuffled
-    .map((entry, idx) => ({bucket: bucketOf(entry), entry, idx}))
+    .map((entry, idx) => {
+      const id = getId(entry);
+      return {bucket: bucketOf(id ? items[id] : undefined), entry, idx};
+    })
     .sort((a, b) => (a.bucket !== b.bucket ? a.bucket - b.bucket : a.idx - b.idx))
     .map(({entry}) => entry);
 
@@ -119,6 +154,23 @@ export const selectByMastery = <T>(pool: T[], count: number, getId: (item: T) =>
   const finalOrder = generateUniqueArray(selected.length);
   return finalOrder.map((i) => selected[i]);
 };
+
+/**
+ * Picks `count` items for a regular game round: unseen items first, then weak
+ * (unmastered) ones, then mastered items due for a refresher, then the rest.
+ * Ties are randomised; the final selection is shuffled so the hardest items
+ * aren't always shown first. Works for anything with a stable id — quiz
+ * questions, dictionary words, cards.
+ */
+export const selectByMastery = <T>(pool: T[], count: number, getId: (item: T) => string | undefined): T[] =>
+  selectByBuckets(pool, count, getId, gameBucket);
+
+/**
+ * Picks `count` items for a daily review session: due refreshers first (so
+ * learned material stays learned), then weak items, then new ones.
+ */
+export const selectDailyReview = <T>(pool: T[], count: number, getId: (item: T) => string | undefined): T[] =>
+  selectByBuckets(pool, count, getId, reviewBucket);
 
 export const selectQuestions = (questions: QuizQuestion[], count: number): QuizQuestion[] =>
   selectByMastery(questions, count, (q) => q.id);

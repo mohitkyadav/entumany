@@ -41,32 +41,10 @@
 
   .backrow {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-start;
     margin-bottom: 1rem;
   }
 
-  .backbtn {
-    font-family: var(--mono);
-    font-size: 1.2rem;
-    letter-spacing: 0.04em;
-    color: var(--ink-soft);
-    background: transparent;
-    border: 1.5px solid var(--line);
-    border-radius: 999px;
-    padding: 0.6rem 1.4rem;
-    cursor: pointer;
-    transition: border-color 0.15s, color 0.15s;
-
-    &:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-    }
-
-    &:focus-visible {
-      outline: 2px solid var(--focus);
-      outline-offset: 2px;
-    }
-  }
 
   .top {
     display: flex;

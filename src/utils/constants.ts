@@ -11,6 +11,7 @@ export const ROUTES = {
   PORTUGUESE_GAME: '/pt/:packId/:gameId',
   PORTUGUESE_HUB: '/pt',
   PORTUGUESE_PACK: '/pt/:packId',
+  PORTUGUESE_TODAY: '/pt/today',
   PORTUGUESE_VOCAB: '/pt/vocab',
   SETTINGS: '/settings',
   WORD_LIST: '/list',

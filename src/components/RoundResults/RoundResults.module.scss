@@ -1,0 +1,74 @@
+@import '../../styles/mixins';
+
+.RoundResults {
+  @include flex-caj(center, center);
+  width: 100%;
+  max-width: 400px;
+  gap: 2rem;
+  margin-top: 4rem;
+
+  &__title {
+    font-size: 2rem;
+    color: var(--color-primary);
+  }
+
+  &__stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  &__stat {
+    @include flex-caj(center, center);
+    gap: 0.3rem;
+
+    span:first-child {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+
+    span:last-child {
+      font-size: 0.9rem;
+      color: var(--color-blue-gray-400);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    &--correct {
+      color: var(--color-tertiary) !important;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    &--incorrect {
+      color: var(--color-secondary) !important;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+  }
+
+  &__actions {
+    @include flex-caj(center, center);
+    gap: 1rem;
+    width: 100%;
+
+    button {
+      width: 100%;
+      padding: 1rem;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .RoundResults {
+    max-width: 100%;
+    margin-top: 2rem;
+
+    &__stats {
+      gap: 1.5rem;
+    }
+  }
+}

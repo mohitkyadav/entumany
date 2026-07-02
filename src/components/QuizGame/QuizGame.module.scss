@@ -7,9 +7,7 @@
   min-height: 80vh;
 
   &__back {
-    align-self: flex-end;
-    border-radius: 100%;
-    padding: 0;
+    align-self: flex-start;
   }
 
   &__card {
@@ -115,63 +113,6 @@
     }
   }
 
-  &__results {
-    @include flex-caj(center, center);
-    width: 100%;
-    max-width: 400px;
-    gap: 2rem;
-    margin-top: 4rem;
-
-    &__title {
-      font-size: 2rem;
-      color: var(--color-primary);
-    }
-
-    &__stats {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2rem;
-      width: 100%;
-      justify-content: center;
-    }
-
-    &__stat {
-      @include flex-caj(center, center);
-      gap: 0.3rem;
-
-      span:first-child {
-        font-size: 2rem;
-        font-weight: 700;
-        color: var(--color-primary);
-      }
-
-      span:last-child {
-        font-size: 0.9rem;
-        color: var(--color-blue-gray-400);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-
-      &--correct span:first-child {
-        color: var(--color-tertiary);
-      }
-
-      &--incorrect span:first-child {
-        color: var(--color-secondary);
-      }
-    }
-
-    &__actions {
-      @include flex-caj(center, center);
-      gap: 1rem;
-      width: 100%;
-
-      button {
-        width: 100%;
-        padding: 1rem;
-      }
-    }
-  }
 }
 
 @keyframes pulse-correct {
@@ -219,15 +160,6 @@
 
     &__feedback {
       max-width: 100%;
-    }
-
-    &__results {
-      max-width: 100%;
-      margin-top: 2rem;
-
-      &__stats {
-        gap: 1.5rem;
-      }
     }
   }
 }

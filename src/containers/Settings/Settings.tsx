@@ -2,17 +2,30 @@ import React, {FC, useRef, useState} from 'react';
 import {useTranslation} from 'react-i18next';
 import {useNavigate} from 'react-router-dom';
 import {toast} from 'react-hot-toast';
-import {ArrowLeft, Copy, Download, Github, Trash2, Upload} from 'lucide-react';
+import {ArrowLeft, CalendarPlus, Copy, Download, Github, Trash2, Upload} from 'lucide-react';
 
-import {A, Button, PageTitle} from 'components';
+import {A, Button, ConfirmModal, PageTitle} from 'components';
 import {useAppContext} from 'contexts/App.context';
 import {Language} from 'types/db';
 import {LanguageFlags, LanguageNames, ROUTES} from 'utils/constants';
 import {backupFileName, clearAllData, restoreBackup, serializeBackup} from 'services/backup.service';
+import {PRACTICE_ICS_FILENAME, buildDailyPracticeIcs} from 'services/calendar.service';
 
 import style from './Settings.module.scss';
 
 const ALL_LANGUAGES = Object.values(Language);
+const REMINDER_HOURS = [7, 8, 9, 12, 17, 18, 19, 20, 21];
+
+const downloadFile = (content: string, filename: string, mimeType: string) => {
+  const url = URL.createObjectURL(new Blob([content], {type: mimeType}));
+  const anchor = document.createElement('a');
+  anchor.href = url;
+  anchor.download = filename;
+  document.body.appendChild(anchor);
+  anchor.click();
+  document.body.removeChild(anchor);
+  URL.revokeObjectURL(url);
+};
 
 const Settings: FC = () => {
   const {availableLanguages, dbInstance, lng, switchLanguage} = useAppContext();
@@ -22,6 +35,8 @@ const Settings: FC = () => {
 
   const [primaryLang, setPrimaryLang] = useState(dbInstance.appOptions.primaryLanguage);
   const [secondaryLang, setSecondaryLang] = useState(dbInstance.appOptions.secondaryLanguage);
+  const [reminderHour, setReminderHour] = useState(19);
+  const [showClearConfirm, setShowClearConfirm] = useState(false);
 
   const totalWords = Object.keys(dbInstance.database).length;
 
@@ -49,15 +64,18 @@ const Settings: FC = () => {
   };
 
   const handleExport = () => {
-    const url = URL.createObjectURL(new Blob([serializeBackup()], {type: 'application/json'}));
-    const anchor = document.createElement('a');
-    anchor.href = url;
-    anchor.download = backupFileName();
-    document.body.appendChild(anchor);
-    anchor.click();
-    document.body.removeChild(anchor);
-    URL.revokeObjectURL(url);
+    downloadFile(serializeBackup(), backupFileName(), 'application/json');
     toast(t('exportSuccessToast'), {icon: '💾', position: 'bottom-center'});
+  };
+
+  const handleCalendarDownload = () => {
+    const url = `${window.location.origin}${ROUTES.PORTUGUESE_TODAY}`;
+    downloadFile(
+      buildDailyPracticeIcs(reminderHour, t('calendarEventTitle'), url),
+      PRACTICE_ICS_FILENAME,
+      'text/calendar',
+    );
+    toast(t('calendarSuccessToast'), {icon: '📅', position: 'bottom-center'});
   };
 
   const handleCopy = async () => {
@@ -87,7 +105,6 @@ const Settings: FC = () => {
   };
 
   const handleClear = () => {
-    if (!window.confirm(t('settingsClearConfirm') || 'This permanently deletes all your data. Continue?')) return;
     clearAllData();
     window.location.reload();
   };
@@ -154,6 +171,32 @@ const Settings: FC = () => {
         </section>
 
         <section className={style.Settings__section}>
+          <h2 className={style.Settings__sectionTitle}>{t('settingsCalendarTitle')}</h2>
+          <p className={style.Settings__help}>{t('settingsCalendarHelp')}</p>
+          <div className={style.Settings__langPair}>
+            <label className={style.Settings__field}>
+              <span className={style.Settings__fieldLabel}>{t('settingsCalendarTime')}</span>
+              <select
+                className={style.Settings__select}
+                value={reminderHour}
+                onChange={(e) => setReminderHour(Number(e.target.value))}
+              >
+                {REMINDER_HOURS.map((hour) => (
+                  <option key={hour} value={hour}>
+                    {String(hour).padStart(2, '0')}:00
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+          <div className={style.Settings__actions}>
+            <Button leftIcon={<CalendarPlus size={16} />} onClick={handleCalendarDownload}>
+              {t('settingsCalendarDownload')}
+            </Button>
+          </div>
+        </section>
+
+        <section className={style.Settings__section}>
           <h2 className={style.Settings__sectionTitle}>{t('settingsDataTitle')}</h2>
           <p className={style.Settings__help}>{t('settingsDataNote')}</p>
           <p className={style.Settings__count}>
@@ -171,7 +214,12 @@ const Settings: FC = () => {
             </Button>
           </div>
           <div className={style.Settings__danger}>
-            <Button leftIcon={<Trash2 size={16} />} color="danger" variant="outlined" onClick={handleClear}>
+            <Button
+              leftIcon={<Trash2 size={16} />}
+              color="danger"
+              variant="outlined"
+              onClick={() => setShowClearConfirm(true)}
+            >
               {t('settingsClear')}
             </Button>
           </div>
@@ -182,6 +230,14 @@ const Settings: FC = () => {
           <Github size={18} />
           <span>GitHub</span>
         </A>
+
+        <ConfirmModal
+          isShown={showClearConfirm}
+          title={t('settingsClear')}
+          message={t('settingsClearConfirm')}
+          onConfirm={handleClear}
+          onCancel={() => setShowClearConfirm(false)}
+        />
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import {PageTitle, QuizGame} from 'components';
 import {useTranslation} from 'react-i18next';
 import {Navigate, useParams} from 'react-router-dom';
 import {ROUTES} from 'utils/constants';
-import {findGame} from 'data/packs/ptPacks';
+import {findGame, packPath} from 'data/packs/ptPacks';
 import {recordAnswer, recordGame, selectQuestions} from 'services/progress.service';
 
 const PackGamePage: FC = () => {
@@ -24,6 +24,7 @@ const PackGamePage: FC = () => {
       <QuizGame
         questions={questions}
         promptVariant={game.promptVariant ?? 'word'}
+        backTo={packPath(found.pack.id)}
         selectQuestions={selectQuestions}
         onAnswer={recordAnswer}
         onComplete={({accuracy, bestStreak}) => recordGame(game.id, accuracy, bestStreak)}

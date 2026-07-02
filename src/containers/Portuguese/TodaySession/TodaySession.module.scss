@@ -1,7 +1,6 @@
-@import '../../styles/mixins';
+@import '../../../styles/mixins';
 
-// Light tile hub, matching the dashboard's design language (DashboardModes).
-.GameHub {
+.Today {
   @include flex-column;
   gap: 2.4rem;
   width: 100%;
@@ -20,11 +19,15 @@
     color: var(--color-primary);
   }
 
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+  &__subtitle {
+    font-size: 1.2rem;
+    color: var(--color-sail-gray-500);
+    margin-top: 0.3rem;
+  }
+
+  &__steps {
+    @include flex-column;
     gap: 1.6rem;
-    width: 100%;
   }
 
   &__card {
@@ -34,33 +37,33 @@
     border: 1.5px solid var(--color-sail-gray-100);
     border-radius: 16px;
     padding: 1.8rem 2rem;
-    transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 
-    &:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(4, 34, 53, 0.12);
-      border-color: var(--color-sail-gray-300);
-    }
-
-    &:focus-visible {
-      outline: none;
-      box-shadow: 0 0 0 3px var(--color-orange);
+    &--done {
+      opacity: 0.75;
+      background: var(--color-sail-gray-50);
     }
 
     &__icon {
       @include flex-raj(center, center);
-      width: 4.6rem;
-      height: 4.6rem;
+      width: 4.2rem;
+      height: 4.2rem;
       flex-shrink: 0;
       border-radius: 50%;
       background: var(--color-sail-gray-50);
-      font-size: 2rem;
-      line-height: 1;
+      color: var(--color-primary);
+      font-size: 1.6rem;
+      font-weight: 700;
+
+      &--done {
+        background: rgba(30, 166, 114, 0.14);
+        color: var(--color-tertiary);
+      }
     }
 
     &__body {
       @include flex-column;
       gap: 0.3rem;
+      flex: 1;
       min-width: 0;
     }
 
@@ -75,30 +78,45 @@
       color: var(--color-sail-gray-500);
     }
 
-    &__badge {
-      font-size: 1.1rem;
+    &__doneLabel {
+      font-size: 1.2rem;
       font-weight: 600;
       color: var(--color-tertiary);
+    }
+  }
+
+  &__celebration {
+    @include flex-caj(center, center);
+    gap: 1rem;
+    padding: 4rem 2rem;
+    text-align: center;
+    background: var(--color-white);
+    border: 1.5px solid var(--color-sail-gray-100);
+    border-radius: 16px;
+
+    h2 {
+      font-size: 2rem;
+      color: var(--color-primary);
+    }
+
+    p {
+      font-size: 1.3rem;
+      color: var(--color-sail-gray-500);
     }
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .GameHub {
+  .Today {
     padding: 2.4rem 1.6rem;
     gap: 1.6rem;
 
-    &__grid {
-      grid-template-columns: 1fr;
-      gap: 1.2rem;
-    }
-
     &__card {
+      flex-wrap: wrap;
       padding: 1.4rem 1.6rem;
 
-      &__icon {
-        width: 4rem;
-        height: 4rem;
+      button {
+        margin-left: auto;
       }
     }
   }

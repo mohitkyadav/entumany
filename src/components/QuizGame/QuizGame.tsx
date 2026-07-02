@@ -1,12 +1,13 @@
 import clsx from 'clsx';
-import {CheckCircle, XCircle, XCircleIcon} from 'lucide-react';
+import {CheckCircle, XCircle} from 'lucide-react';
 import React, {FC, useCallback, useRef, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 
 import {generateUniqueArray} from 'utils/common';
 
+import {BackButton} from '../BackButton/BackButton';
 import {Button} from '../FormElements';
+import {RoundResults} from '../RoundResults/RoundResults';
 import {StepProgressBar} from '../StepProgressBar/StepProgressBar';
 import style from './QuizGame.module.scss';
 
@@ -36,6 +37,10 @@ export interface QuizGameProps {
   questions: QuizQuestion[];
   wordsPerRound?: number;
   promptVariant?: 'word' | 'sentence';
+  /** Where the back button navigates to (defaults to the dashboard). */
+  backTo?: string;
+  /** When set, the back button calls this instead of navigating (for embedded use). */
+  onExit?: () => void;
   /** Picks the questions for a round. Defaults to a random selection. */
   selectQuestions?: (questions: QuizQuestion[], count: number) => QuizQuestion[];
   /** Called once per answered question with its id and whether it was correct. */
@@ -55,11 +60,12 @@ export const QuizGame: FC<QuizGameProps> = ({
   questions,
   wordsPerRound = DEFAULT_WORDS_PER_ROUND,
   promptVariant = 'word',
+  backTo = '/',
+  onExit,
   selectQuestions,
   onAnswer,
   onComplete,
 }) => {
-  const navigate = useNavigate();
   const {t} = useTranslation();
 
   const pick = useCallback(
@@ -141,35 +147,14 @@ export const QuizGame: FC<QuizGameProps> = ({
 
     return (
       <div className={clsx(style.Game, 'animation-slide-down')}>
-        <div className={clsx(style.Game__results, 'animation-scale-up')}>
-          <h2 className={style.Game__results__title}>{t('victoryTitle')}</h2>
-          <div className={style.Game__results__stats}>
-            <div className={style.Game__results__stat}>
-              <span className={style['Game__results__stat--correct']}>{correctCount}</span>
-              <span>{t('correctMatches')}</span>
-            </div>
-            <div className={style.Game__results__stat}>
-              <span className={style['Game__results__stat--incorrect']}>{incorrectCount}</span>
-              <span>{t('mistakes')}</span>
-            </div>
-            <div className={style.Game__results__stat}>
-              <span>{accuracy}%</span>
-              <span>{t('accuracy')}</span>
-            </div>
-            <div className={style.Game__results__stat}>
-              <span>{bestStreakRef.current}</span>
-              <span>{t('bestStreak')}</span>
-            </div>
-          </div>
-          <div className={style.Game__results__actions}>
-            <Button color="tertiary" onClick={handlePlayAgain}>
-              {t('playAgain')}
-            </Button>
-            <Button color="secondary" onClick={() => navigate('/')}>
-              {t('backToHome')}
-            </Button>
-          </div>
-        </div>
+        <BackButton to={backTo} onClick={onExit} className={style.Game__back} />
+        <RoundResults
+          correctCount={correctCount}
+          incorrectCount={incorrectCount}
+          accuracy={accuracy}
+          bestStreak={bestStreakRef.current}
+          onPlayAgain={handlePlayAgain}
+        />
       </div>
     );
   }
@@ -181,12 +166,7 @@ export const QuizGame: FC<QuizGameProps> = ({
 
   return (
     <div className={clsx(style.Game, 'animation-slide-down')}>
-      <Button
-        color="secondary"
-        className={style.Game__back}
-        leftIcon={<XCircleIcon size={28} />}
-        onClick={() => navigate('/')}
-      />
+      <BackButton to={backTo} onClick={onExit} className={style.Game__back} />
 
       <StepProgressBar current={currentIndex + (isAnswered ? 1 : 0)} total={roundQuestions.length} />
 

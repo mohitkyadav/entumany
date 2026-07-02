@@ -6,9 +6,20 @@ import {PORTUGUESE_PACKS, PORTUGUESE_TRAINERS, packPath} from 'data/packs/ptPack
 import {getConjugationMastery} from 'data/pt/conjugation';
 import {getVocabMastery} from 'data/pt/srs';
 import {getMasteryForIds} from 'services/progress.service';
+import {getTodayStatus} from 'services/todayPlan.service';
+import {ROUTES} from 'utils/constants';
 
 const PortugueseHub: FC = () => {
   const {t} = useTranslation();
+
+  const todayStatus = getTodayStatus();
+  const todayItem = {
+    badge: t('todayStepsLabel', {done: todayStatus.doneCount, total: todayStatus.total}),
+    description: t('todayDesc'),
+    flag: '📅',
+    route: ROUTES.PORTUGUESE_TODAY,
+    title: t('todayTitle'),
+  };
 
   const packItems = PORTUGUESE_PACKS.map((pack) => {
     const ids = pack.games.flatMap((game) => game.buildQuestions().map((q) => q.id ?? '')).filter(Boolean);
@@ -43,7 +54,7 @@ const PortugueseHub: FC = () => {
   return (
     <div className="page animation-scale-up">
       <PageTitle title={t('portugueseHubTitle')} />
-      <GameHub title={t('portugueseHubTitle')} items={[...packItems, ...trainerItems]} />
+      <GameHub title={t('portugueseHubTitle')} items={[todayItem, ...packItems, ...trainerItems]} />
     </div>
   );
 };

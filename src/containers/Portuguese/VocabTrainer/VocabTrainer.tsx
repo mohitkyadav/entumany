@@ -1,6 +1,6 @@
 import React, {FC, useEffect, useMemo, useReducer, useRef, useState} from 'react';
-import {useNavigate} from 'react-router-dom';
-import {PageTitle} from 'components';
+import {useTranslation} from 'react-i18next';
+import {BackButton, ConfirmModal, PageTitle} from 'components';
 import {usePersistentState, useSpeech} from 'hooks';
 import {recordActivity} from 'services/activity.service';
 import {
@@ -77,9 +77,10 @@ function sayText(card: Card): string {
 }
 
 const VocabTrainer: FC = () => {
-  const navigate = useNavigate();
+  const {t} = useTranslation();
   const speech = useSpeech();
   const [state, setState] = usePersistentState<VocabState>(VOCAB_STORAGE_KEY, INITIAL_VOCAB_STATE);
+  const [showResetConfirm, setShowResetConfirm] = useState(false);
 
   // derived deck
   const deckAll = useMemo(() => BUILTIN.concat(state.custom), [state.custom]);
@@ -157,9 +158,9 @@ const VocabTrainer: FC = () => {
   const finishSrs = () => {
     stopTimer();
     setState((s) => {
-      const t = today();
-      const streakDays = s.lastStudy !== t ? (s.lastStudy === yesterday() ? s.streakDays + 1 : 1) : s.streakDays;
-      return {...s, lastStudy: t, streakDays};
+      const todayStr = today();
+      const streakDays = s.lastStudy !== todayStr ? (s.lastStudy === yesterday() ? s.streakDays + 1 : 1) : s.streakDays;
+      return {...s, lastStudy: todayStr, streakDays};
     });
     const sess = sessionRef.current!;
     const currentElapsed = elapsedRef.current;
@@ -406,7 +407,7 @@ const VocabTrainer: FC = () => {
   };
 
   const handleReset = () => {
-    if (typeof confirm === 'function' && !confirm('Reset all progress? (custom words are kept)')) return;
+    setShowResetConfirm(false);
     setState((s) => ({
       ...s,
       cards: {},
@@ -465,9 +466,7 @@ const VocabTrainer: FC = () => {
       <div className="wrap">
         {/* back button */}
         <div className="backrow">
-          <button className="backbtn" onClick={() => navigate('/pt')}>
-            ← back
-          </button>
+          <BackButton to="/pt" />
         </div>
 
         <div className="top">
@@ -740,7 +739,7 @@ const VocabTrainer: FC = () => {
           <button className="link" onClick={() => setShowAdd((s) => !s)}>
             + add words ({state.custom.length} custom)
           </button>
-          <button className="link" onClick={handleReset}>
+          <button className="link" onClick={() => setShowResetConfirm(true)}>
             reset progress
           </button>
         </div>
@@ -790,6 +789,14 @@ const VocabTrainer: FC = () => {
             ))}
           </div>
         </div>
+
+        <ConfirmModal
+          isShown={showResetConfirm}
+          title={t('resetProgressTitle')}
+          message={t('vocabResetConfirm')}
+          onConfirm={handleReset}
+          onCancel={() => setShowResetConfirm(false)}
+        />
       </div>
     </div>
   );

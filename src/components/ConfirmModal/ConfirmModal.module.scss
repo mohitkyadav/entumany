@@ -1,0 +1,17 @@
+@import '../../styles/mixins';
+
+.ConfirmModal {
+  @include flex-column;
+  gap: 1.6rem;
+
+  &__message {
+    font-size: 1.3rem;
+    color: var(--color-sail-gray-700);
+    line-height: 1.5;
+  }
+
+  &__actions {
+    @include flex-raj(center, flex-end);
+    gap: 1rem;
+  }
+}
