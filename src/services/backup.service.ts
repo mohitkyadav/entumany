@@ -8,6 +8,8 @@
  * having to maintain a hand-written list of keys.
  */
 
+import {EntumanyDB} from './db.service';
+
 const BACKUP_APP = 'entumany';
 const BACKUP_VERSION = 1;
 
@@ -61,6 +63,12 @@ export const restoreBackup = (raw: string): void => {
   Object.entries(parsed.data).forEach(([key, value]) => {
     if (typeof value === 'string') localStorage.setItem(key, value);
   });
+
+  // Re-sync the in-memory singleton immediately: the pagehide/visibilitychange
+  // backstop (index.tsx) flushes it to localStorage on the reload that follows,
+  // which would otherwise overwrite the just-restored dictionary with the
+  // pre-import state.
+  EntumanyDB.getInstance().populateFromLocalStorage();
 };
 
 /**
@@ -69,4 +77,7 @@ export const restoreBackup = (raw: string): void => {
  */
 export const clearAllData = (): void => {
   localStorage.clear();
+  // Same pagehide-backstop hazard as restoreBackup: without this, the reload
+  // flushes the old in-memory dictionary straight back into localStorage.
+  EntumanyDB.getInstance().populateFromLocalStorage();
 };
