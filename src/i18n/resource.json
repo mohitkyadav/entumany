@@ -134,7 +134,11 @@
       "wordsByLanguageTitle": "Words by language",
       "wordSetsLabel": "saved",
       "wordSetsTitle": "Word sets",
-      "yourDict": "Your dictionary"
+      "yourDict": "Your dictionary",
+      "foodPackName": "Food",
+      "foodPackDesc": "Match 100 food, cooking & restaurant words",
+      "commonPackName": "1000 Common Words",
+      "commonPackDesc": "Match the most common Portuguese words"
     }
   },
   "hi": {

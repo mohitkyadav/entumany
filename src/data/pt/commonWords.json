@@ -1,0 +1,3646 @@
+[
+  {
+    "pt": "olá",
+    "en": "hello"
+  },
+  {
+    "pt": "tudo bem?",
+    "en": "how are you?"
+  },
+  {
+    "pt": "bom dia",
+    "en": "good morning"
+  },
+  {
+    "pt": "boa tarde",
+    "en": "good afternoon"
+  },
+  {
+    "pt": "boa noite",
+    "en": "good evening"
+  },
+  {
+    "pt": "adeus",
+    "en": "goodbye"
+  },
+  {
+    "pt": "até à próxima",
+    "en": "see you next time"
+  },
+  {
+    "pt": "obrigado",
+    "en": "thank you"
+  },
+  {
+    "pt": "de nada",
+    "en": "you’re welcome"
+  },
+  {
+    "pt": "com licença",
+    "en": "excuse me"
+  },
+  {
+    "pt": "desculpe",
+    "en": "I’m sorry"
+  },
+  {
+    "pt": "não percebi",
+    "en": "I didn’t understand"
+  },
+  {
+    "pt": "boa sorte!",
+    "en": "good luck!"
+  },
+  {
+    "pt": "sim",
+    "en": "yes"
+  },
+  {
+    "pt": "não",
+    "en": "no"
+  },
+  {
+    "pt": "talvez",
+    "en": "maybe"
+  },
+  {
+    "pt": "a",
+    "en": "to"
+  },
+  {
+    "pt": "de",
+    "en": "of"
+  },
+  {
+    "pt": "em",
+    "en": "in"
+  },
+  {
+    "pt": "por",
+    "en": "for"
+  },
+  {
+    "pt": "até",
+    "en": "until"
+  },
+  {
+    "pt": "com",
+    "en": "with"
+  },
+  {
+    "pt": "sem",
+    "en": "without"
+  },
+  {
+    "pt": "contra",
+    "en": "against"
+  },
+  {
+    "pt": "desde",
+    "en": "since"
+  },
+  {
+    "pt": "durante",
+    "en": "during"
+  },
+  {
+    "pt": "sobre",
+    "en": "about"
+  },
+  {
+    "pt": "em cima de",
+    "en": "on"
+  },
+  {
+    "pt": "em baixo de",
+    "en": "under"
+  },
+  {
+    "pt": "à frente de",
+    "en": "in front of"
+  },
+  {
+    "pt": "atrás de",
+    "en": "behind"
+  },
+  {
+    "pt": "entre",
+    "en": "between"
+  },
+  {
+    "pt": "ao lado de",
+    "en": "next to"
+  },
+  {
+    "pt": "à direita",
+    "en": "to the right"
+  },
+  {
+    "pt": "à esquerda",
+    "en": "to the left"
+  },
+  {
+    "pt": "o tempo",
+    "en": "time"
+  },
+  {
+    "pt": "o momento",
+    "en": "moment"
+  },
+  {
+    "pt": "o século",
+    "en": "century"
+  },
+  {
+    "pt": "a década",
+    "en": "decade"
+  },
+  {
+    "pt": "o ano",
+    "en": "year"
+  },
+  {
+    "pt": "o mês",
+    "en": "month"
+  },
+  {
+    "pt": "a semana",
+    "en": "week"
+  },
+  {
+    "pt": "o dia",
+    "en": "day"
+  },
+  {
+    "pt": "a hora",
+    "en": "hour"
+  },
+  {
+    "pt": "o minuto",
+    "en": "minute"
+  },
+  {
+    "pt": "o segundo",
+    "en": "second"
+  },
+  {
+    "pt": "o calendário",
+    "en": "calendar"
+  },
+  {
+    "pt": "o relógio",
+    "en": "clock"
+  },
+  {
+    "pt": "a manhã",
+    "en": "morning"
+  },
+  {
+    "pt": "a tarde",
+    "en": "afternoon"
+  },
+  {
+    "pt": "a noite",
+    "en": "night"
+  },
+  {
+    "pt": "o meio-dia",
+    "en": "noon"
+  },
+  {
+    "pt": "a meia-noite",
+    "en": "midnight"
+  },
+  {
+    "pt": "o passado",
+    "en": "past"
+  },
+  {
+    "pt": "o presente",
+    "en": "present"
+  },
+  {
+    "pt": "o futuro",
+    "en": "future"
+  },
+  {
+    "pt": "ontem",
+    "en": "yesterday"
+  },
+  {
+    "pt": "hoje",
+    "en": "today"
+  },
+  {
+    "pt": "amanhã",
+    "en": "tomorrow"
+  },
+  {
+    "pt": "segunda-feira",
+    "en": "Monday"
+  },
+  {
+    "pt": "terça-feira",
+    "en": "Tuesday"
+  },
+  {
+    "pt": "quarta-feira",
+    "en": "Wednesday"
+  },
+  {
+    "pt": "quinta-feira",
+    "en": "Thursday"
+  },
+  {
+    "pt": "sexta-feira",
+    "en": "Friday"
+  },
+  {
+    "pt": "sábado",
+    "en": "Saturday"
+  },
+  {
+    "pt": "domingo",
+    "en": "Sunday"
+  },
+  {
+    "pt": "o fim de semana",
+    "en": "weekend"
+  },
+  {
+    "pt": "janeiro",
+    "en": "January"
+  },
+  {
+    "pt": "fevereiro",
+    "en": "February"
+  },
+  {
+    "pt": "março",
+    "en": "March"
+  },
+  {
+    "pt": "abril",
+    "en": "April"
+  },
+  {
+    "pt": "maio",
+    "en": "May"
+  },
+  {
+    "pt": "junho",
+    "en": "June"
+  },
+  {
+    "pt": "julho",
+    "en": "July"
+  },
+  {
+    "pt": "agosto",
+    "en": "August"
+  },
+  {
+    "pt": "setembro",
+    "en": "September"
+  },
+  {
+    "pt": "outubro",
+    "en": "October"
+  },
+  {
+    "pt": "novembro",
+    "en": "November"
+  },
+  {
+    "pt": "dezembro",
+    "en": "December"
+  },
+  {
+    "pt": "a estação do ano",
+    "en": "season"
+  },
+  {
+    "pt": "a primavera",
+    "en": "spring"
+  },
+  {
+    "pt": "o verão",
+    "en": "summer"
+  },
+  {
+    "pt": "o outono",
+    "en": "fall"
+  },
+  {
+    "pt": "o inverno",
+    "en": "winter"
+  },
+  {
+    "pt": "as férias",
+    "en": "vacations"
+  },
+  {
+    "pt": "o ano letivo",
+    "en": "academic"
+  },
+  {
+    "pt": "o feriado",
+    "en": "holiday"
+  },
+  {
+    "pt": "o Natal",
+    "en": "Christmas"
+  },
+  {
+    "pt": "o Ano Novo",
+    "en": "New Year’s"
+  },
+  {
+    "pt": "o Carnaval",
+    "en": "Carnival"
+  },
+  {
+    "pt": "a Páscoa",
+    "en": "Easter"
+  },
+  {
+    "pt": "o Dia do Trabalhador",
+    "en": "Workers’ Day"
+  },
+  {
+    "pt": "o Dia de Todos os Santos",
+    "en": "All Saints’ Day"
+  },
+  {
+    "pt": "a família",
+    "en": "family"
+  },
+  {
+    "pt": "a relação",
+    "en": "relationship"
+  },
+  {
+    "pt": "a pessoa",
+    "en": "person"
+  },
+  {
+    "pt": "o homem",
+    "en": "man"
+  },
+  {
+    "pt": "o marido",
+    "en": "husband"
+  },
+  {
+    "pt": "a mulher",
+    "en": "woman"
+  },
+  {
+    "pt": "o senhor",
+    "en": "gentleman"
+  },
+  {
+    "pt": "a senhora",
+    "en": "lady"
+  },
+  {
+    "pt": "o adulto",
+    "en": "adult"
+  },
+  {
+    "pt": "a criança",
+    "en": "child"
+  },
+  {
+    "pt": "o rapaz",
+    "en": "boy"
+  },
+  {
+    "pt": "a rapariga",
+    "en": "girl"
+  },
+  {
+    "pt": "o pai",
+    "en": "father"
+  },
+  {
+    "pt": "a mãe",
+    "en": "mother"
+  },
+  {
+    "pt": "os pais",
+    "en": "parents"
+  },
+  {
+    "pt": "o filho",
+    "en": "son"
+  },
+  {
+    "pt": "a filha",
+    "en": "daughter"
+  },
+  {
+    "pt": "o irmão",
+    "en": "brother"
+  },
+  {
+    "pt": "a irmã",
+    "en": "sister"
+  },
+  {
+    "pt": "os irmãos",
+    "en": "siblings"
+  },
+  {
+    "pt": "os gémeos",
+    "en": "twins"
+  },
+  {
+    "pt": "o avô",
+    "en": "grandfather"
+  },
+  {
+    "pt": "a avó",
+    "en": "grandmother"
+  },
+  {
+    "pt": "os avós",
+    "en": "grandparents"
+  },
+  {
+    "pt": "o neto",
+    "en": "grandson"
+  },
+  {
+    "pt": "a neta",
+    "en": "granddaughter"
+  },
+  {
+    "pt": "o tio",
+    "en": "uncle"
+  },
+  {
+    "pt": "a tia",
+    "en": "aunt"
+  },
+  {
+    "pt": "o primo",
+    "en": "cousin"
+  },
+  {
+    "pt": "o casal",
+    "en": "couple"
+  },
+  {
+    "pt": "o namorado",
+    "en": "boyfriend"
+  },
+  {
+    "pt": "a namorada",
+    "en": "girlfriend"
+  },
+  {
+    "pt": "o casamento",
+    "en": "wedding"
+  },
+  {
+    "pt": "o noivo",
+    "en": "fiancée"
+  },
+  {
+    "pt": "o corpo",
+    "en": "body"
+  },
+  {
+    "pt": "o pelo",
+    "en": "hair"
+  },
+  {
+    "pt": "a cabeça",
+    "en": "head"
+  },
+  {
+    "pt": "a cara",
+    "en": "face"
+  },
+  {
+    "pt": "o olho",
+    "en": "eye"
+  },
+  {
+    "pt": "o nariz",
+    "en": "nose"
+  },
+  {
+    "pt": "a boca",
+    "en": "mouth"
+  },
+  {
+    "pt": "a orelha",
+    "en": "ear"
+  },
+  {
+    "pt": "o queixo",
+    "en": "chin"
+  },
+  {
+    "pt": "o pescoço",
+    "en": "neck"
+  },
+  {
+    "pt": "o ombro",
+    "en": "shoulder"
+  },
+  {
+    "pt": "o braço",
+    "en": "arm"
+  },
+  {
+    "pt": "o cotovelo",
+    "en": "elbow"
+  },
+  {
+    "pt": "o pulso",
+    "en": "wrist"
+  },
+  {
+    "pt": "a mão",
+    "en": "hand"
+  },
+  {
+    "pt": "o peito",
+    "en": "chest"
+  },
+  {
+    "pt": "a barriga",
+    "en": "stomach"
+  },
+  {
+    "pt": "as costas",
+    "en": "back"
+  },
+  {
+    "pt": "o rabo",
+    "en": "ass"
+  },
+  {
+    "pt": "a perna",
+    "en": "leg"
+  },
+  {
+    "pt": "o joelho",
+    "en": "knee"
+  },
+  {
+    "pt": "o tornozelo",
+    "en": "ankle"
+  },
+  {
+    "pt": "o pé",
+    "en": "foot"
+  },
+  {
+    "pt": "o dedo",
+    "en": "finger"
+  },
+  {
+    "pt": "a comida",
+    "en": "food"
+  },
+  {
+    "pt": "a bebida",
+    "en": "drink"
+  },
+  {
+    "pt": "a refeição",
+    "en": "meal"
+  },
+  {
+    "pt": "o pequeno-almoço",
+    "en": "breakfast"
+  },
+  {
+    "pt": "o almoço",
+    "en": "lunch"
+  },
+  {
+    "pt": "o jantar",
+    "en": "dinner"
+  },
+  {
+    "pt": "a ceia",
+    "en": "supper"
+  },
+  {
+    "pt": "o lanche",
+    "en": "snack"
+  },
+  {
+    "pt": "a entrada",
+    "en": "appetizer"
+  },
+  {
+    "pt": "o prato principal",
+    "en": "main course"
+  },
+  {
+    "pt": "a sobremesa",
+    "en": "dessert"
+  },
+  {
+    "pt": "o prato",
+    "en": "dish"
+  },
+  {
+    "pt": "o copo",
+    "en": "glass"
+  },
+  {
+    "pt": "a chávena",
+    "en": "cup"
+  },
+  {
+    "pt": "a taça",
+    "en": "bowl"
+  },
+  {
+    "pt": "a garrafa",
+    "en": "bottle"
+  },
+  {
+    "pt": "os talheres",
+    "en": "cutlery"
+  },
+  {
+    "pt": "a faca",
+    "en": "knife"
+  },
+  {
+    "pt": "o garfo",
+    "en": "fork"
+  },
+  {
+    "pt": "a colher",
+    "en": "spoon"
+  },
+  {
+    "pt": "a panela",
+    "en": "pot"
+  },
+  {
+    "pt": "a frigideira",
+    "en": "pan"
+  },
+  {
+    "pt": "a tampa",
+    "en": "lid"
+  },
+  {
+    "pt": "a água",
+    "en": "water"
+  },
+  {
+    "pt": "o vinho",
+    "en": "wine"
+  },
+  {
+    "pt": "a cerveja",
+    "en": "beer"
+  },
+  {
+    "pt": "o chá",
+    "en": "tea"
+  },
+  {
+    "pt": "o café",
+    "en": "coffee"
+  },
+  {
+    "pt": "o leite",
+    "en": "milk"
+  },
+  {
+    "pt": "os cereais",
+    "en": "cereal"
+  },
+  {
+    "pt": "o sumo",
+    "en": "juice"
+  },
+  {
+    "pt": "o batido",
+    "en": "shake"
+  },
+  {
+    "pt": "o refrigerante",
+    "en": "soda"
+  },
+  {
+    "pt": "a sopa",
+    "en": "soup"
+  },
+  {
+    "pt": "a carne",
+    "en": "meat"
+  },
+  {
+    "pt": "o peixe",
+    "en": "fish"
+  },
+  {
+    "pt": "a fruta",
+    "en": "fruit"
+  },
+  {
+    "pt": "o vegetal",
+    "en": "vegetable"
+  },
+  {
+    "pt": "o arroz",
+    "en": "rice"
+  },
+  {
+    "pt": "a salada",
+    "en": "salad"
+  },
+  {
+    "pt": "a massa",
+    "en": "pasta"
+  },
+  {
+    "pt": "a batata",
+    "en": "potato"
+  },
+  {
+    "pt": "o pão",
+    "en": "bread"
+  },
+  {
+    "pt": "a sandes",
+    "en": "sandwich"
+  },
+  {
+    "pt": "a tosta",
+    "en": "toast"
+  },
+  {
+    "pt": "a torrada",
+    "en": "grilled sandwich"
+  },
+  {
+    "pt": "a manteiga",
+    "en": "butter"
+  },
+  {
+    "pt": "o queijo",
+    "en": "cheese"
+  },
+  {
+    "pt": "o fiambre",
+    "en": "ham"
+  },
+  {
+    "pt": "o ovo",
+    "en": "egg"
+  },
+  {
+    "pt": "o sal",
+    "en": "salt"
+  },
+  {
+    "pt": "a pimenta",
+    "en": "pepper"
+  },
+  {
+    "pt": "o azeite",
+    "en": "olive oil"
+  },
+  {
+    "pt": "o alho",
+    "en": "garlic"
+  },
+  {
+    "pt": "a cebola",
+    "en": "onion"
+  },
+  {
+    "pt": "a cidade",
+    "en": "city"
+  },
+  {
+    "pt": "a rua",
+    "en": "street"
+  },
+  {
+    "pt": "a avenida",
+    "en": "avenue"
+  },
+  {
+    "pt": "a estrada",
+    "en": "road"
+  },
+  {
+    "pt": "a autoestrada",
+    "en": "highway"
+  },
+  {
+    "pt": "o beco",
+    "en": "alley"
+  },
+  {
+    "pt": "o passeio",
+    "en": "sidewalk"
+  },
+  {
+    "pt": "a passadeira",
+    "en": "crosswalk"
+  },
+  {
+    "pt": "a praça",
+    "en": "square"
+  },
+  {
+    "pt": "a esquina",
+    "en": "corner"
+  },
+  {
+    "pt": "o edifício",
+    "en": "building"
+  },
+  {
+    "pt": "o arranha-céus",
+    "en": "skyscraper"
+  },
+  {
+    "pt": "o aeroporto",
+    "en": "airport"
+  },
+  {
+    "pt": "o metro",
+    "en": "metro"
+  },
+  {
+    "pt": "a estação de comboios",
+    "en": "train station"
+  },
+  {
+    "pt": "a paragem de autocarros",
+    "en": "bus stop"
+  },
+  {
+    "pt": "a bomba de gasolina",
+    "en": "gas station"
+  },
+  {
+    "pt": "a loja",
+    "en": "store"
+  },
+  {
+    "pt": "o minimercado",
+    "en": "grocery store"
+  },
+  {
+    "pt": "o supermercado",
+    "en": "supermarket"
+  },
+  {
+    "pt": "o talho",
+    "en": "butcher shop"
+  },
+  {
+    "pt": "o restaurante",
+    "en": "restaurant"
+  },
+  {
+    "pt": "o bar",
+    "en": "bar"
+  },
+  {
+    "pt": "o cabeleireiro",
+    "en": "hairdresser"
+  },
+  {
+    "pt": "o barbeiro",
+    "en": "barber shop"
+  },
+  {
+    "pt": "a livraria",
+    "en": "bookstore"
+  },
+  {
+    "pt": "a biblioteca",
+    "en": "library"
+  },
+  {
+    "pt": "a escola",
+    "en": "school"
+  },
+  {
+    "pt": "a universidade",
+    "en": "university"
+  },
+  {
+    "pt": "o hospital",
+    "en": "hospital"
+  },
+  {
+    "pt": "os correios",
+    "en": "post office"
+  },
+  {
+    "pt": "o banco",
+    "en": "bank"
+  },
+  {
+    "pt": "o multibanco",
+    "en": "ATM"
+  },
+  {
+    "pt": "o centro comercial",
+    "en": "mall"
+  },
+  {
+    "pt": "o cinema",
+    "en": "movie theater"
+  },
+  {
+    "pt": "o teatro",
+    "en": "theater"
+  },
+  {
+    "pt": "o museu",
+    "en": "museum"
+  },
+  {
+    "pt": "a igreja",
+    "en": "church"
+  },
+  {
+    "pt": "o castelo",
+    "en": "castle"
+  },
+  {
+    "pt": "o palácio",
+    "en": "palace"
+  },
+  {
+    "pt": "o tribunal",
+    "en": "courthouse"
+  },
+  {
+    "pt": "a embaixada",
+    "en": "embassy"
+  },
+  {
+    "pt": "o consulado",
+    "en": "consulate"
+  },
+  {
+    "pt": "a câmara municipal",
+    "en": "city hall"
+  },
+  {
+    "pt": "o carro",
+    "en": "car"
+  },
+  {
+    "pt": "o táxi",
+    "en": "taxi"
+  },
+  {
+    "pt": "o autocarro",
+    "en": "bus"
+  },
+  {
+    "pt": "o camião",
+    "en": "truck"
+  },
+  {
+    "pt": "o comboio",
+    "en": "train"
+  },
+  {
+    "pt": "o elétrico",
+    "en": "tram"
+  },
+  {
+    "pt": "a mota",
+    "en": "motorcycle"
+  },
+  {
+    "pt": "a bicicleta",
+    "en": "bicycle"
+  },
+  {
+    "pt": "o barco",
+    "en": "boat"
+  },
+  {
+    "pt": "o avião",
+    "en": "airplane"
+  },
+  {
+    "pt": "a casa",
+    "en": "house"
+  },
+  {
+    "pt": "o apartamento",
+    "en": "apartment"
+  },
+  {
+    "pt": "as escadas",
+    "en": "stairs"
+  },
+  {
+    "pt": "o elevador",
+    "en": "elevator"
+  },
+  {
+    "pt": "a porta",
+    "en": "door"
+  },
+  {
+    "pt": "o hall de entrada",
+    "en": "entrance hall"
+  },
+  {
+    "pt": "o corredor",
+    "en": "hallway"
+  },
+  {
+    "pt": "o quarto",
+    "en": "bedroom"
+  },
+  {
+    "pt": "a sala de estar",
+    "en": "living room"
+  },
+  {
+    "pt": "a cozinha",
+    "en": "kitchen"
+  },
+  {
+    "pt": "a casa de banho",
+    "en": "bathroom"
+  },
+  {
+    "pt": "o escritório",
+    "en": "office"
+  },
+  {
+    "pt": "a janela",
+    "en": "window"
+  },
+  {
+    "pt": "as persianas",
+    "en": "blinds"
+  },
+  {
+    "pt": "a varanda",
+    "en": "balcony"
+  },
+  {
+    "pt": "o telhado",
+    "en": "roof"
+  },
+  {
+    "pt": "o teto",
+    "en": "ceiling"
+  },
+  {
+    "pt": "a parede",
+    "en": "wall"
+  },
+  {
+    "pt": "o chão",
+    "en": "floor"
+  },
+  {
+    "pt": "a mesa",
+    "en": "table"
+  },
+  {
+    "pt": "a cadeira",
+    "en": "chair"
+  },
+  {
+    "pt": "o sofá",
+    "en": "sofa"
+  },
+  {
+    "pt": "a cama",
+    "en": "bed"
+  },
+  {
+    "pt": "o colchão",
+    "en": "mattress"
+  },
+  {
+    "pt": "a almofada",
+    "en": "pillow"
+  },
+  {
+    "pt": "a mesa de cabeceira",
+    "en": "nightstand"
+  },
+  {
+    "pt": "a secretária",
+    "en": "desk"
+  },
+  {
+    "pt": "o armário",
+    "en": "closet"
+  },
+  {
+    "pt": "a estante",
+    "en": "shelf"
+  },
+  {
+    "pt": "a gaveta",
+    "en": "drawer"
+  },
+  {
+    "pt": "o espelho",
+    "en": "mirror"
+  },
+  {
+    "pt": "o candeeiro",
+    "en": "lamp"
+  },
+  {
+    "pt": "a televisão",
+    "en": "television"
+  },
+  {
+    "pt": "o eletrodoméstico",
+    "en": "appliance"
+  },
+  {
+    "pt": "o frigorífico",
+    "en": "fridge"
+  },
+  {
+    "pt": "o congelador",
+    "en": "freezer"
+  },
+  {
+    "pt": "o forno",
+    "en": "oven"
+  },
+  {
+    "pt": "o fogão",
+    "en": "stove"
+  },
+  {
+    "pt": "o micro-ondas",
+    "en": "microwave"
+  },
+  {
+    "pt": "a máquina de lavar a roupa",
+    "en": "washing machine"
+  },
+  {
+    "pt": "a máquina de secar",
+    "en": "tumble dryer"
+  },
+  {
+    "pt": "o estendal",
+    "en": "drying rack"
+  },
+  {
+    "pt": "a tábua de engomar",
+    "en": "ironing board"
+  },
+  {
+    "pt": "o ferro de engomar",
+    "en": "iron"
+  },
+  {
+    "pt": "a máquina de lavar a loiça",
+    "en": "dishwasher"
+  },
+  {
+    "pt": "a torneira",
+    "en": "faucet"
+  },
+  {
+    "pt": "o lava-loiças",
+    "en": "kitchen sink"
+  },
+  {
+    "pt": "o lavatório",
+    "en": "bathroom sink"
+  },
+  {
+    "pt": "o duche",
+    "en": "shower"
+  },
+  {
+    "pt": "a sanita",
+    "en": "toilet"
+  },
+  {
+    "pt": "o caixote do lixo",
+    "en": "trash can"
+  },
+  {
+    "pt": "o aspirador",
+    "en": "vacuum cleaner"
+  },
+  {
+    "pt": "a vassoura",
+    "en": "broom"
+  },
+  {
+    "pt": "o balde",
+    "en": "bucket"
+  },
+  {
+    "pt": "a esfregona",
+    "en": "mop"
+  },
+  {
+    "pt": "a roupa",
+    "en": "clothing"
+  },
+  {
+    "pt": "a blusa",
+    "en": "blouse"
+  },
+  {
+    "pt": "a t-shirt",
+    "en": "t-shirt"
+  },
+  {
+    "pt": "a camisa",
+    "en": "shirt"
+  },
+  {
+    "pt": "a camisola",
+    "en": "sweatshirt"
+  },
+  {
+    "pt": "o casaco",
+    "en": "coat"
+  },
+  {
+    "pt": "as calças",
+    "en": "pants"
+  },
+  {
+    "pt": "os calções",
+    "en": "shorts"
+  },
+  {
+    "pt": "o vestido",
+    "en": "dress"
+  },
+  {
+    "pt": "a roupa interior",
+    "en": "underwear"
+  },
+  {
+    "pt": "as meias",
+    "en": "socks"
+  },
+  {
+    "pt": "o sapato",
+    "en": "shoe"
+  },
+  {
+    "pt": "o ténis",
+    "en": "sneaker"
+  },
+  {
+    "pt": "a bota",
+    "en": "boot"
+  },
+  {
+    "pt": "o cinto",
+    "en": "belt"
+  },
+  {
+    "pt": "o cachecol",
+    "en": "scarf"
+  },
+  {
+    "pt": "o chapéu",
+    "en": "hat"
+  },
+  {
+    "pt": "o gorro",
+    "en": "beanie"
+  },
+  {
+    "pt": "as luvas",
+    "en": "gloves"
+  },
+  {
+    "pt": "os óculos",
+    "en": "glasses"
+  },
+  {
+    "pt": "a toalha",
+    "en": "towel"
+  },
+  {
+    "pt": "a escova de dentes",
+    "en": "toothbrush"
+  },
+  {
+    "pt": "a pasta de dentes",
+    "en": "toothpaste"
+  },
+  {
+    "pt": "o sabão",
+    "en": "soap"
+  },
+  {
+    "pt": "o champô",
+    "en": "shampoo"
+  },
+  {
+    "pt": "o desodorizante",
+    "en": "deodorant"
+  },
+  {
+    "pt": "o creme",
+    "en": "cream"
+  },
+  {
+    "pt": "o protetor solar",
+    "en": "sunblock"
+  },
+  {
+    "pt": "o computador",
+    "en": "computer"
+  },
+  {
+    "pt": "o rato",
+    "en": "mouse"
+  },
+  {
+    "pt": "o teclado",
+    "en": "keyboard"
+  },
+  {
+    "pt": "o cabo",
+    "en": "cable"
+  },
+  {
+    "pt": "o carregador",
+    "en": "charger"
+  },
+  {
+    "pt": "o tablet",
+    "en": "tablet"
+  },
+  {
+    "pt": "o telefone",
+    "en": "phone"
+  },
+  {
+    "pt": "o telemóvel",
+    "en": "cell"
+  },
+  {
+    "pt": "as chaves",
+    "en": "keys"
+  },
+  {
+    "pt": "a carteira",
+    "en": "wallet"
+  },
+  {
+    "pt": "o dinheiro",
+    "en": "money"
+  },
+  {
+    "pt": "a moeda",
+    "en": "coin"
+  },
+  {
+    "pt": "a nota",
+    "en": "bill"
+  },
+  {
+    "pt": "o cartão",
+    "en": "card"
+  },
+  {
+    "pt": "a identificação",
+    "en": "ID"
+  },
+  {
+    "pt": "a carta",
+    "en": "letter"
+  },
+  {
+    "pt": "o livro",
+    "en": "book"
+  },
+  {
+    "pt": "o caderno",
+    "en": "notebook"
+  },
+  {
+    "pt": "o bloco de notas",
+    "en": "notepad"
+  },
+  {
+    "pt": "o papel",
+    "en": "paper"
+  },
+  {
+    "pt": "o lápis",
+    "en": "pencil"
+  },
+  {
+    "pt": "a caneta",
+    "en": "pen"
+  },
+  {
+    "pt": "a tesoura",
+    "en": "scissors"
+  },
+  {
+    "pt": "o estojo",
+    "en": "case"
+  },
+  {
+    "pt": "o saco",
+    "en": "bag"
+  },
+  {
+    "pt": "a mochila",
+    "en": "backpack"
+  },
+  {
+    "pt": "a mala",
+    "en": "suitcase"
+  },
+  {
+    "pt": "a Natureza",
+    "en": "Nature"
+  },
+  {
+    "pt": "o clima",
+    "en": "climate"
+  },
+  {
+    "pt": "o sol",
+    "en": "sun"
+  },
+  {
+    "pt": "a lua",
+    "en": "moon"
+  },
+  {
+    "pt": "a estrela",
+    "en": "star"
+  },
+  {
+    "pt": "o planeta",
+    "en": "planet"
+  },
+  {
+    "pt": "o nascer do sol",
+    "en": "sunrise"
+  },
+  {
+    "pt": "o pôr do sol",
+    "en": "sunset"
+  },
+  {
+    "pt": "a chuva",
+    "en": "rain"
+  },
+  {
+    "pt": "o vento",
+    "en": "wind"
+  },
+  {
+    "pt": "o ar",
+    "en": "air"
+  },
+  {
+    "pt": "a nuvem",
+    "en": "cloud"
+  },
+  {
+    "pt": "o arco-íris",
+    "en": "rainbow"
+  },
+  {
+    "pt": "a humidade",
+    "en": "humidity"
+  },
+  {
+    "pt": "o nevoeiro",
+    "en": "fog"
+  },
+  {
+    "pt": "a neve",
+    "en": "snow"
+  },
+  {
+    "pt": "o gelo",
+    "en": "ice"
+  },
+  {
+    "pt": "o fogo",
+    "en": "fire"
+  },
+  {
+    "pt": "o céu",
+    "en": "sky"
+  },
+  {
+    "pt": "a terra",
+    "en": "earth"
+  },
+  {
+    "pt": "o mar",
+    "en": "sea"
+  },
+  {
+    "pt": "o rio",
+    "en": "river"
+  },
+  {
+    "pt": "o lago",
+    "en": "lake"
+  },
+  {
+    "pt": "a gruta",
+    "en": "cave"
+  },
+  {
+    "pt": "a montanha",
+    "en": "mountain"
+  },
+  {
+    "pt": "o monte",
+    "en": "mount"
+  },
+  {
+    "pt": "a colina",
+    "en": "hill"
+  },
+  {
+    "pt": "o vale",
+    "en": "valley"
+  },
+  {
+    "pt": "a planície",
+    "en": "plain"
+  },
+  {
+    "pt": "a floresta",
+    "en": "forest"
+  },
+  {
+    "pt": "a praia",
+    "en": "beach"
+  },
+  {
+    "pt": "o deserto",
+    "en": "desert"
+  },
+  {
+    "pt": "o campo",
+    "en": "field"
+  },
+  {
+    "pt": "a costa",
+    "en": "coast"
+  },
+  {
+    "pt": "a ilha",
+    "en": "island"
+  },
+  {
+    "pt": "o continente",
+    "en": "continent"
+  },
+  {
+    "pt": "o oceano",
+    "en": "ocean"
+  },
+  {
+    "pt": "a planta",
+    "en": "plant"
+  },
+  {
+    "pt": "a árvore",
+    "en": "tree"
+  },
+  {
+    "pt": "a raiz",
+    "en": "root"
+  },
+  {
+    "pt": "o tronco",
+    "en": "trunk"
+  },
+  {
+    "pt": "o ramo",
+    "en": "branch"
+  },
+  {
+    "pt": "a folha",
+    "en": "leaf"
+  },
+  {
+    "pt": "a flor",
+    "en": "flower"
+  },
+  {
+    "pt": "o animal",
+    "en": "animal"
+  },
+  {
+    "pt": "o cão",
+    "en": "dog"
+  },
+  {
+    "pt": "o gato",
+    "en": "cat"
+  },
+  {
+    "pt": "o macaco",
+    "en": "monkey"
+  },
+  {
+    "pt": "o cavalo",
+    "en": "horse"
+  },
+  {
+    "pt": "o porco",
+    "en": "pig"
+  },
+  {
+    "pt": "a vaca",
+    "en": "cow"
+  },
+  {
+    "pt": "o pássaro",
+    "en": "bird"
+  },
+  {
+    "pt": "o inseto",
+    "en": "bug"
+  },
+  {
+    "pt": "a profissão",
+    "en": "profession"
+  },
+  {
+    "pt": "o emprego",
+    "en": "job"
+  },
+  {
+    "pt": "a carreira",
+    "en": "career"
+  },
+  {
+    "pt": "a empresa",
+    "en": "company"
+  },
+  {
+    "pt": "a firma",
+    "en": "firm"
+  },
+  {
+    "pt": "a entrevista",
+    "en": "interview"
+  },
+  {
+    "pt": "o candidato",
+    "en": "candidate"
+  },
+  {
+    "pt": "o empregado",
+    "en": "employee"
+  },
+  {
+    "pt": "o empregador",
+    "en": "employer"
+  },
+  {
+    "pt": "o dono",
+    "en": "owner"
+  },
+  {
+    "pt": "o trabalhador",
+    "en": "worker"
+  },
+  {
+    "pt": "o empregado de mesa",
+    "en": "waiter"
+  },
+  {
+    "pt": "o funcionário",
+    "en": "clerk"
+  },
+  {
+    "pt": "o vendedor",
+    "en": "seller"
+  },
+  {
+    "pt": "o professor",
+    "en": "teacher"
+  },
+  {
+    "pt": "o médico",
+    "en": "doctor"
+  },
+  {
+    "pt": "o enfermeiro",
+    "en": "nurse"
+  },
+  {
+    "pt": "o advogado",
+    "en": "lawyer"
+  },
+  {
+    "pt": "o engenheiro",
+    "en": "engineer"
+  },
+  {
+    "pt": "o polícia",
+    "en": "police officer"
+  },
+  {
+    "pt": "o condutor",
+    "en": "driver"
+  },
+  {
+    "pt": "o mecânico",
+    "en": "mechanic"
+  },
+  {
+    "pt": "o cozinheiro",
+    "en": "cook"
+  },
+  {
+    "pt": "o agricultor",
+    "en": "farmer"
+  },
+  {
+    "pt": "o político",
+    "en": "politician"
+  },
+  {
+    "pt": "o presidente",
+    "en": "president"
+  },
+  {
+    "pt": "o músico",
+    "en": "musician"
+  },
+  {
+    "pt": "o ator",
+    "en": "actor"
+  },
+  {
+    "pt": "o escritor",
+    "en": "writer"
+  },
+  {
+    "pt": "o funcionário público",
+    "en": "public servant"
+  },
+  {
+    "pt": "o amor",
+    "en": "love"
+  },
+  {
+    "pt": "o ódio",
+    "en": "hate"
+  },
+  {
+    "pt": "a amizade",
+    "en": "friendship"
+  },
+  {
+    "pt": "a paixão",
+    "en": "passion"
+  },
+  {
+    "pt": "a felicidade",
+    "en": "happiness"
+  },
+  {
+    "pt": "a alegria",
+    "en": "joy"
+  },
+  {
+    "pt": "a sorte",
+    "en": "luck"
+  },
+  {
+    "pt": "a vida",
+    "en": "life"
+  },
+  {
+    "pt": "a morte",
+    "en": "death"
+  },
+  {
+    "pt": "o princípio",
+    "en": "principle"
+  },
+  {
+    "pt": "o início",
+    "en": "beginning"
+  },
+  {
+    "pt": "o fim",
+    "en": "end"
+  },
+  {
+    "pt": "o poder",
+    "en": "power"
+  },
+  {
+    "pt": "a força",
+    "en": "strength"
+  },
+  {
+    "pt": "a fraqueza",
+    "en": "weakness"
+  },
+  {
+    "pt": "a calma",
+    "en": "calm"
+  },
+  {
+    "pt": "o caos",
+    "en": "chaos"
+  },
+  {
+    "pt": "a vitória",
+    "en": "victory"
+  },
+  {
+    "pt": "a derrota",
+    "en": "defeat"
+  },
+  {
+    "pt": "a coragem",
+    "en": "courage"
+  },
+  {
+    "pt": "a dor",
+    "en": "pain"
+  },
+  {
+    "pt": "o ego",
+    "en": "ego"
+  },
+  {
+    "pt": "a fé",
+    "en": "faith"
+  },
+  {
+    "pt": "a ideia",
+    "en": "idea"
+  },
+  {
+    "pt": "a liberdade",
+    "en": "liberty"
+  },
+  {
+    "pt": "a realidade",
+    "en": "reality"
+  },
+  {
+    "pt": "a imaginação",
+    "en": "imagination"
+  },
+  {
+    "pt": "a lei",
+    "en": "law"
+  },
+  {
+    "pt": "a justiça",
+    "en": "justice"
+  },
+  {
+    "pt": "o direito",
+    "en": "right"
+  },
+  {
+    "pt": "o dever",
+    "en": "duty"
+  },
+  {
+    "pt": "a causa",
+    "en": "cause"
+  },
+  {
+    "pt": "o efeito",
+    "en": "effect"
+  },
+  {
+    "pt": "o processo",
+    "en": "process"
+  },
+  {
+    "pt": "o progresso",
+    "en": "progress"
+  },
+  {
+    "pt": "a evolução",
+    "en": "evolution"
+  },
+  {
+    "pt": "o desenvolvimento",
+    "en": "development"
+  },
+  {
+    "pt": "o produto",
+    "en": "product"
+  },
+  {
+    "pt": "o resultado",
+    "en": "result"
+  },
+  {
+    "pt": "o sistema",
+    "en": "system"
+  },
+  {
+    "pt": "o problema",
+    "en": "problem"
+  },
+  {
+    "pt": "o valor",
+    "en": "worth"
+  },
+  {
+    "pt": "a verdade",
+    "en": "truth"
+  },
+  {
+    "pt": "a mentira",
+    "en": "lie"
+  },
+  {
+    "pt": "a necessidade",
+    "en": "need"
+  },
+  {
+    "pt": "o orgulho",
+    "en": "pride"
+  },
+  {
+    "pt": "a vergonha",
+    "en": "shame"
+  },
+  {
+    "pt": "a decisão",
+    "en": "decision"
+  },
+  {
+    "pt": "a opinião",
+    "en": "opinion"
+  },
+  {
+    "pt": "a confiança",
+    "en": "confidence"
+  },
+  {
+    "pt": "a satisfação",
+    "en": "satisfaction"
+  },
+  {
+    "pt": "a sensação",
+    "en": "sensation"
+  },
+  {
+    "pt": "o sentimento",
+    "en": "feeling"
+  },
+  {
+    "pt": "o sucesso",
+    "en": "success"
+  },
+  {
+    "pt": "o conhecimento",
+    "en": "knowledge"
+  },
+  {
+    "pt": "o ponto",
+    "en": "dot"
+  },
+  {
+    "pt": "a vírgula",
+    "en": "comma"
+  },
+  {
+    "pt": "a palavra",
+    "en": "word"
+  },
+  {
+    "pt": "a frase",
+    "en": "phrase"
+  },
+  {
+    "pt": "a expressão",
+    "en": "expression"
+  },
+  {
+    "pt": "a língua",
+    "en": "language"
+  },
+  {
+    "pt": "o parágrafo",
+    "en": "paragraph"
+  },
+  {
+    "pt": "o número",
+    "en": "number"
+  },
+  {
+    "pt": "o facto",
+    "en": "fact"
+  },
+  {
+    "pt": "a volta",
+    "en": "turn"
+  },
+  {
+    "pt": "o lado",
+    "en": "side"
+  },
+  {
+    "pt": "o centro",
+    "en": "center"
+  },
+  {
+    "pt": "o meio",
+    "en": "middle"
+  },
+  {
+    "pt": "a história",
+    "en": "story"
+  },
+  {
+    "pt": "a guerra",
+    "en": "war"
+  },
+  {
+    "pt": "a paz",
+    "en": "peace"
+  },
+  {
+    "pt": "o grupo",
+    "en": "group"
+  },
+  {
+    "pt": "o indivíduo",
+    "en": "individual"
+  },
+  {
+    "pt": "o país",
+    "en": "country"
+  },
+  {
+    "pt": "a capital",
+    "en": "capital"
+  },
+  {
+    "pt": "a voz",
+    "en": "voice"
+  },
+  {
+    "pt": "o som",
+    "en": "sound"
+  },
+  {
+    "pt": "a imagem",
+    "en": "image"
+  },
+  {
+    "pt": "o texto",
+    "en": "text"
+  },
+  {
+    "pt": "a música",
+    "en": "music"
+  },
+  {
+    "pt": "a figura",
+    "en": "figure"
+  },
+  {
+    "pt": "a posição",
+    "en": "position"
+  },
+  {
+    "pt": "o conjunto",
+    "en": "whole"
+  },
+  {
+    "pt": "a guarda",
+    "en": "guard"
+  },
+  {
+    "pt": "a técnica",
+    "en": "technique"
+  },
+  {
+    "pt": "a maioria",
+    "en": "majority"
+  },
+  {
+    "pt": "a minoria",
+    "en": "minority"
+  },
+  {
+    "pt": "o recurso",
+    "en": "resource"
+  },
+  {
+    "pt": "o título",
+    "en": "title"
+  },
+  {
+    "pt": "a cultura",
+    "en": "culture"
+  },
+  {
+    "pt": "a festa",
+    "en": "party"
+  },
+  {
+    "pt": "o elemento",
+    "en": "element"
+  },
+  {
+    "pt": "o preço",
+    "en": "price"
+  },
+  {
+    "pt": "a saúde",
+    "en": "health"
+  },
+  {
+    "pt": "a doença",
+    "en": "sickness"
+  },
+  {
+    "pt": "a cor",
+    "en": "color"
+  },
+  {
+    "pt": "a quantidade",
+    "en": "quantity"
+  },
+  {
+    "pt": "a qualidade",
+    "en": "quality"
+  },
+  {
+    "pt": "o interior",
+    "en": "inside"
+  },
+  {
+    "pt": "o exterior",
+    "en": "outside"
+  },
+  {
+    "pt": "o barulho",
+    "en": "noise"
+  },
+  {
+    "pt": "o silêncio",
+    "en": "silence"
+  },
+  {
+    "pt": "o instrumento",
+    "en": "instrument"
+  },
+  {
+    "pt": "a ferramenta",
+    "en": "tool"
+  },
+  {
+    "pt": "o sentido",
+    "en": "sense"
+  },
+  {
+    "pt": "a direção",
+    "en": "direction"
+  },
+  {
+    "pt": "Norte",
+    "en": "North"
+  },
+  {
+    "pt": "Sul",
+    "en": "South"
+  },
+  {
+    "pt": "Este",
+    "en": "East"
+  },
+  {
+    "pt": "Oeste",
+    "en": "West"
+  },
+  {
+    "pt": "o quê?",
+    "en": "what?"
+  },
+  {
+    "pt": "porquê?",
+    "en": "why?"
+  },
+  {
+    "pt": "como?",
+    "en": "how?"
+  },
+  {
+    "pt": "onde?",
+    "en": "where?"
+  },
+  {
+    "pt": "quando?",
+    "en": "when?"
+  },
+  {
+    "pt": "quem?",
+    "en": "who?"
+  },
+  {
+    "pt": "a quem?",
+    "en": "whom?"
+  },
+  {
+    "pt": "de quem?",
+    "en": "whose?"
+  },
+  {
+    "pt": "por quem?",
+    "en": "by whom?"
+  },
+  {
+    "pt": "alguém",
+    "en": "someone"
+  },
+  {
+    "pt": "ninguém",
+    "en": "no one"
+  },
+  {
+    "pt": "tudo",
+    "en": "everything"
+  },
+  {
+    "pt": "nada",
+    "en": "nothing"
+  },
+  {
+    "pt": "algo",
+    "en": "something"
+  },
+  {
+    "pt": "cada",
+    "en": "each"
+  },
+  {
+    "pt": "bom",
+    "en": "good"
+  },
+  {
+    "pt": "mau",
+    "en": "bad"
+  },
+  {
+    "pt": "melhor",
+    "en": "better"
+  },
+  {
+    "pt": "pior",
+    "en": "worse"
+  },
+  {
+    "pt": "ótimo",
+    "en": "great"
+  },
+  {
+    "pt": "péssimo",
+    "en": "awful"
+  },
+  {
+    "pt": "grande",
+    "en": "big"
+  },
+  {
+    "pt": "pequeno",
+    "en": "small"
+  },
+  {
+    "pt": "bonito",
+    "en": "pretty"
+  },
+  {
+    "pt": "feio",
+    "en": "ugly"
+  },
+  {
+    "pt": "errado",
+    "en": "wrong"
+  },
+  {
+    "pt": "velho",
+    "en": "old"
+  },
+  {
+    "pt": "novo",
+    "en": "new"
+  },
+  {
+    "pt": "jovem",
+    "en": "young"
+  },
+  {
+    "pt": "alto",
+    "en": "tall"
+  },
+  {
+    "pt": "baixo",
+    "en": "short"
+  },
+  {
+    "pt": "feliz",
+    "en": "happy"
+  },
+  {
+    "pt": "triste",
+    "en": "sad"
+  },
+  {
+    "pt": "alegre",
+    "en": "joyful"
+  },
+  {
+    "pt": "primeiro",
+    "en": "first"
+  },
+  {
+    "pt": "último",
+    "en": "last"
+  },
+  {
+    "pt": "comprido",
+    "en": "long"
+  },
+  {
+    "pt": "largo",
+    "en": "wide"
+  },
+  {
+    "pt": "estreito",
+    "en": "narrow"
+  },
+  {
+    "pt": "quente",
+    "en": "hot"
+  },
+  {
+    "pt": "frio",
+    "en": "cold"
+  },
+  {
+    "pt": "fácil",
+    "en": "easy"
+  },
+  {
+    "pt": "difícil",
+    "en": "difficult"
+  },
+  {
+    "pt": "perto",
+    "en": "near"
+  },
+  {
+    "pt": "longe",
+    "en": "far"
+  },
+  {
+    "pt": "forte",
+    "en": "strong"
+  },
+  {
+    "pt": "fraco",
+    "en": "weak"
+  },
+  {
+    "pt": "esperto",
+    "en": "smart"
+  },
+  {
+    "pt": "inteligente",
+    "en": "intelligent"
+  },
+  {
+    "pt": "burro",
+    "en": "dumb"
+  },
+  {
+    "pt": "estúpido",
+    "en": "stupid"
+  },
+  {
+    "pt": "igual",
+    "en": "equal"
+  },
+  {
+    "pt": "diferente",
+    "en": "different"
+  },
+  {
+    "pt": "aberto",
+    "en": "open"
+  },
+  {
+    "pt": "fechado",
+    "en": "closed"
+  },
+  {
+    "pt": "educado",
+    "en": "polite"
+  },
+  {
+    "pt": "mal-educado",
+    "en": "impolite"
+  },
+  {
+    "pt": "próprio",
+    "en": "own"
+  },
+  {
+    "pt": "atrasado",
+    "en": "late"
+  },
+  {
+    "pt": "importante",
+    "en": "important"
+  },
+  {
+    "pt": "chato",
+    "en": "annoying"
+  },
+  {
+    "pt": "nervoso",
+    "en": "nervous"
+  },
+  {
+    "pt": "seguro",
+    "en": "safe"
+  },
+  {
+    "pt": "inseguro",
+    "en": "unsafe"
+  },
+  {
+    "pt": "orgulhoso",
+    "en": "proud"
+  },
+  {
+    "pt": "envergonhado",
+    "en": "ashamed"
+  },
+  {
+    "pt": "duro",
+    "en": "hard"
+  },
+  {
+    "pt": "mole",
+    "en": "soft"
+  },
+  {
+    "pt": "seco",
+    "en": "dry"
+  },
+  {
+    "pt": "molhado",
+    "en": "wet"
+  },
+  {
+    "pt": "suave",
+    "en": "smooth"
+  },
+  {
+    "pt": "áspero",
+    "en": "rough"
+  },
+  {
+    "pt": "leve",
+    "en": "light"
+  },
+  {
+    "pt": "pesado",
+    "en": "heavy"
+  },
+  {
+    "pt": "barato",
+    "en": "cheap"
+  },
+  {
+    "pt": "caro",
+    "en": "expensive"
+  },
+  {
+    "pt": "ocupado",
+    "en": "busy"
+  },
+  {
+    "pt": "disponível",
+    "en": "available"
+  },
+  {
+    "pt": "divertido",
+    "en": "fun"
+  },
+  {
+    "pt": "engraçado",
+    "en": "funny"
+  },
+  {
+    "pt": "aborrecido",
+    "en": "boring"
+  },
+  {
+    "pt": "saudável",
+    "en": "healthy"
+  },
+  {
+    "pt": "doente",
+    "en": "sick"
+  },
+  {
+    "pt": "limpo",
+    "en": "clean"
+  },
+  {
+    "pt": "sujo",
+    "en": "dirty"
+  },
+  {
+    "pt": "assustador",
+    "en": "scary"
+  },
+  {
+    "pt": "maravilhoso",
+    "en": "wonderful"
+  },
+  {
+    "pt": "cansado",
+    "en": "tired"
+  },
+  {
+    "pt": "rico",
+    "en": "rich"
+  },
+  {
+    "pt": "pobre",
+    "en": "poor"
+  },
+  {
+    "pt": "famoso",
+    "en": "famous"
+  },
+  {
+    "pt": "conhecido",
+    "en": "known"
+  },
+  {
+    "pt": "desconhecido",
+    "en": "unknown"
+  },
+  {
+    "pt": "lento",
+    "en": "slow"
+  },
+  {
+    "pt": "rápido",
+    "en": "quick"
+  },
+  {
+    "pt": "fantástico",
+    "en": "fantastic"
+  },
+  {
+    "pt": "horrível",
+    "en": "horrible"
+  },
+  {
+    "pt": "terrível",
+    "en": "terrible"
+  },
+  {
+    "pt": "honesto",
+    "en": "honest"
+  },
+  {
+    "pt": "desonesto",
+    "en": "dishonest"
+  },
+  {
+    "pt": "claro",
+    "en": "bright"
+  },
+  {
+    "pt": "escuro",
+    "en": "dark"
+  },
+  {
+    "pt": "cedo",
+    "en": "early"
+  },
+  {
+    "pt": "agora",
+    "en": "now"
+  },
+  {
+    "pt": "já",
+    "en": "already"
+  },
+  {
+    "pt": "logo",
+    "en": "later"
+  },
+  {
+    "pt": "então",
+    "en": "then"
+  },
+  {
+    "pt": "sempre",
+    "en": "always"
+  },
+  {
+    "pt": "nunca",
+    "en": "never"
+  },
+  {
+    "pt": "às vezes",
+    "en": "sometimes"
+  },
+  {
+    "pt": "frequentemente",
+    "en": "often"
+  },
+  {
+    "pt": "antes",
+    "en": "before"
+  },
+  {
+    "pt": "depois",
+    "en": "after"
+  },
+  {
+    "pt": "bem",
+    "en": "well"
+  },
+  {
+    "pt": "mal",
+    "en": "badly"
+  },
+  {
+    "pt": "assim",
+    "en": "so"
+  },
+  {
+    "pt": "rapidamente",
+    "en": "quickly"
+  },
+  {
+    "pt": "depressa",
+    "en": "fast"
+  },
+  {
+    "pt": "devagar",
+    "en": "slowly"
+  },
+  {
+    "pt": "realmente",
+    "en": "really"
+  },
+  {
+    "pt": "sobretudo",
+    "en": "above all"
+  },
+  {
+    "pt": "principalmente",
+    "en": "mainly"
+  },
+  {
+    "pt": "facilmente",
+    "en": "easily"
+  },
+  {
+    "pt": "felizmente",
+    "en": "fortunately"
+  },
+  {
+    "pt": "infelizmente",
+    "en": "unfortunately"
+  },
+  {
+    "pt": "calmamente",
+    "en": "calmly"
+  },
+  {
+    "pt": "certamente",
+    "en": "certainly"
+  },
+  {
+    "pt": "nem",
+    "en": "neither"
+  },
+  {
+    "pt": "mesmo",
+    "en": "even"
+  },
+  {
+    "pt": "senão",
+    "en": "otherwise"
+  },
+  {
+    "pt": "também",
+    "en": "also"
+  },
+  {
+    "pt": "aqui",
+    "en": "here"
+  },
+  {
+    "pt": "ali",
+    "en": "there"
+  },
+  {
+    "pt": "fora",
+    "en": "out"
+  },
+  {
+    "pt": "à frente",
+    "en": "in front"
+  },
+  {
+    "pt": "acima",
+    "en": "above"
+  },
+  {
+    "pt": "em cima",
+    "en": "on top of"
+  },
+  {
+    "pt": "abaixo",
+    "en": "below"
+  },
+  {
+    "pt": "muito",
+    "en": "very"
+  },
+  {
+    "pt": "pouco",
+    "en": "little"
+  },
+  {
+    "pt": "mais",
+    "en": "more"
+  },
+  {
+    "pt": "menos",
+    "en": "less"
+  },
+  {
+    "pt": "tanto",
+    "en": "as much"
+  },
+  {
+    "pt": "quanto",
+    "en": "how much"
+  },
+  {
+    "pt": "quase",
+    "en": "almost"
+  },
+  {
+    "pt": "bastante",
+    "en": "a lot"
+  },
+  {
+    "pt": "suficiente",
+    "en": "enough"
+  },
+  {
+    "pt": "só",
+    "en": "only"
+  },
+  {
+    "pt": "demasiado",
+    "en": "too"
+  },
+  {
+    "pt": "e",
+    "en": "and"
+  },
+  {
+    "pt": "ou",
+    "en": "or"
+  },
+  {
+    "pt": "se",
+    "en": "if"
+  },
+  {
+    "pt": "que",
+    "en": "that"
+  },
+  {
+    "pt": "mas",
+    "en": "but"
+  },
+  {
+    "pt": "no entanto",
+    "en": "however"
+  },
+  {
+    "pt": "embora",
+    "en": "although"
+  },
+  {
+    "pt": "apesar de",
+    "en": "despite"
+  },
+  {
+    "pt": "quando",
+    "en": "when"
+  },
+  {
+    "pt": "entretanto",
+    "en": "meanwhile"
+  },
+  {
+    "pt": "assim que",
+    "en": "as soon as"
+  },
+  {
+    "pt": "bem como",
+    "en": "as well as"
+  },
+  {
+    "pt": "porque",
+    "en": "because"
+  },
+  {
+    "pt": "portanto",
+    "en": "therefore"
+  },
+  {
+    "pt": "dado que",
+    "en": "given that"
+  },
+  {
+    "pt": "já agora",
+    "en": "by the way"
+  },
+  {
+    "pt": "não só... mas também...",
+    "en": "not only… but also…"
+  },
+  {
+    "pt": "tanto... como...",
+    "en": "both… and…"
+  },
+  {
+    "pt": "ou... ou...",
+    "en": "either… or…"
+  },
+  {
+    "pt": "não... nem...",
+    "en": "neither… nor…"
+  },
+  {
+    "pt": "quanto mais... mais/menos...",
+    "en": "the more… the more/less…"
+  },
+  {
+    "pt": "ser",
+    "en": "to be"
+  },
+  {
+    "pt": "ter",
+    "en": "to have"
+  },
+  {
+    "pt": "haver",
+    "en": "there to be"
+  },
+  {
+    "pt": "poder",
+    "en": "to be able to"
+  },
+  {
+    "pt": "tentar",
+    "en": "to try"
+  },
+  {
+    "pt": "dever",
+    "en": "to have to"
+  },
+  {
+    "pt": "querer",
+    "en": "to want"
+  },
+  {
+    "pt": "fazer",
+    "en": "to do"
+  },
+  {
+    "pt": "ir",
+    "en": "to go"
+  },
+  {
+    "pt": "vir",
+    "en": "to come"
+  },
+  {
+    "pt": "ficar",
+    "en": "to stay"
+  },
+  {
+    "pt": "dizer",
+    "en": "to say"
+  },
+  {
+    "pt": "falar",
+    "en": "to speak"
+  },
+  {
+    "pt": "dar",
+    "en": "to give"
+  },
+  {
+    "pt": "receber",
+    "en": "to receive"
+  },
+  {
+    "pt": "ver",
+    "en": "to see"
+  },
+  {
+    "pt": "olhar",
+    "en": "to look"
+  },
+  {
+    "pt": "ouvir",
+    "en": "to hear"
+  },
+  {
+    "pt": "saber",
+    "en": "to know"
+  },
+  {
+    "pt": "passar",
+    "en": "to pass"
+  },
+  {
+    "pt": "gastar",
+    "en": "to spend"
+  },
+  {
+    "pt": "chegar",
+    "en": "to arrive"
+  },
+  {
+    "pt": "partir",
+    "en": "to leave"
+  },
+  {
+    "pt": "procurar",
+    "en": "to search"
+  },
+  {
+    "pt": "encontrar",
+    "en": "to find"
+  },
+  {
+    "pt": "levar",
+    "en": "to take"
+  },
+  {
+    "pt": "trazer",
+    "en": "to bring"
+  },
+  {
+    "pt": "começar",
+    "en": "to start"
+  },
+  {
+    "pt": "acabar",
+    "en": "to finish"
+  },
+  {
+    "pt": "parecer",
+    "en": "to seem"
+  },
+  {
+    "pt": "tornar-se",
+    "en": "to become"
+  },
+  {
+    "pt": "sair",
+    "en": "to exit"
+  },
+  {
+    "pt": "entrar",
+    "en": "to enter"
+  },
+  {
+    "pt": "voltar",
+    "en": "to return"
+  },
+  {
+    "pt": "existir",
+    "en": "to exist"
+  },
+  {
+    "pt": "sentir",
+    "en": "to feel"
+  },
+  {
+    "pt": "chamar",
+    "en": "to call"
+  },
+  {
+    "pt": "considerar",
+    "en": "to consider"
+  },
+  {
+    "pt": "pôr",
+    "en": "to put"
+  },
+  {
+    "pt": "tirar",
+    "en": "to take out"
+  },
+  {
+    "pt": "criar",
+    "en": "to create"
+  },
+  {
+    "pt": "nascer",
+    "en": "to be born"
+  },
+  {
+    "pt": "viver",
+    "en": "to live"
+  },
+  {
+    "pt": "morrer",
+    "en": "to die"
+  },
+  {
+    "pt": "matar",
+    "en": "to kill"
+  },
+  {
+    "pt": "ganhar",
+    "en": "to win"
+  },
+  {
+    "pt": "perder",
+    "en": "to lose"
+  },
+  {
+    "pt": "andar",
+    "en": "to walk"
+  },
+  {
+    "pt": "correr",
+    "en": "to run"
+  },
+  {
+    "pt": "nadar",
+    "en": "to swim"
+  },
+  {
+    "pt": "voar",
+    "en": "to fly"
+  },
+  {
+    "pt": "pedir",
+    "en": "to ask"
+  },
+  {
+    "pt": "responder",
+    "en": "to answer"
+  },
+  {
+    "pt": "contar",
+    "en": "to count"
+  },
+  {
+    "pt": "acontecer",
+    "en": "to happen"
+  },
+  {
+    "pt": "tratar",
+    "en": "to treat"
+  },
+  {
+    "pt": "esperar",
+    "en": "to wait"
+  },
+  {
+    "pt": "gostar",
+    "en": "to like"
+  },
+  {
+    "pt": "adorar",
+    "en": "to really like"
+  },
+  {
+    "pt": "amar",
+    "en": "to love"
+  },
+  {
+    "pt": "odiar",
+    "en": "to hate"
+  },
+  {
+    "pt": "usar",
+    "en": "to use"
+  },
+  {
+    "pt": "realizar",
+    "en": "to carry out"
+  },
+  {
+    "pt": "abrir",
+    "en": "to open"
+  },
+  {
+    "pt": "fechar",
+    "en": "to close"
+  },
+  {
+    "pt": "permitir",
+    "en": "to allow"
+  },
+  {
+    "pt": "proibir",
+    "en": "to prohibit"
+  },
+  {
+    "pt": "mostrar",
+    "en": "to show"
+  },
+  {
+    "pt": "esconder",
+    "en": "to hide"
+  },
+  {
+    "pt": "pensar",
+    "en": "to think"
+  },
+  {
+    "pt": "lembrar-se",
+    "en": "to remember"
+  },
+  {
+    "pt": "esquecer-se",
+    "en": "to forget"
+  },
+  {
+    "pt": "formar",
+    "en": "to form"
+  },
+  {
+    "pt": "incluir",
+    "en": "to include"
+  },
+  {
+    "pt": "aparecer",
+    "en": "to appear"
+  },
+  {
+    "pt": "desaparecer",
+    "en": "to disappear"
+  },
+  {
+    "pt": "cair",
+    "en": "to fall"
+  },
+  {
+    "pt": "levantar-se",
+    "en": "to get up"
+  },
+  {
+    "pt": "sentar-se",
+    "en": "to sit down"
+  },
+  {
+    "pt": "trabalhar",
+    "en": "to work"
+  },
+  {
+    "pt": "ler",
+    "en": "to read"
+  },
+  {
+    "pt": "escrever",
+    "en": "to write"
+  },
+  {
+    "pt": "estudar",
+    "en": "to study"
+  },
+  {
+    "pt": "perceber",
+    "en": "to understand"
+  },
+  {
+    "pt": "aprender",
+    "en": "to learn"
+  },
+  {
+    "pt": "ensinar",
+    "en": "to teach"
+  },
+  {
+    "pt": "explicar",
+    "en": "to explain"
+  },
+  {
+    "pt": "descobrir",
+    "en": "to discover"
+  },
+  {
+    "pt": "desenvolver",
+    "en": "to develop"
+  },
+  {
+    "pt": "produzir",
+    "en": "to produce"
+  },
+  {
+    "pt": "parar",
+    "en": "to stop"
+  },
+  {
+    "pt": "continuar",
+    "en": "to continue"
+  },
+  {
+    "pt": "precisar",
+    "en": "to need"
+  },
+  {
+    "pt": "aumentar",
+    "en": "to increase"
+  },
+  {
+    "pt": "diminuir",
+    "en": "to decrease"
+  },
+  {
+    "pt": "manter",
+    "en": "to maintain"
+  },
+  {
+    "pt": "defender",
+    "en": "to defend"
+  },
+  {
+    "pt": "atacar",
+    "en": "to attack"
+  },
+  {
+    "pt": "bater",
+    "en": "to hit"
+  },
+  {
+    "pt": "acreditar",
+    "en": "to believe"
+  },
+  {
+    "pt": "duvidar",
+    "en": "to doubt"
+  },
+  {
+    "pt": "ajudar",
+    "en": "to help"
+  },
+  {
+    "pt": "sorrir",
+    "en": "to smile"
+  },
+  {
+    "pt": "rir-se",
+    "en": "to laugh"
+  },
+  {
+    "pt": "chorar",
+    "en": "to cry"
+  },
+  {
+    "pt": "comer",
+    "en": "to eat"
+  },
+  {
+    "pt": "beber",
+    "en": "to drink"
+  },
+  {
+    "pt": "aproveitar",
+    "en": "to enjoy"
+  },
+  {
+    "pt": "pagar",
+    "en": "to pay"
+  },
+  {
+    "pt": "viajar",
+    "en": "to travel"
+  },
+  {
+    "pt": "subir",
+    "en": "to go up"
+  },
+  {
+    "pt": "descer",
+    "en": "to go down"
+  },
+  {
+    "pt": "dormir",
+    "en": "to sleep"
+  },
+  {
+    "pt": "acordar",
+    "en": "to wake up"
+  },
+  {
+    "pt": "vender",
+    "en": "to sell"
+  },
+  {
+    "pt": "comprar",
+    "en": "to buy"
+  },
+  {
+    "pt": "aceitar",
+    "en": "to accept"
+  },
+  {
+    "pt": "resultar",
+    "en": "to result"
+  },
+  {
+    "pt": "reconhecer",
+    "en": "to recognize"
+  },
+  {
+    "pt": "marcar",
+    "en": "to mark"
+  },
+  {
+    "pt": "apanhar",
+    "en": "to catch"
+  },
+  {
+    "pt": "soltar",
+    "en": "to release"
+  },
+  {
+    "pt": "crescer",
+    "en": "to grow"
+  },
+  {
+    "pt": "publicar",
+    "en": "to publish"
+  },
+  {
+    "pt": "aperceber-se",
+    "en": "to realize"
+  },
+  {
+    "pt": "revelar",
+    "en": "to reveal"
+  },
+  {
+    "pt": "prever",
+    "en": "to foresee"
+  },
+  {
+    "pt": "ocupar",
+    "en": "to occupy"
+  },
+  {
+    "pt": "oferecer",
+    "en": "to offer"
+  },
+  {
+    "pt": "tocar",
+    "en": "to touch"
+  },
+  {
+    "pt": "envolver",
+    "en": "to involve"
+  },
+  {
+    "pt": "fugir",
+    "en": "to escape"
+  },
+  {
+    "pt": "indicar",
+    "en": "to indicate"
+  },
+  {
+    "pt": "valer",
+    "en": "to be worth"
+  },
+  {
+    "pt": "terminar",
+    "en": "to end"
+  },
+  {
+    "pt": "jogar",
+    "en": "to play"
+  },
+  {
+    "pt": "construir",
+    "en": "to build"
+  },
+  {
+    "pt": "destruir",
+    "en": "to destroy"
+  },
+  {
+    "pt": "definir",
+    "en": "to define"
+  },
+  {
+    "pt": "escolher",
+    "en": "to choose"
+  },
+  {
+    "pt": "causar",
+    "en": "to cause"
+  },
+  {
+    "pt": "evitar",
+    "en": "to avoid"
+  },
+  {
+    "pt": "determinar",
+    "en": "to determine"
+  },
+  {
+    "pt": "anunciar",
+    "en": "to announce"
+  },
+  {
+    "pt": "exigir",
+    "en": "to demand"
+  },
+  {
+    "pt": "transformar",
+    "en": "to transform"
+  },
+  {
+    "pt": "faltar",
+    "en": "to miss"
+  },
+  {
+    "pt": "entregar",
+    "en": "to deliver"
+  },
+  {
+    "pt": "casar",
+    "en": "to marry"
+  },
+  {
+    "pt": "apontar",
+    "en": "to point"
+  },
+  {
+    "pt": "virar",
+    "en": "to turn"
+  },
+  {
+    "pt": "concluir",
+    "en": "to conclude"
+  },
+  {
+    "pt": "significar",
+    "en": "to mean"
+  },
+  {
+    "pt": "depender",
+    "en": "to depend"
+  },
+  {
+    "pt": "repetir",
+    "en": "to repeat"
+  },
+  {
+    "pt": "abandonar",
+    "en": "to abandon"
+  },
+  {
+    "pt": "obrigar",
+    "en": "to force"
+  },
+  {
+    "pt": "preparar",
+    "en": "to prepare"
+  },
+  {
+    "pt": "aplicar",
+    "en": "to apply"
+  },
+  {
+    "pt": "pertencer",
+    "en": "to belong"
+  },
+  {
+    "pt": "retirar",
+    "en": "to remove"
+  },
+  {
+    "pt": "verificar",
+    "en": "to verify"
+  },
+  {
+    "pt": "acrescentar",
+    "en": "to add"
+  },
+  {
+    "pt": "desejar",
+    "en": "to wish"
+  },
+  {
+    "pt": "imaginar",
+    "en": "to imagine"
+  },
+  {
+    "pt": "discutir",
+    "en": "to argue"
+  },
+  {
+    "pt": "preferir",
+    "en": "to prefer"
+  },
+  {
+    "pt": "branco",
+    "en": "white"
+  },
+  {
+    "pt": "preto",
+    "en": "black"
+  },
+  {
+    "pt": "cinzento",
+    "en": "grey"
+  },
+  {
+    "pt": "vermelho",
+    "en": "red"
+  },
+  {
+    "pt": "verde",
+    "en": "green"
+  },
+  {
+    "pt": "azul",
+    "en": "blue"
+  },
+  {
+    "pt": "amarelo",
+    "en": "yellow"
+  },
+  {
+    "pt": "cor-de-laranja",
+    "en": "orange"
+  },
+  {
+    "pt": "castanho",
+    "en": "brown"
+  },
+  {
+    "pt": "cor-de-rosa",
+    "en": "pink"
+  },
+  {
+    "pt": "roxo",
+    "en": "purple"
+  }
+]

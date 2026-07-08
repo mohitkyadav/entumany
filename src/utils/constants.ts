@@ -10,6 +10,7 @@ export const ROUTES = {
   PORTUGUESE_CONJUGATION: '/pt/conjugation',
   PORTUGUESE_GAME: '/pt/:packId/:gameId',
   PORTUGUESE_HUB: '/pt',
+  PORTUGUESE_MATCH: '/pt/match/:packId',
   PORTUGUESE_PACK: '/pt/:packId',
   PORTUGUESE_TODAY: '/pt/today',
   PORTUGUESE_VOCAB: '/pt/vocab',

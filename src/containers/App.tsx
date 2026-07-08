@@ -13,6 +13,7 @@ import GermanHub from './German/GermanHub';
 import PortugueseHub from './Portuguese/PortugueseHub';
 import PackPage from './Portuguese/PackPage';
 import PackGamePage from './Portuguese/PackGamePage';
+import PackMatchPage from './Portuguese/PackMatchPage';
 import ConjugationTrainer from './Portuguese/ConjugationTrainer/ConjugationTrainer';
 import TodaySession from './Portuguese/TodaySession/TodaySession';
 import VocabTrainer from './Portuguese/VocabTrainer/VocabTrainer';
@@ -34,6 +35,7 @@ const App: FC = () => {
         <Route path={ROUTES.PORTUGUESE_TODAY} element={<TodaySession />} />
         <Route path={ROUTES.PORTUGUESE_VOCAB} element={<VocabTrainer />} />
         <Route path={ROUTES.PORTUGUESE_HUB} element={<PortugueseHub />} />
+        <Route path={ROUTES.PORTUGUESE_MATCH} element={<PackMatchPage />} />
         <Route path={ROUTES.PORTUGUESE_PACK} element={<PackPage />} />
         <Route path={ROUTES.PORTUGUESE_GAME} element={<PackGamePage />} />
         <Route path={ROUTES.PLAYGROUND} element={<Playground />} />

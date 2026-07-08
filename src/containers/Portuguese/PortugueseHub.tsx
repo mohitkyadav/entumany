@@ -3,6 +3,7 @@ import React, {FC} from 'react';
 import {GameHub, PageTitle} from 'components';
 import {useTranslation} from 'react-i18next';
 import {PORTUGUESE_PACKS, PORTUGUESE_TRAINERS, packPath} from 'data/packs/ptPacks';
+import {WORD_PACKS, buildPackWords, matchPackPath, packWordItemId} from 'data/pt/wordPacks';
 import {getConjugationMastery} from 'data/pt/conjugation';
 import {getVocabMastery} from 'data/pt/srs';
 import {getMasteryForIds} from 'services/progress.service';
@@ -34,6 +35,19 @@ const PortugueseHub: FC = () => {
     };
   });
 
+  const wordPackItems = WORD_PACKS.map((pack) => {
+    const ids = buildPackWords(pack).map((word) => packWordItemId(word.wordId));
+    const {mastered, total} = getMasteryForIds(ids);
+
+    return {
+      badge: `${mastered}/${total} ${t('masteredLabel')}`,
+      description: t(pack.descKey),
+      flag: pack.flag,
+      route: matchPackPath(pack.id),
+      title: t(pack.nameKey),
+    };
+  });
+
   const masteryByTrainer: Record<string, {mastered: number; total: number}> = {
     'pt.conjugation': getConjugationMastery(),
     'pt.vocab': getVocabMastery(),
@@ -54,7 +68,7 @@ const PortugueseHub: FC = () => {
   return (
     <div className="page animation-scale-up">
       <PageTitle title={t('portugueseHubTitle')} />
-      <GameHub title={t('portugueseHubTitle')} items={[todayItem, ...packItems, ...trainerItems]} />
+      <GameHub title={t('portugueseHubTitle')} items={[todayItem, ...packItems, ...wordPackItems, ...trainerItems]} />
     </div>
   );
 };

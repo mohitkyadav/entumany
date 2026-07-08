@@ -24,13 +24,15 @@ export const getAllGameWords = (words: Record<string, any>): Word[] =>
     .filter((word) => Object.keys(word).length >= 3);
 
 /**
- * Picks a round of words for the dictionary games through the unified
- * progress engine: unseen words first, then weak ones, then mastered review.
+ * Picks a round from any word pool through the unified progress engine: unseen
+ * words first, then weak ones, then mastered review. Shared by the dictionary
+ * games and the Portuguese word packs — they differ only in pool and id scheme.
  */
-export const pickGameWords = (words: Record<string, any>): Word[] => {
-  const all = getAllGameWords(words);
-  return selectByMastery(all, Math.min(WORDS_PER_ROUND, all.length), (word) => wordItemId(word.wordId));
-};
+export const pickRound = (pool: Word[], getItemId: (wordId: string) => string): Word[] =>
+  selectByMastery(pool, Math.min(WORDS_PER_ROUND, pool.length), (word) => getItemId(word.wordId));
+
+/** Picks a round for the dictionary games (Play and Match) from the DB. */
+export const pickGameWords = (words: Record<string, any>): Word[] => pickRound(getAllGameWords(words), wordItemId);
 
 /**
  * The languages a word is quizzed in, ordered by the user's language settings

@@ -1,0 +1,398 @@
+[
+  {
+    "pt": "a água",
+    "en": "water"
+  },
+  {
+    "pt": "o sal",
+    "en": "salt"
+  },
+  {
+    "pt": "o açúcar",
+    "en": "sugar"
+  },
+  {
+    "pt": "a pimenta",
+    "en": "pepper"
+  },
+  {
+    "pt": "o azeite",
+    "en": "olive oil"
+  },
+  {
+    "pt": "o vinagre",
+    "en": "vinegar"
+  },
+  {
+    "pt": "a farinha",
+    "en": "flour"
+  },
+  {
+    "pt": "o arroz",
+    "en": "rice"
+  },
+  {
+    "pt": "a massa",
+    "en": "pasta"
+  },
+  {
+    "pt": "o ovo",
+    "en": "egg"
+  },
+  {
+    "pt": "o leite",
+    "en": "milk"
+  },
+  {
+    "pt": "a manteiga",
+    "en": "butter"
+  },
+  {
+    "pt": "o fermento",
+    "en": "yeast"
+  },
+  {
+    "pt": "o mel",
+    "en": "honey"
+  },
+  {
+    "pt": "o chocolate",
+    "en": "chocolate"
+  },
+  {
+    "pt": "a maçã",
+    "en": "apple"
+  },
+  {
+    "pt": "a pera",
+    "en": "pear"
+  },
+  {
+    "pt": "a banana",
+    "en": "banana"
+  },
+  {
+    "pt": "a laranja",
+    "en": "orange"
+  },
+  {
+    "pt": "o limão",
+    "en": "lemon"
+  },
+  {
+    "pt": "o morango",
+    "en": "strawberry"
+  },
+  {
+    "pt": "a uva",
+    "en": "grape"
+  },
+  {
+    "pt": "a melancia",
+    "en": "watermelon"
+  },
+  {
+    "pt": "o ananás",
+    "en": "pineapple"
+  },
+  {
+    "pt": "a ameixa",
+    "en": "plum"
+  },
+  {
+    "pt": "a cenoura",
+    "en": "carrot"
+  },
+  {
+    "pt": "a batata",
+    "en": "potato"
+  },
+  {
+    "pt": "o tomate",
+    "en": "tomato"
+  },
+  {
+    "pt": "a cebola",
+    "en": "onion"
+  },
+  {
+    "pt": "a alface",
+    "en": "lettuce"
+  },
+  {
+    "pt": "a couve",
+    "en": "cabbage"
+  },
+  {
+    "pt": "o espinafre",
+    "en": "spinach"
+  },
+  {
+    "pt": "o pepino",
+    "en": "cucumber"
+  },
+  {
+    "pt": "o brócolo",
+    "en": "broccoli"
+  },
+  {
+    "pt": "o pimento",
+    "en": "bell pepper"
+  },
+  {
+    "pt": "o frango",
+    "en": "chicken"
+  },
+  {
+    "pt": "o porco",
+    "en": "pork"
+  },
+  {
+    "pt": "a vaca",
+    "en": "beef"
+  },
+  {
+    "pt": "o borrego",
+    "en": "lamb"
+  },
+  {
+    "pt": "o presunto",
+    "en": "ham"
+  },
+  {
+    "pt": "o bacalhau",
+    "en": "codfish"
+  },
+  {
+    "pt": "a sardinha",
+    "en": "sardine"
+  },
+  {
+    "pt": "o atum",
+    "en": "tuna"
+  },
+  {
+    "pt": "o salmão",
+    "en": "salmon"
+  },
+  {
+    "pt": "o camarão",
+    "en": "shrimp"
+  },
+  {
+    "pt": "a panela",
+    "en": "pot"
+  },
+  {
+    "pt": "a frigideira",
+    "en": "frying pan"
+  },
+  {
+    "pt": "o tacho",
+    "en": "saucepan"
+  },
+  {
+    "pt": "a colher",
+    "en": "spoon"
+  },
+  {
+    "pt": "o garfo",
+    "en": "fork"
+  },
+  {
+    "pt": "a faca",
+    "en": "knife"
+  },
+  {
+    "pt": "o prato",
+    "en": "plate"
+  },
+  {
+    "pt": "o copo",
+    "en": "glass"
+  },
+  {
+    "pt": "a taça",
+    "en": "bowl"
+  },
+  {
+    "pt": "a tábua de cortar",
+    "en": "cutting board"
+  },
+  {
+    "pt": "a colher de pau",
+    "en": "wooden spoon"
+  },
+  {
+    "pt": "a espátula",
+    "en": "spatula"
+  },
+  {
+    "pt": "o jarro",
+    "en": "jug"
+  },
+  {
+    "pt": "o escorredor",
+    "en": "strainer"
+  },
+  {
+    "pt": "o ralador",
+    "en": "grater"
+  },
+  {
+    "pt": "o fogão",
+    "en": "stove"
+  },
+  {
+    "pt": "o forno",
+    "en": "oven"
+  },
+  {
+    "pt": "o micro-ondas",
+    "en": "microwave"
+  },
+  {
+    "pt": "o frigorífico",
+    "en": "refrigerator"
+  },
+  {
+    "pt": "o congelador",
+    "en": "freezer"
+  },
+  {
+    "pt": "a liquidificadora",
+    "en": "blender"
+  },
+  {
+    "pt": "a torradeira",
+    "en": "toaster"
+  },
+  {
+    "pt": "a chaleira",
+    "en": "kettle"
+  },
+  {
+    "pt": "a cafeteira",
+    "en": "coffee maker"
+  },
+  {
+    "pt": "o exaustor",
+    "en": "extractor fan"
+  },
+  {
+    "pt": "o pequeno-almoço",
+    "en": "breakfast"
+  },
+  {
+    "pt": "o almoço",
+    "en": "lunch"
+  },
+  {
+    "pt": "o jantar",
+    "en": "dinner"
+  },
+  {
+    "pt": "o lanche",
+    "en": "snack"
+  },
+  {
+    "pt": "a ceia",
+    "en": "supper"
+  },
+  {
+    "pt": "a sobremesa",
+    "en": "dessert"
+  },
+  {
+    "pt": "a entrada",
+    "en": "starter"
+  },
+  {
+    "pt": "o prato principal",
+    "en": "main course"
+  },
+  {
+    "pt": "o petisco",
+    "en": "tapas"
+  },
+  {
+    "pt": "o buffet",
+    "en": "buffet"
+  },
+  {
+    "pt": "o menu",
+    "en": "menu"
+  },
+  {
+    "pt": "o garçom",
+    "en": "waiter"
+  },
+  {
+    "pt": "a conta",
+    "en": "bill"
+  },
+  {
+    "pt": "a reserva",
+    "en": "reservation"
+  },
+  {
+    "pt": "a mesa",
+    "en": "table"
+  },
+  {
+    "pt": "os talheres",
+    "en": "cutlery"
+  },
+  {
+    "pt": "o guardanapo",
+    "en": "napkin"
+  },
+  {
+    "pt": "a gorjeta",
+    "en": "tip"
+  },
+  {
+    "pt": "o pedido",
+    "en": "order"
+  },
+  {
+    "pt": "cozer",
+    "en": "to boil"
+  },
+  {
+    "pt": "assar",
+    "en": "to roast"
+  },
+  {
+    "pt": "grelhar",
+    "en": "to grill"
+  },
+  {
+    "pt": "fritar",
+    "en": "to fry"
+  },
+  {
+    "pt": "estufar",
+    "en": "to stew"
+  },
+  {
+    "pt": "refogar",
+    "en": "to sauté"
+  },
+  {
+    "pt": "amassar",
+    "en": "to knead"
+  },
+  {
+    "pt": "temperar",
+    "en": "to season"
+  },
+  {
+    "pt": "misturar",
+    "en": "to mix"
+  },
+  {
+    "pt": "bater",
+    "en": "to beat"
+  }
+]
