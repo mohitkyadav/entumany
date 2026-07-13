@@ -2,8 +2,11 @@ import {Language, Word} from 'types/db';
 import {EntumanyDB} from './db.service';
 import {selectByMastery} from './progress.service';
 
-/** Round size for the dictionary games (Play and Match). */
+/** Default round size for the dictionary Play game. */
 export const WORDS_PER_ROUND = 10;
+
+/** Round size for the matching games, user-configurable in Settings. */
+export const matchRoundSize = (): number => EntumanyDB.getInstance().appOptions.matchWordsPerRound;
 
 export const WORD_GAME_IDS = {
   match: 'core.match',
@@ -28,8 +31,8 @@ export const getAllGameWords = (words: Record<string, any>): Word[] =>
  * words first, then weak ones, then mastered review. Shared by the dictionary
  * games and the Portuguese word packs — they differ only in pool and id scheme.
  */
-export const pickRound = (pool: Word[], getItemId: (wordId: string) => string): Word[] =>
-  selectByMastery(pool, Math.min(WORDS_PER_ROUND, pool.length), (word) => getItemId(word.wordId));
+export const pickRound = (pool: Word[], getItemId: (wordId: string) => string, size = WORDS_PER_ROUND): Word[] =>
+  selectByMastery(pool, Math.min(size, pool.length), (word) => getItemId(word.wordId));
 
 /** Picks a round for the dictionary games (Play and Match) from the DB. */
 export const pickGameWords = (words: Record<string, any>): Word[] => pickRound(getAllGameWords(words), wordItemId);

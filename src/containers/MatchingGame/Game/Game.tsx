@@ -3,7 +3,8 @@ import {BackButton, Button, VictoryModal} from 'components';
 import React, {FC, useMemo, useState} from 'react';
 import {Navigate} from 'react-router-dom';
 import {recordAnswer, recordGame} from 'services/progress.service';
-import {getWordGameLanguages, pickRound} from 'services/wordGames.service';
+import {speakWord} from 'services/speech.service';
+import {getWordGameLanguages, matchRoundSize, pickRound} from 'services/wordGames.service';
 import {Word, WordListItem} from 'types/db';
 import {toast} from 'react-hot-toast';
 import {useTranslation} from 'react-i18next';
@@ -41,7 +42,7 @@ const buildRows = (words: Word[]): WordListItem[][] =>
 
 const Game: FC<{config: MatchGameConfig}> = ({config}) => {
   const {gameId, pool, getItemId, backTo} = config;
-  const [gameWords, setGameWords] = useState(() => pickRound(pool, getItemId));
+  const [gameWords, setGameWords] = useState(() => pickRound(pool, getItemId, matchRoundSize()));
   const [sequence, setSequence] = useState(() => generateUniqueArray(gameWords.length));
   const rows = useMemo(() => buildRows(gameWords), [gameWords]);
   const [matchedIds, setMatchedIds] = useState<Set<string>>(new Set());
@@ -61,12 +62,14 @@ const Game: FC<{config: MatchGameConfig}> = ({config}) => {
   };
 
   const selectFirstWord = (selectedWord: WordListItem) => {
+    speakWord(selectedWord.word, selectedWord.lang);
     setSelectedFirstWord(selectedWord);
 
     if (selectedSecondWord) checkMatch(selectedWord, selectedSecondWord);
   };
 
   const selectSecondWord = (selectedWord: WordListItem) => {
+    speakWord(selectedWord.word, selectedWord.lang);
     setSelectedSecondWord(selectedWord);
 
     if (selectedFirstWord) checkMatch(selectedFirstWord, selectedWord);
@@ -129,7 +132,7 @@ const Game: FC<{config: MatchGameConfig}> = ({config}) => {
   };
 
   const handlePlayAgain = () => {
-    const nextWords = pickRound(pool, getItemId);
+    const nextWords = pickRound(pool, getItemId, matchRoundSize());
     setGameWords(nextWords);
     setSequence(generateUniqueArray(nextWords.length));
     setMatchedIds(new Set());

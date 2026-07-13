@@ -4,9 +4,12 @@ import {v4 as uuidv4} from 'uuid';
 
 const defaultAppOptions: AppOptions = {
   appLanguage: Language.ENGLISH,
+  matchWordsPerRound: 8,
   perQuestionAllowedTimeInSec: 0,
   primaryLanguage: Language.ENGLISH,
   secondaryLanguage: Language.HINDI,
+  // Slightly slower than normal speech so learners catch every syllable.
+  speechRate: 0.85,
 };
 
 class Database {
@@ -164,6 +167,16 @@ export class EntumanyDB extends Database {
 
   public updatePerQuestionAllowedTimeInSec(newPerQuestionAllowedTimeInSec = 0): void {
     this.appOptions.perQuestionAllowedTimeInSec = newPerQuestionAllowedTimeInSec;
+  }
+
+  public updateSpeechRate(newRate: number): void {
+    this.appOptions.speechRate = newRate;
+    this.saveToLocalStorage();
+  }
+
+  public updateMatchWordsPerRound(newCount: number): void {
+    this.appOptions.matchWordsPerRound = newCount;
+    this.saveToLocalStorage();
   }
 
   public getExistingWords(language: Language): string[] {

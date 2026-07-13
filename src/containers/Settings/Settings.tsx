@@ -15,6 +15,8 @@ import style from './Settings.module.scss';
 
 const ALL_LANGUAGES = Object.values(Language);
 const REMINDER_HOURS = [7, 8, 9, 12, 17, 18, 19, 20, 21];
+const SPEECH_RATES = [0.5, 0.6, 0.7, 0.85, 1, 1.15];
+const MATCH_ROW_OPTIONS = [4, 5, 6, 7, 8, 9, 10, 11, 12];
 
 const downloadFile = (content: string, filename: string, mimeType: string) => {
   const url = URL.createObjectURL(new Blob([content], {type: mimeType}));
@@ -35,6 +37,8 @@ const Settings: FC = () => {
 
   const [primaryLang, setPrimaryLang] = useState(dbInstance.appOptions.primaryLanguage);
   const [secondaryLang, setSecondaryLang] = useState(dbInstance.appOptions.secondaryLanguage);
+  const [speechRate, setSpeechRate] = useState(dbInstance.appOptions.speechRate);
+  const [matchRows, setMatchRows] = useState(dbInstance.appOptions.matchWordsPerRound);
   const [reminderHour, setReminderHour] = useState(19);
   const [showClearConfirm, setShowClearConfirm] = useState(false);
 
@@ -61,6 +65,16 @@ const Settings: FC = () => {
       setPrimaryLang(next);
       dbInstance.updateLanguage('primaryLanguage', next);
     }
+  };
+
+  const handleSpeechRateChange = (rate: number) => {
+    setSpeechRate(rate);
+    dbInstance.updateSpeechRate(rate);
+  };
+
+  const handleMatchRowsChange = (rows: number) => {
+    setMatchRows(rows);
+    dbInstance.updateMatchWordsPerRound(rows);
   };
 
   const handleExport = () => {
@@ -163,6 +177,41 @@ const Settings: FC = () => {
                 {ALL_LANGUAGES.map((lang) => (
                   <option key={lang} value={lang}>
                     {LanguageFlags[lang]} {LanguageNames[lang]}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+        </section>
+
+        <section className={style.Settings__section}>
+          <h2 className={style.Settings__sectionTitle}>{t('settingsGamesTitle')}</h2>
+          <p className={style.Settings__help}>{t('settingsGamesHelp')}</p>
+          <div className={style.Settings__langPair}>
+            <label className={style.Settings__field}>
+              <span className={style.Settings__fieldLabel}>{t('settingsSpeechRate')}</span>
+              <select
+                className={style.Settings__select}
+                value={speechRate}
+                onChange={(e) => handleSpeechRateChange(Number(e.target.value))}
+              >
+                {SPEECH_RATES.map((rate) => (
+                  <option key={rate} value={rate}>
+                    {rate}×
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className={style.Settings__field}>
+              <span className={style.Settings__fieldLabel}>{t('settingsMatchRows')}</span>
+              <select
+                className={style.Settings__select}
+                value={matchRows}
+                onChange={(e) => handleMatchRowsChange(Number(e.target.value))}
+              >
+                {MATCH_ROW_OPTIONS.map((rows) => (
+                  <option key={rows} value={rows}>
+                    {rows}
                   </option>
                 ))}
               </select>

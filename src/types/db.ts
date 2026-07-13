@@ -24,7 +24,11 @@ type LanguageType = 'app' | 'primary' | 'secondary';
 export type LanguageKey = `${LanguageType}Language`;
 
 export type AppOptions = {
+  /** Max word pairs shown per matching-game round. */
+  matchWordsPerRound: number;
   perQuestionAllowedTimeInSec: number;
+  /** Speech-synthesis rate for word audio; 1 is normal speed. */
+  speechRate: number;
 } & {
   [key in LanguageKey]: Language;
 };
