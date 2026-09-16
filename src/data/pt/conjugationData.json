@@ -85,7 +85,15 @@
     {"inf":"vender",    "en":"to sell",         "type":"er"},
     {"inf":"partir",    "en":"to leave",        "type":"ir"},
     {"inf":"abrir",     "en":"to open",         "type":"ir"},
-    {"inf":"decidir",   "en":"to decide",       "type":"ir"}
+    {"inf":"decidir",   "en":"to decide",       "type":"ir"},
+    {"inf":"conseguir", "en":"to get / achieve", "type":"ir"},
+    {"inf":"pagar",     "en":"to pay",          "type":"ar"},
+    {"inf":"levantar",  "en":"to lift / get up", "type":"ar"},
+    {"inf":"correr",    "en":"to run",          "type":"er"},
+    {"inf":"dormir",    "en":"to sleep",        "type":"ir"},
+    {"inf":"andar",     "en":"to walk / go",    "type":"ar"},
+    {"inf":"ficar",     "en":"to stay / become", "type":"ar"},
+    {"inf":"chamar",    "en":"to call / name",  "type":"ar"}
   ],
   "CORE": ["ser","estar","ter","ir","fazer","querer","poder","gostar"]
 }
